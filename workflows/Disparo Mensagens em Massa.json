@@ -1,0 +1,273 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Passa um anúncio de cada vez1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Última Execução?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Passa um anúncio de cada vez1": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Última Execução?": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Passa um anúncio de cada vez1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-16T13:17:11.294Z",
+  "id": "11",
+  "name": "Disparo Mensagens em Massa",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "307e674f-ed16-4440-8906-0b332718af42",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15ASaKnMD7E1HULXqLu_eqWw4p-Q41VEE9uHD-nD8LT8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15ASaKnMD7E1HULXqLu_eqWw4p-Q41VEE9uHD-nD8LT8/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "92ec3ce7-6d75-41c3-aacc-fe31da5f6fc5",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        760,
+        260
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "nome",
+              "value": "={{ $json.Nomes.split(\" \") }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json.Telefone.replace('(','').replace(')', '').replace('-', '').replace(' ', '') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0958d05-c9da-41c9-a296-f37f73070900",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/641317aeaf774364f90e7bb7",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $json.nome[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d733a9fb-9df4-4860-bb87-1fccfe093dc5",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1460,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * (20 - 8 + 1)) + 8; }}",
+        "unit": "seconds"
+      },
+      "id": "703c3790-f77a-40b5-99cc-0721d90939ea",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        260
+      ],
+      "webhookId": "3937d347-a579-48f0-ad32-b5bdcd0780c2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": true,
+              "value2": "={{$node[\"Passa um anúncio de cada vez1\"].context[\"noItemsLeft\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "f85f0e67-ea69-45ed-ab90-41995924310d",
+      "name": "Última Execução?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "ac091262-3127-423d-bc1f-86987f3979e2",
+      "name": "Passa um anúncio de cada vez1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64131ba4c2dae85962ddd849",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $json.telefone }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $json.nome[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "31bcde73-43ef-4a69-8126-15aca9fbf170",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2160,
+        240
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-03-16T13:44:23.985Z",
+  "versionId": "8fbceb47-21e2-4d35-8ee7-7c98e1dbc03c"
+}
