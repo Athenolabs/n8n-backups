@@ -1,0 +1,97 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-18T05:07:46.135Z",
+  "id": "14",
+  "name": "Biblia no whatsapp",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "biblia",
+        "options": {}
+      },
+      "id": "e515ed36-8865-41e4-80b3-ec16b2f6eb48",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "ef0222a8-1182-4b50-9304-38cd6f55b703"
+    },
+    {
+      "parameters": {
+        "url": "=https://bible-api.com/{{ $json.body.livro }}+{{ $json.body.cap }}:{{ $json.body.ver }}?translation=almeida",
+        "options": {}
+      },
+      "id": "d4afbd69-f633-4f16-9df3-0a213edb6222",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/63c8c1fe8e4f3f2161d2b23d",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.telefone }}"
+            },
+            {
+              "name": "openai_msg",
+              "value": "={{ $json.reference }}\n\n{{ $json.verses[0].text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5dc72a0a-658d-4c5f-8f18-c358284da50e",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        980,
+        260
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-03-18T05:13:06.009Z",
+  "versionId": "02efb732-022d-49ab-8872-b08188342e59"
+}
