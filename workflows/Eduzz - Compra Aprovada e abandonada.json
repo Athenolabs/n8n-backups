@@ -1,0 +1,3275 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Ticket Prata",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Ouro",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Platina",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Prata": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Ouro": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Platina": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Ticket Prata1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Ouro1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Platina1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets10": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Prata1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Ouro1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Platina1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Upsell Ouro1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Upsell Platina1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets12": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets14": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets11": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets13": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets16": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets17": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets15": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets19": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets20": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets18": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Ticket Upsell Ouro1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Upsell Platina1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket 1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets21": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets22": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets23": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets24": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets25": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets26": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket 1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket 2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Ticket 2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets27": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets28": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets29": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket 3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch3": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Platina2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Ouro2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ticket Prata2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets30": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Prata2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Ouro2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets34",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ticket Platina2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets37",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets31": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets32": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets30",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets33": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets34": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets35",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets35": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets33",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets36": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets37": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets38",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets38": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets36",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-09T20:17:55.826Z",
+  "id": "9",
+  "name": "Eduzz - Compra Aprovada e abandonada",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "abandono",
+        "options": {}
+      },
+      "id": "edf04652-71a4-48c3-ac25-4bd57971492a",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        380,
+        240
+      ],
+      "webhookId": "d908da1b-9293-464e-aca5-d0550de22558"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.product[title] }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Prata"
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Ouro",
+              "output": 1
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Platina",
+              "output": 2
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Upsell Ticket Ouro",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Upsell Ticket Platina",
+              "output": 3
+            }
+          ]
+        }
+      },
+      "id": "e555f94f-42c4-4def-96a9-5b848520b548",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        820,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $node[\"Date & Time\"].json.hoje }}"
+            },
+            {
+              "fieldId": "NOME",
+              "fieldValue": "={{ $node.Webhook.json.body.customer.name }}"
+            },
+            {
+              "fieldId": "PRODUTO",
+              "fieldValue": "={{ $node.Webhook.json.body.product.title }}"
+            },
+            {
+              "fieldId": "E-MAIL",
+              "fieldValue": "={{ $node.Webhook.json.body.customer.email }}"
+            },
+            {
+              "fieldId": "WHATSAPP",
+              "fieldValue": "=https://wa.me/55{{ $node.Webhook.json.body.customer.phone }}"
+            },
+            {
+              "fieldId": "Entrou em Contato",
+              "fieldValue": "NÃO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ffb6de17-0c94-45d6-aeab-e7887738452e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1320,
+        20
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "value": "={{ new Date() }}",
+        "dataPropertyName": "hoje",
+        "custom": true,
+        "toFormat": "DD-MM-YYYY",
+        "options": {}
+      },
+      "id": "1c052ea2-3b11-43f3-abcc-b2c512aa283a",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        600,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64101e7c6b935c0230d15616",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $json.body.customer.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "71681e78-fed4-425c-b070-0cc8556abcfe",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1540,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node[\"Google Sheets\"].json.body.customer.email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "Entrou em Contato",
+              "fieldValue": "SIM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cba0d45e-ba3f-4f33-ad65-82d4cb548918",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        20
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $node[\"Date & Time\"].json.hoje }}"
+            },
+            {
+              "fieldId": "NOME",
+              "fieldValue": "={{ $node.Webhook.json.body.customer.name }}"
+            },
+            {
+              "fieldId": "PRODUTO",
+              "fieldValue": "={{ $node.Webhook.json.body.product.title }}"
+            },
+            {
+              "fieldId": "E-MAIL",
+              "fieldValue": "={{ $node.Webhook.json.body.customer.email }}"
+            },
+            {
+              "fieldId": "WHATSAPP",
+              "fieldValue": "=https://wa.me/55{{ $node.Webhook.json.body.customer.phone }}"
+            },
+            {
+              "fieldId": "Entrou em Contato",
+              "fieldValue": "NÃO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8b489afd-a9d1-481a-8487-3831507b1ab3",
+      "name": "Google Sheets2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1320,
+        220
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64103cdb6021e41bde235cb8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $json.body.customer.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e082a02d-e822-4d21-8fae-193969f2c00f",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1540,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node[\"Google Sheets2\"].json.body.customer.email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "Entrou em Contato",
+              "fieldValue": "SIM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0186e7b-54ab-4b4f-bde4-9a2cc19dc159",
+      "name": "Google Sheets3",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        220
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $node[\"Date & Time\"].json.hoje }}"
+            },
+            {
+              "fieldId": "NOME",
+              "fieldValue": "={{ $node.Webhook.json.body.customer.name }}"
+            },
+            {
+              "fieldId": "PRODUTO",
+              "fieldValue": "={{ $node.Webhook.json.body.product.title }}"
+            },
+            {
+              "fieldId": "E-MAIL",
+              "fieldValue": "={{ $node.Webhook.json.body.customer.email }}"
+            },
+            {
+              "fieldId": "WHATSAPP",
+              "fieldValue": "=https://wa.me/55{{ $node.Webhook.json.body.customer.phone }}"
+            },
+            {
+              "fieldId": "Entrou em Contato",
+              "fieldValue": "NÃO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5cd332a-ab95-4bf9-8a8b-2cfa6e593bfb",
+      "name": "Google Sheets4",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1320,
+        420
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64103daa06e18320a388040d",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $json.body.customer.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3e20fd97-28fc-444d-b8a9-24154354a165",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1540,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node[\"Google Sheets4\"].json.body.customer.email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "Entrou em Contato",
+              "fieldValue": "SIM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3d80f8a-934b-4fd2-82b3-3176d116332e",
+      "name": "Google Sheets5",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        420
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "a51c5715-abe0-45f7-aaf1-9020d543040d",
+      "name": "Ticket Prata",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        20
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b14bcdd8-b4a2-47cd-b79b-381f412250dc",
+      "name": "Ticket Ouro",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "91ccdf91-20ec-4709-ba9d-4225bbea60f0",
+      "name": "Ticket Platina",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Compra abandonada \n",
+        "height": 705.0439453125,
+        "width": 1622.4462890625
+      },
+      "id": "c53e874e-f5d4-45b6-aaab-d69e9fef3b22",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "compra_aprovada",
+        "options": {}
+      },
+      "id": "907ebc31-3a13-49d3-98d1-ac9a9b19e7c6",
+      "name": "Webhook1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        380,
+        980
+      ],
+      "webhookId": "c864f8a4-4537-4ec8-9a0d-13d1218e785b"
+    },
+    {
+      "parameters": {
+        "value": "={{ new Date() }}",
+        "dataPropertyName": "hoje",
+        "custom": true,
+        "toFormat": "DD-MM-YYYY",
+        "options": {}
+      },
+      "id": "f2212a68-d39c-48bc-8fd8-d043e3bf331c",
+      "name": "Date & Time1",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        600,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.product_name }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Bronze"
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Ouro",
+              "output": 1
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Platina",
+              "output": 2
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Upsell Ticket Ouro",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Upsell Ticket Platina",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 01",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 02",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 03",
+              "output": 3
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Platina Individual",
+              "output": 3
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Ouro Individual",
+              "output": 3
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Bronze Individual",
+              "output": 3
+            }
+          ]
+        }
+      },
+      "id": "62e0a1b1-23a8-41a3-bc5b-e647fb720d80",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        820,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e6bb788b-7628-4e4b-a203-65982e30d5ef",
+      "name": "Google Sheets10",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        780
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64102e9606e18320a3880256",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3ff3410b-f4d0-4d53-9dc9-23d2e10f7452",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2020,
+        780
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5151c606-95e6-479a-8ea6-2803a37d0b9a",
+      "name": "Ticket Prata1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        780
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4da1738d-506e-4b8a-869e-201daf7c9b7f",
+      "name": "Ticket Ouro1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        980
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "387149fc-557f-4f84-bf83-95eef6ec4a6f",
+      "name": "Ticket Platina1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1180
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "79156214-0b79-4587-b02a-3c67a629339e",
+      "name": "Ticket Upsell Ouro1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1920
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "1c8c10df-8276-4208-be10-21b865e7755a",
+      "name": "Ticket Upsell Platina1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        2120
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "581063e0-33b9-47ff-9533-e4a40213254c",
+      "name": "Google Sheets12",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        780
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "452527da-6023-490c-9734-acd0033d12ab",
+      "name": "Google Sheets14",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        780
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/641040f306e18320a3880472",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3c9142d7-05c8-4939-b820-8470737ff4e4",
+      "name": "HTTP Request8",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1600,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b3ea5c3b-527c-42d1-bce9-148e10d28350",
+      "name": "Google Sheets11",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        1920
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/641041016b935c0230d158d4",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f1de8bb-66f2-4f1d-a5e6-5d9e779cd431",
+      "name": "HTTP Request9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1600,
+        2120
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body[0].cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body[0].product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2e81729c-ddd7-4a8d-9f6f-606a05a6a208",
+      "name": "Google Sheets13",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        2120
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64103c1f06e18320a38803e8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4c2faf58-b04e-49cd-9c3a-f75fc8a1b136",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2020,
+        980
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64103c406b935c0230d15855",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5199fe79-6ee5-4751-982c-40a5b50e99d7",
+      "name": "HTTP Request7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2020,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Compra Aprovada\n",
+        "height": 1139.6142578125,
+        "width": 1927.6220703125
+      },
+      "id": "189f4cd3-fa47-46ff-a807-9fb3c2c07c4b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2280,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5a7e36a9-96bd-4655-8c1e-c4bea72ffb81",
+      "name": "Google Sheets15",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        980
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a116479b-78ea-46d5-9784-a9400e086b70",
+      "name": "Google Sheets16",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        980
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "62959d81-a8e7-40e7-878e-292099aecb8b",
+      "name": "Google Sheets17",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        980
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "957610a6-2851-4776-8405-3a922bd2318f",
+      "name": "Google Sheets18",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        1180
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "be3d0622-4deb-41ba-bab3-16590be04ece",
+      "name": "Google Sheets19",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        1180
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "c02af91c-4103-4042-9365-0c14574931eb",
+      "name": "Google Sheets20",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        1180
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.product_name }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "Imersão Xeque-Mate | Upsell Ticket Ouro"
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Upsell Ticket Platina",
+              "output": 1
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 01",
+              "output": 2
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 02",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 03",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Platina Individual",
+              "output": 3
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Ouro Individual",
+              "output": 3
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket Bronze Individual",
+              "output": 3
+            }
+          ]
+        }
+      },
+      "id": "5954b3cd-f0b2-4e99-b0f6-d500e1784b55",
+      "name": "Switch2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64130904af774364f90e7051",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f58e4810-e31d-45e8-9a51-5417efe0b14d",
+      "name": "HTTP Request10",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2020,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "feb39a28-c6be-42be-915e-dbe9eac17ee7",
+      "name": "Google Sheets21",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        1560
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1ab87b5a-2a76-400a-ab67-7aaeb283f623",
+      "name": "Google Sheets22",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        1560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "3ddff204-3fae-4144-ba62-5c6519488d11",
+      "name": "Google Sheets23",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        1560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/6413090aaf774364f90e7053",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f322c46c-3723-4c34-a7d6-007efe3e8a5a",
+      "name": "HTTP Request11",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2020,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "49ff39b4-dc37-4629-9fdf-09cc8f39608d",
+      "name": "Google Sheets24",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        1400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5d4dda50-b09c-4672-ade9-4a6d2deef0fc",
+      "name": "Google Sheets25",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        1400
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "e690ae64-1d08-47c1-8944-c6efd96b6aed",
+      "name": "Google Sheets26",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        1400
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {},
+      "id": "2c8beddd-4685-47e6-8f76-92e7d48afc15",
+      "name": "Ticket 1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a0b71c75-b681-48eb-a8b8-8aa25de0b2ff",
+      "name": "Ticket 2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.product_name }}",
+              "value2": "Imersão Xeque-Mate | Ticket 02"
+            }
+          ]
+        }
+      },
+      "id": "4df27388-d51e-4029-b892-3ec97c4bbadf",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/641308e1af774364f90e703a",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fcf52eb1-df51-4c42-9974-7c2b4746ceca",
+      "name": "HTTP Request12",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2020,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a82fe595-cd8b-4680-a821-e9c3282d9c57",
+      "name": "Google Sheets27",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        1740
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "52627832-adde-485c-85dd-a77f6488e896",
+      "name": "Google Sheets28",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        1740
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "83287725-c0e7-443b-8e8f-017676d3ef0a",
+      "name": "Google Sheets29",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        1740
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {},
+      "id": "832a027a-f7c3-4588-b2b9-405f1d15fbe5",
+      "name": "Ticket 3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.product_name }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 01"
+            },
+            {
+              "value2": "Imersão Xeque-Mate | Ticket 02"
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Platina Individual",
+              "output": 1
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Ouro Individual",
+              "output": 2
+            },
+            {
+              "value2": " Imersão Xeque-Mate | Ticket Bronze Individual",
+              "output": 3
+            }
+          ]
+        }
+      },
+      "id": "25f53f8b-44b4-4d06-865c-7075111727da",
+      "name": "Switch3",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        880,
+        2240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d0ce9809-7d96-421a-ba25-5bc1389edd7f",
+      "name": "Google Sheets30",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        2360
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64102e9606e18320a3880256",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7284625e-b726-43a2-8774-214c583a100e",
+      "name": "HTTP Request13",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        2360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "30acdb74-625f-48a8-b1b3-08092837ecaf",
+      "name": "Ticket Prata2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        2360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0bcd2647-e29f-4758-b80c-48918d37e3c4",
+      "name": "Ticket Ouro2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        2560
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "87e522dc-ceb1-46c7-8875-4d402c3b9e7e",
+      "name": "Ticket Platina2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        2760
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a8056fe4-fcf0-439b-bdad-69aa56373dbd",
+      "name": "Google Sheets31",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        2360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "45828a24-9e73-4495-832d-1496d858ae33",
+      "name": "Google Sheets32",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1600,
+        2360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64103c1f06e18320a38803e8",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cb223e83-d780-4011-a2c9-cdd8babe8235",
+      "name": "HTTP Request14",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        2560
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/64103c406b935c0230d15855",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $node.Webhook1.json.body.cus_cel }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $node.Webhook1.json.body.cus_name }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a7c8eaa9-8436-4ff5-b0f7-34afefc64a38",
+      "name": "HTTP Request15",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        2760
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "697e3711-ee13-4fdc-a9d3-b3ceca50b137",
+      "name": "Google Sheets33",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        2560
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7779e6be-5bd7-4dc5-9cff-0bc92326a391",
+      "name": "Google Sheets34",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        2560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "68c125fe-5e7a-498d-bbab-3444e082e025",
+      "name": "Google Sheets35",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1600,
+        2560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node.Webhook1.json.body.cus_email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "COMPROU",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "UTM SOURCE COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_source }}"
+            },
+            {
+              "column": "UTM MEDIUM COMPRA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_medium }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_campaign }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_content }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Webhook1.json.body.utm_term }}"
+            },
+            {
+              "column": "Produto",
+              "fieldValue": "={{ $node.Webhook1.json.body.product_name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4dfd8b1b-99a0-4adf-9936-9097aa9a4386",
+      "name": "Google Sheets36",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        2760
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "E-MAIL",
+              "lookupValue": "={{ $node.Webhook1.json.body.cus_email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0cbc5158-3209-4ef4-b9f1-fa00185ca217",
+      "name": "Google Sheets37",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        2760
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1910167771,
+          "mode": "list",
+          "cachedResultName": "Março - Abandono de Carrinho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1910167771"
+        },
+        "startIndex": "={{ $json.row_number }}"
+      },
+      "id": "7048879d-769f-4a84-bb0a-83ce0e7b15ac",
+      "name": "Google Sheets38",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1600,
+        2760
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2023-03-16T15:20:24.636Z",
+  "versionId": "3e41373b-582e-4b31-a2e8-c966127baa76"
+}
