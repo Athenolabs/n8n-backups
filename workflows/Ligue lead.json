@@ -1,0 +1,48 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2023-03-14T16:42:34.262Z",
+  "id": "10",
+  "name": "Ligue lead",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sms",
+        "options": {}
+      },
+      "id": "76897ba0-8e58-4889-89c6-33d19ed87a5e",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        220
+      ],
+      "webhookId": "ede0a764-7c7c-4052-9e20-9c7972542b87"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ligacoes",
+        "options": {}
+      },
+      "id": "d2d30e39-9d8d-499a-b66d-ec3110f08dd9",
+      "name": "Webhook1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        360
+      ],
+      "webhookId": "b947e726-1485-4b43-9b3b-14f707214fa6"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2023-03-14T16:42:43.135Z",
+  "versionId": "cb4ae4e8-620d-40b6-a5ca-3c96819e68ae"
+}
