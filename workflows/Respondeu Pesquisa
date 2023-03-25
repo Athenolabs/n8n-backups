@@ -1,0 +1,178 @@
+{
+  "active": true,
+  "connections": {
+    "Typeform Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typeform Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-02T08:23:37.355Z",
+  "id": "2",
+  "name": "Respondeu Pesquisa?",
+  "nodes": [
+    {
+      "parameters": {
+        "formId": "YQ9npCi8"
+      },
+      "id": "bbd2c956-ae02-491e-b5da-7e36a1821562",
+      "name": "Typeform Trigger",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        240
+      ],
+      "webhookId": "53ef510c-f61f-404c-ae44-9ae5cc064fdd",
+      "credentials": {
+        "typeformApi": {
+          "id": "3",
+          "name": "Dr Fernando"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "=1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node[\"Typeform Trigger\"].json[\"Qual seu melhor e-mail\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "RESPONDEU PESQUISA",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "RENDA",
+              "fieldValue": "={{ $json[\"Qual a sua Renda Mensal?\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "16c7945b-e190-49c8-8b95-a72aaecf72e5",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        720,
+        240
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "oFTkUx0f"
+      },
+      "id": "27044f1e-f4d2-45fb-9146-a2aaf9466089",
+      "name": "Typeform Trigger1",
+      "type": "n8n-nodes-base.typeformTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        460
+      ],
+      "webhookId": "fae67ece-e38c-44c6-bfa7-fea8a1eb038d",
+      "credentials": {
+        "typeformApi": {
+          "id": "3",
+          "name": "Dr Fernando"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "=1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $node[\"Typeform Trigger1\"].json[\"Qual seu melhor e-mail\"] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "RESPONDEU PESQUISA",
+              "fieldValue": "SIM"
+            },
+            {
+              "column": "RENDA",
+              "fieldValue": "={{ $json[\"Qual a sua Renda Mensal?\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8989567d-d0d9-485f-8f11-3b48fb899a4e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        720,
+        460
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": {
+    "node:Typeform Trigger": {
+      "webhookId": "n8n-ofm1rn8vga"
+    },
+    "node:Typeform Trigger1": {
+      "webhookId": "n8n-6k61mwlhyth"
+    }
+  },
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2023-03-08T01:14:51.261Z",
+  "versionId": "b45adcad-e528-422e-9a99-85241fa327e8"
+}
