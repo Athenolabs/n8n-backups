@@ -1,0 +1,93 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-25T13:36:44.715Z",
+  "id": "16",
+  "name": "ChatGPT no Manychat",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "many",
+        "options": {}
+      },
+      "id": "d507a639-66e4-4ac4-bb56-f72675321790",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "bd5b1221-9567-4fdd-b688-420b497a57f6"
+    },
+    {
+      "parameters": {
+        "prompt": "={{ $json.body.resposta }}",
+        "options": {
+          "maxTokens": 4000,
+          "n": 1
+        }
+      },
+      "id": "e8f041ca-98a2-40c0-9cb9-3603fd4d80fd",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        760,
+        260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"resposta\":\"\"\n}",
+        "options": {}
+      },
+      "id": "69955721-a7ea-4a68-a80a-31ac76caebff",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        980,
+        260
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-03-25T13:43:41.016Z",
+  "versionId": "c4991c75-36df-4477-a63a-57d793196592"
+}
