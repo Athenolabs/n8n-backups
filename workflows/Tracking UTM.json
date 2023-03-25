@@ -1,0 +1,212 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-07T00:46:01.658Z",
+  "id": "5",
+  "name": "Tracking UTM",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "activecampaing",
+        "options": {}
+      },
+      "id": "487de188-35c2-415d-9794-e4dfbe1cb429",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "9ea21175-6b20-4008-992a-dac23df11322"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $json.body[\"fields[name][value]\"] }}"
+            },
+            {
+              "name": "E-mail",
+              "value": "={{ $json.body[\"fields[email][value]\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json.body[\"fields[phone][value]\"] }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.body[\"fields[utm_source][value]\"] }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.body[\"fields[utm_medium][value]\"] }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.body[\"fields[utm_campaign][value]\"] }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $json.body[\"fields[utm_content][value]\"] }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $json.body[\"fields[utm_term][value]\"] }}"
+            },
+            {
+              "name": "pg",
+              "value": "={{ $json.body[\"fields[pg][value]\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3ad14d72-e809-44e8-b8d0-e768bbea4b1a",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ new Date() }}",
+        "dataPropertyName": "Data",
+        "custom": true,
+        "toFormat": "DD-MM-YYYY",
+        "options": {}
+      },
+      "id": "5ec7b727-bb2b-4d18-a6d8-5bde6744c967",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        980,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1977696274,
+          "mode": "list",
+          "cachedResultName": "MARÇO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=1977696274"
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.Data }}"
+            },
+            {
+              "fieldId": "NOME",
+              "fieldValue": "={{ $node.Set.json.Nome }}"
+            },
+            {
+              "fieldId": "TELEFONE",
+              "fieldValue": "={{ $node.Set.json.telefone }}"
+            },
+            {
+              "fieldId": "E-MAIL",
+              "fieldValue": "={{ $node.Set.json[\"E-mail\"] }}"
+            },
+            {
+              "fieldId": "UTM SOURCE CAPTURA",
+              "fieldValue": "={{ $node.Set.json.utm_source }}"
+            },
+            {
+              "fieldId": "UTM MEDIUM CAPTURA",
+              "fieldValue": "={{ $node.Set.json.utm_medium }}"
+            },
+            {
+              "fieldId": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $node.Set.json.utm_campaign }}"
+            },
+            {
+              "fieldId": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $node.Set.json.utm_content }}"
+            },
+            {
+              "fieldId": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $node.Set.json.utm_term }}"
+            },
+            {
+              "fieldId": "Pag. Captura",
+              "fieldValue": "={{ $json.pg }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1e1d0102-351b-40ce-856b-47438fbd0755",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        260
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-03-07T17:03:21.540Z",
+  "versionId": "0c0f1077-ab8c-43be-a021-203632e54ce7"
+}
