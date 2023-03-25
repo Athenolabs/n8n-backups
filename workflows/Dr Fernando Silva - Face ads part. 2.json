@@ -1,0 +1,1229 @@
+{
+  "active": false,
+  "connections": {
+    "Última Execução?1": {
+      "main": [
+        [
+          {
+            "node": "Espera um pouco",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Passa um anúncio de cada vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Separa os Dias": {
+      "main": [
+        [
+          {
+            "node": "Lista os anúncios do dia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lista os anúncios do dia": {
+      "main": [
+        [
+          {
+            "node": "Separa os anúncios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Separa os anúncios": {
+      "main": [
+        [
+          {
+            "node": "Passa um anúncio de cada vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Passa um anúncio de cada vez": {
+      "main": [
+        [
+          {
+            "node": "Métricas a Nível AD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Métricas a Nível AD": {
+      "main": [
+        [
+          {
+            "node": "Ajeita os dados do anúncio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ajeita os dados do anúncio": {
+      "main": [
+        [
+          {
+            "node": "Extrai Métricas da Array Actions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrai Métricas da Array Actions": {
+      "main": [
+        [
+          {
+            "node": "Métricas listadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Separa os Dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insere na Planilha": {
+      "main": [
+        [
+          {
+            "node": "Calma aê",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera um pouco": {
+      "main": [
+        [
+          {
+            "node": "Separa os Dias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calma aê": {
+      "main": [
+        [
+          {
+            "node": "Última Execução?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variáveis": {
+      "main": [
+        [
+          {
+            "node": "Número da Linha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Métricas listadas": {
+      "main": [
+        [
+          {
+            "node": "Insere na Planilha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Número da Linha": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Passa um anúncio de cada vez1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Passa um anúncio de cada vez1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "Espera um pouco2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Última Execução?": {
+      "main": [
+        [
+          {
+            "node": "Espera um pouco1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Passa um anúncio de cada vez1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera um pouco2": {
+      "main": [
+        [
+          {
+            "node": "Última Execução?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Espera um pouco1": {
+      "main": [
+        [
+          {
+            "node": "Variáveis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-02T20:22:18.772Z",
+  "id": "3",
+  "name": "Dr Fernando Silva - Face ads part. 2",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## ✅ Extração de Métricas Pretéritas a Nível AD\n",
+        "height": 520.4481886407967,
+        "width": 3025.853314598751
+      },
+      "id": "5e1f9ab4-0ae8-4aca-8166-b02697e2967f",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": true,
+              "value2": "={{$node[\"Passa um anúncio de cada vez\"].context[\"noItemsLeft\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "090efcf6-5113-41de-b8ae-446e0e6874d9",
+      "name": "Última Execução?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Extrai Métricas de Ações\n",
+        "height": 133.92901020200262,
+        "width": 177.1229069577711
+      },
+      "id": "0538ace8-5a08-4a40-9471-d513e5c6dbe3",
+      "name": "Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Mapeia métricas escolhidas para adicionar à planilha"
+      },
+      "id": "30620542-ad66-4540-b12d-77d559c629b0",
+      "name": "Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Verificador do segundo looping 👆🏽\n(Não mexa aqui)",
+        "height": 124.15876451247402,
+        "width": 398.19504002877306
+      },
+      "id": "af7168f5-27ff-4857-a483-e9ad1e94dd8d",
+      "name": "Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Leitura da planilha\nLeitura da primeira folha da planilha onde estão delimitadas as datas",
+        "height": 104.46079891425553,
+        "width": 311.0568619080111
+      },
+      "id": "274f6704-2ea5-4608-9f49-39ad50099be9",
+      "name": "Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        900,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Separa Campanha por Campanha",
+        "height": 94.83574415019801,
+        "width": 280.605529266526
+      },
+      "id": "e0a65b52-9d09-4a64-a5f0-b882e6ab1aef",
+      "name": "Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Instruções Gerais\n1. Copie a planilha modelo. [Clique aqui](https://docs.google.com/spreadsheets/d/1Nw27x_9h6HyCdc7i7A445BMevJuLKhLTLGGD1AUhN4M/copy)\n2. Na primeira folha da planilha, insira o período que você deseja puxar as métricas (apenas na primeira folha, ok?)\n3. Copie o ID da planilha que você gerou (na URL, após \"spreadsheets/d/\" está o ID da planilha)\n4. Cole o ID da planilha gerada no campo ID Planilha no node \"Variáveis\"\n5. No node \"Variáveis\", insira o acess_token que você gerou na criação do Aplicativo\n6. No node \"Variáveis\", insira o código (ID) da conta cujos insights deseja extrair.\n\n\nSe você tiver seguido todos os passos do curso, **é só dar play no botão \"Execute Workflow\" e ser feliz!**",
+        "height": 273.06818416854395,
+        "width": 855.3945850482847
+      },
+      "id": "e594d703-fe15-4903-8511-1121f9d50299",
+      "name": "Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Sobre as métricas mapeadas\nAs métricas mapeadas estão no node \"Inserir na Planilha\". \n\nCaso retornem vazias, nada será adicionado. Se retornarem com valor, o respectivo valor será adicionado",
+        "height": 207.8939112013717,
+        "width": 390.9383868164439
+      },
+      "id": "5d7e32c2-5e08-482c-94a5-00fb74899b5f",
+      "name": "Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "9760cd55-3bdc-4153-8e7d-c4dfa4b0f89e",
+      "name": "Separa os Dias",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.facebook.com/v15.0/{{ $node[\"Variáveis\"].json[\"ID da conta de anúncios\"] }}/insights",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "campaign_name,adset_name,ad_name, ad_id"
+            },
+            {
+              "name": "time_range",
+              "value": "={\"since\":\"{{ $json[\"DATA\"] }}\",\"until\":\"{{ $json[\"DATA\"] }}\"}"
+            },
+            {
+              "name": "access_token",
+              "value": "={{ $node[\"Variáveis\"].json[\"Token de acesso\"] }}"
+            },
+            {
+              "name": "level",
+              "value": "ad"
+            },
+            {
+              "name": "limit",
+              "value": "200"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a6dc96aa-6133-4a94-a7e8-810f2dc3b73d",
+      "name": "Lista os anúncios do dia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1300,
+        680
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "d4ee4842-da29-4df9-bd52-b31657b99670",
+      "name": "Separa os anúncios",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        680
+      ],
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": "={{$node[\"Passa um anúncio de cada vez\"].context[\"noItemsLeft\"]}}"
+        }
+      },
+      "id": "8f3f9d62-5e04-4364-9c90-560656467ad0",
+      "name": "Passa um anúncio de cada vez",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.facebook.com/v15.0/{{$node[\"Passa um anúncio de cada vez\"].json[\"ad_id\"]}}/insights",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "campaign_name,adset_name,ad_name,impressions,reach,clicks,spend,actions"
+            },
+            {
+              "name": "time_range",
+              "value": "={\"since\":\"{{$node[\"Separa os Dias\"].json[\"DATA\"]}}\",\"until\":\"{{$node[\"Separa os Dias\"].json[\"DATA\"]}}\"}"
+            },
+            {
+              "name": "access_token",
+              "value": "={{ $node[\"Variáveis\"].json[\"Token de acesso\"] }}"
+            },
+            {
+              "name": "limit",
+              "value": "200"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bcc72c83-c0fd-4fd0-a450-b56a1c86846f",
+      "name": "Métricas a Nível AD",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        680
+      ],
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "e3fd7301-435f-4ca6-b2f5-d48afac77c5e",
+      "name": "Ajeita os dados do anúncio",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        680
+      ],
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "//pega os dados do \"body\" do input\nlet data = $input.item.json.actions;\n\n//faz o loop sob cada uma das propriedades\nfor (i in data){\n  //pega a propriedade atual, o seu \"action\" e o seu \"value\"\n  let dataItem = data[i];\n  let action = dataItem.action_type;\n  let value = dataItem.value;\n\n  //cria uma nova propriedade no input com o nome da \"action\" e o valor do \"value\"\n  $input.item.json[action] = value\n}\n\n//retorna o input com os novos campos\nreturn $input.item;"
+      },
+      "id": "e29e1049-f25b-41a4-9e37-9b2c8f95847f",
+      "name": "Extrai Métricas da Array Actions",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        2160,
+        680
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $node[\"Variáveis\"].json[\"ID da planilha\"] }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1133165196,
+          "mode": "list",
+          "cachedResultName": "TOTAL POR DIA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1eD86yswyU2HSpA02A4Kri_DN_7DeEIuEbbkAZAeBNTU/edit#gid=1133165196"
+        },
+        "options": {}
+      },
+      "id": "1073688b-6a6a-412c-9310-47ff0455a1f7",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        960,
+        680
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $node[\"Variáveis\"].json[\"ID da planilha\"] }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 56678084,
+          "mode": "list",
+          "cachedResultName": "NÍVEL AD",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mlTHP_XUrOFwMgeaZNxzs1mR3XTns9TM_FgxgiWBtwk/edit#gid=56678084"
+        },
+        "dataMode": "autoMapInputData",
+        "options": {
+          "cellFormat": "USER_ENTERED",
+          "handlingExtraData": "ignoreIt"
+        }
+      },
+      "id": "21a5db98-4fc3-45e3-9486-dfda8ca0d38a",
+      "name": "Insere na Planilha",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2480,
+        680
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "cced27ef-ea5b-4d04-9935-11ac5d8509e8",
+      "name": "Espera um pouco",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3160,
+        540
+      ],
+      "webhookId": "881e3af9-1d7c-4e7b-bd0d-e83efdd7e99f"
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "49d453f3-b9c6-4d84-bd35-4f263c8da202",
+      "name": "Calma aê",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2640,
+        680
+      ],
+      "webhookId": "9acb3fea-39d4-48d0-8bce-52934aa2d0e2"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID da planilha",
+              "value": "1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U"
+            },
+            {
+              "name": "ID da conta de anúncios",
+              "value": "act_726534852007729"
+            },
+            {
+              "name": "Token de acesso",
+              "value": "EAAMwejYPMcsBAMZBMUpFquY2CzYau7aijNHflXKqhZA6l6qZAYDW0kHajxyL9gIlf1ZCF85QKzgbtav2X8amD0SANM3tT08msS0Faq5dUNSTZAYyXNod2KeAHn7rPSSDoVDv1f4aK78QISrVzSFFnH6f3swH4UvnZBtZAXR6FNnxZActeVWG5mhQ"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7d3bc371-1d65-4417-8d47-f7bf6fe6cd6e",
+      "name": "Variáveis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        660,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID",
+              "value": "={{ $node[\"Número da Linha\"].json[\"ID\"].replace('+','') }}"
+            },
+            {
+              "name": "Data",
+              "value": "={{ $node[\"Separa os Dias\"].json[\"DATA\"] }}"
+            },
+            {
+              "name": "Campanha",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"campaign_name\"] }}"
+            },
+            {
+              "name": "Público",
+              "value": "={{$node[\"Extrai Métricas da Array Actions\"].json[\"adset_name\"]}}"
+            },
+            {
+              "name": "Anúncio",
+              "value": "={{$node[\"Extrai Métricas da Array Actions\"].json[\"ad_name\"]}}"
+            },
+            {
+              "name": "Valor Gasto",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"spend\"].replace('.',',') }}"
+            },
+            {
+              "name": "Impressões",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"impressions\"] }}"
+            },
+            {
+              "name": "Alcance",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"reach\"] }}"
+            },
+            {
+              "name": "Cliques no Link",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"link_click\"] }}"
+            },
+            {
+              "name": "Visualização da Página",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"landing_page_view\"] }}"
+            },
+            {
+              "name": "Leads",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_lead\"] }}"
+            },
+            {
+              "name": "Cadastros",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"leadgen_grouped\"] }}"
+            },
+            {
+              "name": "Contatos",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"contact_total\"] }}"
+            },
+            {
+              "name": "Mensagens",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"onsite_conversion.messaging_conversation_started_7d\"] }}"
+            },
+            {
+              "name": "Conversões",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_purchase\"] }}"
+            },
+            {
+              "name": "Compras",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_purchase\"] }}"
+            },
+            {
+              "name": "Checkouts",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_initiate_checkout\"] }}"
+            },
+            {
+              "name": "Viu Conteúdo",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_view_content\"] }}"
+            },
+            {
+              "name": "Adição ao Carrinho",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_add_to_cart\"] }}"
+            },
+            {
+              "name": "Pesquisar",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_search\"] }}"
+            },
+            {
+              "name": "Add Info Pagamento",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_add_payment_info\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0c3da08e-a9a4-4051-9866-b973b3c2a92a",
+      "name": "Métricas listadas",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID",
+              "value": "+=LIN()-1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f5746653-a54d-4832-959f-c3aef4de8038",
+      "name": "Número da Linha",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        820,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.hoje }}",
+              "value2": "={{ $json.DATA }}"
+            }
+          ]
+        }
+      },
+      "id": "7d403eba-eb5f-4db8-ac25-ea006ac3bde8",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1720,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ new Date() }}",
+        "dataPropertyName": "hoje",
+        "toFormat": "YYYY-MM-DD",
+        "options": {}
+      },
+      "id": "f772bc5a-f497-4a01-a450-86f308c0c6d7",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        -1900,
+        740
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fa03fa42-e449-459a-bc49-ad85c28c37d6",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1260,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1133165196,
+          "mode": "list",
+          "cachedResultName": "TOTAL POR DIA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U/edit#gid=1133165196"
+        },
+        "options": {}
+      },
+      "id": "a1b4a02d-0a5f-4374-940e-079adc3b037d",
+      "name": "Google Sheets4",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -2120,
+        740
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "e90a739e-4193-4704-9b33-e1a28ad13d1d",
+      "name": "Espera um pouco1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        240,
+        700
+      ],
+      "webhookId": "881e3af9-1d7c-4e7b-bd0d-e83efdd7e99f"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "1f0d4c46-132d-4b3d-84ef-9823273386fe",
+      "name": "Passa um anúncio de cada vez1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        720
+      ],
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1133165196,
+          "mode": "list",
+          "cachedResultName": "TOTAL POR DIA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U/edit#gid=1133165196"
+        },
+        "columnToMatchOn": "ID",
+        "valueToMatchOn": "={{ $json.ID }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA",
+              "fieldValue": "={{ $json.hoje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0e481914-f1f7-45bc-aae9-41db8be1d41e",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -1520,
+        880
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 56678084,
+          "mode": "list",
+          "cachedResultName": "NÍVEL AD",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U/edit#gid=56678084"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Data",
+              "lookupValue": "={{ $json.DATA }}"
+            }
+          ]
+        },
+        "options": {
+          "returnAllMatches": "returnAllMatches"
+        }
+      },
+      "id": "a2752c16-ce62-42bf-b8d7-1ba55287d134",
+      "name": "Google Sheets2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -940,
+        720
+      ],
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 56678084,
+          "mode": "list",
+          "cachedResultName": "NÍVEL AD",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U/edit#gid=56678084"
+        },
+        "startIndex": "={{ $node[\"Google Sheets2\"].json.row_number }}"
+      },
+      "id": "f7b6c820-867b-4d50-b56b-d6e756e52389",
+      "name": "Google Sheets3",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        -400,
+        720
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": true,
+              "value2": "={{$node[\"Passa um anúncio de cada vez1\"].context[\"noItemsLeft\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "4fef7294-bca9-49a2-8412-f6b6710c2c2d",
+      "name": "Última Execução?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 0.5,
+        "unit": "seconds"
+      },
+      "id": "6e959161-700a-44df-bb64-644d419e99b4",
+      "name": "Espera um pouco2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        720
+      ],
+      "webhookId": "9a6380e2-0d88-40d5-861d-225928e42483"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 5
+            },
+            {
+              "triggerAtHour": 6
+            },
+            {
+              "triggerAtHour": 7
+            },
+            {
+              "triggerAtHour": 8
+            },
+            {
+              "triggerAtHour": 9
+            },
+            {
+              "triggerAtHour": 10
+            },
+            {
+              "triggerAtHour": 11
+            },
+            {
+              "triggerAtHour": 12
+            },
+            {
+              "triggerAtHour": 13
+            },
+            {
+              "triggerAtHour": 14
+            },
+            {
+              "triggerAtHour": 15
+            },
+            {
+              "triggerAtHour": 16
+            },
+            {
+              "triggerAtHour": 17
+            },
+            {
+              "triggerAtHour": 19
+            },
+            {
+              "triggerAtHour": 20
+            },
+            {
+              "triggerAtHour": 21
+            },
+            {
+              "triggerAtHour": 22
+            },
+            {
+              "triggerAtHour": 23
+            },
+            {},
+            {
+              "triggerAtHour": 1
+            }
+          ]
+        }
+      },
+      "id": "6ab91e14-f033-4ef9-9ef8-972713531387",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2420,
+        740
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrencyRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2023-03-02T20:19:40.134Z",
+      "updatedAt": "2023-03-02T20:19:40.134Z",
+      "id": "1",
+      "name": "Workshop [Modelos]"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2023-03-16T13:16:44.996Z",
+  "versionId": "08e7a55b-0ce3-4094-8f3c-cf512d02f80f"
+}
