@@ -34,17 +34,6 @@
         ]
       ]
     },
-    "Parse JSON": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
     "HTML Extract": {
       "main": [
         [
@@ -123,6 +112,17 @@
             "node": "Read Google Sheets",
             "type": "main",
             "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -301,20 +301,6 @@
     },
     {
       "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "// Add a new field called 'myNewField' to the\n// JSON of the item\n$input.item.json.proposta_de_valor=JSON.parse($input.item.json.text).proposta_de_valor\n\n$input.item.json.industria=JSON.parse($input.item.json.text).industria\n\n$input.item.json.mercado=JSON.parse($input.item.json.text).mercado\n\n$input.item.json.publico_alvo=JSON.parse($input.item.json.text).publico_alvo\n\nreturn $input.item;"
-      },
-      "id": "f8bf8b70-6070-447b-af22-4d4e1ffe3539",
-      "name": "Parse JSON",
-      "type": "n8n-nodes-base.code",
-      "position": [
-        1820,
-        120
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "documentId": {
           "__rl": true,
           "value": "1Q76tbvMBIx8QTPG0UTFQnUzi04diJSXY4xWyB6l5vFc",
@@ -370,6 +356,20 @@
       ],
       "webhookId": "d44bc024-1c21-44e0-b2b4-5cff6fb9f402",
       "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the\n// JSON of the item\n$input.item.json.proposta_de_valor=JSON.parse($input.item.json.text).proposta_de_valor\n\n$input.item.json.industria=JSON.parse($input.item.json.text).industria\n\n$input.item.json.mercado=JSON.parse($input.item.json.text).mercado\n\n$input.item.json.publico_alvo=JSON.parse($input.item.json.text).publico_alvo\n\nreturn $input.item;"
+      },
+      "id": "27d8e2fe-8c82-45f6-b649-84278c288c5f",
+      "name": "Parse JSON",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1820,
+        120
+      ],
+      "typeVersion": 1
     }
   ],
   "pinData": {},
@@ -377,6 +377,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-03-25T20:42:47.998Z",
-  "versionId": "f7bd7725-aca9-4bf8-b167-dc3b6c7098de"
+  "updatedAt": "2023-03-25T22:48:35.345Z",
+  "versionId": "f2fd0f39-4077-4635-a388-1d3d0c2e0a20"
 }
