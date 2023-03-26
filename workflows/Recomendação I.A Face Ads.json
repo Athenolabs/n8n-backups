@@ -1,0 +1,311 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Update Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Última Execução?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Última Execução?": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-25T22:49:51.039Z",
+  "id": "20",
+  "name": "Recomendação I.A Face Ads",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9bdad7b6-f893-4d64-ada1-0b741b7ab79a",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        640,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1LwJ2DkvqZq3tKAAUKPt3uYg2pzENMdfJzLTSDY2xBDA",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 63944589,
+          "mode": "list",
+          "cachedResultName": "Total CAMPAIGN",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LwJ2DkvqZq3tKAAUKPt3uYg2pzENMdfJzLTSDY2xBDA/edit#gid=63944589"
+        },
+        "options": {}
+      },
+      "id": "b726b665-dce1-46e9-8d5a-7f900d3fc22f",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        840,
+        460
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "5802b0c0-3ccd-47a2-bd9f-78c4871c04e0",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "prompt": "=de acordo com este dados:\n\n- Valor Gasto: {{ $json[\"Valor Gasto\"] }}\n- Impressões: {{ $json[\"Impressões\"] }}\n- Alcance:{{ $json[\"Alcance\"] }}\n- Cliques no Link: {{ $json[\"Cliques no Link\"] }}\n- Visualização da Página:{{ $json[\"Visualização da Página\"] }}\n- Leads: {{ $json[\"Leads\"] }}\n\nDados que considero bons:\n\n-ctr: acima de 1.8%\n-conversão de pagina: acima de 50%\n-custo por lead: R$4\n\nfaça as contas\n\nNo formato JSON:\n\n- Dê-me a recomendaçao completa do que devo melhorar\n- Dê-me o que errei\n- como melhorar\n\nrecomendaçao: [calcular ctr][calcular conversão de pagina][calcular custo por lead][Problema][Como resolver e melhorar]\n\nformato deve ser:\n{ \"dica\": recomendacao }\n\nJSON:",
+        "options": {
+          "maxTokens": 350,
+          "temperature": 0,
+          "topP": 1
+        }
+      },
+      "id": "6492d153-2629-426e-901c-b926594b941c",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        460
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "40095974-bca5-48e5-8f3e-7fc46b6567d3",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1760,
+        440
+      ],
+      "typeVersion": 2,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the\n// JSON of the item\n$input.item.json.dica=JSON.parse($input.item.json.text).dica\n\n\n\nreturn $input.item;"
+      },
+      "id": "082ecfce-b1f6-43dc-a588-0c6ab2fe39a3",
+      "name": "Parse JSON",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1500,
+        460
+      ],
+      "typeVersion": 1,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1LwJ2DkvqZq3tKAAUKPt3uYg2pzENMdfJzLTSDY2xBDA",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 63944589,
+          "mode": "list",
+          "cachedResultName": "Total CAMPAIGN",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LwJ2DkvqZq3tKAAUKPt3uYg2pzENMdfJzLTSDY2xBDA/edit#gid=63944589"
+        },
+        "columnToMatchOn": "ID",
+        "valueToMatchOn": "={{ $node[\"Split In Batches\"].json.ID }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "RECOMENDAÇÃO",
+              "fieldValue": "={{ $json.dica }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "20a55168-2eda-426d-a099-c3eff9ee9796",
+      "name": "Update Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1980,
+        440
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": "=1",
+        "unit": "seconds"
+      },
+      "id": "e05649f4-9712-4c8b-8fae-4ce6fc2f8b26",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        440
+      ],
+      "webhookId": "3937d347-a579-48f0-ad32-b5bdcd0780c2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": true,
+              "value2": "={{$node[\"Passa um anúncio de cada vez1\"].context[\"noItemsLeft\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "94fcbc08-e7b6-415e-9e01-fad299cd3aac",
+      "name": "Última Execução?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        440
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-03-26T00:25:55.308Z",
+  "versionId": "4cb641e8-3b10-4b6e-8101-c75d1ce6f736"
+}
