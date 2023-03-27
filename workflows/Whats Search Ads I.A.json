@@ -16,18 +16,7 @@
       "main": [
         [
           {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set": {
-      "main": [
-        [
-          {
-            "node": "Parse JSON",
+            "node": "Set1",
             "type": "main",
             "index": 0
           }
@@ -39,6 +28,28 @@
         [
           {
             "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON1": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON",
             "type": "main",
             "index": 0
           }
@@ -161,64 +172,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1280,
-        380
-      ]
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "CPC",
-              "value": "={{ ($json[\"Valor Gasto\"]/$json[\"Cliques no Link\"]).toFixed(2) }}"
-            },
-            {
-              "name": "CPL",
-              "value": "={{ ($json[\"Leads\"]/$json[\"Cliques no Link\"]).toFixed(2) }}"
-            },
-            {
-              "name": "CPM",
-              "value": "={{ ($json[\"Valor Gasto\"]*1000/$json[\"Impressões\"]).toFixed(2) }}"
-            },
-            {
-              "name": "CPVP",
-              "value": "={{ ($json[\"Visualização da Página\"]/$json[\"Cliques no Link\"]).toFixed(2) }}"
-            },
-            {
-              "name": "CTP",
-              "value": "={{ ($json[\"Visualização da Página\"]/$json[\"Cliques no Link\"]*100).toFixed(2) }}"
-            },
-            {
-              "name": "CTR",
-              "value": "={{ ($json[\"Cliques no Link\"]/$json[\"Impressões\"]*100).toFixed(2) }}"
-            },
-            {
-              "name": "dia",
-              "value": "={{ new Date().getDate().toString().padStart(2,'0') }}"
-            },
-            {
-              "name": "investido",
-              "value": "={{ $json[\"Valor Gasto\"] }}"
-            },
-            {
-              "name": "PTL",
-              "value": "={{ ($json[\"Leads\"]/$json[\"Visualização da Página\"]*100).toFixed(2) }}"
-            },
-            {
-              "name": "Mes",
-              "value": "="
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "ca3800a2-5a39-42b0-97cb-6137c5b05cb0",
-      "name": "Set",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        900,
+        1500,
         380
       ]
     },
@@ -231,7 +185,7 @@
       "name": "Parse JSON",
       "type": "n8n-nodes-base.code",
       "position": [
-        1080,
+        1300,
         380
       ],
       "typeVersion": 1,
@@ -239,27 +193,78 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://api.devzapp.com.br/funil/start/execute/6420a290d8daf679bcbe46f3",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
+        "values": {
+          "string": [
             {
-              "name": "telefone",
-              "value": "=5566996188393"
+              "name": "CPC",
+              "value": "={{ ($json[\"Valor Gasto\"]/$json[\"Cliques no Link\"]) }}"
+            },
+            {
+              "name": "CPL",
+              "value": "={{ ($json[\"Leads\"]/$json[\"Cliques no Link\"]) }}"
+            },
+            {
+              "name": "CPM",
+              "value": "={{ ($json[\"Valor Gasto\"]*1000/$json[\"Impressões\"]) }}"
+            },
+            {
+              "name": "CPVP",
+              "value": "={{ ($json[\"Visualização da Página\"]/$json[\"Cliques no Link\"]) }}"
+            },
+            {
+              "name": "CTP",
+              "value": "={{ ($json[\"Visualização da Página\"]/$json[\"Cliques no Link\"]*100) }}"
+            },
+            {
+              "name": "CTR",
+              "value": "={{ ($json[\"Cliques no Link\"]/$json[\"Impressões\"]*100) }}"
+            },
+            {
+              "name": "dia",
+              "value": "={{ new Date().getDate().toString().padStart(2,'0').replace(\".\", \",\") }}"
+            },
+            {
+              "name": "investido",
+              "value": "={{ $json[\"Valor Gasto\"] }}"
+            },
+            {
+              "name": "PTL",
+              "value": "={{ ($json[\"Leads\"]/$json[\"Visualização da Página\"]*100) }}"
+            },
+            {
+              "name": "Mes",
+              "value": "="
+            },
+            {
+              "name": "Alcance"
             }
           ]
         },
         "options": {}
       },
-      "id": "a93c704f-851a-4ae8-90c5-ef3285d8e3ab",
-      "name": "HTTP Request1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
+      "id": "64f503f3-bf7b-4887-85c3-8f1be2c5be21",
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
       "position": [
-        1920,
-        400
+        900,
+        380
       ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const options = {\n  minimumFractionDigits: 2,\n  maximumFractionDigits: 2,\n  useGrouping: true,\n  currency: undefined,\n};\n\n$input.item.json.CPC = $input.item.json.CPC.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.CPL = $input.item.json.CPL.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.CPM = $input.item.json.CPM.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.CTR = $input.item.json.CTR.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.CTP = $input.item.json.CTP.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.investido = $input.item.json.investido.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.PTL = $input.item.json.PTL.toLocaleString('pt-BR', options).replace(\".\", \",\")\n$input.item.json.CPVP = $input.item.json.CPVP.toLocaleString('pt-BR', options).replace(\".\", \",\")\n\nreturn $input.item;"
+      },
+      "id": "8908172e-dbdc-47cb-906e-04868ad544c2",
+      "name": "Parse JSON1",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1080,
+        380
+      ],
+      "typeVersion": 1,
+      "continueOnFail": true
     }
   ],
   "pinData": {},
@@ -267,6 +272,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-03-27T04:00:25.431Z",
-  "versionId": "1d0d7f35-3cb2-4d33-82e1-4a611de4b58d"
+  "updatedAt": "2023-03-27T07:00:39.271Z",
+  "versionId": "cf50c97e-41d7-4788-bdbc-a120d4b30ba7"
 }
