@@ -1,0 +1,272 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-26T19:16:17.289Z",
+  "id": "24",
+  "name": "Whats Search Ads I.A",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsads",
+        "options": {}
+      },
+      "id": "587ec106-ec3a-44d0-a268-9efc05c7c337",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        500,
+        380
+      ],
+      "webhookId": "7b7ec0ca-8a8a-4c77-9a62-c6d69dd1eead"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1LwJ2DkvqZq3tKAAUKPt3uYg2pzENMdfJzLTSDY2xBDA",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 63944589,
+          "mode": "list",
+          "cachedResultName": "Total CAMPAIGN",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LwJ2DkvqZq3tKAAUKPt3uYg2pzENMdfJzLTSDY2xBDA/edit#gid=63944589"
+        },
+        "options": {}
+      },
+      "id": "9f6bdc80-e1f4-4019-8a06-ae2da2c0ea97",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        700,
+        380
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/6420a290d8daf679bcbe46f3",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "recomendacao",
+              "value": "={{ $json[\"RECOMENDAÇÃO\"] }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.telefone }}"
+            },
+            {
+              "name": "CPC",
+              "value": "={{ $json.CPC }}"
+            },
+            {
+              "name": "CPM",
+              "value": "={{ $json.CPM }}"
+            },
+            {
+              "name": "CPL",
+              "value": "={{ $json.CPL }}"
+            },
+            {
+              "name": "CPVP",
+              "value": "={{ $json.CPVP }}"
+            },
+            {
+              "name": "CTP",
+              "value": "={{ $json.CTP }}"
+            },
+            {
+              "name": "CTR",
+              "value": "={{ $json.CTR }}"
+            },
+            {
+              "name": "dia",
+              "value": "={{ $json.dia }}"
+            },
+            {
+              "name": "investido",
+              "value": "={{ $json.investido }}"
+            },
+            {
+              "name": "PTL",
+              "value": "={{ $json.PTL }}"
+            },
+            {
+              "name": "Mes",
+              "value": "={{ $json.Mes }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f5e2b33-9c9c-4a3d-93e0-ba482288ab9d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1280,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "CPC",
+              "value": "={{ ($json[\"Valor Gasto\"]/$json[\"Cliques no Link\"]).toFixed(2) }}"
+            },
+            {
+              "name": "CPL",
+              "value": "={{ ($json[\"Leads\"]/$json[\"Cliques no Link\"]).toFixed(2) }}"
+            },
+            {
+              "name": "CPM",
+              "value": "={{ ($json[\"Valor Gasto\"]*1000/$json[\"Impressões\"]).toFixed(2) }}"
+            },
+            {
+              "name": "CPVP",
+              "value": "={{ ($json[\"Visualização da Página\"]/$json[\"Cliques no Link\"]).toFixed(2) }}"
+            },
+            {
+              "name": "CTP",
+              "value": "={{ ($json[\"Visualização da Página\"]/$json[\"Cliques no Link\"]*100).toFixed(2) }}"
+            },
+            {
+              "name": "CTR",
+              "value": "={{ ($json[\"Cliques no Link\"]/$json[\"Impressões\"]*100).toFixed(2) }}"
+            },
+            {
+              "name": "dia",
+              "value": "={{ new Date().getDate().toString().padStart(2,'0') }}"
+            },
+            {
+              "name": "investido",
+              "value": "={{ $json[\"Valor Gasto\"] }}"
+            },
+            {
+              "name": "PTL",
+              "value": "={{ ($json[\"Leads\"]/$json[\"Visualização da Página\"]*100).toFixed(2) }}"
+            },
+            {
+              "name": "Mes",
+              "value": "="
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ca3800a2-5a39-42b0-97cb-6137c5b05cb0",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        900,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const today = new Date();\nconst month = today.getMonth();\n\nswitch (month) {\n  case 0:\n    $input.item.json.Mes = \"JAN\";\n    break;\n  case 1:\n    $input.item.json.Mes = \"FEV\";\n    break;\n  case 2:\n    $input.item.json.Mes = \"MAR\";\n    break;\n  case 3:\n    $input.item.json.Mes = \"ABR\";\n    break;\n  case 4:\n    $input.item.json.Mes = \"MAI\";\n    break;\n  case 5:\n    $input.item.json.Mes = \"JUN\";\n    break;\n  case 6:\n    $input.item.json.Mes = \"JUL\";\n    break;\n  case 7:\n    $input.item.json.Mes = \"AGO\";\n    break;\n  case 8:\n    $input.item.json.Mes = \"SET\";\n    break;\n  case 9:\n    $input.item.json.Mes = \"OUT\";\n    break;\n  case 10:\n    $input.item.json.Mes = \"NOV\";\n    break;\n  case 11:\n    $input.item.json.Mes = \"DEZ\";\n    break;\n  default:\n    $input.item.json.Mes = \"00\";\n}\n\nreturn $input.item;"
+      },
+      "id": "c9b5bf44-d61c-4154-a61b-4819e4ad9c3d",
+      "name": "Parse JSON",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1080,
+        380
+      ],
+      "typeVersion": 1,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/6420a290d8daf679bcbe46f3",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=5566996188393"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a93c704f-851a-4ae8-90c5-ef3285d8e3ab",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1920,
+        400
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-03-27T04:00:25.431Z",
+  "versionId": "1d0d7f35-3cb2-4d33-82e1-4a611de4b58d"
+}
