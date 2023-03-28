@@ -1,15 +1,98 @@
 {
   "active": false,
-  "connections": {},
-  "createdAt": "2023-03-25T19:14:01.417Z",
-  "id": "17",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-27T18:12:44.968Z",
+  "id": "25",
   "name": "My workflow 2",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "path": "bubbleads",
+        "options": {}
+      },
+      "id": "148f40b2-84cb-42dd-b446-7723ed817592",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "7370bef9-aa0e-404c-8a8d-a55e8a606f30"
+    },
+    {
+      "parameters": {
+        "url": "https://graph.facebook.com/v16.0/act_664190758791228/insights",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "={{ $json.query.access_token }}"
+            },
+            {
+              "name": "level",
+              "value": "={{ $json.query.level }}"
+            },
+            {
+              "name": "fields",
+              "value": "={{ $json.query.fields }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1cbfdcd5-c6bd-43fa-8707-ad59c62b993b",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5d902cbe-b737-4067-9955-191d7f1f13ba",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        980,
+        260
+      ]
+    }
+  ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-03-25T19:20:35.070Z",
-  "versionId": "84682dda-4098-45e5-89a4-c93abf21b32e"
+  "updatedAt": "2023-03-27T18:17:20.447Z",
+  "versionId": "73ccff87-b323-4567-9223-06416aef7bee"
 }
