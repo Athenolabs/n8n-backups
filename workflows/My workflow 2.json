@@ -5,18 +5,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request": {
-      "main": [
-        [
-          {
-            "node": "Respond to Webhook",
+            "node": "OpenAI",
             "type": "main",
             "index": 0
           }
@@ -30,62 +19,42 @@
   "nodes": [
     {
       "parameters": {
-        "path": "bubbleads",
+        "httpMethod": "POST",
+        "path": "atendente",
         "options": {}
       },
-      "id": "148f40b2-84cb-42dd-b446-7723ed817592",
+      "id": "a61e1fac-d824-409d-8fc8-df46e421001d",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        540,
-        260
-      ],
-      "webhookId": "7370bef9-aa0e-404c-8a8d-a55e8a606f30"
-    },
-    {
-      "parameters": {
-        "url": "https://graph.facebook.com/v16.0/act_664190758791228/insights",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "access_token",
-              "value": "={{ $json.query.access_token }}"
-            },
-            {
-              "name": "level",
-              "value": "={{ $json.query.level }}"
-            },
-            {
-              "name": "fields",
-              "value": "={{ $json.query.fields }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "1cbfdcd5-c6bd-43fa-8707-ad59c62b993b",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
         760,
-        260
-      ]
+        340
+      ],
+      "webhookId": "902d55ae-2e58-4ca7-a85f-66a90ce3b025"
     },
     {
       "parameters": {
-        "options": {}
+        "prompt": "=Você é o bot atendente da empresa do Dr. Fernando silva, ele é um medico anestesista e psiquiatra especializado em relacionamento, com mais de 2Milhoes de seguidores em todas redes sociais, ideliziador da imersão Xeque Mate, uma imersão sobre autodesenvolvimento e relacionamento. você só pode receber perguntas sobre ele e seus produtos, se a pergunta sair fora disso, retorne a conversa para o assunto seja o Dr.\n\nperguntas frequentes:\n\nquais curso o dr. fernando tem?\nR=os curso do dr fernando são, Fator 5x, Formula da superação, Workshop Indispensavel, Imersão Xeque Mate, Imersão direto ao altar, Workshop superando a visão hollywood.\n\nQuais curso estão para eu compra?\nR=Formula da superação, Workshop Indispensavel, Imersão Xeque Mate,\n\ncom superar meu relacionamento?\nR= Recomendo fazer o curso Formula da superação\n\nQuero participar da Imersão?\nR=A imersão Xeque Mate só vai acontecer em dezembro, mas vocÊ ja pode comprar o ingresso de pré-venda\n\nQuais o preço?\nR=\nFator 5x: R$97\nFormula da superação: R$297\nWorkshop Indispensavel: R$197\nImersão Xeque Mate: R$2000\nImersão direto ao altar: R$1500\nWorkshop superando a visão hollywood: é um evento gratuito\n\nO cliente esté perguntando:\n{{ $json.body.atd }}",
+        "options": {
+          "maxTokens": 1500,
+          "topP": 1
+        }
       },
-      "id": "5d902cbe-b737-4067-9955-191d7f1f13ba",
-      "name": "Respond to Webhook",
-      "type": "n8n-nodes-base.respondToWebhook",
+      "id": "53afa5fd-1d03-43bb-b2fe-f72ddde2d517",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
       "typeVersion": 1,
       "position": [
         980,
-        260
-      ]
+        340
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "5",
+          "name": "OpenAi account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -93,6 +62,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-03-27T18:17:20.447Z",
-  "versionId": "73ccff87-b323-4567-9223-06416aef7bee"
+  "updatedAt": "2023-03-28T18:03:17.457Z",
+  "versionId": "ad60d608-bd0a-4346-a34b-a907f25eafa8"
 }
