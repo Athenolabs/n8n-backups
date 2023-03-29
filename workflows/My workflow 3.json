@@ -1,0 +1,138 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-29T01:50:44.148Z",
+  "id": "26",
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "kiwify",
+        "options": {}
+      },
+      "id": "17e46645-3fe4-4166-b45e-5a1be832b386",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        260,
+        260
+      ],
+      "webhookId": "cd6633a8-f3ba-4adf-98de-e842a5a96fff"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/6423882753772f02f03b8fc0",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.body.Customer.mobile }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $json.body.Customer.full_name.split(\" \")[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1e020aa-1cc4-4ed7-8cdf-fc05ccb42d19",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        880,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.order_status }}",
+              "value2": "paid"
+            }
+          ]
+        }
+      },
+      "id": "009096d0-f254-471a-b476-4052d56deca1",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        520,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/642391c153772f02f03b9456",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=55{{ $json.body.phone.replace(\"(\",\"\").replace(\")\",\"\").replace(\"-\",\"\").replace(\" \",\"\") }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $json.body.name.split(\" \")[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c79b79e3-040b-4215-b449-a776f7999c56",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        880,
+        360
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-03-29T02:00:17.719Z",
+  "versionId": "b8add14f-dbf5-4ce2-ba39-d1d5027d038e"
+}
