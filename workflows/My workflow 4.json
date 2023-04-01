@@ -1,0 +1,144 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Variáveis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variáveis": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Métricas a Nível AD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-04-01T15:17:29.501Z",
+  "id": "27",
+  "name": "My workflow 4",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "25a8b60d-8bd5-462e-ad57-0aa767c55bc0",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.facebook.com/v15.0/{{$json[\"ID da conta de anúncios\"]}}/insights",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "campaign_name,impressions,reach,clicks,spend,actions"
+            },
+            {
+              "name": "time_range",
+              "value": "={\"since\":\"{{$node[\"Date & Time\"].json[\"data\"]}}\",\"until\":\"{{$node[\"Date & Time\"].json[\"data\"]}}\"}"
+            },
+            {
+              "name": "access_token",
+              "value": "={{ $node[\"Variáveis\"].json[\"Token de acesso\"] }}"
+            },
+            {
+              "name": "limit",
+              "value": "200"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b15a8ede-a547-45ff-b58c-55f8cee93b2b",
+      "name": "Métricas a Nível AD",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        820,
+        400
+      ],
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID da planilha",
+              "value": "1LzMB8qRE0SaghRaE28Sef842bNX7qY3M5Od6TvMB-4U"
+            },
+            {
+              "name": "ID da conta de anúncios",
+              "value": "act_664190758791228"
+            },
+            {
+              "name": "Token de acesso",
+              "value": "EABYzgWDHqZBEBAIpZBB8tOH6dXJgXiscYTTxdtQmE2WW4Fz79Jvos7EZAfGDqlJ84X3ZAYY88U1PNXQbdcI8arKNEU6T2wNterDLkZAwiz0usAXNfnCmrVLrRzZCzoGaX7hnlzY4YnhXPd2tgvQe04q3FGRN1y46ZA4Hg0wQd9HFYZBSyXu2x90E"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7e515bec-b8c1-46e3-90a8-ebd29aac2e93",
+      "name": "Variáveis",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        440,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ new Date() }}",
+        "dataPropertyName": "hoje",
+        "custom": true,
+        "toFormat": "YYYY-MM-DD",
+        "options": {}
+      },
+      "id": "2d0b9ccc-441e-4bf3-a6f6-6e4f0e1bd584",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        620,
+        400
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-04-01T15:23:57.974Z",
+  "versionId": "0855dd2c-3acd-45c6-8261-6e6fc649aaa8"
+}
