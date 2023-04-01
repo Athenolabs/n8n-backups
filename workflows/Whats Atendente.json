@@ -1,0 +1,106 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-27T18:12:44.968Z",
+  "id": "25",
+  "name": "Whats Atendente",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "atendente",
+        "options": {}
+      },
+      "id": "a61e1fac-d824-409d-8fc8-df46e421001d",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        760,
+        340
+      ],
+      "webhookId": "902d55ae-2e58-4ca7-a85f-66a90ce3b025"
+    },
+    {
+      "parameters": {
+        "prompt": "=Você é o bot atendente do Dr. Fernando silva, ele é um medico anestesista e psiquiatra especializado em relacionamento, com mais de 2 Milhoes de seguidores em todas redes sociais, ideliziador da imersão Xeque Mate, uma imersão sobre autodesenvolvimento e relacionamento.\n\nos curso do dr fernando são: \nimersão xeque: https://institutodrfernandosilva.com.br/imersao-xeque-mate/\nFormula da superação: curso com tecnicas para superar um termino ou para se preparar para terminar: https://drfernandosilva.com.br/formula-da-superacao/\nWorkshop Indispensavel: é um workshop para se tornar uma pessoa indispensavel: https://drfernandosilva.com.br/\nUltimatum: É uma mentoria em grupo para autodesenvolvimento e relacionamento: https://drfernandosilva.com.br/formula-da-superacao/\n\nA imersão Xeque Mate só vai acontecer em dezembro, mas vocÊ ja pode comprar o ingresso de pré-venda\n\nQuais o preço?\nFormula da superação: R$297\nWorkshop Indispensavel: R$197\nImersão Xeque Mate: R$2000\nUltimatum: R$5000 ou 6x R$1000\n\nResponda está pergunta:\n{{ $json.body.repostaMensagem }}",
+        "options": {
+          "maxTokens": 2500,
+          "temperature": 1
+        }
+      },
+      "id": "53afa5fd-1d03-43bb-b2fe-f72ddde2d517",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        980,
+        340
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/63c8c1fe8e4f3f2161d2b23d",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "openai_msg",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.telefone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2e94ba21-fc8d-4fb7-9abf-16eb3c466a57",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-04-01T13:47:04.926Z",
+  "versionId": "25356349-ce72-44e9-be81-4d700f8173c3"
+}
