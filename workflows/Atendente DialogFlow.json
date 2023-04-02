@@ -1,0 +1,106 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-04-01T22:03:32.741Z",
+  "id": "28",
+  "name": "Atendente DialogFlow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "dialog",
+        "options": {}
+      },
+      "id": "c731df90-71e4-41fb-a329-bcd0ad025d15",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        760,
+        340
+      ],
+      "webhookId": "2e49c775-a90a-4729-903e-16d5932d0cd7"
+    },
+    {
+      "parameters": {
+        "prompt": "={{ $json.body.originalDetectIntentRequest.payload.data.text }}",
+        "options": {
+          "maxTokens": 2500,
+          "temperature": 1
+        }
+      },
+      "id": "ad9ad311-71ab-4282-8eca-15bc0c6f851e",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        980,
+        340
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/execute/63c8c1fe8e4f3f2161d2b23d",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "openai_msg",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.telefone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d2d3eb72-d91e-4483-9e31-59b389349ac5",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-04-01T22:33:01.338Z",
+  "versionId": "5b1a3b70-a530-4839-9181-2be5c3e28b38"
+}
