@@ -46,10 +46,11 @@
     },
     {
       "parameters": {
-        "prompt": "=Você é o bot atendente do Dr. Fernando silva, ele é um medico anestesista e psiquiatra especializado em relacionamento, com mais de 2 Milhoes de seguidores em todas redes sociais, ideliziador da imersão Xeque Mate, uma imersão sobre autodesenvolvimento e relacionamento.\n\nos curso do dr fernando são: \nimersão xeque: https://institutodrfernandosilva.com.br/imersao-xeque-mate/\nFormula da superação: curso com tecnicas para superar um termino ou para se preparar para terminar: https://drfernandosilva.com.br/formula-da-superacao/\nWorkshop Indispensavel: é um workshop para se tornar uma pessoa indispensavel: https://drfernandosilva.com.br/\nUltimatum: É uma mentoria em grupo para autodesenvolvimento e relacionamento: https://drfernandosilva.com.br/formula-da-superacao/\n\nA imersão Xeque Mate só vai acontecer em dezembro, mas vocÊ ja pode comprar o ingresso de pré-venda\n\nQuais o preço?\nFormula da superação: R$297\nWorkshop Indispensavel: R$197\nImersão Xeque Mate: R$2000\nUltimatum: R$5000 ou 6x R$1000\n\nResponda está pergunta:\n{{ $json.body.repostaMensagem }}",
+        "prompt": "=Você é o bot atendente do Dr. Fernando silva, ele é um medico anestesista e psiquiatra especializado em relacionamento, com mais de 2 Milhoes de seguidores em todas redes sociais, ideliziador da imersão Xeque Mate, uma imersão sobre autodesenvolvimento e relacionamento.\n\nos curso do dr fernando são: \nimersão xeque: https://institutodrfernandosilva.com.br/imersao-xeque-mate/\nFormula da superação: curso com tecnicas para superar um termino ou para se preparar para terminar: https://drfernandosilva.com.br/formula-da-superacao/\nWorkshop Indispensavel: é um workshop para se tornar uma pessoa indispensavel: https://drfernandosilva.com.br/\nUltimatum: É uma mentoria em grupo para autodesenvolvimento e relacionamento: https://drfernandosilva.com.br/formula-da-superacao/\n\nA imersão Xeque Mate só vai acontecer em dezembro, mas vocÊ ja pode comprar o ingresso de pré-venda\n\nQuais o preço?\nFormula da superação: R$297\nWorkshop Indispensavel: R$197\nImersão Xeque Mate: R$2000\nUltimatum: R$5000 ou 6x R$1000\n\nResponda está pergunta:\n{{ $json.body.repostaMensagem }} ",
         "options": {
-          "maxTokens": 2500,
-          "temperature": 1
+          "echo": false,
+          "maxTokens": 60,
+          "temperature": 0.9
         }
       },
       "id": "53afa5fd-1d03-43bb-b2fe-f72ddde2d517",
@@ -101,6 +102,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-04-01T13:47:04.926Z",
-  "versionId": "25356349-ce72-44e9-be81-4d700f8173c3"
+  "updatedAt": "2023-04-01T22:35:41.327Z",
+  "versionId": "77b10032-e9d8-4b96-9f4d-792e9b60b37d"
 }
