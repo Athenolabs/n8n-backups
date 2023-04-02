@@ -33,6 +33,112 @@
           }
         ]
       ]
+    },
+    "Métricas a Nível AD": {
+      "main": [
+        [
+          {
+            "node": "Item Lists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item Lists": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "Extrai Métricas da Array Actions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrai Métricas da Array Actions": {
+      "main": [
+        [
+          {
+            "node": "Métricas listadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Métricas listadas": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Última Execução?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Métricas listadas1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Métricas listadas1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Última Execução?1": {
+      "main": [
+        [
+          {
+            "node": "Espera um pouco",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-04-01T15:17:29.501Z",
@@ -52,7 +158,7 @@
     },
     {
       "parameters": {
-        "url": "=https://graph.facebook.com/v15.0/{{$json[\"ID da conta de anúncios\"]}}/insights",
+        "url": "=https://graph.facebook.com/v16.0/{{$json[\"ID da conta de anúncios\"]}}/insights",
         "sendQuery": true,
         "queryParameters": {
           "parameters": [
@@ -61,16 +167,12 @@
               "value": "campaign_name,impressions,reach,clicks,spend,actions"
             },
             {
-              "name": "time_range",
-              "value": "={\"since\":\"{{$node[\"Date & Time\"].json[\"data\"]}}\",\"until\":\"{{$node[\"Date & Time\"].json[\"data\"]}}\"}"
-            },
-            {
               "name": "access_token",
               "value": "={{ $node[\"Variáveis\"].json[\"Token de acesso\"] }}"
             },
             {
-              "name": "limit",
-              "value": "200"
+              "name": "level",
+              "value": "campaign"
             }
           ]
         },
@@ -132,6 +234,339 @@
         620,
         400
       ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "1d3ed4bf-0b36-42ba-9582-fc37d9b76c3c",
+      "name": "Item Lists",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "b6e730f6-5557-4bd2-b314-b8dd253ac473",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "//pega os dados do \"body\" do input\nlet data = $input.item.json.actions;\n\n//faz o loop sob cada uma das propriedades\nfor (i in data){\n  //pega a propriedade atual, o seu \"action\" e o seu \"value\"\n  let dataItem = data[i];\n  let action = dataItem.action_type;\n  let value = dataItem.value;\n\n  //cria uma nova propriedade no input com o nome da \"action\" e o valor do \"value\"\n  $input.item.json[action] = value\n}\n\n//retorna o input com os novos campos\nreturn $input.item;"
+      },
+      "id": "0a7142b4-e0c9-4b83-b388-40a3671b8abb",
+      "name": "Extrai Métricas da Array Actions",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1460,
+        400
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID",
+              "value": "={{ $node[\"Número da Linha\"].json[\"ID\"].replace('+','') }}"
+            },
+            {
+              "name": "Data",
+              "value": "={{ $node[\"Separa os Dias\"].json[\"DATA\"] }}"
+            },
+            {
+              "name": "Campanha",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"campaign_name\"] }}"
+            },
+            {
+              "name": "Público",
+              "value": "={{$node[\"Extrai Métricas da Array Actions\"].json[\"adset_name\"]}}"
+            },
+            {
+              "name": "Anúncio",
+              "value": "={{$node[\"Extrai Métricas da Array Actions\"].json[\"ad_name\"]}}"
+            },
+            {
+              "name": "Valor Gasto",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"spend\"].replace('.',',') }}"
+            },
+            {
+              "name": "Impressões",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"impressions\"] }}"
+            },
+            {
+              "name": "Alcance",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"reach\"] }}"
+            },
+            {
+              "name": "Cliques no Link",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"link_click\"] }}"
+            },
+            {
+              "name": "Visualização da Página",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"landing_page_view\"] }}"
+            },
+            {
+              "name": "Leads",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_lead\"] }}"
+            },
+            {
+              "name": "Cadastros",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"leadgen_grouped\"] }}"
+            },
+            {
+              "name": "Contatos",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"contact_total\"] }}"
+            },
+            {
+              "name": "Mensagens",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"onsite_conversion.messaging_conversation_started_7d\"] }}"
+            },
+            {
+              "name": "Conversões",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_purchase\"] }}"
+            },
+            {
+              "name": "Compras",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_purchase\"] }}"
+            },
+            {
+              "name": "Checkouts",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_initiate_checkout\"] }}"
+            },
+            {
+              "name": "Viu Conteúdo",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_view_content\"] }}"
+            },
+            {
+              "name": "Adição ao Carrinho",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_add_to_cart\"] }}"
+            },
+            {
+              "name": "Pesquisar",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_search\"] }}"
+            },
+            {
+              "name": "Add Info Pagamento",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_add_payment_info\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5aaa723b-cbbc-4ce6-bc53-76c5afc769ca",
+      "name": "Métricas listadas",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1bbpDcOB8yPQv6kXUxs7GntsdEFzh6tJ0EoeZIKnpuaU",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 63944589,
+          "mode": "list",
+          "cachedResultName": "Total CAMPAIGN",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bbpDcOB8yPQv6kXUxs7GntsdEFzh6tJ0EoeZIKnpuaU/edit#gid=63944589"
+        },
+        "dataMode": "autoMapInputData",
+        "options": {}
+      },
+      "id": "9a41474f-85c5-41ff-802f-f19bc596f221",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2300,
+        400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1bbpDcOB8yPQv6kXUxs7GntsdEFzh6tJ0EoeZIKnpuaU",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 63944589,
+          "mode": "list",
+          "cachedResultName": "Total CAMPAIGN",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bbpDcOB8yPQv6kXUxs7GntsdEFzh6tJ0EoeZIKnpuaU/edit#gid=63944589"
+        },
+        "options": {}
+      },
+      "id": "ec53a6b7-9445-4be3-9036-99807582e989",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1900,
+        400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "ID",
+              "value": "={{ $node[\"Número da Linha\"].json[\"ID\"].replace('+','') }}"
+            },
+            {
+              "name": "Data",
+              "value": "={{ $node[\"Date & Time\"].json.hoje }}"
+            },
+            {
+              "name": "Valor Gasto",
+              "value": "={{ parseFloat($node[\"Google Sheets1\"].json[\"Valor Gasto\"]) + parseFloat($node[\"Métricas listadas\"].json[\"Valor Gasto\"]) }} "
+            },
+            {
+              "name": "Impressões",
+              "value": "={{ parseFloat($node[\"Google Sheets1\"].json[\"Impressões\"]) + parseFloat($node[\"Métricas listadas\"].json[\"Impressões\"]) }} "
+            },
+            {
+              "name": "Alcance",
+              "value": "={{ parseFloat($node[\"Google Sheets1\"].json[\"Alcance\"]) + parseFloat($node[\"Métricas listadas\"].json[\"Alcance\"]) }} "
+            },
+            {
+              "name": "Cliques no Link",
+              "value": "={{ parseFloat($node[\"Google Sheets1\"].json[\"Cliques no Link\"]) + parseFloat($node[\"Métricas listadas\"].json[\"Cliques no Link\"]) }} "
+            },
+            {
+              "name": "Visualização da Página",
+              "value": "=Visualização da Página"
+            },
+            {
+              "name": "Leads",
+              "value": "={{ parseFloat($node[\"Google Sheets1\"].json[\"Leads\"]) + parseFloat($node[\"Métricas listadas\"].json[\"Leads\"]) }} "
+            },
+            {
+              "name": "Cadastros",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"leadgen_grouped\"] }}"
+            },
+            {
+              "name": "Contatos",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"contact_total\"] }}"
+            },
+            {
+              "name": "Mensagens",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"onsite_conversion.messaging_conversation_started_7d\"] }}"
+            },
+            {
+              "name": "Conversões",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_purchase\"] }}"
+            },
+            {
+              "name": "Compras",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_purchase\"] }}"
+            },
+            {
+              "name": "Checkouts",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_initiate_checkout\"] }}"
+            },
+            {
+              "name": "Viu Conteúdo",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_view_content\"] }}"
+            },
+            {
+              "name": "Adição ao Carrinho",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_add_to_cart\"] }}"
+            },
+            {
+              "name": "Pesquisar",
+              "value": "={{  $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_search\"] }}"
+            },
+            {
+              "name": "Add Info Pagamento",
+              "value": "={{ $node[\"Extrai Métricas da Array Actions\"].json[\"offsite_conversion.fb_pixel_add_payment_info\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30e1ff17-1e2f-41a5-b118-ccaa13e9fef1",
+      "name": "Métricas listadas1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": true,
+              "value2": "={{$node[\"Passa um anúncio de cada vez\"].context[\"noItemsLeft\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "365ed3b8-ffce-4180-abee-9032d58d137c",
+      "name": "Última Execução?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2540,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "1b570eb1-8b17-4a2c-bd92-53b4febdcf0a",
+      "name": "Espera um pouco",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2840,
+        360
+      ],
+      "webhookId": "881e3af9-1d7c-4e7b-bd0d-e83efdd7e99f"
     }
   ],
   "pinData": {},
@@ -139,6 +574,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-04-01T15:23:57.974Z",
-  "versionId": "0855dd2c-3acd-45c6-8261-6e6fc649aaa8"
+  "updatedAt": "2023-04-01T22:03:02.451Z",
+  "versionId": "63b9814a-59ff-4147-90d2-d96fbcacf506"
 }
