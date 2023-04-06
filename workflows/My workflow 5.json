@@ -1,42 +1,59 @@
 {
   "active": false,
-  "connections": {},
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2023-04-04T04:14:25.405Z",
   "id": "29",
   "name": "My workflow 5",
   "nodes": [
     {
-      "parameters": {
-        "pollTimes": {
-          "item": [
-            {
-              "mode": "everyMinute"
-            }
-          ]
-        },
-        "calendarId": {
-          "__rl": true,
-          "value": "lucasgabrieljaci20@gmail.com",
-          "mode": "list",
-          "cachedResultName": "lucasgabrieljaci20@gmail.com"
-        },
-        "triggerOn": "eventCreated",
-        "options": {}
-      },
-      "id": "af13e139-3ec9-4f30-af10-fc133e3af958",
-      "name": "Google Calendar Trigger",
-      "type": "n8n-nodes-base.googleCalendarTrigger",
+      "parameters": {},
+      "id": "3cbe5384-549a-47ac-b6be-4b6b85979a75",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
         540,
-        340
-      ],
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "11",
-          "name": "Lucas Katacha"
-        }
-      }
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $OPENAI_API_KEY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"model\":\"gpt-3.5-turbo\",\"messages\":[{\"role\":\"user\",\"content\":\"Hello!\"}]}",
+        "options": {}
+      },
+      "id": "e7258d00-bf5c-4749-aadc-8856b537290b",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        740,
+        420
+      ]
     }
   ],
   "pinData": {},
@@ -44,6 +61,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-04-04T04:25:02.072Z",
-  "versionId": "d4234342-1f27-485c-b541-baa05252e986"
+  "updatedAt": "2023-04-05T22:06:29.707Z",
+  "versionId": "e9dac5d9-d181-42fd-a148-6561a0af733c"
 }
