@@ -1,0 +1,111 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-04-04T04:14:25.405Z",
+  "id": "29",
+  "name": "BotConversa - Agendamento",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "botAgenda",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b009e07c-424d-44ec-998e-0d1641bf802f",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        640,
+        500
+      ],
+      "webhookId": "86b0dedd-fb3f-4bb1-9be1-f7f8c80861fb"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1o6JLTtJ9hvhvi82empujD3NN8j40zN5yBoJZ6y1ZLrE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o6JLTtJ9hvhvi82empujD3NN8j40zN5yBoJZ6y1ZLrE/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "CPF",
+              "lookupValue": "={{ $json.headers.cpf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b81eb4ee-1559-45b8-b295-2b064376ac35",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        860,
+        500
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n\"name\":\"{{ $json.Nome }}\"\n} ",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "aeb382fe-c2b0-4675-ac92-4178ee24c097",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        500
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-04-11T23:53:04.169Z",
+  "versionId": "00ef5c0a-aef9-4307-bcdf-9488b0a8967c"
+}
