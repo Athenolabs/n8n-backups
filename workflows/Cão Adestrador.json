@@ -1,15 +1,156 @@
 {
-  "active": false,
-  "connections": {},
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    }
+  },
   "createdAt": "2023-04-13T02:05:15.877Z",
   "id": "30",
   "name": "Cão Adestrador",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cao",
+        "options": {}
+      },
+      "id": "76161303-7bfd-4bb8-bf52-214f5909dc2a",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        520,
+        240
+      ],
+      "webhookId": "d89012aa-8ac3-43cb-82ff-366ea4281bea"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.event }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "PURCHASE_COMPLETE"
+            },
+            {
+              "value2": "PURCHASE_APPROVED",
+              "output": 1
+            }
+          ]
+        }
+      },
+      "id": "9cf35c93-818d-45f9-b84c-aeca6a8799e2",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        740,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/iEpo4RFnBWuT/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "cName",
+              "value": "={{ $json.body.data.buyer.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "cMail",
+              "value": "={{ $json.body.data.buyer.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "78b2f018-ec43-4ab4-9bba-830bd7dc3db7",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1180,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.body.data.buyer.checkout_phone.slice(0, 2) + $json.body.data.buyer.checkout_phone.slice(3) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6a00eb4a-9941-46ad-b2b4-ac5b50a08263",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        980,
+        240
+      ]
+    }
+  ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2023-04-13T02:05:15.877Z",
-  "versionId": "7dfd2c2a-d62c-4233-830e-dfbae3010eeb"
+  "triggerCount": 1,
+  "updatedAt": "2023-04-13T05:29:38.678Z",
+  "versionId": "6acaf306-0aa8-4666-9300-5ac6d0517d10"
 }
