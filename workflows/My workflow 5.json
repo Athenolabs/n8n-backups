@@ -1,7 +1,57 @@
 {
   "active": false,
   "connections": {
-    "When clicking \"Execute Workflow\"": {
+    "Notion Filtra Registro": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Notion Filtra Registro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        []
+      ]
+    },
+    "Set": {
       "main": [
         [
           {
@@ -13,46 +63,165 @@
       ]
     }
   },
-  "createdAt": "2023-04-04T04:14:25.405Z",
-  "id": "29",
+  "createdAt": "2023-04-21T05:45:57.469Z",
+  "id": "31",
   "name": "My workflow 5",
   "nodes": [
     {
-      "parameters": {},
-      "id": "3cbe5384-549a-47ac-b6be-4b6b85979a75",
-      "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/F6KE8tndfP5t/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.property_nome.split(\" \")[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "60d8ce54-2295-4766-8a45-897b9e6d4b7d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1380,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2221320b-9edb-4934-9ed1-c5eb506050c6",
+          "mode": "list",
+          "cachedResultName": "CRM Odonto",
+          "cachedResultUrl": "https://www.notion.so/2221320b9edb49349ed1c5eb506050c6"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "CPF|title",
+              "condition": "equals",
+              "titleValue": "={{ $json.headers.cpf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "badfc2a4-106a-434f-a6a5-3d78e9b99fa9",
+      "name": "Notion Filtra Registro",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        700,
+        320
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "getCRM",
+        "options": {}
+      },
+      "id": "f0663770-b6b0-41cc-9739-d0fa7e22613e",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        540,
-        420
+        420,
+        320
+      ],
+      "webhookId": "a30bb32a-f464-4e5f-add9-840fb268a7b0"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.name }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "d72a25df-49df-4505-a3ce-961095184f7c",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        940,
+        320
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.openai.com/v1/chat/completions",
-        "sendHeaders": true,
-        "headerParameters": {
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/P8qoGazrRL7t/",
+        "sendBody": true,
+        "bodyParameters": {
           "parameters": [
             {
-              "name": "Authorization",
-              "value": "Bearer $OPENAI_API_KEY"
+              "name": "telefone",
+              "value": "556696188393"
+            },
+            {
+              "name": "nome",
+              "value": "=Katacha"
+            },
+            {
+              "name": "mensagem",
+              "value": "=CPF Invalido"
             }
           ]
         },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\"model\":\"gpt-3.5-turbo\",\"messages\":[{\"role\":\"user\",\"content\":\"Hello!\"}]}",
         "options": {}
       },
-      "id": "e7258d00-bf5c-4749-aadc-8856b537290b",
-      "name": "HTTP Request",
+      "id": "55f98eb1-2784-45c2-bc28-52bc70ded44d",
+      "name": "HTTP Request1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        740,
+        1200,
         420
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.telefone.replace(/\\+/g, '') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "369db8bb-2a39-4de7-b97c-a0f185d9419b",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        260
       ]
     }
   ],
@@ -61,6 +230,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-04-05T22:06:29.707Z",
-  "versionId": "e9dac5d9-d181-42fd-a148-6561a0af733c"
+  "updatedAt": "2023-04-21T07:31:46.357Z",
+  "versionId": "164d14c6-997f-4e04-a8a4-fad1bb270b7c"
 }
