@@ -1,0 +1,945 @@
+{
+  "active": true,
+  "connections": {
+    "Notion Filtra Registro": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "fluxoAgendar1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "fluxoAddClient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "addClientCRM": {
+      "main": [
+        [
+          {
+            "node": "Set2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verificarCPF": {
+      "main": [
+        [
+          {
+            "node": "Notion Filtra Registro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "addClientCRM1": {
+      "main": [
+        [
+          {
+            "node": "addClientCRM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set2": {
+      "main": [
+        [
+          {
+            "node": "fluxoAgendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "markConsult": {
+      "main": [
+        [
+          {
+            "node": "Notion Filtra Registro1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Filtra Registro1": {
+      "main": [
+        [
+          {
+            "node": "markConsult1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Filtra Registro2": {
+      "main": [
+        [
+          {
+            "node": "IF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF1": {
+      "main": [
+        [
+          {
+            "node": "Set4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set4": {
+      "main": [
+        [
+          {
+            "node": "fluxoAgendar3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set5": {
+      "main": [
+        [
+          {
+            "node": "fluxoAddClient1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verificarCPF1": {
+      "main": [
+        [
+          {
+            "node": "Notion Filtra Registro2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion Filtra Registro4": {
+      "main": [
+        [
+          {
+            "node": "markConsult3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reagendar": {
+      "main": [
+        [
+          {
+            "node": "Notion Filtra Registro4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-04-21T05:45:57.469Z",
+  "id": "31",
+  "name": "CRM Odonto",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2221320b-9edb-4934-9ed1-c5eb506050c6",
+          "mode": "list",
+          "cachedResultName": "CRM Odonto",
+          "cachedResultUrl": "https://www.notion.so/2221320b9edb49349ed1c5eb506050c6"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "CPF|title",
+              "condition": "equals",
+              "titleValue": "={{ $json.body.cpf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "badfc2a4-106a-434f-a6a5-3d78e9b99fa9",
+      "name": "Notion Filtra Registro",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        700,
+        320
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.name }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "d72a25df-49df-4505-a3ce-961095184f7c",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        940,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.verificarCPF.json.body.telefone.replace(/\\+/g, '').slice(2) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "369db8bb-2a39-4de7-b97c-a0f185d9419b",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.verificarCPF.json.body.telefone.replace(/\\+/g, '').slice(2) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0261b570-7f7d-459e-8f61-2e162e173329",
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2221320b-9edb-4934-9ed1-c5eb506050c6",
+          "mode": "list",
+          "cachedResultName": "CRM Odonto",
+          "cachedResultUrl": "https://www.notion.so/2221320b9edb49349ed1c5eb506050c6"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "CPF|title",
+              "title": "={{ $json.body.CPF }}"
+            },
+            {
+              "key": "Nome|rich_text",
+              "textContent": "={{ $json.body.Nome }}"
+            },
+            {
+              "key": "Email|email",
+              "emailValue": "={{ $json.body.Mail }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "novo"
+            },
+            {
+              "key": "Data de Nascimento|rich_text",
+              "textContent": "={{ $json.body.dataDeNascimento }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "436fc65f-ed02-4599-a01c-83d666553930",
+      "name": "addClientCRM",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        700,
+        780
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/F6KE8tndfP5t/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "=..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "53279353-1bbf-4042-863f-ce4617cd3a09",
+      "name": "fluxoAgendar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1140,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/F6KE8tndfP5t/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.property_nome.split(\" \")[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "60d8ce54-2295-4766-8a45-897b9e6d4b7d",
+      "name": "fluxoAgendar1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "getCRM",
+        "options": {}
+      },
+      "id": "f0663770-b6b0-41cc-9739-d0fa7e22613e",
+      "name": "verificarCPF",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        320
+      ],
+      "webhookId": "a30bb32a-f464-4e5f-add9-840fb268a7b0"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "addClientCRM",
+        "options": {}
+      },
+      "id": "66a01181-2b84-4406-bb81-04f5156eceb7",
+      "name": "addClientCRM1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        780
+      ],
+      "webhookId": "eadd8656-0556-4d5d-aacd-df87470f7774"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/R07gaCFiD3kf/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "=..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e3c60d41-53df-4712-b2db-f9ff1ed9769f",
+      "name": "fluxoAddClient",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.addClientCRM1.json.body.teledone.replace(/\\+/g, '').slice(2) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "85250015-8db6-4525-af66-31d4b714f503",
+      "name": "Set2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        940,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/F6KE8tndfP5t/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "=..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9df9ce53-e2a1-46f1-afeb-0e93fee3a7e6",
+      "name": "fluxoAgendar2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1360,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.markConsult11.json.body.teledone.replace(/\\+/g, '').slice(2) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0cf2c2ae-01f2-4e56-95ff-ea976a92f49d",
+      "name": "Set3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "markConsult",
+        "options": {}
+      },
+      "id": "a2861684-efcc-4abe-baf9-ccac42714e2b",
+      "name": "markConsult",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1040
+      ],
+      "webhookId": "eadd8656-0556-4d5d-aacd-df87470f7774"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12})"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Status|select",
+              "selectValue": "Agendado"
+            },
+            {
+              "key": "Data da Consulta|rich_text",
+              "textContent": "={{ $node.markConsult.json.body.dataReserva }}"
+            },
+            {
+              "key": "Hora da Consulta|rich_text",
+              "textContent": "={{ $node.markConsult.json.body.horaReserva }}"
+            }
+          ]
+        }
+      },
+      "id": "f677e4c4-cf9d-4f43-b554-613446bcfa66",
+      "name": "markConsult1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        940,
+        1040
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2221320b-9edb-4934-9ed1-c5eb506050c6",
+          "mode": "list",
+          "cachedResultName": "CRM Odonto",
+          "cachedResultUrl": "https://www.notion.so/2221320b9edb49349ed1c5eb506050c6"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "CPF|title",
+              "condition": "equals",
+              "titleValue": "={{ $json.body.cpf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8af4ede0-98bc-47d7-81e0-31914c029105",
+      "name": "Notion Filtra Registro1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        700,
+        1040
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2221320b-9edb-4934-9ed1-c5eb506050c6",
+          "mode": "list",
+          "cachedResultName": "CRM Odonto",
+          "cachedResultUrl": "https://www.notion.so/2221320b9edb49349ed1c5eb506050c6"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "CPF|title",
+              "condition": "equals",
+              "titleValue": "={{ $json.body.cpf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "259a7eb5-a318-40c5-a6d2-c64f30765368",
+      "name": "Notion Filtra Registro2",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        700,
+        1480
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.name }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "2007f9f3-7cdc-4670-9145-9e1a32d0165e",
+      "name": "IF1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        940,
+        1480
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.verificarCPF1.json.body.telefone.replace(/\\+/g, '').slice(2) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "00289fca-e32c-4ee0-be15-ef870e1c9cd9",
+      "name": "Set4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "telefone",
+              "value": "={{ $node.verificarCPF1.json.body.telefone.replace(/\\+/g, '').slice(2) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bf670b65-e1fe-4187-ac45-e4125af86100",
+      "name": "Set5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        1620
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/4E9XepwZnix3/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.property_nome.split(\" \")[0] }}"
+            },
+            {
+              "name": "dataReserva",
+              "value": "={{ $node[\"Notion Filtra Registro2\"].json.property_data_da_consulta }}"
+            },
+            {
+              "name": "horaReserva",
+              "value": "={{ $node[\"Notion Filtra Registro2\"].json.property_hora_da_consulta }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a784406a-3d74-491c-a5c8-24864c39fb6e",
+      "name": "fluxoAgendar3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "verificCPF",
+        "options": {}
+      },
+      "id": "a176b53e-a010-4b75-9747-efcbdc327977",
+      "name": "verificarCPF1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1480
+      ],
+      "webhookId": "a30bb32a-f464-4e5f-add9-840fb268a7b0"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/P8qoGazrRL7t/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "="
+            },
+            {
+              "name": "mensagem",
+              "value": "=Esse CPF não existe em nosso sistema, não podemos reagendar sua consulta.\n\nDigite #test e depois escolha a opção falar com um humano, para resolver este seu problema."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f2e6d627-22e6-464d-af46-e382d27f76d3",
+      "name": "fluxoAddClient1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1340,
+        1620
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12})"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Data da Consulta|rich_text",
+              "textContent": "={{ $node.Reagendar.json.body.dataReserva }}"
+            },
+            {
+              "key": "Hora da Consulta|rich_text",
+              "textContent": "={{ $node.Reagendar.json.body.horaReserva }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "Reagendado"
+            }
+          ]
+        }
+      },
+      "id": "1ac212d2-8a43-49a9-9e4b-e0f18f99be7a",
+      "name": "markConsult3",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        940,
+        1920
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2221320b-9edb-4934-9ed1-c5eb506050c6",
+          "mode": "list",
+          "cachedResultName": "CRM Odonto",
+          "cachedResultUrl": "https://www.notion.so/2221320b9edb49349ed1c5eb506050c6"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "CPF|title",
+              "condition": "equals",
+              "titleValue": "={{ $json.body.cpf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "52bbd713-d89d-4492-be6c-f0d1f1b93502",
+      "name": "Notion Filtra Registro4",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2,
+      "position": [
+        700,
+        1920
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "13",
+          "name": "Katacha"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "reagendar",
+        "options": {}
+      },
+      "id": "8e2fe45d-28fa-4e5d-ac98-90ede0e4b6d1",
+      "name": "Reagendar",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1920
+      ],
+      "webhookId": "36d3e4b4-2eaf-4b50-b040-495f5b4c8bcd"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 5,
+  "updatedAt": "2023-04-21T21:15:44.283Z",
+  "versionId": "9cb39550-b3f5-4372-a9d4-6577379c06e1"
+}
