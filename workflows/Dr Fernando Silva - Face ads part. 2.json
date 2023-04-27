@@ -326,21 +326,6 @@
   "nodes": [
     {
       "parameters": {
-        "content": "## ✅ Extração de Métricas Pretéritas a Nível AD\n",
-        "height": 520.4481886407967,
-        "width": 3025.853314598751
-      },
-      "id": "5e1f9ab4-0ae8-4aca-8166-b02697e2967f",
-      "name": "Note",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        460,
-        460
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "boolean": [
             {
@@ -357,79 +342,6 @@
       "position": [
         2860,
         560
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Extrai Métricas de Ações\n",
-        "height": 133.92901020200262,
-        "width": 177.1229069577711
-      },
-      "id": "0538ace8-5a08-4a40-9471-d513e5c6dbe3",
-      "name": "Note6",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        2120,
-        540
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Mapeia métricas escolhidas para adicionar à planilha"
-      },
-      "id": "30620542-ad66-4540-b12d-77d559c629b0",
-      "name": "Note7",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        2320,
-        520
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Verificador do segundo looping 👆🏽\n(Não mexa aqui)",
-        "height": 124.15876451247402,
-        "width": 398.19504002877306
-      },
-      "id": "af7168f5-27ff-4857-a483-e9ad1e94dd8d",
-      "name": "Note3",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        3000,
-        720
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Leitura da planilha\nLeitura da primeira folha da planilha onde estão delimitadas as datas",
-        "height": 104.46079891425553,
-        "width": 311.0568619080111
-      },
-      "id": "274f6704-2ea5-4608-9f49-39ad50099be9",
-      "name": "Note2",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        900,
-        840
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## Separa Campanha por Campanha",
-        "height": 94.83574415019801,
-        "width": 280.605529266526
-      },
-      "id": "e0a65b52-9d09-4a64-a5f0-b882e6ab1aef",
-      "name": "Note4",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        1300,
-        840
       ]
     },
     {
@@ -1224,6 +1136,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2023-03-16T13:16:44.996Z",
-  "versionId": "08e7a55b-0ce3-4094-8f3c-cf512d02f80f"
+  "updatedAt": "2023-04-26T19:13:44.964Z",
+  "versionId": "2e582b79-e131-41c3-9deb-cf21f136389b"
 }
