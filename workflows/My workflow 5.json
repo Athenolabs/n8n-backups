@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Send Email",
+            "node": "Todoist",
             "type": "main",
             "index": 0
           }
@@ -19,35 +19,33 @@
   "nodes": [
     {
       "parameters": {},
-      "id": "653885da-8c8e-4170-ba2d-aadefcbe0e52",
+      "id": "939bba7c-8e69-4894-a5d7-d387cb60e8f8",
       "name": "When clicking \"Execute Workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        500,
-        380
+        600,
+        460
       ]
     },
     {
       "parameters": {
-        "fromEmail": "contato@drfernandosilva.com.br",
-        "toEmail": "lucasgabrieljaci20@gmail.com",
-        "subject": "TESTANDO",
-        "text": "OIRE CMOMC VAIA",
-        "options": {}
+        "operation": "getAll",
+        "returnAll": true,
+        "filters": {}
       },
-      "id": "66a77936-0f47-4cec-a7f0-9e277fb020d2",
-      "name": "Send Email",
-      "type": "n8n-nodes-base.emailSend",
+      "id": "6a5bf9d2-cd18-48b3-850b-7fe63cda6fe5",
+      "name": "Todoist",
+      "type": "n8n-nodes-base.todoist",
       "typeVersion": 2,
       "position": [
-        700,
-        380
+        800,
+        460
       ],
       "credentials": {
-        "smtp": {
-          "id": "12",
-          "name": "TurboCloud Email "
+        "todoistApi": {
+          "id": "14",
+          "name": "Katacja"
         }
       }
     }
@@ -57,6 +55,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-05-06T18:38:57.495Z",
-  "versionId": "e8fa6cf6-cf8e-4074-8a38-c1e65825998e"
+  "updatedAt": "2023-05-08T00:05:10.081Z",
+  "versionId": "7f91b7d9-c1be-49db-89ff-590de813c094"
 }
