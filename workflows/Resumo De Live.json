@@ -1,0 +1,197 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Read Binary Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        []
+      ]
+    },
+    "Set": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        []
+      ]
+    },
+    "Read Binary Files": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-05-12T19:08:17.914Z",
+  "id": "35",
+  "name": "Resumo De Live",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f2ca70c1-eac2-475a-b3b4-d0d845489190",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        600,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-mp36.p.rapidapi.com/dl",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "qHbrcVQFEEs"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-RapidAPI-Host",
+              "value": "youtube-mp36.p.rapidapi.com"
+            },
+            {
+              "name": "X-RapidAPI-Key",
+              "value": "fd5f7e45f1msh6c75d6c83a7339dp19daf9jsne65f033131bf"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6a47307d-5ae4-4082-b25e-c682c1ef726e",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        800,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/audio/transcriptions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "whisper-1"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a69f06e6-e11c-46fd-a40d-dfcede765732",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1700,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "item.message = Buffer.from(item.link).toString('base64');\n\nreturn item.message;"
+      },
+      "id": "35a82c5e-884e-41d6-95ab-7c155b97df02",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "message"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4434a9c5-d813-46ae-a31a-fdd254a9bfc0",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "fileSelector": "=https://nerdhits.com.br/wp-content/uploads/2022/05/goku-dragon-ball-4-1024x536.jpg"
+      },
+      "id": "7e898f74-2552-43b2-96a0-38663640e4c0",
+      "name": "Read Binary Files",
+      "type": "n8n-nodes-base.readBinaryFiles",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        580
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-05-13T00:01:32.445Z",
+  "versionId": "e7ce5b10-e6d9-4c96-bc97-51a76577c499"
+}
