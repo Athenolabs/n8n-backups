@@ -1,15 +1,117 @@
 {
-  "active": false,
-  "connections": {},
+  "active": true,
+  "connections": {
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2023-05-20T00:45:02.744Z",
   "id": "36",
   "name": "Return Idade",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "dataNascimento",
+              "value": "={{ $json.body.idade }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17e2548a-fdd7-46a1-8f5a-577d9f39181e",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        740,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let hoje = new Date();\nlet dataNasc = new Date($json.dataNascimento);\nlet idade = hoje.getFullYear() - dataNasc.getFullYear();\nlet mes = hoje.getMonth() - dataNasc.getMonth();\nlet dia = hoje.getDate() - dataNasc.getDate();\n\nif (mes < 0 || (mes === 0 && dia < 0)) {\n  idade--;\n}\n\n$input.item.json.idade = idade;\n\nreturn $input.item;"
+      },
+      "id": "1c8242bf-5aa2-4bc5-ade2-ac13ab005c12",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        920,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "idade",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "a9a189ad-78ff-43f5-9f8d-8ba492211f5b",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        560,
+        340
+      ],
+      "webhookId": "5fa65a38-611c-4aec-b457-0b2d46b1a77c"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"idade\":\"{{ $json.idade }}\"} ",
+        "options": {}
+      },
+      "id": "1f7fe40f-a988-4a35-975c-0aa55e40bb2c",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        340
+      ]
+    }
+  ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2023-05-20T00:45:02.744Z",
-  "versionId": "6752b431-adcb-46b4-b159-df0643cdbc8e"
+  "triggerCount": 1,
+  "updatedAt": "2023-05-22T23:04:39.606Z",
+  "versionId": "20cf6da7-01f6-4123-86d6-51edd0d7b95b"
 }
