@@ -1,0 +1,201 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-06-01T13:10:38.328Z",
+  "id": "37",
+  "name": "Funil Recuperação Dr. Fernando - GREEN",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "green",
+        "options": {}
+      },
+      "id": "dfb5dd12-be17-4acc-9afd-5c546f241779",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        640,
+        220
+      ],
+      "webhookId": "18a79fe7-9784-4f63-8016-3f7014288ff4"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.sale.status }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "Paid"
+            }
+          ]
+        }
+      },
+      "id": "b4aaa524-bdc3-4d55-9247-f34b244a093a",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        880,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "DATA DE INSCRIÇÃO"
+            },
+            {
+              "fieldId": "NOME"
+            },
+            {
+              "fieldId": "TELEFONE"
+            },
+            {
+              "fieldId": "E-MAIL"
+            },
+            {
+              "fieldId": "STATUS"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "a63c6607-55a7-4ef8-8c24-95457acb8d5e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1580,
+        120
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            },
+            {
+              "name": "dataHoje",
+              "value": "={{ const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`; \n\n\ndataFormatada}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d1e53e46-8389-4bbd-8b6e-2a8c05d81f1b",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "0d7b9abd-de0c-4131-b731-a428245a7d84",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        120
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-06-01T13:51:13.050Z",
+  "versionId": "1e2fa34d-8997-4f79-be3e-d247f4f5df0f"
+}
