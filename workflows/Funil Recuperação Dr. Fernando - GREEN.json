@@ -266,6 +266,72 @@
           }
         ]
       ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-06-01T13:10:38.328Z",
@@ -401,7 +467,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
             },
             {
               "name": "cpf",
@@ -517,7 +583,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
             },
             {
               "name": "cpf",
@@ -633,7 +699,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
             },
             {
               "name": "cpf",
@@ -749,7 +815,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
             },
             {
               "name": "cpf",
@@ -865,7 +931,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
             },
             {
               "name": "cpf",
@@ -981,7 +1047,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone }}"
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
             },
             {
               "name": "cpf",
@@ -1053,6 +1119,222 @@
         1200,
         580
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "PAGO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f039e11-fbb0-4e77-bf68-4b1602e7c486",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "NÃO PAGO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3b662672-95c6-4af4-b944-a82b56229c23",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "CANCELADA"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cc15cf5d-0bd4-424a-bbdf-88c15826a8b1",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "FINALIZADA"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "07435404-e0f4-4889-9bd2-d788974acd79",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "ABANDONADO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "89eec169-9527-404d-873d-43bc178947f5",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "AGUARDANDO PAGAMENTO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "864eb44e-7746-4c43-a6eb-595f6732339e",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        760
+      ]
     }
   ],
   "pinData": {},
@@ -1060,6 +1342,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-01T20:26:23.494Z",
-  "versionId": "4f8cfd2b-cbda-4cd1-9430-3fc04310c386"
+  "updatedAt": "2023-06-03T14:07:25.429Z",
+  "versionId": "e57ea37b-830f-4a00-987f-5d3597184056"
 }
