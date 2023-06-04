@@ -1,0 +1,1352 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Ass. Paga",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ass. Não Paga",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ass. Cancelada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ass. Paga": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Set1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ass. Não Paga": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Set2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ass. Cancelada": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Set3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ass. Finalizada": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set4": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "Set4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Checkou Abandonado": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set5": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "Set5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "aguardando pagamento": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Ass. Finalizada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Checkou Abandonado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "aguardando pagamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2023-06-01T13:10:38.328Z",
+  "id": "37",
+  "name": "Comunidade Novo Ego - Green",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "green",
+        "options": {}
+      },
+      "id": "dfb5dd12-be17-4acc-9afd-5c546f241779",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        640,
+        220
+      ],
+      "webhookId": "18a79fe7-9784-4f63-8016-3f7014288ff4"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.sale.status }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "paid"
+            },
+            {
+              "value2": "unpaid",
+              "output": 1
+            },
+            {
+              "value2": "canceled",
+              "output": 2
+            },
+            {
+              "value2": "=ended",
+              "output": 3
+            },
+            {
+              "value2": "abandoned",
+              "output": 3
+            },
+            {
+              "value2": "pendingPayment",
+              "output": 3
+            }
+          ]
+        }
+      },
+      "id": "b4aaa524-bdc3-4d55-9247-f34b244a093a",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        880,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.Email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.date }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.Nome }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.telefone }}"
+            },
+            {
+              "column": "CPF",
+              "fieldValue": "={{ $json.cpf }}"
+            },
+            {
+              "column": "STATUS",
+              "fieldValue": "PAGO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a63c6607-55a7-4ef8-8c24-95457acb8d5e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        -140
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d1e53e46-8389-4bbd-8b6e-2a8c05d81f1b",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "0d7b9abd-de0c-4131-b731-a428245a7d84",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        -140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "21d5cc7a-3d1e-4776-8669-4f76bcea945a",
+      "name": "Ass. Paga",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.Email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.date }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.Nome }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.telefone }}"
+            },
+            {
+              "column": "CPF",
+              "fieldValue": "={{ $json.cpf }}"
+            },
+            {
+              "column": "STATUS",
+              "fieldValue": "NÃO PAGO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "49bb50d2-5693-4c48-ac44-9eb7d92a6486",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        40
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9aefe16f-85b9-4de4-8e11-f3736fdad141",
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "deb4e452-959a-41d0-a4cf-e02a20fe6eb1",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        40
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ae663670-98b5-4d3c-b9da-3769ef189a29",
+      "name": "Ass. Não Paga",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.Email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.date }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.Nome }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.telefone }}"
+            },
+            {
+              "column": "CPF",
+              "fieldValue": "={{ $json.cpf }}"
+            },
+            {
+              "column": "STATUS",
+              "fieldValue": "CANCELADA"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ab545f75-ca9d-47a8-8717-9c39239d0373",
+      "name": "Google Sheets2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        220
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8a68084d-7d20-4d29-a7fe-d3290c115927",
+      "name": "Set2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "2d8eb151-e1c5-415e-820e-a51869ab5a39",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5e38ac4c-3c49-4d43-8b76-b84033b3a436",
+      "name": "Ass. Cancelada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.Email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.date }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.Nome }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.telefone }}"
+            },
+            {
+              "column": "CPF",
+              "fieldValue": "={{ $json.cpf }}"
+            },
+            {
+              "column": "STATUS",
+              "fieldValue": "FINALIZADA"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0c1f7bd0-8ec9-4929-9f36-0ca390279afe",
+      "name": "Google Sheets3",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "043fbb39-e438-4dae-8687-5cba6d4e5621",
+      "name": "Set3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "397b5607-b3a2-4967-85a8-685c0e3c1dd6",
+      "name": "Code3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "25fe0115-87da-48d5-964e-168eec9d76cb",
+      "name": "Ass. Finalizada",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.Email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.date }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.Nome }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.telefone }}"
+            },
+            {
+              "column": "CPF",
+              "fieldValue": "={{ $json.cpf }}"
+            },
+            {
+              "column": "STATUS",
+              "fieldValue": "ABANDONADO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "beb6554e-b935-4c99-9fc7-0420480cd068",
+      "name": "Google Sheets4",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        580
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "960144db-ae3f-4aba-ba01-ca8aa98a7387",
+      "name": "Set4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "d6b97d58-5ac6-46e5-a87f-a23ed1ebc121",
+      "name": "Code4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        580
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "dbc9ffe8-6bab-4934-9dbd-f92b32468f9a",
+      "name": "Checkou Abandonado",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "LEADS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1KUtQIQGGbvhlvP5EYmm_Zp5rIWSLN8s7SV3ZSUfzfoE/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.Email }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ $json.date }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.Nome }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.telefone }}"
+            },
+            {
+              "column": "CPF",
+              "fieldValue": "={{ $json.cpf }}"
+            },
+            {
+              "column": "STATUS",
+              "fieldValue": "AGUARDANDO PAGAMENTO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0938292c-ae46-4d02-9652-bdac1f6d54a4",
+      "name": "Google Sheets5",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        760
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.client.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.client.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.client.document }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bc4993a1-7900-433c-8d0b-9379106b493b",
+      "name": "Set5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
+      },
+      "id": "062f89c7-951f-41ce-aca8-6e6ae21608af",
+      "name": "Code5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5bb1dd3c-4d9b-4dba-a7ec-22762b41ef70",
+      "name": "aguardando pagamento",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.sale.status }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "ended"
+            },
+            {
+              "value2": "abandoned",
+              "output": 1
+            },
+            {
+              "value2": "pendingPayment",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "620cf907-6a61-433e-bd02-8a4f191f22b7",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "PAGO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f039e11-fbb0-4e77-bf68-4b1602e7c486",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "NÃO PAGO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3b662672-95c6-4af4-b944-a82b56229c23",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "CANCELADA"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cc15cf5d-0bd4-424a-bbdf-88c15826a8b1",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2040,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "FINALIZADA"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "07435404-e0f4-4889-9bd2-d788974acd79",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "ABANDONADO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "89eec169-9527-404d-873d-43bc178947f5",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.botconversa.com.br/api/v1/webhooks-automation/catch/40305/0nJ3XAQJxR4V/",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "nome",
+              "value": "={{ $json.body.client.name.split(\" \")[0] }}"
+            },
+            {
+              "name": "status",
+              "value": "AGUARDANDO PAGAMENTO"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.client.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "864eb44e-7746-4c43-a6eb-595f6732339e",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        760
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-06-03T19:26:28.205Z",
+  "versionId": "5cc207e8-649c-4c01-9ddd-9eb75cfacfdb"
+}
