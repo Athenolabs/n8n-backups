@@ -105,15 +105,15 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "15ASaKnMD7E1HULXqLu_eqWw4p-Q41VEE9uHD-nD8LT8",
+          "value": "1Wh4y9lhyCBR5TLobjLlxsyx82ooKpkhBf7bPx3f3xtI",
           "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 653996669,
           "mode": "list",
-          "cachedResultName": "Página1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15ASaKnMD7E1HULXqLu_eqWw4p-Q41VEE9uHD-nD8LT8/edit#gid=0"
+          "cachedResultName": "Disparo de mensagem - Página1.csv",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Wh4y9lhyCBR5TLobjLlxsyx82ooKpkhBf7bPx3f3xtI/edit#gid=653996669"
         },
         "options": {}
       },
@@ -141,8 +141,8 @@
               "value": "={{ $json.Nomes.split(\" \") }}"
             },
             {
-              "name": "telefone",
-              "value": "={{ $json.Telefone.replace('(','').replace(')', '').replace('-', '').replace(' ', '') }}"
+              "name": "Telefone",
+              "value": "={{ $json.Telefone }}"
             }
           ]
         },
@@ -160,13 +160,13 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.devzapp.com.br/funil/start/execute/641317aeaf774364f90e7bb7",
+        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/647f991d038ac01740ec5e20",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
               "name": "telefone",
-              "value": "={{ $json.telefone }}"
+              "value": "=55{{ $json.Telefone }}"
             },
             {
               "name": "cName",
@@ -187,7 +187,7 @@
     },
     {
       "parameters": {
-        "amount": "={{ Math.floor(Math.random() * (20 - 8 + 1)) + 8; }}",
+        "amount": "={{ Math.floor(Math.random() * (60 - 40 + 1)) + 40; }}",
         "unit": "seconds"
       },
       "id": "703c3790-f77a-40b5-99cc-0721d90939ea",
@@ -237,13 +237,13 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.devzapp.com.br/funil/start/execute/64131ba4c2dae85962ddd849",
+        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/647f8dee038ac01740ec4c9b",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
               "name": "telefone",
-              "value": "=55{{ $json.telefone }}"
+              "value": "=5566996188393"
             },
             {
               "name": "cName",
@@ -261,6 +261,34 @@
         2160,
         240
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/647f991d038ac01740ec5e20",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "telefone",
+              "value": "=5566996188393"
+            },
+            {
+              "name": "cName",
+              "value": "=Lucas"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "80df39c2-240e-4088-8ea6-044a4345fe2d",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1520,
+        -20
+      ]
     }
   ],
   "pinData": {},
@@ -268,6 +296,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-03-16T13:44:23.985Z",
-  "versionId": "8fbceb47-21e2-4d35-8ee7-7c98e1dbc03c"
+  "updatedAt": "2023-06-06T20:43:02.590Z",
+  "versionId": "de2c4fe1-61c1-47d0-83ba-fce4552a548f"
 }
