@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "Google Sheets": {
-      "main": [
-        [
-          {
-            "node": "Passa um anúncio de cada vez1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Set": {
       "main": [
         [
@@ -84,6 +73,17 @@
           }
         ]
       ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Passa um anúncio de cada vez1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-03-16T13:17:11.294Z",
@@ -100,37 +100,6 @@
         540,
         260
       ]
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "1Wh4y9lhyCBR5TLobjLlxsyx82ooKpkhBf7bPx3f3xtI",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 653996669,
-          "mode": "list",
-          "cachedResultName": "Disparo de mensagem - Página1.csv",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Wh4y9lhyCBR5TLobjLlxsyx82ooKpkhBf7bPx3f3xtI/edit#gid=653996669"
-        },
-        "options": {}
-      },
-      "id": "92ec3ce7-6d75-41c3-aacc-fe31da5f6fc5",
-      "name": "Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 3,
-      "position": [
-        760,
-        260
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
-        }
-      }
     },
     {
       "parameters": {
@@ -187,7 +156,7 @@
     },
     {
       "parameters": {
-        "amount": "={{ Math.floor(Math.random() * (60 - 40 + 1)) + 40; }}",
+        "amount": "={{ Math.floor(Math.random() * (25 - 15 + 1)) + 15; }}",
         "unit": "seconds"
       },
       "id": "703c3790-f77a-40b5-99cc-0721d90939ea",
@@ -289,6 +258,37 @@
         1520,
         -20
       ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Wh4y9lhyCBR5TLobjLlxsyx82ooKpkhBf7bPx3f3xtI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 653996669,
+          "mode": "list",
+          "cachedResultName": "Disparo de mensagem - Página1.csv",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Wh4y9lhyCBR5TLobjLlxsyx82ooKpkhBf7bPx3f3xtI/edit#gid=653996669"
+        },
+        "options": {}
+      },
+      "id": "b752ec64-c8a4-4ffb-b42d-846d6aaac5d1",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        760,
+        260
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -296,6 +296,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-06-06T20:43:02.590Z",
-  "versionId": "de2c4fe1-61c1-47d0-83ba-fce4552a548f"
+  "updatedAt": "2023-06-07T17:18:41.829Z",
+  "versionId": "1d1c9a05-4dbd-4d85-b084-0e3c666cb91a"
 }
