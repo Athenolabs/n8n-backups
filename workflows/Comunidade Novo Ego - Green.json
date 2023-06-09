@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -332,11 +332,6 @@
           }
         ]
       ]
-    },
-    "HTTP Request": {
-      "main": [
-        []
-      ]
     }
   },
   "createdAt": "2023-06-01T13:10:38.328Z",
@@ -472,7 +467,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+              "value": "={{ $node.Webhook.json.body.client.number.slice(2, 6) + $node.Webhook.json.body.client.number.slice(7, 15) }}"
             },
             {
               "name": "cpf",
@@ -588,7 +583,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+              "value": "={{ $node.Webhook.json.body.client.number.slice(2, 6) + $node.Webhook.json.body.client.number.slice(7, 15) }}"
             },
             {
               "name": "cpf",
@@ -704,7 +699,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+              "value": "={{ $node.Webhook.json.body.client.number.slice(2, 6) + $node.Webhook.json.body.client.number.slice(7, 15) }}"
             },
             {
               "name": "cpf",
@@ -820,7 +815,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+              "value": "={{ $node.Webhook.json.body.client.number.slice(2, 6) + $node.Webhook.json.body.client.number.slice(7, 15) }}"
             },
             {
               "name": "cpf",
@@ -936,7 +931,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+              "value": "={{ $node.Webhook.json.body.client.number.slice(2, 6) + $node.Webhook.json.body.client.number.slice(7, 15) }}"
             },
             {
               "name": "cpf",
@@ -1052,7 +1047,7 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.client.cellphone.slice(0, 5) + $node.Webhook.json.body.client.cellphone.slice(6, 14) }}"
+              "value": "={{ $node.Webhook.json.body.client.number.slice(2, 6) + $node.Webhook.json.body.client.number.slice(7, 15) }}"
             },
             {
               "name": "cpf",
@@ -1347,6 +1342,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-03T19:26:28.205Z",
-  "versionId": "5cc207e8-649c-4c01-9ddd-9eb75cfacfdb"
+  "updatedAt": "2023-06-09T13:24:45.276Z",
+  "versionId": "6a52130e-729e-4283-bb28-93d94f6cf3ad"
 }
