@@ -23,21 +23,6 @@
         ]
       ]
     },
-    "Code": {
-      "main": [
-        []
-      ]
-    },
-    "Set": {
-      "main": [
-        []
-      ]
-    },
-    "HTTP Request1": {
-      "main": [
-        []
-      ]
-    },
     "Read Binary Files": {
       "main": [
         [
@@ -135,7 +120,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1700,
+        1260,
         580
       ]
     },
@@ -182,7 +167,7 @@
       "type": "n8n-nodes-base.readBinaryFiles",
       "typeVersion": 1,
       "position": [
-        1080,
+        1020,
         580
       ]
     }
@@ -192,6 +177,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-05-13T00:01:32.445Z",
-  "versionId": "e7ce5b10-e6d9-4c96-bc97-51a76577c499"
+  "updatedAt": "2023-06-09T14:22:00.173Z",
+  "versionId": "a724d61f-a87c-4b4f-8f69-51b6b9002d44"
 }
