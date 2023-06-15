@@ -129,7 +129,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/647f991d038ac01740ec5e20",
+        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/648a1d7955813521bfde94de",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -234,7 +234,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/647f991d038ac01740ec5e20",
+        "url": "https://api.devzapp.com.br/funil/start/executeMulti/647a7ee312737200011251b7/648a1d7955813521bfde94de",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -296,6 +296,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-06-12T14:55:06.080Z",
-  "versionId": "02cf9301-02fd-4449-b097-66b18039bca7"
+  "updatedAt": "2023-06-14T20:14:53.703Z",
+  "versionId": "382c6c58-7743-43d0-a865-3239fc45f01f"
 }
