@@ -59,28 +59,6 @@
         ]
       ]
     },
-    "IF1": {
-      "main": [
-        [
-          {
-            "node": "Code6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF2": {
-      "main": [
-        [
-          {
-            "node": "Code7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Set7": {
       "main": [
         [
@@ -97,17 +75,6 @@
         [
           {
             "node": "Set7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF3": {
-      "main": [
-        [
-          {
-            "node": "Code8",
             "type": "main",
             "index": 0
           }
@@ -140,7 +107,7 @@
       "main": [
         [
           {
-            "node": "IF1",
+            "node": "Code6",
             "type": "main",
             "index": 0
           }
@@ -151,7 +118,7 @@
       "main": [
         [
           {
-            "node": "IF2",
+            "node": "Code7",
             "type": "main",
             "index": 0
           }
@@ -162,7 +129,7 @@
       "main": [
         [
           {
-            "node": "IF3",
+            "node": "Code8",
             "type": "main",
             "index": 0
           }
@@ -417,25 +384,7 @@
       "main": [
         [
           {
-            "node": "Switch5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch5": {
-      "main": [
-        [
-          {
-            "node": "MENSAL",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "ANUAL1",
+            "node": "IF7",
             "type": "main",
             "index": 0
           }
@@ -513,6 +462,24 @@
         [
           {
             "node": "Google Sheets14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF7": {
+      "main": [
+        [
+          {
+            "node": "MENSAL",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ANUAL1",
             "type": "main",
             "index": 0
           }
@@ -653,51 +620,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.body.product.name }}",
-              "value2": "Comunidade Novo Ego"
-            }
-          ]
-        }
-      },
-      "id": "ce2887cd-b175-4849-bf5c-11af7f323b0e",
-      "name": "IF1",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3040,
-        2320
-      ]
-    },
-    {
-      "parameters": {
-        "dataType": "string",
-        "value1": "={{ $json.body.product.name }}",
-        "rules": {
-          "rules": [
-            {
-              "value2": "Mensal | Comunidade Novo Ego"
-            },
-            {
-              "value2": "Comunidade Novo Ego",
-              "output": 1
-            }
-          ]
-        }
-      },
-      "id": "d2bef2b2-bf90-4365-a125-d3852aeb3092",
-      "name": "Switch5",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 1,
-      "position": [
-        2620,
-        3920
-      ]
-    },
-    {
-      "parameters": {
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
@@ -807,26 +729,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.body.product.name }}",
-              "value2": "Comunidade Novo Ego"
-            }
-          ]
-        }
-      },
-      "id": "92183b0f-442b-4f58-bb88-4c608d481bce",
-      "name": "IF2",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3040,
-        2480
-      ]
-    },
-    {
-      "parameters": {
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
@@ -932,26 +834,6 @@
       "position": [
         3220,
         2480
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.body.product.name }}",
-              "value2": "Comunidade Novo Ego"
-            }
-          ]
-        }
-      },
-      "id": "3d53eae0-5c02-4844-b3ee-7e2aea5097e9",
-      "name": "IF3",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3040,
-        2640
       ]
     },
     {
@@ -1908,6 +1790,26 @@
         2380,
         3220
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.product.name }}",
+              "value2": "Mensal | Comunidade Novo Ego"
+            }
+          ]
+        }
+      },
+      "id": "e20e32b6-4244-4aa4-b22d-08f25bc905aa",
+      "name": "IF7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        3880
+      ]
     }
   ],
   "pinData": {},
@@ -1915,6 +1817,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-19T00:01:49.309Z",
-  "versionId": "7880c9a8-058c-40c0-a3d8-de55b7e64cf3"
+  "updatedAt": "2023-06-19T14:41:34.553Z",
+  "versionId": "d9a8e361-e36d-4a23-82ed-de0dab180700"
 }
