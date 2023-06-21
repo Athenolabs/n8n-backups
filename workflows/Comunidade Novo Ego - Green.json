@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Webhook": {
       "main": [
@@ -351,18 +351,7 @@
       "main": [
         [
           {
-            "node": "Set13",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set13": {
-      "main": [
-        [
-          {
-            "node": "Google Sheets13",
+            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -466,13 +455,7 @@
     },
     "HTTP Request1": {
       "main": [
-        [
-          {
-            "node": "Wait1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Wait1": {
@@ -480,6 +463,116 @@
         [
           {
             "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets6": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets7": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets8": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets13": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets14": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request8",
             "type": "main",
             "index": 0
           }
@@ -788,6 +881,10 @@
             {
               "name": "cpf",
               "value": "={{ $node.Webhook.json.body.client.document }}"
+            },
+            {
+              "name": "problem",
+              "value": "={{ $json.body.sale.refused.reason }}"
             }
           ]
         },
@@ -897,6 +994,10 @@
             {
               "name": "cpf",
               "value": "={{ $node.Webhook.json.body.client.document }}"
+            },
+            {
+              "name": "copyPix",
+              "value": "={{ $node.Webhook.json.body.sale.qrcode}}"
             }
           ]
         },
@@ -1476,39 +1577,6 @@
     },
     {
       "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "Nome",
-              "value": "={{ $node.Webhook.json.body.lead.name }}"
-            },
-            {
-              "name": "Email",
-              "value": "={{ $node.Webhook.json.body.lead.email }}"
-            },
-            {
-              "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.lead.cellphone.slice(1, 6) + $node.Webhook.json.body.lead.cellphone.slice(7, 15) }}"
-            },
-            {
-              "name": "cpf",
-              "value": "={{ $node.Webhook.json.body.lead.document }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "45ed0d17-8310-46d9-bf39-5ecb44df7b0d",
-      "name": "Set13",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        3220,
-        3800
-      ]
-    },
-    {
-      "parameters": {
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
@@ -1608,11 +1676,15 @@
             },
             {
               "name": "telefone",
-              "value": "={{ $node.Webhook.json.body.lead.cellphone.slice(1, 6) + $node.Webhook.json.body.lead.cellphone.slice(7, 15) }}"
+              "value": "={{ $json.body.lead.cellphone  }}"
             },
             {
               "name": "cpf",
               "value": "={{ $node.Webhook.json.body.lead.document }}"
+            },
+            {
+              "name": "checkOut",
+              "value": "={{ $json.body.link_checkout }}"
             }
           ]
         },
@@ -1802,8 +1874,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4200,
-        2320
+        4060,
+        2020
       ],
       "webhookId": "e888607b-d6b0-4e37-ae38-66f180b72ea6"
     },
@@ -1831,8 +1903,243 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4380,
-        2320
+        4240,
+        2020
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=🚫 Problema com o cartão de crédito? \nNão se preocupe! Por favor, verifique suas informações de pagamento e tente novamente.\n\nPossivel problema: *{{ $json.problem }}*\n\nSe precisar de ajuda, estamos aqui para você. Equipe da Comunidade Novo Ego."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "876248be-6dfb-4760-9ba4-a45c76ac1fc3",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        2480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, {{ $json.Nome.split(\" \")[0] }}\n\nAgradecemos por escolher a Comunidade Novo Ego! Estamos aguardando o pagamento da sua assinatura para que você possa ter acesso a mais de 150 aulas, materiais de apoio e eventos especiais com o Dr. Fernando Silva.\n\nPara concluir seu pagamento e começar a transformar sua vida e relacionamentos, só copiar e colar esse codigo no seu banco via PIX👇: "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "89fdca1a-9962-445d-b67c-a2c19f99126b",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        2640
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=👋 Olá novamente!\n\nNotamos que você deixou algo importante. Percebemos que seu carrinho de compras na Comunidade Novo Ego foi abandonado. Não queremos que você perca a oportunidade de transformar sua vida e relacionamentos.\n\nLembre-se de que ao adquirir a assinatura da Comunidade Novo Ego, você terá acesso a mais de 150 aulas, materiais de apoio e eventos especiais com o Dr. Fernando Silva.\n\nSe você tiver alguma dúvida ou se precisar de ajuda para finalizar sua compra, estaremos à disposição para ajudar. Não deixe essa chance passar!\n\nClique aqui para retornar ao seu carrinho de compras e concluir a sua assinatura: \n{{ $json.checkOut }}\n\nEsperamos recebê-lo(a) na Comunidade Novo Ego e ajudá-lo(a) a construir uma nova vida repleta de relacionamentos saudáveis e felizes.\n\nAtenciosamente,\nEquipe da Comunidade Novo Ego 🌟🤝 "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "681d16db-5c17-4adb-91b1-cdc57ec513a3",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3660,
+        3800
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=👋 Olá novamente!\n\nNotamos que você deixou algo importante. Percebemos que seu carrinho de compras na Comunidade Novo Ego foi abandonado. Não queremos que você perca a oportunidade de transformar sua vida e relacionamentos.\n\nLembre-se de que ao adquirir a assinatura da Comunidade Novo Ego, você terá acesso a mais de 150 aulas, materiais de apoio e eventos especiais com o Dr. Fernando Silva.\n\nSe você tiver alguma dúvida ou se precisar de ajuda para finalizar sua compra, estaremos à disposição para ajudar. Não deixe essa chance passar!\n\nClique aqui para retornar ao seu carrinho de compras e concluir a sua assinatura: \n{{ $json.checkOut }}\n\nEsperamos recebê-lo(a) na Comunidade Novo Ego e ajudá-lo(a) a construir uma nova vida repleta de relacionamentos saudáveis e felizes.\n\nAtenciosamente,\nEquipe da Comunidade Novo Ego 🌟🤝 "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30316b35-4ffd-4316-a851-ca9f1b30b8cc",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        3980
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Nome",
+              "value": "={{ $node.Webhook.json.body.lead.name }}"
+            },
+            {
+              "name": "Email",
+              "value": "={{ $node.Webhook.json.body.lead.email }}"
+            },
+            {
+              "name": "telefone",
+              "value": "={{ $json.body.lead.cellphone  }}"
+            },
+            {
+              "name": "cpf",
+              "value": "={{ $node.Webhook.json.body.lead.document }}"
+            },
+            {
+              "name": "checkOut",
+              "value": "={{ $json.body.link_checkout }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "484aff95-755e-444b-ab45-5fa42afb3041",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        3220,
+        3800
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $node.Set8.json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $node.Set8.json.copyPix }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f55c8fb9-6894-4217-94fa-00039b396cae",
+      "name": "HTTP Request7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3960,
+        2640
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "9dd189a0-99cd-473a-b093-6f350d5528c7",
+      "name": "Wait2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3820,
+        2640
+      ],
+      "webhookId": "b812321b-fe56-40ea-9843-1c238968dfea"
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "d6b1f5d5-60a5-4a34-81a2-e71ca8893ca6",
+      "name": "Wait3",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        4180,
+        2640
+      ],
+      "webhookId": "91bce5f8-6e34-435c-b1bd-e7cff9fe8e6e"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $node.Set8.json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Se precisar de qualquer assistência durante o processo, estamos à disposição para ajudar. Não perca a oportunidade de se juntar a nós!\n\nEquipe da Comunidade Novo Ego 🌟🤝"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bad4e3d1-c361-47b9-8fbb-96e712fe3bc7",
+      "name": "HTTP Request8",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        4360,
+        2640
       ]
     }
   ],
@@ -1841,6 +2148,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-21T00:25:04.786Z",
-  "versionId": "acb8cf90-92f5-42a2-8862-cf0bcac4a196"
+  "updatedAt": "2023-06-21T15:59:34.867Z",
+  "versionId": "130a95af-ae71-4596-a779-87d8606c5f0f"
 }
