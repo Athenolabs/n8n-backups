@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -573,6 +573,94 @@
         [
           {
             "node": "HTTP Request8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request9": {
+      "main": [
+        [
+          {
+            "node": "Wait4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets9": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets12": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets10": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets11": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request13": {
+      "main": [
+        [
+          {
+            "node": "Wait5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request10",
             "type": "main",
             "index": 0
           }
@@ -1852,7 +1940,7 @@
         "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/add-participant",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "= {\n    \"groupId\": \"120363141429632450-group\",\n    \"phones\": [\"{{ $node[\"Set6\"].json[\"telefone\"] }}\"]\n  }\n",
+        "jsonBody": "= {\n    \"groupId\": \"120363142746754193-group\",\n    \"phones\": [\"{{ $node[\"Set6\"].json[\"telefone\"] }}\"]\n  }\n",
         "options": {}
       },
       "id": "b6972c94-1628-41b0-bef9-bb816f72eff9",
@@ -1987,7 +2075,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3660,
+        3640,
         3800
       ]
     },
@@ -2141,6 +2229,184 @@
         4360,
         2640
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=🎉 Bem-vindo(a) à Comunidade Novo Ego! 🎉\n\nEstamos animados em tê-lo(a) a bordo! Acesse nossa área de membros estilo Netflix para transformar sua vida e relacionamentos com conteúdo exclusivo e recursos práticos. ✨🚀\n\n📧 E-mail de acesso: {{ $json.Email }}\n🔗 Plataforma: https://comunidadenovoego.astronmembers.com/\n\nDescubra um tesouro de conhecimento, interaja com outros membros e receba apoio em sua jornada de autodesenvolvimento e relacionamentos saudáveis.\n\nPrepare-se para uma jornada incrível!\n\nEquipe da Comunidade Novo Ego 🌟🤝"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1838bf8-43fb-458d-a5bf-dbe5aab280f0",
+      "name": "HTTP Request9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        2960
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "34888887-8dbf-4e34-b9f9-69031cc44340",
+      "name": "Wait4",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3820,
+        2960
+      ],
+      "webhookId": "177d0f5a-b815-49bb-ae8a-e6ef3080d4b0"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/add-participant",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "= {\n    \"groupId\": \"120363142746754193-group\",\n    \"phones\": [\"{{ $node[\"Set9\"].json[\"telefone\"] }}\"]\n  }\n",
+        "options": {}
+      },
+      "id": "9b526917-d090-4df6-843a-5cb8572f16a7",
+      "name": "HTTP Request10",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        4000,
+        2960
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=🚫 Problema com o cartão de crédito? \nNão se preocupe! Por favor, verifique suas informações de pagamento e tente novamente.\n\nPossivel problema: *{{ $json.problem }}*\n\nSe precisar de ajuda, estamos aqui para você. Equipe da Comunidade Novo Ego."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17d37d0e-7e91-4122-8d6e-e0ceb4648f0c",
+      "name": "HTTP Request11",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        3460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, {{ $json.Nome }}\n\nLembramos que o pagamento da sua assinatura mensal na Comunidade Novo Ego está pendente.\n\nPara garantir a continuidade do seu acesso, por favor, efetue o pagamento da sua assinatura o mais breve possível.\n\nEstamos aqui para ajudar caso precise de suporte ou tenha alguma dúvida. Não perca a oportunidade de continuar sua jornada de transformação conosco!\n\nEquipe da Comunidade Novo Ego 🌟🤝"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fc1bee3c-b0a4-4039-a62c-dcc5038dfa7a",
+      "name": "HTTP Request12",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        3120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=🔔⚠️ Atenção! Seu acesso à Comunidade Novo Ego está suspenso! ⚠️🔔\n\nOlá {{ $json.Nome }}! Infelizmente, seu acesso ao grupo do WhatsApp e à plataforma da Comunidade Novo Ego foi temporariamente suspenso devido ao não pagamento da sua assinatura. 😔❌\n\nPara recuperar seu acesso imediatamente e continuar desfrutando de todo o conteúdo exclusivo, suporte e transformação que oferecemos, pedimos que renove sua assinatura clicando no link abaixo e efetue o pagamento: 🔄💳\n\nhttps://payfast.greenn.com.br/23346\n\nAssim que recebermos a confirmação do seu pagamento, seu acesso será restaurado, permitindo que você retome sua jornada de autodesenvolvimento e relacionamentos saudáveis. Estamos aqui para apoiá-lo(a) em cada passo! 🌟✨\n\nAgradecemos sua compreensão e aguardamos ansiosamente pela sua renovação para que você possa voltar a construir relacionamentos incríveis conosco!\n\nEquipe da Comunidade Novo Ego 🙌🤝"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "031263c1-19bd-4bc4-879c-56af0eaf84c4",
+      "name": "HTTP Request13",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3640,
+        3300
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "ce637b67-ced5-4f6b-8a22-cf69471cb114",
+      "name": "Wait5",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3820,
+        3300
+      ],
+      "webhookId": "484e03eb-5e94-4295-8cca-e2d22df48608"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/remove-participant",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "= {\n    \"groupId\": \"120363142746754193-group\",\n    \"phones\": [\"{{ $node[\"Set11\"].json[\"telefone\"] }}\"]\n  }\n",
+        "options": {}
+      },
+      "id": "ca2ec39d-4e8b-4de1-bc7f-801b526281ea",
+      "name": "HTTP Request14",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        4000,
+        3300
+      ]
     }
   ],
   "pinData": {},
@@ -2148,6 +2414,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-21T15:59:34.867Z",
-  "versionId": "130a95af-ae71-4596-a779-87d8606c5f0f"
+  "updatedAt": "2023-06-21T16:29:34.713Z",
+  "versionId": "54433ee5-0102-4743-930f-583707891962"
 }
