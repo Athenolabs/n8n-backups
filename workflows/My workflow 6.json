@@ -1,0 +1,74 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-06-22T03:21:28.047Z",
+  "id": "38",
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "11bb2701-bd07-481c-b210-efde13e6abd4",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://graph.facebook.com/v17.0/act_564647161461632/insights",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "id,name"
+            },
+            {
+              "name": "level",
+              "value": "account"
+            },
+            {
+              "name": "time_range",
+              "value": "{\"since\":\"2023-06-22\",\"until\":\"2023-06-22\"}"
+            },
+            {
+              "name": "access_token",
+              "value": "EAAUicHDo3TYBAFnKgML7B6wOR64VypInM121HUdwzF0EpEHNoGc1cJ51gaVjRdajQVIJOLGF7brdQM5Lk8Xsm4DnElZC3qZBFZASMGyH46QYLF2y5cZB84VP1DIUT9JwFBYxZC1V5Oh94zZCK75nQalrcT5q4PkeKyZCga3ubAtzwXi4CVgoT9hP7GAWgletWSPjuoyVpJvw6aSMFfegZAhpy7UofLy03NUZD"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b8691d00-51e2-4908-b8d0-d375395d8e65",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        740,
+        260
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-06-22T03:21:28.047Z",
+  "versionId": "ade14e10-42f5-423a-b68e-b62c8e0d791a"
+}
