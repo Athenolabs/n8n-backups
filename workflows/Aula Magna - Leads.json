@@ -1,0 +1,140 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-06-24T01:16:49.071Z",
+  "id": "39",
+  "name": "Aula Magna - Leads",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead",
+        "options": {}
+      },
+      "id": "291ce642-c8b0-4d21-9e98-0932b9edeb9a",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "d47ff969-e189-42ca-a202-b121b4713a22"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1dnhz1fF6adPuqXIlP_4F3LP53veEouSREk9drwiF1Tc",
+          "mode": "list",
+          "cachedResultName": "Medico De Elite 02",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dnhz1fF6adPuqXIlP_4F3LP53veEouSREk9drwiF1Tc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dnhz1fF6adPuqXIlP_4F3LP53veEouSREk9drwiF1Tc/edit#gid=0"
+        },
+        "columnToMatchOn": "E-MAIL",
+        "valueToMatchOn": "={{ $json.body.fields[email][value] }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "DATA DE INSCRIÇÃO",
+              "fieldValue": "={{ new Date() }}"
+            },
+            {
+              "column": "NOME",
+              "fieldValue": "={{ $json.body.fields[name][value].split(\" \")[0] }}"
+            },
+            {
+              "column": "SOBRENOME",
+              "fieldValue": "={{ $json.body.fields[name][value].split(\" \")[1] }}"
+            },
+            {
+              "column": "TELEFONE",
+              "fieldValue": "={{ $json.body.fields[phone][value] }} {{ $json.body.fields[phone][value] }}"
+            },
+            {
+              "column": "UTM SOURCE CAPTURA",
+              "fieldValue": "={{ $json.body.fields[utm_source][value] }}"
+            },
+            {
+              "column": "UTM MEDIUM CAPTURA",
+              "fieldValue": "={{ $json.body.fields[utm_medium][value] }}"
+            },
+            {
+              "column": "UTM CAMPAIGN CAPTURA",
+              "fieldValue": "={{ $json.body.fields[utm_campaign][value] }}"
+            },
+            {
+              "column": "UTM CONTENT CAPTURA",
+              "fieldValue": "={{ $json.body.fields[utm_content][value] }}"
+            },
+            {
+              "column": "UTM TERM CAPTURA",
+              "fieldValue": "={{ $json.body.fields[utm_term][value] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "280b87fc-2643-469f-910e-5d5fa7f12afb",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        920,
+        240
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "4",
+          "name": "Dr. Fernando SIlva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "value": "={{ $json.body.fields[name][value] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c10b774-1048-419f-b708-244b527c55ce",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        760,
+        260
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-06-24T02:02:08.677Z",
+  "versionId": "f437807c-4c35-4265-8b54-f9c70722f183"
+}
