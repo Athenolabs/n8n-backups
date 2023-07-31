@@ -86,19 +86,19 @@
       ]
     }
   },
-  "createdAt": "2023-03-16T13:17:11.294Z",
-  "id": "11",
+  "createdAt": "2023-07-30T23:22:23.659Z",
+  "id": "ohLJ26RlBFiRSvGj",
   "name": "Disparo Mensagens em Massa",
   "nodes": [
     {
       "parameters": {},
-      "id": "307e674f-ed16-4440-8906-0b332718af42",
+      "id": "b00406d3-6cb3-4452-b20d-6966a55717d8",
       "name": "When clicking \"Execute Workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        540,
-        260
+        -220,
+        480
       ]
     },
     {
@@ -117,13 +117,13 @@
         },
         "options": {}
       },
-      "id": "e0958d05-c9da-41c9-a296-f37f73070900",
+      "id": "713d4b3f-792b-4c58-8a70-f03dcdec04e4",
       "name": "Set",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1240,
-        260
+        480,
+        480
       ]
     },
     {
@@ -145,13 +145,13 @@
         },
         "options": {}
       },
-      "id": "d733a9fb-9df4-4860-bb87-1fccfe093dc5",
+      "id": "40fa9de5-dabf-47c2-935f-910c0eb601c9",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1460,
-        260
+        700,
+        480
       ]
     },
     {
@@ -159,13 +159,13 @@
         "amount": "={{ Math.floor(Math.random() * (60 - 40 + 1)) + 40; }}",
         "unit": "seconds"
       },
-      "id": "703c3790-f77a-40b5-99cc-0721d90939ea",
+      "id": "9c46bc8d-f46c-4997-80c3-2ed5869b516d",
       "name": "Wait",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        1680,
-        260
+        920,
+        480
       ],
       "webhookId": "3937d347-a579-48f0-ad32-b5bdcd0780c2"
     },
@@ -180,13 +180,13 @@
           ]
         }
       },
-      "id": "f85f0e67-ea69-45ed-ab90-41995924310d",
+      "id": "70a55e92-0ff9-4835-a1bc-d0aa1881df3d",
       "name": "Última Execução?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1880,
-        260
+        1120,
+        480
       ]
     },
     {
@@ -194,13 +194,13 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "ac091262-3127-423d-bc1f-86987f3979e2",
+      "id": "bd2b7848-c8ed-4aba-889b-cbbedcfe3d69",
       "name": "Passa um anúncio de cada vez1",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        1020,
-        260
+        260,
+        480
       ]
     },
     {
@@ -222,13 +222,13 @@
         },
         "options": {}
       },
-      "id": "31bcde73-43ef-4a69-8126-15aca9fbf170",
+      "id": "273d6c35-2def-42c6-8f4a-e8c5987b9d03",
       "name": "HTTP Request1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2160,
-        240
+        1400,
+        460
       ]
     },
     {
@@ -250,13 +250,13 @@
         },
         "options": {}
       },
-      "id": "80df39c2-240e-4088-8ea6-044a4345fe2d",
+      "id": "8bdf5c8d-a261-4a18-8d97-7eceddb567a6",
       "name": "HTTP Request2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1520,
-        -20
+        760,
+        200
       ]
     },
     {
@@ -275,27 +275,29 @@
         },
         "options": {}
       },
-      "id": "b752ec64-c8a4-4ffb-b42d-846d6aaac5d1",
+      "id": "daec6c5c-b94b-4443-b919-634f98709016",
       "name": "Google Sheets",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        760,
-        260
+        0,
+        480
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-06-14T20:14:53.703Z",
-  "versionId": "382c6c58-7743-43d0-a865-3239fc45f01f"
+  "updatedAt": "2023-07-30T23:22:32.223Z",
+  "versionId": "e57310ad-80d0-4140-92e1-e6e4e5af33ab"
 }
