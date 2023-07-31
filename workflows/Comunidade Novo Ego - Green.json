@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Webhook": {
       "main": [
@@ -453,22 +453,6 @@
         ]
       ]
     },
-    "HTTP Request1": {
-      "main": [
-        []
-      ]
-    },
-    "Wait1": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Google Sheets6": {
       "main": [
         [
@@ -668,8 +652,8 @@
       ]
     }
   },
-  "createdAt": "2023-06-01T13:10:38.328Z",
-  "id": "37",
+  "createdAt": "2023-07-30T23:17:11.415Z",
+  "id": "hCdeGevhSsaV8O9k",
   "name": "Comunidade Novo Ego - Green",
   "nodes": [
     {
@@ -678,13 +662,13 @@
         "path": "green",
         "options": {}
       },
-      "id": "21096394-6918-4612-8a47-1015cf2d7693",
+      "id": "2007770e-d191-4fdd-ab15-84915a778586",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        1880,
-        3220
+        -1880,
+        1480
       ],
       "webhookId": "18a79fe7-9784-4f63-8016-3f7014288ff4"
     },
@@ -708,13 +692,13 @@
           ]
         }
       },
-      "id": "d2afccff-33b5-493a-bbb1-939e7a259412",
+      "id": "55b7df7a-6d8e-4ba5-a64c-9e8cee563c20",
       "name": "Switch2",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        2100,
-        3220
+        -1660,
+        1480
       ]
     },
     {
@@ -737,13 +721,13 @@
           ]
         }
       },
-      "id": "32885083-c65d-44f1-8da1-198213806fdb",
+      "id": "1c385f46-2cd3-4b77-801c-f742dfdde1dd",
       "name": "Switch3",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        2620,
-        2480
+        -1140,
+        740
       ]
     },
     {
@@ -770,13 +754,13 @@
           ]
         }
       },
-      "id": "1bb871ef-6eee-4426-8bf6-4d4d3d049809",
+      "id": "bc8ddcc4-2edb-4356-9a46-45b4233c4dde",
       "name": "Switch4",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        2620,
-        3220
+        -1140,
+        1480
       ]
     },
     {
@@ -826,18 +810,18 @@
         },
         "options": {}
       },
-      "id": "12143600-9531-4ca2-8c32-27213058dc63",
+      "id": "fc73551f-85d1-4dd1-8d91-e9b973da435e",
       "name": "Google Sheets6",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        2320
+        -340,
+        580
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
@@ -865,13 +849,13 @@
         },
         "options": {}
       },
-      "id": "d73cb7bb-b8ab-4fe5-82b0-3bc6e2d9cdc8",
+      "id": "0e2c15ee-4118-40d2-bb55-73bc5a4fcf19",
       "name": "Set6",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        2320
+        -540,
+        580
       ]
     },
     {
@@ -879,13 +863,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "4b228b18-1ea1-4349-b9a1-d0ba2eeded8c",
+      "id": "5d1a34cc-5e9e-4133-b0e7-85f431db4a5d",
       "name": "Code6",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        2320
+        -720,
+        580
       ]
     },
     {
@@ -935,18 +919,18 @@
         },
         "options": {}
       },
-      "id": "4897e73f-aa2c-4913-8da4-b6b24a828eac",
+      "id": "86968aa9-54b4-4577-97f7-6cf53fa9cee5",
       "name": "Google Sheets7",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        2480
+        -340,
+        740
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
@@ -978,13 +962,13 @@
         },
         "options": {}
       },
-      "id": "a92fa7bf-dfb1-46fb-9266-c07a4fca8e03",
+      "id": "9d38a542-82b3-43eb-b6d3-2f7606593ef8",
       "name": "Set7",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        2480
+        -540,
+        740
       ]
     },
     {
@@ -992,13 +976,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "dde43d2b-8f37-465e-a005-23a3ab488c22",
+      "id": "c9c93f90-83ae-4c19-8746-3cda284a6bd8",
       "name": "Code7",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        2480
+        -720,
+        740
       ]
     },
     {
@@ -1048,18 +1032,18 @@
         },
         "options": {}
       },
-      "id": "4598d2f5-eb7c-4806-b017-44fdc5829d70",
+      "id": "1795d948-8c20-4cd7-a595-ce54c42e5ed8",
       "name": "Google Sheets8",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        2640
+        -340,
+        900
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
@@ -1091,13 +1075,13 @@
         },
         "options": {}
       },
-      "id": "3dfa75aa-80fa-41ef-9d86-e0cf27f4c08b",
+      "id": "45d60f0f-0c2c-4a3d-851a-eba7c49a9400",
       "name": "Set8",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        2640
+        -540,
+        900
       ]
     },
     {
@@ -1105,101 +1089,101 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "eef75a07-3074-4ee4-95b2-a4e81f6f7312",
+      "id": "e93b032f-d761-46ff-95d6-33c029e655e4",
       "name": "Code8",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        2640
+        -720,
+        900
       ]
     },
     {
       "parameters": {},
-      "id": "75831f93-822d-4f27-8f03-09625795c8dd",
+      "id": "447b3ba2-e796-491d-9a88-77d505ec90eb",
       "name": "PAGO",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        2320
+        -900,
+        580
       ]
     },
     {
       "parameters": {},
-      "id": "807450b4-ff25-43f6-aab8-9c22ba6a4dc0",
+      "id": "b2c266f2-1436-426c-af0b-d66814cfb718",
       "name": "CANCELADO",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        2480
+        -900,
+        740
       ]
     },
     {
       "parameters": {},
-      "id": "41f7b7eb-c39a-49f4-bf1b-f7da98a34814",
+      "id": "a26321a4-9a32-497e-adf1-95bba64bec3c",
       "name": "AGUARDANDO PAY",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        2640
+        -900,
+        900
       ]
     },
     {
       "parameters": {},
-      "id": "0e3468f4-5a1c-4111-80e8-f7c191558a0c",
+      "id": "c8489422-0c5e-4b69-889a-579a472b2011",
       "name": "ANUAL",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2380,
-        2480
+        -1380,
+        740
       ]
     },
     {
       "parameters": {},
-      "id": "014f0448-fa15-4601-ad0f-5e26f154f9fd",
+      "id": "9fd441d3-1a45-4cf2-ab22-0908fe691245",
       "name": "PAGO1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        2960
+        -900,
+        1220
       ]
     },
     {
       "parameters": {},
-      "id": "336b4bb8-9226-4f4b-ab48-78aa51c53644",
+      "id": "881debd2-9d29-4ee9-beb1-11ceb9580641",
       "name": "PAGAMENTO PENDENTE",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        3120
+        -900,
+        1380
       ]
     },
     {
       "parameters": {},
-      "id": "a41fdfb1-0c09-4511-89de-0c06f3ce02d3",
+      "id": "e374e533-9e31-4ec8-b075-f570f028b87d",
       "name": "CANCELADO1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        3460
+        -900,
+        1720
       ]
     },
     {
       "parameters": {},
-      "id": "af8bfd01-c5c3-423e-a7eb-12a952386bcc",
+      "id": "f322d4e0-a71d-41ba-afc5-2412c82ad918",
       "name": "NÃO PAGO",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        3300
+        -900,
+        1560
       ]
     },
     {
@@ -1249,18 +1233,18 @@
         },
         "options": {}
       },
-      "id": "c0c2a89f-b438-4f04-9181-adc9a95f773d",
+      "id": "96f31c2f-0649-4f92-a6ae-278523e8f25e",
       "name": "Google Sheets9",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        2960
+        -340,
+        1220
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
@@ -1288,13 +1272,13 @@
         },
         "options": {}
       },
-      "id": "9b225857-de4d-4b2a-87c9-76277dba6325",
+      "id": "89ea3d9d-a016-4cf9-aa69-bbb55a9008b3",
       "name": "Set9",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        2960
+        -540,
+        1220
       ]
     },
     {
@@ -1302,13 +1286,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "8687c796-c2ef-42a5-8e02-9d5498d37859",
+      "id": "57243b88-9495-43c4-b839-b1c9339e8e53",
       "name": "Code9",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        2960
+        -720,
+        1220
       ]
     },
     {
@@ -1316,13 +1300,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "7e5c47e8-c9be-4930-a583-2e92715edd00",
+      "id": "beb83d2b-2d24-4537-89eb-ea2c4c651aa7",
       "name": "Code10",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        3120
+        -720,
+        1380
       ]
     },
     {
@@ -1330,13 +1314,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "e08e04f9-e7c4-4bde-9524-e6ac30928edf",
+      "id": "79ce9175-a928-4d00-bece-89764c19d629",
       "name": "Code11",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        3300
+        -720,
+        1560
       ]
     },
     {
@@ -1344,13 +1328,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "1832fb30-db14-41e2-ae88-fec48a15cd07",
+      "id": "9c5de84e-355d-4f43-92c0-7ee70499968f",
       "name": "Code12",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        3460
+        -720,
+        1720
       ]
     },
     {
@@ -1377,13 +1361,13 @@
         },
         "options": {}
       },
-      "id": "3798a41a-49fb-4df2-858a-ec6166344e38",
+      "id": "cd285d8f-27f4-4521-8fc9-1e881dad514d",
       "name": "Set10",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        3120
+        -540,
+        1380
       ]
     },
     {
@@ -1410,13 +1394,13 @@
         },
         "options": {}
       },
-      "id": "7038ca98-11d9-4b8f-a6c2-ca32777678d0",
+      "id": "299c22f0-c79a-4b90-b043-5f00872a79a4",
       "name": "Set11",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        3300
+        -540,
+        1560
       ]
     },
     {
@@ -1443,13 +1427,13 @@
         },
         "options": {}
       },
-      "id": "9259b8ef-a02c-4d7d-8cf1-d5153a95c1e4",
+      "id": "fe6e5322-0889-4db7-aacd-3f92495c9bb9",
       "name": "Set12",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        3460
+        -540,
+        1720
       ]
     },
     {
@@ -1499,18 +1483,18 @@
         },
         "options": {}
       },
-      "id": "bbe778db-3d0f-4e64-9b75-dc5efef01503",
+      "id": "4f8b7c5a-6eb4-47a0-b916-ff06a3ac887d",
       "name": "Google Sheets10",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        3120
+        -340,
+        1380
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
@@ -1561,18 +1545,18 @@
         },
         "options": {}
       },
-      "id": "fca48bd5-ec6c-4583-9d14-917e5bffa958",
+      "id": "6c657486-1b2b-420c-acbe-701aceaba0ec",
       "name": "Google Sheets11",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        3300
+        -340,
+        1560
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
@@ -1623,30 +1607,30 @@
         },
         "options": {}
       },
-      "id": "df4acdf5-13a2-435c-a1f9-25647c9bfed8",
+      "id": "445fae26-b4e3-4f80-b42e-d11a64f8a909",
       "name": "Google Sheets12",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        3460
+        -340,
+        1720
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
     {
       "parameters": {},
-      "id": "fdef849b-8186-467a-acff-46d16dd7e0bb",
+      "id": "b0b7191f-dd05-4463-9e4e-07ee41858db2",
       "name": "ABANDONO DE CARRINHO",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2380,
-        3880
+        -1380,
+        2140
       ]
     },
     {
@@ -1654,13 +1638,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "a71ff09a-27a0-4aac-b01c-5131e308f82e",
+      "id": "ddfe211a-7273-4856-a407-d217054657f5",
       "name": "Code13",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        3800
+        -720,
+        2060
       ]
     },
     {
@@ -1710,30 +1694,30 @@
         },
         "options": {}
       },
-      "id": "badbcad0-eed0-4608-9019-ce02362bdb64",
+      "id": "06a4724f-73a4-464f-acff-1b4ee6c90149",
       "name": "Google Sheets13",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        3800
+        -340,
+        2060
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
     {
       "parameters": {},
-      "id": "301a3d3e-948a-4d62-a42e-1ea87a5dc927",
+      "id": "87ca587f-e13b-40b8-8a30-3d0490b6c132",
       "name": "MENSAL",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        3800
+        -900,
+        2060
       ]
     },
     {
@@ -1741,13 +1725,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const hoje = new Date();\nconst dia = hoje.getDate().toString().padStart(2, '0');\nconst mes = (hoje.getMonth() + 1).toString().padStart(2, '0');\nconst ano = hoje.getFullYear();\n\nconst dataFormatada = `${dia}/${mes}/${ano}`;\n$input.item.json.date = dataFormatada;\n\nreturn $input.item;"
       },
-      "id": "788df32a-a4d4-4394-a4e6-1e7a78cb821d",
+      "id": "96a94a42-6b7c-44ab-9bb2-972f57aaa283",
       "name": "Code14",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
-        3980
+        -720,
+        2240
       ]
     },
     {
@@ -1778,13 +1762,13 @@
         },
         "options": {}
       },
-      "id": "d7d2c963-5a7a-4a8d-bdbb-9481fb35be84",
+      "id": "05cdeac2-f5c0-45f0-9a83-8c9cb3a4904f",
       "name": "Set14",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        3980
+        -540,
+        2240
       ]
     },
     {
@@ -1834,41 +1818,41 @@
         },
         "options": {}
       },
-      "id": "715379db-711b-4e1c-a510-3a2562ea89f8",
+      "id": "d671f7e2-e3a5-4533-ab8f-90356c02d2ca",
       "name": "Google Sheets14",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 3,
       "position": [
-        3420,
-        3980
+        -340,
+        2240
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "4",
-          "name": "Dr. Fernando SIlva"
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
         }
       }
     },
     {
       "parameters": {},
-      "id": "6d0ae0ed-d4fa-4a08-bd5d-2802dbca09ba",
+      "id": "c594be57-cd1d-458b-a384-bbee8d5e3e58",
       "name": "ANUAL1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2860,
-        3980
+        -900,
+        2240
       ]
     },
     {
       "parameters": {},
-      "id": "98664416-4ac4-4030-960a-3c7ebeea3bc3",
+      "id": "605f6e78-5029-4fe8-b265-a632a6b540c9",
       "name": "MENSAL1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2380,
-        3220
+        -1380,
+        1480
       ]
     },
     {
@@ -1882,13 +1866,13 @@
           ]
         }
       },
-      "id": "e20e32b6-4244-4aa4-b22d-08f25bc905aa",
+      "id": "d12c0d36-e137-4152-a15e-3841a9ad93e1",
       "name": "IF7",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2620,
-        3880
+        -1140,
+        2140
       ]
     },
     {
@@ -1910,13 +1894,13 @@
         },
         "options": {}
       },
-      "id": "a8ddf0d4-80ef-4be4-ba7b-054c01541ad8",
+      "id": "fb88042d-575c-4a02-a88e-58609e3e7f4f",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        2320
+        -120,
+        580
       ]
     },
     {
@@ -1924,13 +1908,13 @@
         "amount": 10,
         "unit": "seconds"
       },
-      "id": "fab44eb6-2a48-4247-ad5e-48528f66595a",
+      "id": "83f39da9-3784-4182-86ff-2d07c24919e0",
       "name": "Wait",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3820,
-        2320
+        60,
+        580
       ],
       "webhookId": "177d0f5a-b815-49bb-ae8a-e6ef3080d4b0"
     },
@@ -1943,56 +1927,13 @@
         "jsonBody": "= {\n    \"groupId\": \"120363142746754193-group\",\n    \"phones\": [\"{{ $node[\"Set6\"].json[\"telefone\"] }}\"]\n  }\n",
         "options": {}
       },
-      "id": "b6972c94-1628-41b0-bef9-bb816f72eff9",
+      "id": "7807f7b5-86f5-4a02-af0c-08ca83b7eb65",
       "name": "HTTP Request1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4000,
-        2320
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 10,
-        "unit": "seconds"
-      },
-      "id": "0b919d11-0f91-454e-92bc-b98ecea202aa",
-      "name": "Wait1",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        4060,
-        2020
-      ],
-      "webhookId": "e888607b-d6b0-4e37-ae38-66f180b72ea6"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-text",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "=120363141429632450-group"
-            },
-            {
-              "name": "message",
-              "value": "=🎉 Seja Bem-vindo(a) LUCAS ao Grupo da Comunidade Novo Ego! 🎉\n\nEste é o grupo de notificaç\n\nEquipe da Comunidade Novo Ego 🌟🤝"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "15d5ad70-e63f-457a-8247-aff55da65ec3",
-      "name": "HTTP Request2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4240,
-        2020
+        240,
+        580
       ]
     },
     {
@@ -2014,13 +1955,13 @@
         },
         "options": {}
       },
-      "id": "876248be-6dfb-4760-9ba4-a45c76ac1fc3",
+      "id": "397a6903-650f-4ecd-8d81-2f07c33d41d3",
       "name": "HTTP Request3",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        2480
+        -120,
+        740
       ]
     },
     {
@@ -2042,13 +1983,13 @@
         },
         "options": {}
       },
-      "id": "89fdca1a-9962-445d-b67c-a2c19f99126b",
+      "id": "0e06fa6c-0e1a-4fb2-99dd-38a9035ebdfa",
       "name": "HTTP Request4",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        2640
+        -120,
+        900
       ]
     },
     {
@@ -2070,13 +2011,13 @@
         },
         "options": {}
       },
-      "id": "681d16db-5c17-4adb-91b1-cdc57ec513a3",
+      "id": "c4f565f4-818f-4de8-b476-538d41765402",
       "name": "HTTP Request5",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        3800
+        -120,
+        2060
       ]
     },
     {
@@ -2098,13 +2039,13 @@
         },
         "options": {}
       },
-      "id": "30316b35-4ffd-4316-a851-ca9f1b30b8cc",
+      "id": "89e4876d-e5ed-43d8-8037-216dcd1a9041",
       "name": "HTTP Request6",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        3980
+        -120,
+        2240
       ]
     },
     {
@@ -2135,13 +2076,13 @@
         },
         "options": {}
       },
-      "id": "484aff95-755e-444b-ab45-5fa42afb3041",
+      "id": "8a8cadb5-f9b2-45f7-8af4-19bebd07f28f",
       "name": "Set",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        3800
+        -540,
+        2060
       ]
     },
     {
@@ -2163,13 +2104,13 @@
         },
         "options": {}
       },
-      "id": "f55c8fb9-6894-4217-94fa-00039b396cae",
+      "id": "eab1415e-270e-45ea-a347-366dd3caead8",
       "name": "HTTP Request7",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3960,
-        2640
+        200,
+        900
       ]
     },
     {
@@ -2177,13 +2118,13 @@
         "amount": 3,
         "unit": "seconds"
       },
-      "id": "9dd189a0-99cd-473a-b093-6f350d5528c7",
+      "id": "563e0350-6ef1-4f75-b603-199865d698b8",
       "name": "Wait2",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3820,
-        2640
+        60,
+        900
       ],
       "webhookId": "b812321b-fe56-40ea-9843-1c238968dfea"
     },
@@ -2192,13 +2133,13 @@
         "amount": 5,
         "unit": "seconds"
       },
-      "id": "d6b1f5d5-60a5-4a34-81a2-e71ca8893ca6",
+      "id": "d7c41485-d1fd-49ee-97c5-2f6c619d7a8d",
       "name": "Wait3",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4180,
-        2640
+        420,
+        900
       ],
       "webhookId": "91bce5f8-6e34-435c-b1bd-e7cff9fe8e6e"
     },
@@ -2221,13 +2162,13 @@
         },
         "options": {}
       },
-      "id": "bad4e3d1-c361-47b9-8fbb-96e712fe3bc7",
+      "id": "32054bdb-53ce-4242-a7cb-73e94c8029ac",
       "name": "HTTP Request8",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4360,
-        2640
+        600,
+        900
       ]
     },
     {
@@ -2249,13 +2190,13 @@
         },
         "options": {}
       },
-      "id": "a1838bf8-43fb-458d-a5bf-dbe5aab280f0",
+      "id": "6e645d17-1184-4d21-9741-26673caaa17f",
       "name": "HTTP Request9",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        2960
+        -120,
+        1220
       ]
     },
     {
@@ -2263,13 +2204,13 @@
         "amount": 10,
         "unit": "seconds"
       },
-      "id": "34888887-8dbf-4e34-b9f9-69031cc44340",
+      "id": "fd6376e9-0227-4d92-ba05-199996c31062",
       "name": "Wait4",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3820,
-        2960
+        60,
+        1220
       ],
       "webhookId": "177d0f5a-b815-49bb-ae8a-e6ef3080d4b0"
     },
@@ -2282,13 +2223,13 @@
         "jsonBody": "= {\n    \"groupId\": \"120363142746754193-group\",\n    \"phones\": [\"{{ $node[\"Set9\"].json[\"telefone\"] }}\"]\n  }\n",
         "options": {}
       },
-      "id": "9b526917-d090-4df6-843a-5cb8572f16a7",
+      "id": "97903b45-f84e-4ff8-a83e-59de526aca8f",
       "name": "HTTP Request10",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4000,
-        2960
+        240,
+        1220
       ]
     },
     {
@@ -2310,13 +2251,13 @@
         },
         "options": {}
       },
-      "id": "17d37d0e-7e91-4122-8d6e-e0ceb4648f0c",
+      "id": "4d9f9928-eda9-4216-8e98-3aeb19cc85d3",
       "name": "HTTP Request11",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        3460
+        -120,
+        1720
       ]
     },
     {
@@ -2338,13 +2279,13 @@
         },
         "options": {}
       },
-      "id": "fc1bee3c-b0a4-4039-a62c-dcc5038dfa7a",
+      "id": "a2f5f051-13dc-4fbe-ab26-93cc847b9ae2",
       "name": "HTTP Request12",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        3120
+        -120,
+        1380
       ]
     },
     {
@@ -2366,13 +2307,13 @@
         },
         "options": {}
       },
-      "id": "031263c1-19bd-4bc4-879c-56af0eaf84c4",
+      "id": "58b1532d-2604-4a29-b284-7ee045789d65",
       "name": "HTTP Request13",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3640,
-        3300
+        -120,
+        1560
       ]
     },
     {
@@ -2380,13 +2321,13 @@
         "amount": 10,
         "unit": "seconds"
       },
-      "id": "ce637b67-ced5-4f6b-8a22-cf69471cb114",
+      "id": "2110788f-0e15-498d-99b7-c2f9c71d5813",
       "name": "Wait5",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3820,
-        3300
+        60,
+        1560
       ],
       "webhookId": "484e03eb-5e94-4295-8cca-e2d22df48608"
     },
@@ -2399,21 +2340,23 @@
         "jsonBody": "= {\n    \"groupId\": \"120363142746754193-group\",\n    \"phones\": [\"{{ $node[\"Set11\"].json[\"telefone\"] }}\"]\n  }\n",
         "options": {}
       },
-      "id": "ca2ec39d-4e8b-4de1-bc7f-801b526281ea",
+      "id": "ab87febe-56af-4e26-885d-bf7e8d847514",
       "name": "HTTP Request14",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4000,
-        3300
+        240,
+        1560
       ]
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
   "staticData": null,
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2023-06-21T16:29:34.713Z",
-  "versionId": "54433ee5-0102-4743-930f-583707891962"
+  "triggerCount": 0,
+  "updatedAt": "2023-07-30T23:17:21.679Z",
+  "versionId": "0f173102-9a6d-4e58-9436-1a70ab947d8e"
 }
