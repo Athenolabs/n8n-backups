@@ -1,7 +1,62 @@
 {
   "active": false,
   "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
       "main": [
         [
           {
@@ -11,57 +66,573 @@
           }
         ]
       ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request8": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "createdAt": "2023-03-27T18:12:44.968Z",
-  "id": "25",
+  "createdAt": "2023-08-09T22:16:53.182Z",
+  "id": "9qRvUevpBavW8xpW",
   "name": "My workflow 2",
   "nodes": [
     {
+      "parameters": {},
+      "id": "76995a50-221c-4004-ba78-2c123e54be7e",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        400
+      ]
+    },
+    {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "atendente",
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "5566996188393"
+            },
+            {
+              "name": "message",
+              "value": "Oie Como vai?"
+            }
+          ]
+        },
         "options": {}
       },
-      "id": "a61e1fac-d824-409d-8fc8-df46e421001d",
+      "id": "4fd0227f-6b25-41b3-afc6-021a1398e936",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1360,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "z-apirecibe1",
+        "options": {}
+      },
+      "id": "62dbd266-6e00-4361-b625-566257d2dcf7",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        760,
-        340
+        1120,
+        680
       ],
-      "webhookId": "902d55ae-2e58-4ca7-a85f-66a90ce3b025"
+      "webhookId": "d86e5798-4176-44d4-9957-9bff8a4e8995"
     },
     {
       "parameters": {
-        "prompt": "=Você é o bot atendente da empresa do Dr. Fernando silva, ele é um medico anestesista e psiquiatra especializado em relacionamento, com mais de 2Milhoes de seguidores em todas redes sociais, ideliziador da imersão Xeque Mate, uma imersão sobre autodesenvolvimento e relacionamento. você só pode receber perguntas sobre ele e seus produtos, se a pergunta sair fora disso, retorne a conversa para o assunto seja o Dr.\n\nperguntas frequentes:\n\nquais curso o dr. fernando tem?\nR=os curso do dr fernando são, Fator 5x, Formula da superação, Workshop Indispensavel, Imersão Xeque Mate, Imersão direto ao altar, Workshop superando a visão hollywood.\n\nQuais curso estão para eu compra?\nR=Formula da superação, Workshop Indispensavel, Imersão Xeque Mate,\n\ncom superar meu relacionamento?\nR= Recomendo fazer o curso Formula da superação\n\nQuero participar da Imersão?\nR=A imersão Xeque Mate só vai acontecer em dezembro, mas vocÊ ja pode comprar o ingresso de pré-venda\n\nQuais o preço?\nR=\nFator 5x: R$97\nFormula da superação: R$297\nWorkshop Indispensavel: R$197\nImersão Xeque Mate: R$2000\nImersão direto ao altar: R$1500\nWorkshop superando a visão hollywood: é um evento gratuito\n\nO cliente esté perguntando:\n{{ $json.body.atd }}",
-        "options": {
-          "maxTokens": 1500,
-          "topP": 1
-        }
+        "method": "POST",
+        "url": "https://api.openai.com/v1/audio/transcriptions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": " Bearer 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"
+            },
+            {
+              "name": "Content-Type",
+              "value": "multipart/form-data"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "model",
+              "value": "=whisper-1"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "53afa5fd-1d03-43bb-b2fe-f72ddde2d517",
+      "id": "b5fc8f42-8286-4196-ae36-9c411b202536",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.body.audio.audioUrl }}",
+        "options": {}
+      },
+      "id": "a5806372-bdf0-46d9-8332-5261ab4e1ed2",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1340,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Webhook').item.json.body.phone }}"
+            },
+            {
+              "name": "message",
+              "value": "=*Transcrição do audio do(a) {{ $('Webhook').item.json.body.chatName }}*\n\n{{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "319a501f-3791-4676-adad-ac1234e68b27",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1760,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "z-apirecibe2",
+        "options": {}
+      },
+      "id": "3afd0379-6541-4dce-a861-314d95191d97",
+      "name": "Webhook1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        940
+      ],
+      "webhookId": "d86e5798-4176-44d4-9957-9bff8a4e8995"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/audio/transcriptions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": " Bearer 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"
+            },
+            {
+              "name": "Content-Type",
+              "value": "multipart/form-data"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "model",
+              "value": "=whisper-1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef972aab-0591-4a3a-8115-33b359b38134",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.body.audio.audioUrl }}",
+        "options": {}
+      },
+      "id": "88e4479a-680c-469f-b5a8-2a2207618ab2",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1340,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-image",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Webhook1').item.json.body.phone }}"
+            },
+            {
+              "name": "image",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $('HTTP Request4').item.json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "780a0495-bc13-48ae-84e0-4ad250b2d461",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1980,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.text }}",
+        "responseFormat": "imageUrl",
+        "options": {}
+      },
+      "id": "10cc891c-15d9-4408-bdf1-906d65bf29ec",
       "name": "OpenAI",
       "type": "n8n-nodes-base.openAi",
       "typeVersion": 1,
       "position": [
-        980,
-        340
+        1780,
+        940
       ],
       "credentials": {
         "openAiApi": {
-          "id": "5",
+          "id": "yRbbRezEyMzU8Qmb",
           "name": "OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "z-apirecibe",
+        "options": {}
+      },
+      "id": "b9c4b2ae-5485-4de6-939d-cab84fab76d0",
+      "name": "Webhook2",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        1180
+      ],
+      "webhookId": "d86e5798-4176-44d4-9957-9bff8a4e8995"
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4",
+        "prompt": {
+          "messages": [
+            {
+              "role": "system",
+              "content": "Você é assistente pessoal e não virtual do Dr. Fernando Silva, Medico psiquiatra, especializado em relacionamento e desenvolvimento humano, criador da pós graduação medica em relacionamento e desenvolvimento humano, criador da comunidade novo ego, e da imersão xeque mate, no instagram com mais de 700mil seguidores e no tiktok com mais de 1 milhão. Se você não souber responder algo porfavor seja educada e fale com não sabe mais vai falar com o suporte interno.\n\ninstagram do Dr: @dr.fernando.silva ou https://instagram.com/dr.fernando.silva\n\nsite: https://drfernandosilva.com.br\n\nComunidade Novo Ego: https://drfernandosilva.com.br/comunidade-novo-ego/\nImersão Xeque Mate: https://drfernandosilva.com.br/imersao-xeque-mate/\nPós Graduação Médica em relacionamento e auto desenvolvimento humano: https://drfernandosilva.com.br/medicina-de-elite\n\nemail de contato: contato@drfernandosilva.com.br\n\nLucas Katacha é o cooperador do Dr. Fernando Silva. se quiser conversar com ele é só chamar nesse whatsapp (66) 99618-8393 ou no instagram @katachalucas\n"
+            },
+            {
+              "content": "={{ $json.body.text.message }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "09743690-361a-46e0-a1ef-298ec794e1e5",
+      "name": "OpenAI1",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        1180
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Webhook2').item.json.body.phone }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.message.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5d1b754b-b7b9-46b1-b871-9638b43bfcbc",
+      "name": "HTTP Request7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1600,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/kYr3tDMUjL6rIiHHRO2Z/stream",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "audio/mpeg"
+            },
+            {
+              "name": "xi-api-key",
+              "value": "3496777d5ec9e7d70604dd42e180ce3c"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\":\"{{ $json.message.content }}\",\n  \"model_id\":\"eleven_monolingual_v1\",\n  \"voice_settings\":{\n    \"stability\":0.72,\n    \"similarity_boost\":1\n  }\n} ",
+        "options": {}
+      },
+      "id": "671c4fea-0021-4367-89c1-9fed2a43d143",
+      "name": "HTTP Request8",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/models",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "xi-api-key",
+              "value": "3496777d5ec9e7d70604dd42e180ce3c"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1af1572-9104-409e-9693-fbebac29b262",
+      "name": "HTTP Request9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2160,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/voices",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "xi-api-key",
+              "value": "3496777d5ec9e7d70604dd42e180ce3c"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "817b0a16-0a02-4c4b-b5b6-480dfb7c422f",
+      "name": "HTTP Request10",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1960,
+        1460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-audio",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Webhook2').item.json.body.phone }}"
+            },
+            {
+              "name": "audio",
+              "value": "={{ $binary.data.fileName}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f851da84-a304-4c96-a8f1-a8eff8a446b4",
+      "name": "HTTP Request11",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2020,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "setAllData": false,
+        "destinationKey": "mp3",
+        "options": {
+          "encoding": "base64"
+        }
+      },
+      "id": "e336f0ad-c180-4bcd-b4ee-b559fb1f0b51",
+      "name": "Move Binary Data",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "$input.item.binary.data.fileName = 'audio_' + $now.toFormat('yyyy-MM-dd_mm-hh-ss') + '.mp3';\n$input.item.binary.data.fileExtension = 'mp3';\n\n\nreturn $input.item;"
+      },
+      "id": "19f00515-764b-4afe-8406-75553c47359c",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        1360
+      ]
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-03-28T18:03:17.457Z",
-  "versionId": "ad60d608-bd0a-4346-a34b-a907f25eafa8"
+  "updatedAt": "2023-08-10T01:27:05.178Z",
+  "versionId": "190a76b2-c19c-4a86-b7a5-b9b9da85d126"
 }
