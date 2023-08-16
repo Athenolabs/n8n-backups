@@ -80,7 +80,17 @@
             "DATA DE INSCRIÇÃO": "={{ $json.Hoje }}",
             "E-MAIL": "={{ $('Webhook').item.json.body.email }}",
             "NOME": "={{ $('Webhook').item.json.body.name }}",
-            "TELEFONE": "={{ $('Webhook').item.json.body.phone }}"
+            "TELEFONE": "={{ $('Webhook').item.json.body.phone }}",
+            "UTM SOURCE CAPTURA": "-",
+            "UTM MEDIUM CAPTURA": "-",
+            "UTM CAMPAIGN CAPTURA": "-",
+            "UTM CONTENT CAPTURA": "-",
+            "UTM TERM CAPTURA": "-",
+            "UTM SOURCE COMPRA": "-",
+            "UTM MEDIUM COMPRA": "-",
+            "UTM CAMPAIGN COMPRA": "-",
+            "UTM CONTENT COMPRA": "-",
+            "UTM TERM COMPRA": "-"
           },
           "matchingColumns": [
             "E-MAIL"
@@ -290,7 +300,7 @@
             },
             {
               "name": "message",
-              "value": "=*Olá, {{ $json.NOME }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*.\n\n*Aqui está o seu link promocional:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego/ \n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar! "
+              "value": "=*Olá, {{ $json.NOME }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO* da Assinatura de ~R$79~ por R$47/mês, mais barato que uma pizza.\n\n*Aqui está o seu link promocional:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar! "
             }
           ]
         },
@@ -325,11 +335,14 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Cuiaba",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-14T11:32:50.039Z",
-  "versionId": "530e74ab-c204-40aa-a301-823174f61113"
+  "updatedAt": "2023-08-16T00:49:11.921Z",
+  "versionId": "04f81931-835a-4ea3-90e2-baa4f08e988c"
 }
