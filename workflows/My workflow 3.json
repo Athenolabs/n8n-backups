@@ -81,7 +81,7 @@
             "E-MAIL": "={{ $('Webhook').item.json.body.email }}",
             "NOME": "={{ $('Webhook').item.json.body.name }}",
             "TELEFONE": "={{ $('Webhook').item.json.body.phone }}",
-            "UTM SOURCE CAPTURA": "-",
+            "UTM SOURCE CAPTURA": "Comentarios",
             "UTM MEDIUM CAPTURA": "-",
             "UTM CAMPAIGN CAPTURA": "-",
             "UTM CONTENT CAPTURA": "-",
@@ -343,6 +343,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-16T00:49:11.921Z",
-  "versionId": "04f81931-835a-4ea3-90e2-baa4f08e988c"
+  "updatedAt": "2023-08-16T13:21:49.351Z",
+  "versionId": "ff68b1dd-1b15-43b9-a5be-a8e5e7c70aad"
 }
