@@ -1,348 +1,38 @@
 {
-  "active": true,
-  "connections": {
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "Date & Time",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Sheets": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Date & Time": {
-      "main": [
-        [
-          {
-            "node": "Google Sheets",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "createdAt": "2023-08-14T11:17:26.718Z",
-  "id": "r83Q4AmDIGbOMtsQ",
+  "active": false,
+  "connections": {},
+  "createdAt": "2023-08-16T22:38:12.150Z",
+  "id": "usTEWIgT8YlC2Boj",
   "name": "My workflow 3",
   "nodes": [
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "manychat",
-        "options": {}
+        "event": "subscriber.create"
       },
-      "id": "d06b486f-1b13-4383-b4e2-53696a7b20a9",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
+      "id": "7f232723-3462-48f7-bce6-c55935f3bd3b",
+      "name": "MailerLite Trigger",
+      "type": "n8n-nodes-base.mailerLiteTrigger",
       "typeVersion": 1,
       "position": [
-        380,
-        260
+        1140,
+        400
       ],
-      "webhookId": "62e4351d-a962-4974-9ec4-7e3cce20f59a"
-    },
-    {
-      "parameters": {
-        "operation": "appendOrUpdate",
-        "documentId": {
-          "__rl": true,
-          "value": "1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 2147290642,
-          "mode": "list",
-          "cachedResultName": "AGOSTO",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Uc9ICTxHWpMG4qOrfHsJ5D1Ts1kWq4ZODukYrEu2TIs/edit#gid=2147290642"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "PRODUTO": "Novo Ego",
-            "COMPROU": "NÃO",
-            "RESPONDEU PESQUISA": "NÃO",
-            "RENDA": "-",
-            "DATA DE INSCRIÇÃO": "={{ $json.Hoje }}",
-            "E-MAIL": "={{ $('Webhook').item.json.body.email }}",
-            "NOME": "={{ $('Webhook').item.json.body.name }}",
-            "TELEFONE": "={{ $('Webhook').item.json.body.phone }}",
-            "UTM SOURCE CAPTURA": "Comentarios",
-            "UTM MEDIUM CAPTURA": "-",
-            "UTM CAMPAIGN CAPTURA": "-",
-            "UTM CONTENT CAPTURA": "-",
-            "UTM TERM CAPTURA": "-",
-            "UTM SOURCE COMPRA": "-",
-            "UTM MEDIUM COMPRA": "-",
-            "UTM CAMPAIGN COMPRA": "-",
-            "UTM CONTENT COMPRA": "-",
-            "UTM TERM COMPRA": "-"
-          },
-          "matchingColumns": [
-            "E-MAIL"
-          ],
-          "schema": [
-            {
-              "id": "DATA DE INSCRIÇÃO",
-              "displayName": "DATA DE INSCRIÇÃO",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "NOME",
-              "displayName": "NOME",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "SOBRENOME",
-              "displayName": "SOBRENOME",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "TELEFONE",
-              "displayName": "TELEFONE",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "E-MAIL",
-              "displayName": "E-MAIL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "PRODUTO",
-              "displayName": "PRODUTO",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM SOURCE CAPTURA",
-              "displayName": "UTM SOURCE CAPTURA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM MEDIUM CAPTURA",
-              "displayName": "UTM MEDIUM CAPTURA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM CAMPAIGN CAPTURA",
-              "displayName": "UTM CAMPAIGN CAPTURA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM CONTENT CAPTURA",
-              "displayName": "UTM CONTENT CAPTURA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM TERM CAPTURA",
-              "displayName": "UTM TERM CAPTURA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "RESPONDEU PESQUISA",
-              "displayName": "RESPONDEU PESQUISA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "COMPROU",
-              "displayName": "COMPROU",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "RENDA",
-              "displayName": "RENDA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM SOURCE COMPRA",
-              "displayName": "UTM SOURCE COMPRA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM MEDIUM COMPRA",
-              "displayName": "UTM MEDIUM COMPRA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM CAMPAIGN COMPRA",
-              "displayName": "UTM CAMPAIGN COMPRA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM CONTENT COMPRA",
-              "displayName": "UTM CONTENT COMPRA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "UTM TERM COMPRA",
-              "displayName": "UTM TERM COMPRA",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "5d920417-dc55-49f8-8ac7-3dd7b32472f8",
-      "name": "Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4,
-      "position": [
-        760,
-        260
-      ],
+      "webhookId": "bd3de774-3d18-4eea-8e73-a9bbb754f864",
       "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "15YimooLoASODhGO",
-          "name": "Dr. Fernando Silva"
+        "mailerLiteApi": {
+          "id": "f35OOrA1FD1ugbad",
+          "name": "Mailer Lite account"
         }
       }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.TELEFONE }}"
-            },
-            {
-              "name": "message",
-              "value": "=*Olá, {{ $json.NOME }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO* da Assinatura de ~R$79~ por R$47/mês, mais barato que uma pizza.\n\n*Aqui está o seu link promocional:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar! "
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "b862315f-f639-435b-be85-89e5d9f40312",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        980,
-        260
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "formatDate",
-        "date": "={{ new Date() }}",
-        "format": "yyyy-MM-dd",
-        "outputFieldName": "Hoje",
-        "options": {}
-      },
-      "id": "821d55d0-c799-4c23-9996-db1785c4d6cf",
-      "name": "Date & Time",
-      "type": "n8n-nodes-base.dateTime",
-      "typeVersion": 2,
-      "position": [
-        560,
-        260
-      ]
     }
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1",
-    "timezone": "America/Cuiaba",
-    "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner"
+    "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2023-08-16T13:21:49.351Z",
-  "versionId": "ff68b1dd-1b15-43b9-a5be-a8e5e7c70aad"
+  "triggerCount": 0,
+  "updatedAt": "2023-08-16T22:38:12.150Z",
+  "versionId": "b7f7844d-6858-49c8-9a9c-6649740a6ecf"
 }
