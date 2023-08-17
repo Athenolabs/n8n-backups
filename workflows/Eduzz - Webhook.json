@@ -1,0 +1,34 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2023-08-16T17:06:10.623Z",
+  "id": "xfyf9qGHFMEbgEKn",
+  "name": "Eduzz - Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "eduzz-novo-ego",
+        "options": {}
+      },
+      "id": "fb6b606b-d750-4ec9-bae2-94d5f357b0db",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "a8a09925-976d-44ab-879a-d2da2e78bc6e"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-08-17T02:11:49.418Z",
+  "versionId": "6cc39df9-b871-411e-af0e-501e439cc0a9"
+}
