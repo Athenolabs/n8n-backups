@@ -27,6 +27,28 @@
       "main": [
         [
           {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
             "node": "Google Sheets",
             "type": "main",
             "index": 0
@@ -80,7 +102,7 @@
             "DATA DE INSCRIÇÃO": "={{ $json.Hoje }}",
             "E-MAIL": "={{ $('Webhook').item.json.body.email }}",
             "NOME": "={{ $('Webhook').item.json.body.name }}",
-            "TELEFONE": "={{ $('Webhook').item.json.body.phone }}",
+            "TELEFONE": "={{ $json.tel55 }}",
             "UTM SOURCE CAPTURA": "Comentarios",
             "UTM MEDIUM CAPTURA": "-",
             "UTM CAMPAIGN CAPTURA": "-",
@@ -277,7 +299,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4,
       "position": [
-        760,
+        1180,
         260
       ],
       "credentials": {
@@ -311,7 +333,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        980,
+        1400,
         260
       ]
     },
@@ -331,6 +353,41 @@
         560,
         260
       ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "tel",
+              "value": "={{ $('Webhook').item.json.body.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "10dfd79e-0a6f-4800-bbe2-e70533518a91",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the JSON of the item\n\nlet phone = $('Set').item.json.tel\n\nlet count = phone.replace('+', '').length\n\nif (count === 11) {\n    phone = \"+55\" + phone.slice(1);\n}\n\n$input.item.json.tel55 = phone;\n\nreturn $input.item;"
+      },
+      "id": "039b77a3-4c72-4c1d-a569-2c0dbdbf8d6f",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        260
+      ]
     }
   ],
   "pinData": {},
@@ -343,6 +400,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-16T16:41:36.716Z",
-  "versionId": "182cf84e-573b-4548-a76e-e3d6854eacee"
+  "updatedAt": "2023-08-17T16:00:25.345Z",
+  "versionId": "1f66399e-7029-4d97-9a45-928ba5787ab0"
 }
