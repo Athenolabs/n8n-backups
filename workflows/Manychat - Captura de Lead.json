@@ -322,7 +322,7 @@
             },
             {
               "name": "message",
-              "value": "=*Olá, {{ $json.NOME }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO* da Assinatura de ~R$79~ por R$47/mês, mais barato que uma pizza.\n\n*Aqui está o seu link promocional:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar! "
+              "value": "=*Olá, {{ $json.NOME }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar! "
             }
           ]
         },
@@ -400,6 +400,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-17T16:00:25.345Z",
-  "versionId": "1f66399e-7029-4d97-9a45-928ba5787ab0"
+  "updatedAt": "2023-08-17T19:35:58.730Z",
+  "versionId": "8af3fdd1-2ea3-4e52-9f6a-f44d59447440"
 }
