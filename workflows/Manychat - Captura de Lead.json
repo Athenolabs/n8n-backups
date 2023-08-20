@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "Google Sheets": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Date & Time": {
       "main": [
         [
@@ -50,6 +39,44 @@
         [
           {
             "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "MailerLite",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MailerLite": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MailerLite1": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
             "type": "main",
             "index": 0
           }
@@ -333,8 +360,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1400,
-        260
+        1300,
+        -20
       ]
     },
     {
@@ -388,6 +415,123 @@
         960,
         260
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://connect.mailerlite.com/api/subscribers/{{ $json.data.id }}/groups/96719359926339169",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMWI1OGM0YTgwNGE5ZmMwY2Q1MTNlZDgxNTlmYzk0YTljNDhkN2VjNTM1ZTFkNzBkZGQ1OTM0NzZlMjgwMjBjZWVkZTIxM2UyOGZmZjNkY2IiLCJpYXQiOjE2OTIyMjM4MzIuODI5MTMxLCJuYmYiOjE2OTIyMjM4MzIuODI5MTMzLCJleHAiOjQ4NDc4OTc0MzIuODIzODQxLCJzdWIiOiI1MTc5NzEiLCJzY29wZXMiOltdfQ.LlN_P_V5JHgvU58zNJ__7ZiorPZj_nMCig7rEGuUOfqGM2fXGpNxBb7SPc5hDKwqQdxz-KhsK1_xGp0jyRhFnotr4dgmtlyQLQIbnqqFeftTQfgdgj36XX12LGQl_r8VIzkoTN-NC-EFUHlBXdPfb1fKHSyXtna852a_3GjchBzyt0JY9aFGCy7q6wERKIBDqoWQgFzXMVQW6adsqy0BAbmruVmeyUnO_ufu5yMekamudImbN23JDul8rT-kuFoNlUPL28r6Urig5WDVZEFJFpjTFfenLb75QcQKAT3K9VGvYDWdxmgv7HXDhvG4PfiQSI9NTyIalGh6nHn2ylUx9B2HYFt1AP-BWC77xpQV6AmSR_L-MKlAwdv6Y_O1huRO8Z10CyoQLviYhB_0QnWYfXCDTs-1u0-Ahrd4qHCXKUw_he9U7t2qtB4R_K_dT1vJyG8_4GXLWRD_9peo5a9WsaXdK8mQvrWqvqrrSEAkjFQ2OHmlXLB18BBHGeEOz0GMgyUs2D-zM2_8M7WeqvF0WPcfWWqL4SKHsJSCB7H0Z1UVsYsNfMV_45pb5e3kyt3C8JvO9q71nZKTUX2SblNeGa9A-mVxJIPWAeeQwpS4i8k5vC_H34UsqvH1_0-SHo5I5eIf5s5676LVnyXZtkEQUCRJs4ogjm7or5YGDzBhb-k"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "75e35a84-a67a-4cf0-a7c4-8af447581860",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1860,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "email": "={{ $('Webhook').item.json.body.email }}",
+        "additionalFields": {
+          "customFieldsUi": {
+            "customFieldsValues": [
+              {
+                "fieldId": "name",
+                "value": "={{ $json.NOME }}"
+              },
+              {
+                "fieldId": "phone",
+                "value": "={{ $json.TELEFONE }}"
+              }
+            ]
+          },
+          "name": "={{ $json.NOME }}"
+        }
+      },
+      "id": "dba55e84-020c-4047-a664-5ae04cdd8b1b",
+      "name": "MailerLite",
+      "type": "n8n-nodes-base.mailerLite",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        260
+      ],
+      "credentials": {
+        "mailerLiteApi": {
+          "id": "f35OOrA1FD1ugbad",
+          "name": "Mailer Lite account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "subscriberId": "={{ $('Webhook').item.json.body.email }}"
+      },
+      "id": "b0dd8a4c-d095-4e84-9a8b-b92c735a5ff1",
+      "name": "MailerLite1",
+      "type": "n8n-nodes-base.mailerLite",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        40
+      ],
+      "credentials": {
+        "mailerLiteApi": {
+          "id": "f35OOrA1FD1ugbad",
+          "name": "Mailer Lite account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://connect.mailerlite.com/api/subscribers/{{ $json.email }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMWI1OGM0YTgwNGE5ZmMwY2Q1MTNlZDgxNTlmYzk0YTljNDhkN2VjNTM1ZTFkNzBkZGQ1OTM0NzZlMjgwMjBjZWVkZTIxM2UyOGZmZjNkY2IiLCJpYXQiOjE2OTIyMjM4MzIuODI5MTMxLCJuYmYiOjE2OTIyMjM4MzIuODI5MTMzLCJleHAiOjQ4NDc4OTc0MzIuODIzODQxLCJzdWIiOiI1MTc5NzEiLCJzY29wZXMiOltdfQ.LlN_P_V5JHgvU58zNJ__7ZiorPZj_nMCig7rEGuUOfqGM2fXGpNxBb7SPc5hDKwqQdxz-KhsK1_xGp0jyRhFnotr4dgmtlyQLQIbnqqFeftTQfgdgj36XX12LGQl_r8VIzkoTN-NC-EFUHlBXdPfb1fKHSyXtna852a_3GjchBzyt0JY9aFGCy7q6wERKIBDqoWQgFzXMVQW6adsqy0BAbmruVmeyUnO_ufu5yMekamudImbN23JDul8rT-kuFoNlUPL28r6Urig5WDVZEFJFpjTFfenLb75QcQKAT3K9VGvYDWdxmgv7HXDhvG4PfiQSI9NTyIalGh6nHn2ylUx9B2HYFt1AP-BWC77xpQV6AmSR_L-MKlAwdv6Y_O1huRO8Z10CyoQLviYhB_0QnWYfXCDTs-1u0-Ahrd4qHCXKUw_he9U7t2qtB4R_K_dT1vJyG8_4GXLWRD_9peo5a9WsaXdK8mQvrWqvqrrSEAkjFQ2OHmlXLB18BBHGeEOz0GMgyUs2D-zM2_8M7WeqvF0WPcfWWqL4SKHsJSCB7H0Z1UVsYsNfMV_45pb5e3kyt3C8JvO9q71nZKTUX2SblNeGa9A-mVxJIPWAeeQwpS4i8k5vC_H34UsqvH1_0-SHo5I5eIf5s5676LVnyXZtkEQUCRJs4ogjm7or5YGDzBhb-k"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dac20860-190c-420e-9917-3a5f9a3a4d72",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1620,
+        260
+      ]
     }
   ],
   "pinData": {},
@@ -400,6 +544,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-17T19:35:58.730Z",
-  "versionId": "8af3fdd1-2ea3-4e52-9f6a-f44d59447440"
+  "updatedAt": "2023-08-19T18:18:39.439Z",
+  "versionId": "38cfddfa-3038-4e16-9c71-3e794c591e77"
 }
