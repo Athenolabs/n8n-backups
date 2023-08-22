@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "When clicking \"Execute Workflow\"": {
       "main": [
@@ -632,7 +632,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2023-08-16T16:41:56.012Z",
-  "versionId": "88e8bb94-6906-4fe8-839e-ce504fc1632c"
+  "triggerCount": 3,
+  "updatedAt": "2023-08-22T15:04:12.887Z",
+  "versionId": "33a56b84-4cff-4641-ac64-8fe8bb3ed72c"
 }
