@@ -1,29 +1,43 @@
 {
   "active": false,
-  "connections": {},
-  "createdAt": "2023-08-16T22:38:12.150Z",
-  "id": "usTEWIgT8YlC2Boj",
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Business Cloud",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-08-22T20:42:06.090Z",
+  "id": "9CF3N3hBYEpCpVcf",
   "name": "My workflow 3",
   "nodes": [
     {
-      "parameters": {
-        "event": "subscriber.create"
-      },
-      "id": "7f232723-3462-48f7-bce6-c55935f3bd3b",
-      "name": "MailerLite Trigger",
-      "type": "n8n-nodes-base.mailerLiteTrigger",
+      "parameters": {},
+      "id": "a91f2fbc-830c-4c01-8ff8-1fa46fa8ab17",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1140,
-        400
-      ],
-      "webhookId": "bd3de774-3d18-4eea-8e73-a9bbb754f864",
-      "credentials": {
-        "mailerLiteApi": {
-          "id": "f35OOrA1FD1ugbad",
-          "name": "Mailer Lite account"
-        }
-      }
+        540,
+        260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "9e45d1d0-51d6-44e9-8705-de3be81bd003",
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        760,
+        260
+      ]
     }
   ],
   "pinData": {},
@@ -33,6 +47,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-16T22:38:12.150Z",
-  "versionId": "b7f7844d-6858-49c8-9a9c-6649740a6ecf"
+  "updatedAt": "2023-08-22T20:42:06.090Z",
+  "versionId": "8a97a916-05b0-41db-b3f3-4b8b81da82fc"
 }
