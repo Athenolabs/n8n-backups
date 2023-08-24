@@ -1,0 +1,103 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-08-23T15:39:53.749Z",
+  "id": "AFIlKtIkw8O5drco",
+  "name": "API OFICIAL",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ffda92a1-cab7-4eab-b82c-a18e01a57a22",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v17.0/123806084140030/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAANoMieX3A8BO8t51bYFAQzCaSxZAZAKUyIZCux9r7oVRfuA4PmZAVKC4HY0YCfYYv2klLcIZBrK017TcNGhzzlzvzRi7BATyifPDWe9Azhq6OZArgVkV21xXp473ZA7Jpv9wCa2uQ2WU095Ri36enCbatZACeEMi2nyhBZAjiwXTSQCKLiMmFECwuUnhe6dVESZCxF1mCVzZCXHmX0xAINk1liGZAqrDWaXDih0bwr7"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"messaging_product\": \"whatsapp\",\n    \"to\": \"5566996188393\",\n    \"type\": \"template\",\n    \"template\": {\n        \"name\": \"testeprimeiro\",\n        \"language\": {\n            \"code\": \"pt_BR\"\n        }\n    }\n}",
+        "options": {}
+      },
+      "id": "de3d444d-4780-45bc-94c8-93e979ea9d8b",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v17.0/123806084140030/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAANoMieX3A8BO8t51bYFAQzCaSxZAZAKUyIZCux9r7oVRfuA4PmZAVKC4HY0YCfYYv2klLcIZBrK017TcNGhzzlzvzRi7BATyifPDWe9Azhq6OZArgVkV21xXp473ZA7Jpv9wCa2uQ2WU095Ri36enCbatZACeEMi2nyhBZAjiwXTSQCKLiMmFECwuUnhe6dVESZCxF1mCVzZCXHmX0xAINk1liGZAqrDWaXDih0bwr7"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"messaging_product\": \"whatsapp\",\n    \"to\": \"5566996188393\",\n    \"type\": \"template\",\n    \"template\": {\n        \"name\": \"hello_world\",\n        \"language\": {\n            \"code\": \"en_US\"\n        }\n    }\n}",
+        "options": {}
+      },
+      "id": "aefc588e-6cf1-499a-aa16-ad8bdf72d1f5",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        760,
+        400
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-08-24T03:31:10.751Z",
+  "versionId": "795e1f5b-629a-4039-9eb2-9b042393b785"
+}
