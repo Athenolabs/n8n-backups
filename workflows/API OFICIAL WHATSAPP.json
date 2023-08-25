@@ -1,0 +1,151 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "IF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-08-24T20:27:03.658Z",
+  "id": "SIDC2Q9ClACLFds6",
+  "name": "API OFICIAL WHATSAPP",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "api-oficial-whatsapp",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "f46d64f3-997c-4a13-abd8-4bff1041e949",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        820,
+        400
+      ],
+      "webhookId": "1a5dd426-185d-4177-a632-415ad0b01b7e"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.query['hub.verify_token'] }}",
+              "value2": "153712"
+            }
+          ]
+        }
+      },
+      "id": "1f602a42-aa39-4dd2-8558-9c7f0113ed08",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('Webhook').item.json.query['hub.challenge'] }}",
+        "options": {}
+      },
+      "id": "397ad013-6a74-471e-9513-c3c34d93fe21",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "api-oficial-whatsapp",
+        "options": {}
+      },
+      "id": "cf641000-c617-4e20-bb36-a422951df6f7",
+      "name": "Webhook1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        820,
+        640
+      ],
+      "webhookId": "dd61f809-64f9-4383-a0e2-5e9f01ffdc47"
+    },
+    {
+      "parameters": {},
+      "id": "77cf2afc-903a-49fc-a1ca-43fa5bfdbc2d",
+      "name": "IF1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "=",
+        "additionalFields": {}
+      },
+      "id": "e8418038-eeba-47e5-99cf-ad70da7de866",
+      "name": "WhatsApp Business Cloud",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        760
+      ],
+      "credentials": {
+        "whatsAppApi": {
+          "id": "fPmjJ3ol4Gkd5BSQ",
+          "name": "WhatsApp account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-08-24T21:06:47.324Z",
+  "versionId": "cb8182ee-a181-49c2-bacb-e311bbe486c1"
+}
