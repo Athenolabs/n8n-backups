@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "When clicking \"Execute Workflow\"": {
       "main": [
@@ -152,13 +152,13 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-messages",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
             {
               "name": "phone",
-              "value": "5566996188393"
+              "value": "5566984474444"
             },
             {
               "name": "message",
@@ -633,6 +633,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2023-08-22T15:04:12.887Z",
-  "versionId": "33a56b84-4cff-4641-ac64-8fe8bb3ed72c"
+  "updatedAt": "2023-08-25T15:39:32.468Z",
+  "versionId": "5e53c793-6ada-4a2d-bbd9-76a8fd220d51"
 }
