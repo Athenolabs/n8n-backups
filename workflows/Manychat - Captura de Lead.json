@@ -67,16 +67,22 @@
         ]
       ]
     },
-    "MailerLite1": {
-      "main": [
-        []
-      ]
-    },
     "HTTP Request2": {
       "main": [
         [
           {
             "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
             "type": "main",
             "index": 0
           }
@@ -492,8 +498,8 @@
       "type": "n8n-nodes-base.mailerLite",
       "typeVersion": 1,
       "position": [
-        1680,
-        40
+        1540,
+        -20
       ],
       "credentials": {
         "mailerLiteApi": {
@@ -532,6 +538,34 @@
         1620,
         260
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('HTTP Request2').item.json.data.fields.phone }}"
+            },
+            {
+              "name": "message",
+              "value": "=*Olá, {{ $('HTTP Request2').item.json.data.fields.name }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f275fca-00c4-4e87-a04b-084c21fd8d65",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2060,
+        260
+      ]
     }
   ],
   "pinData": {},
@@ -544,6 +578,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-19T18:18:39.439Z",
-  "versionId": "38cfddfa-3038-4e16-9c71-3e794c591e77"
+  "updatedAt": "2023-08-25T15:52:43.940Z",
+  "versionId": "76366325-24cd-4b17-901a-c16cce4f9635"
 }
