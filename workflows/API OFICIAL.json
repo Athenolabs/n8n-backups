@@ -47,7 +47,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"messaging_product\": \"whatsapp\",\n    \"to\": \"5566996188393\",\n    \"type\": \"template\",\n    \"template\": {\n        \"name\": \"testeprimeiro\",\n        \"language\": {\n            \"code\": \"pt_BR\"\n        }\n    }\n}",
+        "jsonBody": "={\n    \"messaging_product\": \"whatsapp\",\n    \"to\": \"5566996188393\",\n    \"type\": \"template\",\n    \"template\": {\n        \"name\": \"bem_vindo_novo_ego\",\n        \"language\": {\n            \"code\": \"pt_BR\"\n        }\n    }\n}",
         "options": {}
       },
       "id": "de3d444d-4780-45bc-94c8-93e979ea9d8b",
@@ -86,8 +86,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        760,
-        400
+        780,
+        520
       ]
     }
   ],
@@ -98,6 +98,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-24T03:31:10.751Z",
-  "versionId": "795e1f5b-629a-4039-9eb2-9b042393b785"
+  "updatedAt": "2023-08-24T20:26:47.939Z",
+  "versionId": "2c9dab12-60ed-483c-8e99-ada40eec21b8"
 }
