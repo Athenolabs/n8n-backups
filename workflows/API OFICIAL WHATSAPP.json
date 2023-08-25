@@ -33,6 +33,17 @@
           }
         ]
       ]
+    },
+    "IF1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-24T20:27:03.658Z",
@@ -94,6 +105,7 @@
       "parameters": {
         "httpMethod": "POST",
         "path": "api-oficial-whatsapp",
+        "responseCode": "200",
         "options": {}
       },
       "id": "cf641000-c617-4e20-bb36-a422951df6f7",
@@ -107,7 +119,16 @@
       "webhookId": "dd61f809-64f9-4383-a0e2-5e9f01ffdc47"
     },
     {
-      "parameters": {},
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.entry[0].changes[0].value.messages[0].text.body }}",
+              "value2": "#chat"
+            }
+          ]
+        }
+      },
       "id": "77cf2afc-903a-49fc-a1ca-43fa5bfdbc2d",
       "name": "IF1",
       "type": "n8n-nodes-base.if",
@@ -119,24 +140,34 @@
     },
     {
       "parameters": {
-        "operation": "send",
-        "phoneNumberId": "=",
-        "additionalFields": {}
+        "method": "POST",
+        "url": "https://graph.facebook.com/v17.0/123806084140030/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAANoMieX3A8BOzv6q2sL1YXMBxRCa5iw97goZAzn6gqQQ0XhXqURN9OwhvZAVDCQU5hweK4ON4ZBZBMNYLTTC6uRrC3zm5WHEHQBpX5V7FYVoEYA47rLmmIWcqEuBQaKnvHG2ftZCcgoAQJsXEqal52snnUv9DZCWF2RNOLZANtVx3asYm8y7lHK2b4HSYHLUY9WDfrOv6MZBazdwtz1NdhrAvZCjMdZBoHSesNrwZD"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"messaging_product\": \"whatsapp\",\n    \"recipient_type\": \"individual\",\n    \"to\": \"5566996188393\",\n    \"type\": \"text\",\n    \"text\": {\n        \"preview_url\": false,\n        \"body\": \"Que legal te ver aqui. como você vai?\"\n        }\n}",
+        "options": {}
       },
-      "id": "e8418038-eeba-47e5-99cf-ad70da7de866",
-      "name": "WhatsApp Business Cloud",
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
+      "id": "18e48867-0267-45cd-83ad-e5cbd4cca16f",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
       "position": [
-        1380,
-        760
-      ],
-      "credentials": {
-        "whatsAppApi": {
-          "id": "fPmjJ3ol4Gkd5BSQ",
-          "name": "WhatsApp account"
-        }
-      }
+        1280,
+        620
+      ]
     }
   ],
   "pinData": {},
@@ -146,6 +177,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-24T21:06:47.324Z",
-  "versionId": "cb8182ee-a181-49c2-bacb-e311bbe486c1"
+  "updatedAt": "2023-08-25T15:22:52.865Z",
+  "versionId": "afddf324-fe92-411c-a5a6-323f6fa0d150"
 }
