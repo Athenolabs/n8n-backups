@@ -158,7 +158,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "5566984474444"
+              "value": "5566996188393"
             },
             {
               "name": "message",
@@ -633,6 +633,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2023-08-25T15:39:32.468Z",
-  "versionId": "5e53c793-6ada-4a2d-bbd9-76a8fd220d51"
+  "updatedAt": "2023-08-26T14:31:20.578Z",
+  "versionId": "5e5f67af-4f0c-4c56-bb84-a5e372df709d"
 }
