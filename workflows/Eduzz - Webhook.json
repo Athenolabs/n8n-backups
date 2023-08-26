@@ -1,6 +1,65 @@
 {
   "active": false,
-  "connections": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2023-08-16T17:06:10.623Z",
   "id": "xfyf9qGHFMEbgEKn",
   "name": "Eduzz - Webhook",
@@ -17,9 +76,175 @@
       "typeVersion": 1,
       "position": [
         540,
-        260
+        180
       ],
       "webhookId": "a8a09925-976d-44ab-879a-d2da2e78bc6e"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.type }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "invoice"
+            },
+            {
+              "value2": "abandonment",
+              "output": 1
+            },
+            {
+              "value2": "contract",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "28a72efb-17a6-44b4-b741-07c56c7a0362",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        940,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "=55{{ $json.body.cus_cel }}"
+            },
+            {
+              "name": "message",
+              "value": "=Compra em Aberto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "902f47b5-60d2-4d2e-99d3-af954b7edc90",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1580,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "statusFatura",
+              "value": "={{ $json.body.trans_status }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e554337d-a31e-4b69-9e47-e77802bf536a",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        740,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.statusFatura }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "contains",
+              "value2": "3"
+            },
+            {
+              "operation": "contains",
+              "value2": "1",
+              "output": 1
+            },
+            {
+              "operation": "contains",
+              "value2": "4",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "12ac0a6d-a619-4c72-928a-8bc24deacc27",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "=55{{ $json.body.cus_cel }}"
+            },
+            {
+              "name": "message",
+              "value": "=Compra em Aberto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dbf7f825-b586-4873-95c4-a87fd999ff3d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1580,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "=55{{ $json.body.cus_cel }}"
+            },
+            {
+              "name": "message",
+              "value": "=Compra em Aberto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9f2050df-66d1-4436-8332-b53b67de42c9",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1580,
+        140
+      ]
     }
   ],
   "pinData": {},
@@ -29,6 +254,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-17T02:11:49.418Z",
-  "versionId": "6cc39df9-b871-411e-af0e-501e439cc0a9"
+  "updatedAt": "2023-08-26T03:41:33.764Z",
+  "versionId": "cfd206f7-16e9-40e7-9f79-b618eb9f6664"
 }
