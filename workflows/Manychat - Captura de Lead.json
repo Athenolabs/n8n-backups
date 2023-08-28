@@ -49,7 +49,7 @@
       "main": [
         [
           {
-            "node": "MailerLite",
+            "node": "HTTP Request3",
             "type": "main",
             "index": 0
           }
@@ -78,11 +78,11 @@
         ]
       ]
     },
-    "HTTP Request1": {
+    "HTTP Request3": {
       "main": [
         [
           {
-            "node": "HTTP Request3",
+            "node": "MailerLite",
             "type": "main",
             "index": 0
           }
@@ -450,7 +450,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1860,
+        2060,
         260
       ]
     },
@@ -478,7 +478,7 @@
       "type": "n8n-nodes-base.mailerLite",
       "typeVersion": 1,
       "position": [
-        1400,
+        1580,
         260
       ],
       "credentials": {
@@ -535,7 +535,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1620,
+        1820,
         260
       ]
     },
@@ -548,11 +548,11 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "={{ $('HTTP Request2').item.json.data.fields.phone }}"
+              "value": "={{ $json.TELEFONE }}"
             },
             {
               "name": "message",
-              "value": "=*Olá, {{ $('HTTP Request2').item.json.data.fields.name }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
+              "value": "=*Olá, {{ $json[\"NOME\"] }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
             }
           ]
         },
@@ -563,7 +563,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2060,
+        1380,
         260
       ]
     }
@@ -578,6 +578,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-25T15:52:43.940Z",
-  "versionId": "76366325-24cd-4b17-901a-c16cce4f9635"
+  "updatedAt": "2023-08-27T21:17:56.565Z",
+  "versionId": "5e1e3ee5-ea57-448d-a265-b9efc1ce69e4"
 }
