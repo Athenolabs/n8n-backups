@@ -20,6 +20,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Switch4",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -50,20 +57,8 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Compra Cancelada",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Switch2",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        [],
+        []
       ]
     },
     "Compra Aprovada": {
@@ -93,31 +88,6 @@
         [
           {
             "node": "HTTP Request1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch2": {
-      "main": [
-        [
-          {
-            "node": "Compra Expirada",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Em Recuperação",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Aguardando Pagamento",
             "type": "main",
             "index": 0
           }
@@ -241,6 +211,104 @@
           }
         ]
       ]
+    },
+    "Switch4": {
+      "main": [
+        [
+          {
+            "node": "Compra Cancelada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Compra Expirada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Em Recuperação",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aguardando Pagamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Wait4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -273,11 +341,11 @@
               "value2": "invoice"
             },
             {
-              "value2": "abandonment",
+              "value2": "contract",
               "output": 1
             },
             {
-              "value2": "contract",
+              "value2": "abandonment",
               "output": 2
             }
           ]
@@ -301,7 +369,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
+              "value": "={{ $json.body.cus_cel }}"
             },
             {
               "name": "message",
@@ -440,7 +508,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
+              "value": "={{ $json.body.cus_cel }}"
             },
             {
               "name": "message",
@@ -456,7 +524,7 @@
       "typeVersion": 4.1,
       "position": [
         1660,
-        260
+        240
       ]
     },
     {
@@ -489,39 +557,7 @@
       "typeVersion": 1,
       "position": [
         1440,
-        260
-      ]
-    },
-    {
-      "parameters": {
-        "dataType": "string",
-        "value1": "={{ $json.statusFatura }}",
-        "rules": {
-          "rules": [
-            {
-              "operation": "contains",
-              "value2": "10"
-            },
-            {
-              "operation": "contains",
-              "value2": "11",
-              "output": 1
-            },
-            {
-              "operation": "contains",
-              "value2": "15",
-              "output": 2
-            }
-          ]
-        }
-      },
-      "id": "e8e868d9-e04c-42de-9422-10f064bd21e3",
-      "name": "Switch2",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 1,
-      "position": [
-        1440,
-        640
+        240
       ]
     },
     {
@@ -531,8 +567,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1660,
-        460
+        1440,
+        420
       ]
     },
     {
@@ -542,8 +578,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1660,
-        640
+        1440,
+        700
       ]
     },
     {
@@ -553,8 +589,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1660,
-        820
+        1440,
+        880
       ]
     },
     {
@@ -602,7 +638,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "={{ $('IF').item.json.phoneCustomer }}"
+              "value": "={{ $('IF1').item.json.phoneCustomer }}"
             },
             {
               "name": "message",
@@ -651,7 +687,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
+              "value": "={{ $json.body.cus_cel }}"
             },
             {
               "name": "message",
@@ -666,8 +702,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1900,
-        820
+        1660,
+        880
       ]
     },
     {
@@ -679,7 +715,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
+              "value": "={{ $json.body.cus_cel }}"
             },
             {
               "name": "message",
@@ -694,7 +730,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2220,
+        1920,
         600
       ]
     },
@@ -707,7 +743,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
+              "value": "={{ $json.body.cus_cel }}"
             },
             {
               "name": "message",
@@ -722,8 +758,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1900,
-        460
+        1640,
+        420
       ]
     },
     {
@@ -750,8 +786,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2300,
-        460
+        2140,
+        420
       ]
     },
     {
@@ -791,8 +827,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        1880,
-        640
+        1660,
+        700
       ]
     },
     {
@@ -819,8 +855,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2220,
-        740
+        1920,
+        760
       ]
     },
     {
@@ -833,10 +869,179 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        2120,
-        460
+        1920,
+        420
       ],
       "webhookId": "a2284037-b505-4945-bcc8-58d8a476f303"
+    },
+    {
+      "parameters": {
+        "value1": "={{ $json.statusFatura }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "smallerEqual",
+              "value2": 4
+            },
+            {
+              "operation": "smallerEqual",
+              "value2": 10,
+              "output": 1
+            },
+            {
+              "operation": "smallerEqual",
+              "value2": 11,
+              "output": 2
+            },
+            {
+              "operation": "smallerEqual",
+              "value2": 15,
+              "output": 3
+            }
+          ]
+        }
+      },
+      "id": "7d7c8993-422f-4e47-9784-107bfbe9034d",
+      "name": "Switch4",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "f06f5e17-fd70-4b7d-8c52-f5f47cbe4f87",
+      "name": "Wait2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        700
+      ],
+      "webhookId": "2e344bad-d843-436c-a891-e2a81f14152d"
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "fbafc8ca-5488-4915-8609-d026d30783be",
+      "name": "Wait3",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        420
+      ],
+      "webhookId": "b7bc3dae-98a3-4132-a0c2-73817a663c31"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phones",
+              "value": "=[\"{{ $('IF1').item.json.phoneCustomer }}\"]"
+            },
+            {
+              "name": "groupId",
+              "value": "=120363142746754193-group"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "04045b73-a7b0-4964-b384-1402c9db97d2",
+      "name": "HTTP Request9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2140,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phones",
+              "value": "=[\"{{ $('IF1').item.json.phoneCustomer }}\"]"
+            },
+            {
+              "name": "groupId",
+              "value": "=120363142746754193-group"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8a9916b1-b35e-43d4-8192-aba1f1e2647c",
+      "name": "HTTP Request10",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2560,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/add-participant",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phones",
+              "value": "=[\"{{ $('IF1').item.json.phoneCustomer }}\"]"
+            },
+            {
+              "name": "groupId",
+              "value": "=120363142746754193-group"
+            },
+            {
+              "name": "autoInvite",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e887411b-cc94-4608-a076-19d73d891f22",
+      "name": "HTTP Request11",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2760,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "81639f43-7326-4dde-9fba-12f46ab2c6bd",
+      "name": "Wait4",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        -140
+      ],
+      "webhookId": "988e80a3-9dde-47c0-bb38-99622e7048fc"
     }
   ],
   "pinData": {},
@@ -846,6 +1051,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-27T03:27:16.855Z",
-  "versionId": "c80f8751-8d53-4d55-ba5a-eb7a035ccb2e"
+  "updatedAt": "2023-08-28T18:22:37.538Z",
+  "versionId": "eed98658-3a3a-41d7-9a97-74d125d99cfd"
 }
