@@ -21,13 +21,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Switch4",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Set": {
@@ -43,13 +37,7 @@
     },
     "Switch1": {
       "main": [
-        [
-          {
-            "node": "Compra em Aberto",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "Compra Aprovada",
@@ -240,11 +228,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "HTTP Request1": {
-      "main": [
-        []
       ]
     },
     "Wait2": {
@@ -1043,6 +1026,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-08-29T18:19:05.682Z",
-  "versionId": "4d065987-fa0b-4df0-9c48-34378dcd3b91"
+  "updatedAt": "2023-09-01T12:14:20.946Z",
+  "versionId": "e13cccaf-e926-4dc1-9339-0d13b2863e85"
 }
