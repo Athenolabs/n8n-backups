@@ -132,6 +132,11 @@
           }
         ]
       ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2023-08-09T22:16:53.182Z",
@@ -624,6 +629,37 @@
         1780,
         1360
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.chatbase.co/api/v1/chat",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 637e3ab5-0934-47eb-ae13-4a218da2b415"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messages\": [\n    { \"content\": \"Como posso ter ajudar?\", \"role\": \"assistant\" },\n    { \"content\": \"quem é o dr. fernando\", \"role\": \"user\" }\n  ],\n  \"chatbotId\": \"fFskawgUHo1BEAuE86fUx\",\n  \"stream\": false,\n  \"temperature\": 0,\n  \"model\": \"gpt-3.5-turbo\",\n  \"conversationId\": \"idcontactidas\"\n}",
+        "options": {}
+      },
+      "id": "098841f9-3f27-4ac8-a276-d3957d2bd719",
+      "name": "HTTP Request12",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2160,
+        540
+      ]
     }
   ],
   "pinData": {},
@@ -633,6 +669,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2023-08-26T14:31:20.578Z",
-  "versionId": "5e5f67af-4f0c-4c56-bb84-a5e372df709d"
+  "updatedAt": "2023-09-01T20:12:25.700Z",
+  "versionId": "9865c505-c5f5-465a-ae14-363c79914e8c"
 }
