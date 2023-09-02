@@ -105,8 +105,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        380,
-        260
+        400,
+        140
       ],
       "webhookId": "62e4351d-a962-4974-9ec4-7e3cce20f59a"
     },
@@ -135,7 +135,7 @@
       "typeVersion": 4.1,
       "position": [
         1300,
-        -20
+        -140
       ]
     },
     {
@@ -151,8 +151,8 @@
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 2,
       "position": [
-        560,
-        260
+        580,
+        140
       ]
     },
     {
@@ -172,8 +172,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        760,
-        260
+        780,
+        140
       ]
     },
     {
@@ -186,8 +186,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        960,
-        260
+        980,
+        140
       ]
     },
     {
@@ -219,7 +219,7 @@
       "typeVersion": 4.1,
       "position": [
         2060,
-        260
+        140
       ]
     },
     {
@@ -246,8 +246,8 @@
       "type": "n8n-nodes-base.mailerLite",
       "typeVersion": 1,
       "position": [
-        1580,
-        260
+        1600,
+        140
       ],
       "credentials": {
         "mailerLiteApi": {
@@ -267,7 +267,7 @@
       "typeVersion": 1,
       "position": [
         1540,
-        -20
+        -140
       ],
       "credentials": {
         "mailerLiteApi": {
@@ -303,8 +303,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1820,
-        260
+        1840,
+        140
       ]
     },
     {
@@ -331,8 +331,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1380,
-        260
+        1400,
+        140
       ]
     },
     {
@@ -619,8 +619,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4,
       "position": [
-        1180,
-        260
+        1200,
+        140
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -640,6 +640,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-01T14:06:31.246Z",
-  "versionId": "3e3e443a-eeb0-40bc-a798-0862aaed2a21"
+  "updatedAt": "2023-09-01T18:44:38.179Z",
+  "versionId": "57584e53-cbb5-4eae-8a1f-64d4748d2c29"
 }
