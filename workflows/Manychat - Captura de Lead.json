@@ -78,11 +78,34 @@
         ]
       ]
     },
-    "Google Sheets": {
+    "Google Sheets1": {
       "main": [
         [
           {
             "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Google Sheets1",
             "type": "main",
             "index": 0
           }
@@ -109,34 +132,6 @@
         140
       ],
       "webhookId": "62e4351d-a962-4974-9ec4-7e3cce20f59a"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3BF1A6031399900B570E82CFDE5982A9/token/C725495F6B80B55CF7F353EA/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.TELEFONE }}"
-            },
-            {
-              "name": "message",
-              "value": "=*Olá, {{ $json.NOME }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar! "
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "b862315f-f639-435b-be85-89e5d9f40312",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        1300,
-        -140
-      ]
     },
     {
       "parameters": {
@@ -218,7 +213,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2060,
+        2500,
         140
       ]
     },
@@ -230,15 +225,15 @@
             "customFieldsValues": [
               {
                 "fieldId": "name",
-                "value": "={{ $json.NOME }}"
+                "value": "={{ $('Google Sheets1').item.json.Nome }}"
               },
               {
                 "fieldId": "phone",
-                "value": "={{ $json.TELEFONE }}"
+                "value": "={{ $('Code').item.json.tel55 }}"
               }
             ]
           },
-          "name": "={{ $json.NOME }}"
+          "name": "={{ $('Google Sheets1').item.json.Nome }}"
         }
       },
       "id": "dba55e84-020c-4047-a664-5ae04cdd8b1b",
@@ -246,28 +241,8 @@
       "type": "n8n-nodes-base.mailerLite",
       "typeVersion": 1,
       "position": [
-        1600,
+        2040,
         140
-      ],
-      "credentials": {
-        "mailerLiteApi": {
-          "id": "f35OOrA1FD1ugbad",
-          "name": "Mailer Lite account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "subscriberId": "={{ $('Webhook').item.json.body.email }}"
-      },
-      "id": "b0dd8a4c-d095-4e84-9a8b-b92c735a5ff1",
-      "name": "MailerLite1",
-      "type": "n8n-nodes-base.mailerLite",
-      "typeVersion": 1,
-      "position": [
-        1540,
-        -140
       ],
       "credentials": {
         "mailerLiteApi": {
@@ -303,7 +278,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1840,
+        2280,
         140
       ]
     },
@@ -320,7 +295,7 @@
             },
             {
               "name": "message",
-              "value": "=*Olá, {{ $json.Nome.split(' ')[0] }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://drfernandosilva.com.br/comunidade-novo-ego-promocional\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
+              "value": "=*Olá, {{ $json.Nome.split(' ')[0] }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://bit.ly/comunidade-novo-ego-01\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
             }
           ]
         },
@@ -331,7 +306,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1400,
+        1840,
         140
       ]
     },
@@ -356,11 +331,16 @@
           "mappingMode": "defineBelow",
           "value": {
             "Email": "={{ $('Webhook').item.json.body.email }}",
-            "Data de Inscrição": "={{ $json.Hoje }}",
+            "Data de Inscrição": "={{ $('Date & Time').item.json.Hoje }}",
             "Nome": "={{ $('Webhook').item.json.body.name }}",
             "Telefone": "={{ $json.tel55 }}",
+            "Cadastrou Pré Checkout": "NÃO",
             "Comprou": "NÃO",
-            "Cadastrou Pré Checkout": "NÃO"
+            "Plataforma de Captura": "={{ $('Webhook').item.json.body.utm_source }}",
+            "Canal de Captura": "={{ $('Webhook').item.json.body.utm_medium }}",
+            "Campanha de Captura": "={{ $('Webhook').item.json.body.utm_camppaign }}",
+            "Termo de Captura": "={{ $('Webhook').item.json.body.utm_term }}",
+            "Status": "Lead"
           },
           "matchingColumns": [
             "Email"
@@ -428,7 +408,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Plano",
@@ -437,7 +418,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Valor",
@@ -446,7 +428,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Status",
@@ -455,7 +438,18 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Formulario Pré Checkout",
+              "displayName": "Formulario Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Cobranças",
@@ -464,16 +458,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Ultimo pagamento",
-              "displayName": "Ultimo pagamento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Plataforma de Captura",
@@ -518,7 +504,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Plataforma de Pré CheckOut",
@@ -527,7 +514,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Canal de Pré CheckOut",
@@ -536,16 +524,18 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
+              "id": "Campanha de Pré CheckOut",
+              "displayName": "Campanha de Pré CheckOut",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Termo de Pré CheckOut",
@@ -554,7 +544,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Conteúdo de Pré CheckOut",
@@ -563,7 +554,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Plataforma de Compra",
@@ -572,7 +564,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Canal de Compra",
@@ -581,16 +574,18 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
-              "id": "Conteúdo de Compra",
-              "displayName": "Conteúdo de Compra",
+              "id": "Camapanha de Compra",
+              "displayName": "Camapanha de Compra",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Termo de Compra",
@@ -599,7 +594,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Conteúdo de Captura",
@@ -614,12 +610,12 @@
         },
         "options": {}
       },
-      "id": "e22dd3d7-c61c-40e7-94ac-f934f97c0dc3",
-      "name": "Google Sheets",
+      "id": "f4b07a40-9b33-454a-bfac-9fbc464a83da",
+      "name": "Google Sheets1",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4,
       "position": [
-        1200,
+        1640,
         140
       ],
       "credentials": {
@@ -628,6 +624,68 @@
           "name": "Dr. Fernando Silva"
         }
       }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $('Webhook').item.json.body.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f69a67d1-9cce-4133-ab01-bd41ff09d9db",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1200,
+        140
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.row_number }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "8c25fcc2-3f5e-438c-be10-a6a0e0b8d7d9",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        140
+      ]
     }
   ],
   "pinData": {},
@@ -640,6 +698,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-01T18:44:38.179Z",
-  "versionId": "57584e53-cbb5-4eae-8a1f-64d4748d2c29"
+  "updatedAt": "2023-09-02T15:18:49.801Z",
+  "versionId": "07e80238-10aa-4a57-a729-c054e8a821f1"
 }
