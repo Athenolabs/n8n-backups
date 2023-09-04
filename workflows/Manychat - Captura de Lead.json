@@ -333,7 +333,7 @@
             "Email": "={{ $('Webhook').item.json.body.email }}",
             "Data de Inscrição": "={{ $('Date & Time').item.json.Hoje }}",
             "Nome": "={{ $('Webhook').item.json.body.name }}",
-            "Telefone": "={{ $json.tel55 }}",
+            "Telefone": "={{ $('Code').item.json.tel55 }}",
             "Cadastrou Pré Checkout": "NÃO",
             "Comprou": "NÃO",
             "Plataforma de Captura": "={{ $('Webhook').item.json.body.utm_source }}",
@@ -698,6 +698,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-02T15:18:49.801Z",
-  "versionId": "07e80238-10aa-4a57-a729-c054e8a821f1"
+  "updatedAt": "2023-09-03T22:21:00.371Z",
+  "versionId": "2a4d1fc1-cbe6-4778-a1a0-2fcae22bcc10"
 }
