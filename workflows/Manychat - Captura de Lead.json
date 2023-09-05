@@ -338,7 +338,7 @@
             "Comprou": "NÃO",
             "Plataforma de Captura": "={{ $('Webhook').item.json.body.utm_source }}",
             "Canal de Captura": "={{ $('Webhook').item.json.body.utm_medium }}",
-            "Campanha de Captura": "={{ $('Webhook').item.json.body.utm_camppaign }}",
+            "Campanha de Captura": "={{ $('Webhook').item.json.body.utm_campaign }}",
             "Termo de Captura": "={{ $('Webhook').item.json.body.utm_term }}",
             "Status": "Lead"
           },
@@ -698,6 +698,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-03T22:21:00.371Z",
-  "versionId": "2a4d1fc1-cbe6-4778-a1a0-2fcae22bcc10"
+  "updatedAt": "2023-09-05T15:52:07.820Z",
+  "versionId": "976f893d-57a7-4284-b8a0-f6ab086d1e91"
 }
