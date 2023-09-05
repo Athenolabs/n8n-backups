@@ -10,13 +10,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Switch4",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "HTTP Request14",
@@ -303,6 +297,20 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "HTTP Request15",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request16",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -502,6 +510,95 @@
           }
         ]
       ]
+    },
+    "Google Sheets12": {
+      "main": [
+        [
+          {
+            "node": "IF7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF7": {
+      "main": [
+        [
+          {
+            "node": "Filter3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Filter3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "assinatura-cancelada": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets14": {
+      "main": [
+        [
+          {
+            "node": "IF8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF8": {
+      "main": [
+        [
+          {
+            "node": "Filter4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter4": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "assinatura-finalizada": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -518,8 +615,7 @@
               "value2": "invoice"
             },
             {
-              "value2": "contract",
-              "output": 1
+              "value2": "contract"
             },
             {
               "value2": "abandonment",
@@ -534,7 +630,7 @@
       "typeVersion": 1,
       "position": [
         560,
-        -760
+        -840
       ]
     },
     {
@@ -571,7 +667,7 @@
           "string": [
             {
               "name": "statusFatura",
-              "value": "={{ $('Entrada').item.json.body.trans_status }}"
+              "value": "={{ $('Entrada').item.json.body.event_name }}"
             },
             {
               "name": "nameCustomer",
@@ -635,22 +731,29 @@
       "typeVersion": 2,
       "position": [
         320,
-        -760
+        -840
       ]
     },
     {
       "parameters": {
+        "dataType": "string",
         "value1": "={{ $('Set').item.json.statusFatura }}",
         "rules": {
           "rules": [
             {
-              "operation": "smallerEqual",
-              "value2": 1
+              "value2": "invoice_open"
             },
             {
-              "operation": "smallerEqual",
-              "value2": 3,
+              "value2": "invoice_paid",
               "output": 1
+            },
+            {
+              "value2": "contract_canceled",
+              "output": 2
+            },
+            {
+              "value2": "contract_finished",
+              "output": 3
             }
           ]
         }
@@ -661,7 +764,7 @@
       "typeVersion": 1,
       "position": [
         800,
-        -960
+        -1040
       ]
     },
     {
@@ -1066,42 +1169,6 @@
         2020
       ],
       "webhookId": "a2284037-b505-4945-bcc8-58d8a476f303"
-    },
-    {
-      "parameters": {
-        "value1": "={{ $json.statusFatura }}",
-        "rules": {
-          "rules": [
-            {
-              "operation": "smallerEqual",
-              "value2": 4
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 10,
-              "output": 1
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 11,
-              "output": 2
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 15,
-              "output": 3
-            }
-          ]
-        }
-      },
-      "id": "7d7c8993-422f-4e47-9784-107bfbe9034d",
-      "name": "Switch4",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 1,
-      "position": [
-        800,
-        -740
-      ]
     },
     {
       "parameters": {
@@ -1864,7 +1931,7 @@
       "typeVersion": 2,
       "position": [
         60,
-        -760
+        -840
       ]
     },
     {
@@ -1924,7 +1991,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        -760
+        -840
       ],
       "webhookId": "a8a09925-976d-44ab-879a-d2da2e78bc6e"
     },
@@ -1974,6 +2041,22 @@
             {
               "name": "methodPay",
               "value": "={{ $json.methodPay }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.utm_source }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.utm_campaign }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $json.utm_content }}"
             }
           ]
         },
@@ -1985,13 +2068,13 @@
       "typeVersion": 4.1,
       "position": [
         1240,
-        -880
+        -1140
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://nexusempire.up.railway.app/webhook/compra-aprovada",
+        "url": "https://nexusempire.up.railway.app/webhook-test/compra-aberto",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -2034,6 +2117,26 @@
             {
               "name": "methodPay",
               "value": "={{ $json.methodPay }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.utm_source }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.utm_campaign }}"
+            },
+            {
+              "name": "utm_term",
+              "value": "={{ $json.utm_term }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $json.utm_content }}"
             }
           ]
         },
@@ -2045,7 +2148,7 @@
       "typeVersion": 4.1,
       "position": [
         1240,
-        -1080
+        -1320
       ]
     },
     {
@@ -2057,6 +2160,12 @@
               "operation": "smallerEqual",
               "value2": 1
             }
+          ],
+          "string": [
+            {
+              "value1": "={{ $json.statusName }}",
+              "value2": "Em dia"
+            }
           ]
         }
       },
@@ -2066,7 +2175,7 @@
       "typeVersion": 1,
       "position": [
         1040,
-        -880
+        -1140
       ]
     },
     {
@@ -2087,7 +2196,7 @@
       "typeVersion": 1,
       "position": [
         1040,
-        -1080
+        -1320
       ]
     },
     {
@@ -4363,8 +4472,998 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        840,
-        -560
+        800,
+        -600
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "assinatura-finalizada",
+        "options": {}
+      },
+      "id": "6ea7ec2a-b987-42da-af04-6cc749befb0f",
+      "name": "assinatura-finalizada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        1220
+      ],
+      "webhookId": "73c9e057-4613-4be8-8402-713d3fda26eb"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "assinatura-cancelada",
+        "options": {}
+      },
+      "id": "d85ad76c-4176-4fe7-baba-b528a13539ca",
+      "name": "assinatura-cancelada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        920
+      ],
+      "webhookId": "59a54f60-0521-487a-b760-532ba356b7a8"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $json.body.emailCustomer }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c1967457-d396-479e-b298-b7fc2170e74a",
+      "name": "Google Sheets12",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        60,
+        920
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Email }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "4fa5fbca-b6b5-464b-9766-b3566b2987df",
+      "name": "IF7",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        260,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Comprou }}",
+              "value2": "SIM"
+            },
+            {
+              "value1": "={{ $json.Status }}",
+              "operation": "notEqual",
+              "value2": "Cancelado"
+            }
+          ]
+        }
+      },
+      "id": "39fdd2d5-f274-4124-b984-553509383fd7",
+      "name": "Filter3",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        480,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $json.Email }}",
+            "Status": "=Cancelado"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Data de Inscrição",
+              "displayName": "Data de Inscrição",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cadastrou Pré Checkout",
+              "displayName": "Cadastrou Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Comprou",
+              "displayName": "Comprou",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Forma de Pagamento",
+              "displayName": "Forma de Pagamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plano",
+              "displayName": "Plano",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Valor",
+              "displayName": "Valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Formulario Pré Checkout",
+              "displayName": "Formulario Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Cobranças",
+              "displayName": "Cobranças",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Captura",
+              "displayName": "Plataforma de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal de Captura",
+              "displayName": "Canal de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Campanha de Captura",
+              "displayName": "Campanha de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo de Captura",
+              "displayName": "Termo de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo de Captura",
+              "displayName": "Conteúdo de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré CheckOut",
+              "displayName": "Plataforma de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal de Pré CheckOut",
+              "displayName": "Canal de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Campanha de Pré CheckOut",
+              "displayName": "Campanha de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo de Pré CheckOut",
+              "displayName": "Termo de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo de Pré CheckOut",
+              "displayName": "Conteúdo de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Compra",
+              "displayName": "Plataforma de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal de Compra",
+              "displayName": "Canal de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha de Compra",
+              "displayName": "Camapanha de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo de Compra",
+              "displayName": "Termo de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo de Compra",
+              "displayName": "Conteúdo de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dc236a31-6500-4a8e-93cd-7b1fa3d864f0",
+      "name": "Google Sheets13",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        680,
+        900
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $json.body.emailCustomer }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9ec862ee-0faf-40ef-9b15-bbb021358caa",
+      "name": "Google Sheets14",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        60,
+        1220
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Email }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "20714510-b214-47ad-8e6b-ec9c9073cb14",
+      "name": "IF8",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        260,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Comprou }}",
+              "value2": "SIM"
+            },
+            {
+              "value1": "={{ $json.Status }}",
+              "operation": "notEqual",
+              "value2": "Cancelado"
+            }
+          ]
+        }
+      },
+      "id": "041887e8-bfc0-464d-a377-7d6f263807ef",
+      "name": "Filter4",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $json.Email }}",
+            "Status": "=Cancelado"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Data de Inscrição",
+              "displayName": "Data de Inscrição",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cadastrou Pré Checkout",
+              "displayName": "Cadastrou Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Comprou",
+              "displayName": "Comprou",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Forma de Pagamento",
+              "displayName": "Forma de Pagamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plano",
+              "displayName": "Plano",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Valor",
+              "displayName": "Valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Formulario Pré Checkout",
+              "displayName": "Formulario Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Cobranças",
+              "displayName": "Cobranças",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Captura",
+              "displayName": "Plataforma de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal de Captura",
+              "displayName": "Canal de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Campanha de Captura",
+              "displayName": "Campanha de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo de Captura",
+              "displayName": "Termo de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo de Captura",
+              "displayName": "Conteúdo de Captura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré CheckOut",
+              "displayName": "Plataforma de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal de Pré CheckOut",
+              "displayName": "Canal de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Campanha de Pré CheckOut",
+              "displayName": "Campanha de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo de Pré CheckOut",
+              "displayName": "Termo de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo de Pré CheckOut",
+              "displayName": "Conteúdo de Pré CheckOut",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Compra",
+              "displayName": "Plataforma de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal de Compra",
+              "displayName": "Canal de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha de Compra",
+              "displayName": "Camapanha de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo de Compra",
+              "displayName": "Termo de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo de Compra",
+              "displayName": "Conteúdo de Compra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dad0be3e-0a11-469d-93e0-d1f52953ec99",
+      "name": "Google Sheets15",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        680,
+        1220
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://nexusempire.up.railway.app/webhook/assinatura-finalizada",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "date",
+              "value": "={{ $json.date }}"
+            },
+            {
+              "name": "nameCustomer",
+              "value": "={{ $json.nameCustomer }}"
+            },
+            {
+              "name": "emailCustomer",
+              "value": "={{ $json.emailCustomer }}"
+            },
+            {
+              "name": "statusFatura",
+              "value": "={{ $json.statusFatura }}"
+            },
+            {
+              "name": "phoneCustomer",
+              "value": "={{ $json.phoneCustomer }}"
+            },
+            {
+              "name": "nameProduct",
+              "value": "={{ $json.nameProduct }}"
+            },
+            {
+              "name": "cobrancas",
+              "value": "={{ $json.cobrancas }}"
+            },
+            {
+              "name": "valueProduct",
+              "value": "={{ $json.valueProduct }}"
+            },
+            {
+              "name": "statusName",
+              "value": "={{ $json.statusName }}"
+            },
+            {
+              "name": "methodPay",
+              "value": "={{ $json.methodPay }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.utm_source }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.utm_campaign }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $json.utm_content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "15db7b22-def3-49cd-a7ef-c26d594c97e3",
+      "name": "HTTP Request16",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1080,
+        -780
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://nexusempire.up.railway.app/webhook/assinatura-cancelada",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "date",
+              "value": "={{ $json.date }}"
+            },
+            {
+              "name": "nameCustomer",
+              "value": "={{ $json.nameCustomer }}"
+            },
+            {
+              "name": "emailCustomer",
+              "value": "={{ $json.emailCustomer }}"
+            },
+            {
+              "name": "statusFatura",
+              "value": "={{ $json.statusFatura }}"
+            },
+            {
+              "name": "phoneCustomer",
+              "value": "={{ $json.phoneCustomer }}"
+            },
+            {
+              "name": "nameProduct",
+              "value": "={{ $json.nameProduct }}"
+            },
+            {
+              "name": "cobrancas",
+              "value": "={{ $json.cobrancas }}"
+            },
+            {
+              "name": "valueProduct",
+              "value": "={{ $json.valueProduct }}"
+            },
+            {
+              "name": "statusName",
+              "value": "={{ $json.statusName }}"
+            },
+            {
+              "name": "methodPay",
+              "value": "={{ $json.methodPay }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.utm_source }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.utm_campaign }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $json.utm_content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "db2fa22f-30ea-4af0-bbb0-e27f5c309773",
+      "name": "HTTP Request15",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1080,
+        -960
       ]
     }
   ],
@@ -4374,7 +5473,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 4,
-  "updatedAt": "2023-09-04T21:28:50.998Z",
-  "versionId": "9e810434-594f-4632-a36d-28009352ed9c"
+  "triggerCount": 6,
+  "updatedAt": "2023-09-05T15:15:37.931Z",
+  "versionId": "12b31633-7660-467c-8021-2890b665fcff"
 }
