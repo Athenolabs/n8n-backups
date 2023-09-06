@@ -20,51 +20,6 @@
         ]
       ]
     },
-    "Compra Aprovada": {
-      "main": [
-        [
-          {
-            "node": "IF",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Compra em Aberto": {
-      "main": [
-        [
-          {
-            "node": "IF1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Compra Cancelada": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Google Sheets",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "HTTP Request": {
       "main": [
         [
@@ -81,123 +36,6 @@
         [
           {
             "node": "HTTP Request2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF1": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Aguardando Pagamento": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Em Recuperação": {
-      "main": [
-        [
-          {
-            "node": "Switch3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Compra Expirada": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request6": {
-      "main": [
-        [
-          {
-            "node": "Wait1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch3": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request5",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "HTTP Request8",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait1": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait2": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request9",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request7": {
-      "main": [
-        [
-          {
-            "node": "Wait3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait3": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request10",
             "type": "main",
             "index": 0
           }
@@ -226,34 +64,11 @@
         ]
       ]
     },
-    "IF2": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Google Sheets1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Date & Time": {
       "main": [
         [
           {
             "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Sheets": {
-      "main": [
-        [
-          {
-            "node": "IF3",
             "type": "main",
             "index": 0
           }
@@ -530,8 +345,7 @@
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
     "Filter3": {
@@ -599,6 +413,72 @@
           }
         ]
       ]
+    },
+    "Google Sheets5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request17": {
+      "main": [
+        [
+          {
+            "node": "Wait5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request18": {
+      "main": [
+        [
+          {
+            "node": "Wait6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait6": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -631,34 +511,6 @@
       "position": [
         560,
         -840
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.body.cus_cel }}"
-            },
-            {
-              "name": "message",
-              "value": "=Olá! Como se sente hoje?\n\nReparei que a \"Comunidade Novo Ego\" despertou seu interesse. Excelente escolha para dar o próximo passo em sua jornada de autodesenvolvimento e relacionamentos amorosos! Ainda falta um detalhe para concretizar sua inscrição: o pagamento via PIX. Peço que finalize a transação em até 30 minutos. ⏰\n\n👏 É inspirador ver que você está decidido a transformar sua vida, combatendo a dependência emocional e alcançando relações mais saudáveis e gratificantes.\n\nℹ️ Perdeu o código PIX? Você pode começar sua compra novamente por aqui👇:\n{{ $json[\"body\"][\"trans_recovery_url\"] }}\n\nNão perca esta chance única de iniciar uma nova fase em sua vida!\n\nUm abraço caloroso,\nDr. Fernando Silva"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "902f47b5-60d2-4d2e-99d3-af954b7edc90",
-      "name": "HTTP Request3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3420,
-        1340
       ]
     },
     {
@@ -776,11 +628,11 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
+              "value": "={{ $json.Telefone }}"
             },
             {
               "name": "message",
-              "value": "=Olá, {{ $json[\"nameCustomer\"].split(' ')[0] }} 🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json[\"emailCustomer\"] }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
+              "value": "=Olá, {{ $json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json[\"emailCustomer\"] }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
             }
           ]
         },
@@ -791,123 +643,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        3300,
-        800
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.body.cus_cel }}"
-            },
-            {
-              "name": "message",
-              "value": "=Olá! Tudo bem?\nDr. Fernando Silva aqui. 👋\n\nNotei que você iniciou sua inscrição na \"Comunidade Novo Ego\", mas algo não foi até o fim. 🤔\n\nDois erros comuns nessa etapa são:\n1️⃣ Dados de Cartão Incorretos - Se for esse o caso, basta tentar novamente.\n2️⃣ Usar Cartão de Débito - Lembre-se de usar um cartão de crédito.\n\nNão perca a chance de transformar sua vida e seus relacionamentos! 🌟\n\nToque abaixo para concluir sua compra👇:\n{{ $json[\"body\"][\"trans_recovery_url\"] }}\n\nAbraço forte,\nDr. Fernando Silva 🤗"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "9f2050df-66d1-4436-8332-b53b67de42c9",
-      "name": "HTTP Request1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3140,
-        1840
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "affd10c8-e371-439f-b705-0c04a15e13d1",
-      "name": "Compra Aprovada",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        4120,
-        1520
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "ec34f38c-eb22-40a3-b1a3-235f989d7059",
-      "name": "Compra em Aberto",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        2920,
-        1480
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "f1fcc1c3-b818-4319-9b41-4cfd68a37a4a",
-      "name": "Compra Cancelada",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        2920,
-        1840
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "f8cec273-e8d8-4b2e-94b6-8cdce89577d1",
-      "name": "Compra Expirada",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        2920,
-        2020
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "087eccaf-4da6-4a38-b0eb-37739e36019f",
-      "name": "Em Recuperação",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        2920,
-        2300
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "06c1e2b9-dfe5-4de3-ab89-1f6785365584",
-      "name": "Aguardando Pagamento",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        2920,
-        2480
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "number": [
-            {
-              "value1": "={{ $json.cobrancas }}",
-              "operation": "larger",
-              "value2": 1
-            }
-          ]
-        }
-      },
-      "id": "86f1cc59-eaea-4a47-8bbc-4e24cba0eb59",
-      "name": "IF",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3300,
-        1020
+        720,
+        -140
       ]
     },
     {
@@ -920,8 +657,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3520,
-        800
+        940,
+        -140
       ],
       "webhookId": "50fd9233-b4cb-409e-9bd5-be9f7b2c6690"
     },
@@ -934,7 +671,7 @@
           "parameters": [
             {
               "name": "phone",
-              "value": "={{ $('IF1').item.json.phoneCustomer }}"
+              "value": "={{ $('Google Sheets5').item.json.Telefone }}"
             },
             {
               "name": "message",
@@ -949,311 +686,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        3740,
-        800
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.body.trans_paymentmethod }}",
-              "operation": "contains",
-              "value2": "32"
-            }
-          ]
-        }
-      },
-      "id": "e456049a-5f16-4c71-88fa-edac614f07f5",
-      "name": "IF1",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3140,
-        1480
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.body.cus_cel }}"
-            },
-            {
-              "name": "message",
-              "value": "=Olá! Tudo bem?👋\n\nNotei que sua fatura na *\"Comunidade Novo Ego\"* está aguardando pagamento, Atualize suas informações da fatura para continuar sua assinatura.⏰\n\n👏 Não perca o ritmo em sua jornada de crescimento pessoal!\n\nAproveite para continuar transformando sua vida!\n\nUm abraço,\nDr. Fernando Silva 🤗\n\nEspero que esta versão mais concisa seja do seu agrado."
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "8063a356-4b93-49c1-a39f-2cb2dc6ed0d7",
-      "name": "HTTP Request4",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3140,
-        2480
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.body.cus_cel }}"
-            },
-            {
-              "name": "message",
-              "value": "=Olá! Dr. Fernando Silva aqui. 👋\n\nVi que tentou entrar na *\"Comunidade Novo Ego\"* via PIX, mas algo deu errado. 🤔\n\nBoas notícias: é fácil corrigir! 🌟\nGere um novo código PIX e finalize sua compra👇. \n{{ $('Em Recuperação').item.json[\"body\"][\"trans_recovery_url\"] }}\n\nAbraço, \nDr. Fernando Silva 🤗 \n"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "94f61d4c-6abe-4eb0-81c3-666b2ed449e7",
-      "name": "HTTP Request5",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3400,
-        2200
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $json.body.cus_cel }}"
-            },
-            {
-              "name": "message",
-              "value": "=Olá {{ $json[\"nameCustomer\"] }}! Como você está?\nDr. Fernando Silva aqui. 👋\n\nReparei que sua fatura para a \"Comunidade Novo Ego\" está aberta há um tempo. 😕\n\n⚠️ Atenção: Faturas abertas por mais de 15 dias são automaticamente alteradas para \"Expiradas\".\n\nNão perca a oportunidade de iniciar uma nova fase em sua vida e relacionamentos! 🌟\n\nPara evitar o cancelamento, toque abaixo e finalize sua inscrição👇:\n{{ $json[\"body\"][\"trans_recovery_url\"] }} \n\nSe tiver alguma dificuldade ou dúvida, estou aqui para ajudar. 🤗\n\nAbraço forte,\nDr. Fernando Silva"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a7e5c0dd-236d-4539-b4e0-be0ffe3fe3f8",
-      "name": "HTTP Request6",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3120,
-        2020
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "=5566996188393"
-            },
-            {
-              "name": "message",
-              "value": "=Teve compra expirada\ndados:\n\nnome: {{ $('Compra Expirada').item.json.nameCustomer }}\nnumero: +55{{ $('Compra Expirada').item.json.phoneCustomer }}\nemail: {{ $('Compra Expirada').item.json.emailCustomer }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "76488865-596c-4200-82f9-70be083ad503",
-      "name": "HTTP Request7",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3620,
-        2020
-      ]
-    },
-    {
-      "parameters": {
-        "value1": "={{ $json.body.trans_paymentmethod }}",
-        "rules": {
-          "rules": [
-            {
-              "operation": "smallerEqual",
-              "value2": 13,
-              "output": 1
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 15,
-              "output": 1
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 24,
-              "output": 1
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 27,
-              "output": 1
-            },
-            {
-              "operation": "smallerEqual",
-              "value2": 32
-            }
-          ]
-        }
-      },
-      "id": "00812107-4a1c-4114-bea0-890043ec2f2d",
-      "name": "Switch3",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 1,
-      "position": [
-        3140,
-        2300
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "=55{{ $json.body.cus_cel }}"
-            },
-            {
-              "name": "message",
-              "value": "=Olá! Dr. Fernando Silva aqui. 👋\n\nNotei que sua inscrição na \"Comunidade Novo Ego\" não foi concluída devido a uma \"Fatura em Processo de Recuperação\". 🤔\n\nResolva o problema com a sua operadora e retorne para finalizar a compra👇.\n{{ $('Em Recuperação').item.json[\"body\"][\"trans_recovery_url\"] }}\n\nAbraço, Dr. Fernando Silva 🤗"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "111ed865-08b1-4221-9d3c-c3b4f3eb0cfa",
-      "name": "HTTP Request8",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3400,
-        2360
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 10,
-        "unit": "seconds"
-      },
-      "id": "43fef88c-7b4c-43f4-a053-a339258988ba",
-      "name": "Wait1",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        3400,
-        2020
-      ],
-      "webhookId": "a2284037-b505-4945-bcc8-58d8a476f303"
-    },
-    {
-      "parameters": {
-        "amount": 10,
-        "unit": "seconds"
-      },
-      "id": "f06f5e17-fd70-4b7d-8c52-f5f47cbe4f87",
-      "name": "Wait2",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        3420,
-        1840
-      ],
-      "webhookId": "2e344bad-d843-436c-a891-e2a81f14152d"
-    },
-    {
-      "parameters": {
-        "amount": 10,
-        "unit": "seconds"
-      },
-      "id": "fbafc8ca-5488-4915-8609-d026d30783be",
-      "name": "Wait3",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        3840,
-        2020
-      ],
-      "webhookId": "b7bc3dae-98a3-4132-a0c2-73817a663c31"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phones",
-              "value": "=[\"{{ $('IF1').item.json.phoneCustomer }}\"]"
-            },
-            {
-              "name": "groupId",
-              "value": "=120363142746754193-group"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "04045b73-a7b0-4964-b384-1402c9db97d2",
-      "name": "HTTP Request9",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3620,
-        1840
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phones",
-              "value": "=[\"{{ $('IF1').item.json.phoneCustomer }}\"]"
-            },
-            {
-              "name": "groupId",
-              "value": "=120363142746754193-group"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "8a9916b1-b35e-43d4-8192-aba1f1e2647c",
-      "name": "HTTP Request10",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        4040,
-        2020
+        1160,
+        -140
       ]
     },
     {
@@ -1265,7 +699,7 @@
           "parameters": [
             {
               "name": "phones",
-              "value": "=[\"{{ $('IF1').item.json.phoneCustomer }}\"]"
+              "value": "=[\"{{ $('Google Sheets5').item.json.Telefone }}\"]"
             },
             {
               "name": "groupId",
@@ -1284,8 +718,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        4140,
-        800
+        1560,
+        -140
       ]
     },
     {
@@ -1298,623 +732,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3940,
-        800
+        1360,
+        -140
       ],
       "webhookId": "988e80a3-9dde-47c0-bb38-99622e7048fc"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.Comprou }}",
-              "value2": "SIM"
-            }
-          ]
-        }
-      },
-      "id": "2403639b-9134-44a4-b5ec-bb457cf28d5e",
-      "name": "IF2",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3800,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "appendOrUpdate",
-        "documentId": {
-          "__rl": true,
-          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
-          "mode": "list",
-          "cachedResultName": "Comunidade Novo Ego",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Data de Inscrição",
-              "displayName": "Data de Inscrição",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Nome",
-              "displayName": "Nome",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Telefone",
-              "displayName": "Telefone",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Email",
-              "displayName": "Email",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Comprou",
-              "displayName": "Comprou",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Forma de Pagamento",
-              "displayName": "Forma de Pagamento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plano",
-              "displayName": "Plano",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Valor",
-              "displayName": "Valor",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Status",
-              "displayName": "Status",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Formulario Pré Checkout",
-              "displayName": "Formulario Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Cobranças",
-              "displayName": "Cobranças",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plataforma de Captura",
-              "displayName": "Plataforma de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Canal de Captura",
-              "displayName": "Canal de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Campanha de Captura",
-              "displayName": "Campanha de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Termo de Captura",
-              "displayName": "Termo de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Conteúdo de Captura",
-              "displayName": "Conteúdo de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plataforma de Compra",
-              "displayName": "Plataforma de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Canal de Compra",
-              "displayName": "Canal de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Camapanha de Compra",
-              "displayName": "Camapanha de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Termo de Compra",
-              "displayName": "Termo de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Conteúdo de Captura",
-              "displayName": "Conteúdo de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "3c7eca72-5382-4f19-bb68-2ea7d9686bc7",
-      "name": "Google Sheets1",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4,
-      "position": [
-        4100,
-        1140
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "15YimooLoASODhGO",
-          "name": "Dr. Fernando Silva"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "=",
-              "operation": "isEmpty"
-            }
-          ]
-        }
-      },
-      "id": "96a02444-d839-4fcf-8f7b-74db19221a6b",
-      "name": "IF3",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3740,
-        1020
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "appendOrUpdate",
-        "documentId": {
-          "__rl": true,
-          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
-          "mode": "list",
-          "cachedResultName": "Comunidade Novo Ego",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Email": "={{ $('IF').item.json.emailCustomer }}"
-          },
-          "matchingColumns": [
-            "Email"
-          ],
-          "schema": [
-            {
-              "id": "Data de Inscrição",
-              "displayName": "Data de Inscrição",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Nome",
-              "displayName": "Nome",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Telefone",
-              "displayName": "Telefone",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Email",
-              "displayName": "Email",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Comprou",
-              "displayName": "Comprou",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Forma de Pagamento",
-              "displayName": "Forma de Pagamento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plano",
-              "displayName": "Plano",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Valor",
-              "displayName": "Valor",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Status",
-              "displayName": "Status",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Formulario Pré Checkout",
-              "displayName": "Formulario Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Cobranças",
-              "displayName": "Cobranças",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plataforma de Captura",
-              "displayName": "Plataforma de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Canal de Captura",
-              "displayName": "Canal de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Campanha de Captura",
-              "displayName": "Campanha de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Termo de Captura",
-              "displayName": "Termo de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Conteúdo de Captura",
-              "displayName": "Conteúdo de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Plataforma de Compra",
-              "displayName": "Plataforma de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Canal de Compra",
-              "displayName": "Canal de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Camapanha de Compra",
-              "displayName": "Camapanha de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Termo de Compra",
-              "displayName": "Termo de Compra",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Conteúdo de Captura",
-              "displayName": "Conteúdo de Captura",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "afe33e34-d64a-4117-851c-72ab899f8750",
-      "name": "Google Sheets2",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4,
-      "position": [
-        3980,
-        1020
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "15YimooLoASODhGO",
-          "name": "Dr. Fernando Silva"
-        }
-      }
     },
     {
       "parameters": {
@@ -1933,51 +754,6 @@
         60,
         -840
       ]
-    },
-    {
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
-          "mode": "list",
-          "cachedResultName": "Comunidade Novo Ego",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
-        },
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "Email",
-              "lookupValue": "={{ $json.emailCustomer }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "0b7a2b8a-2614-4838-ac2f-f7d1e2bb3dab",
-      "name": "Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4,
-      "position": [
-        3540,
-        1020
-      ],
-      "alwaysOutputData": true,
-      "retryOnFail": false,
-      "notesInFlow": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "15YimooLoASODhGO",
-          "name": "Dr. Fernando Silva"
-        }
-      },
-      "notes": "xvcbxc"
     },
     {
       "parameters": {
@@ -2646,7 +1422,7 @@
             "Termo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_term }}",
             "Conteúdo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_content }}",
             "Data de Inscrição": "={{ $('Compra Aprovada1').item.json.body.date }}",
-            "Nome": "={{ $('Compra Aprovada1').item.json.body.nameCustumer }}",
+            "Nome": "={{ $('Compra Aprovada1').item.json.body.nameCustomer }}",
             "Telefone": "={{ $('Compra Aprovada1').item.json.body.phoneCustomer }}",
             "Cadastrou Pré Checkout": "NÃO"
           },
@@ -2923,7 +1699,7 @@
       "typeVersion": 4,
       "position": [
         500,
-        -160
+        -140
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -4487,7 +3263,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -140,
+        -180,
         1220
       ],
       "webhookId": "73c9e057-4613-4be8-8402-713d3fda26eb"
@@ -5019,7 +3795,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "Email": "={{ $json.Email }}",
-            "Status": "=Cancelado"
+            "Status": "=Finalizado"
           },
           "matchingColumns": [
             "Email"
@@ -5465,6 +4241,124 @@
         1080,
         -960
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets3').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json[\"emailCustomer\"] }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "348a6d1d-3843-49a6-8c2c-1096ef52322f",
+      "name": "HTTP Request17",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1160,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "27adb180-2f06-4a2c-8a7e-88e920cdbf63",
+      "name": "Wait5",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        -320
+      ],
+      "webhookId": "50fd9233-b4cb-409e-9bd5-be9f7b2c6690"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets3').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=🚨 Importante: Se você tiver alguma dúvida ou precisar de assistência relacionada à comunidade, por favor, note que este número de onde você recebeu a mensagem de boas-vindas não é o canal adequado para suporte.\n\n👉 Para questões específicas ou suporte, gentileza entrar em contato conosco pelo número:\n(11) 99962-3030\n\nAssim garantimos que sua solicitação será atendida de forma rápida e eficiente. 📞\n\nEstamos à disposição para tornar sua jornada na Comunidade Novo Ego a melhor possível!\n\nUm abraço,\nDr. Fernando Silva"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7402b695-8d4b-4f26-a8fb-6d19b0e4c8db",
+      "name": "HTTP Request18",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1580,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/add-participant",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phones",
+              "value": "={{ $('Google Sheets3').item.json.Telefone }}"
+            },
+            {
+              "name": "groupId",
+              "value": "=120363142746754193-group"
+            },
+            {
+              "name": "autoInvite",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ad5be567-1065-48d9-b782-524baaf3ea76",
+      "name": "HTTP Request19",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1980,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "id": "adc7ba45-f4d2-4dff-9705-3ad0b3e56b4f",
+      "name": "Wait6",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        -320
+      ],
+      "webhookId": "988e80a3-9dde-47c0-bb38-99622e7048fc"
     }
   ],
   "pinData": {},
@@ -5474,6 +4368,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-05T15:15:37.931Z",
-  "versionId": "12b31633-7660-467c-8021-2890b665fcff"
+  "updatedAt": "2023-09-05T17:44:18.304Z",
+  "versionId": "8c1fef3b-e414-4e86-a032-037730443a1c"
 }
