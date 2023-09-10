@@ -295,7 +295,7 @@
             },
             {
               "name": "message",
-              "value": "=*Olá, {{ $json.Nome.split(' ')[0] }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://bit.ly/comunidade-novo-ego-01\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
+              "value": "=*Olá, {{ $json.Nome.split(' ')[0] }}!*\n\nÉ um prazer falar com você por aqui! 🌟 Antes de tudo, por favor, *salve este número* em seus contatos para não perder nenhuma atualização. Assim que tiver feito isso, responda com *\"salvo\"*.\n\nTenho ótimas notícias para você! Por ter vindo através dos comentários do instagram, temos um link promocional EXCLUSIVO só para você. E o melhor: com ele, você garante um *SUPER DESCONTO*. Mas esse desconto vai durar apenas até as 23hrs do dia de hoje.\n\n*Aqui está o seu link PROMOCIONAL:* \n\nhttps://bit.ly/comunidade-novo-ego-02\n\n*Se tiver qualquer dúvida ou precisar de ajuda, fique à vontade para perguntar.*\nEstamos aqui para ajudar!  "
             }
           ]
         },
@@ -698,6 +698,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-05T15:52:07.820Z",
-  "versionId": "976f893d-57a7-4284-b8a0-f6ab086d1e91"
+  "updatedAt": "2023-09-09T18:19:01.008Z",
+  "versionId": "c3aa0bb1-be06-4dd7-9939-879ce1d03ca3"
 }
