@@ -489,11 +489,6 @@
           }
         ]
       ]
-    },
-    "HTTP Request4": {
-      "main": [
-        []
-      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -865,7 +860,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://nexusempire.up.railway.app/webhook-test/compra-aberto",
+        "url": "https://nexusempire.up.railway.app/webhook/compra-aberto",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -4270,7 +4265,7 @@
             },
             {
               "name": "message",
-              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json[\"emailCustomer\"] }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
+              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json.Email }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
             }
           ]
         },
@@ -4453,6 +4448,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-07T18:36:04.391Z",
-  "versionId": "8c6c47a5-e556-4438-9bce-08388ee0b4cd"
+  "updatedAt": "2023-09-12T14:48:22.446Z",
+  "versionId": "072fad0d-d2b8-4222-a09a-fcf618d60b51"
 }
