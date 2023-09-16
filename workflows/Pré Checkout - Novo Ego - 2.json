@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Switch",
+            "node": "Code1",
             "type": "main",
             "index": 0
           }
@@ -181,6 +181,193 @@
           }
         ]
       ]
+    },
+    "Google Sheets5": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request21": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait4": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets12": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets13": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request24": {
+      "main": [
+        [
+          {
+            "node": "Wait5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request22": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-09-15T03:36:19.721Z",
@@ -198,7 +385,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        480,
+        420,
         460
       ],
       "webhookId": "2a94b07a-a02e-4c69-a696-40cadc09cf39"
@@ -252,7 +439,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        920,
+        740,
         460
       ]
     },
@@ -332,7 +519,7 @@
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 2,
       "position": [
-        720,
+        580,
         460
       ]
     },
@@ -358,7 +545,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "lead",
             "Plataforma de Inicio": "={{ $('Switch').item.json.utm_source }}",
@@ -804,7 +991,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "Lead",
             "Plataforma de Inicio": "={{ $('Switch').item.json.utm_source }}",
@@ -1282,7 +1469,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "Planos",
             "Plataforma de Pré Planos": "={{ $('Switch').item.json.utm_source }}",
@@ -2185,7 +2372,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "Pré Checkout",
             "Plataforma de Pré Planos": "={{ $('Switch').item.json.utm_source }}",
@@ -2604,7 +2791,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "Pré checkout",
             "Plataforma Pré Checkout": "={{ $('Switch').item.json.utm_source }}",
@@ -3088,7 +3275,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "Pré Checkout",
             "Plataforma de Pré Planos": "={{ $('Switch').item.json.utm_source }}",
@@ -3507,7 +3694,7 @@
           "value": {
             "Data de Inscrição": "={{ $('Switch').item.json.date }}",
             "Email": "={{ $('Switch').item.json.customerEmail }}",
-            "Telefone": "={{ $('Switch').item.json.customerWhatsapp }}",
+            "Telefone": "={{ $('Switch').item.json.tel55 }}",
             "Comprou": "NÃO",
             "Status": "Pré checkout",
             "Plataforma Pré Checkout": "={{ $('Switch').item.json.utm_source }}",
@@ -3906,6 +4093,416 @@
           "name": "Dr. Fernando Silva"
         }
       }
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "minutes"
+      },
+      "id": "80a065f8-9ad9-48bc-ae80-936d4a4447c2",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        420
+      ],
+      "webhookId": "bdcabcd0-eba1-4032-93ab-8fffdc050b63"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets4').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, como vai?\n\nVocê está prestes a acessar tudo que precisa para desenvolver as 5 áreas da prosperidade humana: Espiritual, Saúde, Financeira, Pessoal e Emocional.\n\n ➡ Dê esse passo importante para o seu desenvolvimento, escolhendo o seu plano ideal clicando aqui:"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "155d6a36-dcac-4e58-9124-5676bbfe88ee",
+      "name": "HTTP Request21",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2620,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "846a3f1a-6baa-489b-9c06-5ae32264655e",
+      "name": "Wait2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        420
+      ],
+      "webhookId": "bdcabcd0-eba1-4032-93ab-8fffdc050b63"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets4').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=https://bit.ly/3RovhxN"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba5e285c-56fe-4f41-b94a-34c9cb84b23c",
+      "name": "HTTP Request22",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3060,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 6,
+        "unit": "seconds"
+      },
+      "id": "bf8f0921-1568-4ffa-a2a3-87f0aa20dfbb",
+      "name": "Wait3",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        420
+      ],
+      "webhookId": "bdcabcd0-eba1-4032-93ab-8fffdc050b63"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets4').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=P.S: Caso você não consiga clicar no link, basta me adicionar em seus contatos.\n\nEsperamos ter você conosco nessa jornada de transformação!\n\nUm abraço,\nEquipe Novo Ego"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e551b6c4-c0cb-404c-ad3b-74d1eab7b4c3",
+      "name": "HTTP Request23",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3500,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "minutes"
+      },
+      "id": "ff291e7a-3d39-4a51-8eee-4942256d4063",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        560
+      ],
+      "webhookId": "bdcabcd0-eba1-4032-93ab-8fffdc050b63"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets5').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, como vai?\n\nVocê está prestes a acessar tudo que precisa para desenvolver as 5 áreas da prosperidade humana: Espiritual, Saúde, Financeira, Pessoal e Emocional.\n\n ➡ Dê esse passo importante para o seu desenvolvimento, escolhendo o seu plano ideal clicando aqui:"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "facf1445-ca03-4b90-ac19-1052bb515e95",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2620,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "ce0f2c84-0bb4-4876-99b7-94681c545c25",
+      "name": "Wait4",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        560
+      ],
+      "webhookId": "bdcabcd0-eba1-4032-93ab-8fffdc050b63"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets5').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=https://bit.ly/3RovhxN"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d182bdc5-90d5-44da-84fd-4e0bdbfd3ddb",
+      "name": "HTTP Request24",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3060,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 6,
+        "unit": "seconds"
+      },
+      "id": "84bffeb0-6c35-4be2-931e-a62d483e9820",
+      "name": "Wait5",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        560
+      ],
+      "webhookId": "bdcabcd0-eba1-4032-93ab-8fffdc050b63"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets5').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=P.S: Caso você não consiga clicar no link, basta me adicionar em seus contatos.\n\nEsperamos ter você conosco nessa jornada de transformação!\n\nUm abraço,\nEquipe Novo Ego"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6deff01d-5df1-47e6-99c0-8d90ea347a98",
+      "name": "HTTP Request25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3500,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 270853515,
+          "mode": "list",
+          "cachedResultName": "a",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $('Google Sheets4').item.json.Email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff94518a-e26b-4b6b-b038-cdc0000b4304",
+      "name": "Google Sheets12",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        2200,
+        420
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 270853515,
+          "mode": "list",
+          "cachedResultName": "a",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $('Google Sheets5').item.json.Email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c5e63e52-5499-4b0c-91fe-95e9776a0da2",
+      "name": "Google Sheets13",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        2200,
+        560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Comprou }}",
+              "value2": "NÃO"
+            }
+          ]
+        }
+      },
+      "id": "06cd2e5e-af01-455c-95ea-2914eebb9ff8",
+      "name": "Filter1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Comprou }}",
+              "value2": "NÃO"
+            }
+          ]
+        }
+      },
+      "id": "357ada91-217d-474b-8742-146840e98afa",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the JSON of the item\n\nlet phone = $('Set').item.json.tel\n\nlet count = phone.replace('+', '').length\n\nif (count === 11) {\n    phone = \"+55\" + phone.slice(1);\n}\n\n$input.item.json.tel55 = phone;\n\nreturn $input.item;"
+      },
+      "id": "61a4390d-ab49-4599-bdc5-faae73365972",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2420,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the JSON of the item\n\nlet phone = $('Set').item.json.customerWhatsapp\n\nlet count = phone.replace('+', '').length\n\nif (count === 11) {\n    phone = \"+55\" + phone;\n}\n\n$input.item.json.tel55 = phone;\n\nreturn $input.item;"
+      },
+      "id": "50d22c1b-df4e-4e96-8774-cfeab58916d7",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        460
+      ]
     }
   ],
   "pinData": {},
@@ -3915,6 +4512,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-15T05:05:00.219Z",
-  "versionId": "32aeba38-f79a-4f9e-b0fc-fb7dfc5bd40f"
+  "updatedAt": "2023-09-15T21:05:03.034Z",
+  "versionId": "61ead223-00d8-413e-b2d1-07e1ffb26acd"
 }
