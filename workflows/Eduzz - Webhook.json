@@ -35,7 +35,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request2",
+            "node": "HTTP Request21",
             "type": "main",
             "index": 0
           }
@@ -461,7 +461,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request18",
+            "node": "HTTP Request20",
             "type": "main",
             "index": 0
           }
@@ -484,6 +484,50 @@
         [
           {
             "node": "HTTP Request19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request20": {
+      "main": [
+        [
+          {
+            "node": "Wait7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait7": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request21": {
+      "main": [
+        [
+          {
+            "node": "Wait8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait8": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
             "type": "main",
             "index": 0
           }
@@ -642,7 +686,7 @@
             },
             {
               "name": "message",
-              "value": "=Olá, {{ $json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json[\"emailCustomer\"] }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
+              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLogin: {{ $json.Email }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva\n\nLink Login👇:"
             }
           ]
         },
@@ -696,7 +740,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1160,
+        1560,
         -140
       ]
     },
@@ -728,7 +772,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1560,
+        1960,
         -140
       ]
     },
@@ -742,7 +786,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        1360,
+        1760,
         -140
       ],
       "webhookId": "988e80a3-9dde-47c0-bb38-99622e7048fc"
@@ -4265,7 +4309,7 @@
             },
             {
               "name": "message",
-              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLink: https://comunidadenovoego.astronmembers.com\n\nLogin: {{ $json.Email }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva"
+              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLogin: {{ $json.Email }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva\n\nLink Login👇:"
             }
           ]
         },
@@ -4319,7 +4363,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1580,
+        1940,
         -320
       ]
     },
@@ -4351,7 +4395,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1980,
+        2340,
         -320
       ]
     },
@@ -4365,7 +4409,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        1780,
+        2140,
         -320
       ],
       "webhookId": "988e80a3-9dde-47c0-bb38-99622e7048fc"
@@ -4439,6 +4483,92 @@
         720,
         40
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets3').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=https://comunidadenovoego.astronmembers.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "16d12f0f-3f2f-4312-afac-999ef0f875bc",
+      "name": "HTTP Request20",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "cfdf534d-ec3a-43ab-beb4-89c7a2549e73",
+      "name": "Wait7",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        -320
+      ],
+      "webhookId": "b7bffd4e-d587-465a-ade0-a441b50b8210"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Google Sheets5').item.json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=https://comunidadenovoego.astronmembers.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "42a8a1f5-db40-418a-afda-cc1e281190a7",
+      "name": "HTTP Request21",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1160,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "d6e8d62c-6957-42d0-abb1-915f866d77d6",
+      "name": "Wait8",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        -140
+      ],
+      "webhookId": "b7bffd4e-d587-465a-ade0-a441b50b8210"
     }
   ],
   "pinData": {},
@@ -4448,6 +4578,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-12T14:48:22.446Z",
-  "versionId": "072fad0d-d2b8-4222-a09a-fcf618d60b51"
+  "updatedAt": "2023-09-15T17:27:26.870Z",
+  "versionId": "c49683a9-4606-4f6c-bf09-67527913f0eb"
 }
