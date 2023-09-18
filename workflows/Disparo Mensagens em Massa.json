@@ -45,17 +45,6 @@
         ]
       ]
     },
-    "Passa um anúncio de cada vez1": {
-      "main": [
-        [
-          {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Última Execução?": {
       "main": [
         [
@@ -67,7 +56,7 @@
         ],
         [
           {
-            "node": "Passa um anúncio de cada vez1",
+            "node": "split",
             "type": "main",
             "index": 0
           }
@@ -78,7 +67,18 @@
       "main": [
         [
           {
-            "node": "Passa um anúncio de cada vez1",
+            "node": "split",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "split": {
+      "main": [
+        [
+          {
+            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -175,7 +175,7 @@
           "boolean": [
             {
               "value1": true,
-              "value2": "={{$node[\"Passa um anúncio de cada vez1\"].context[\"noItemsLeft\"]}}"
+              "value2": "={{$node[\"split\"].context[\"noItemsLeft\"]}}"
             }
           ]
         }
@@ -186,20 +186,6 @@
       "typeVersion": 1,
       "position": [
         1120,
-        480
-      ]
-    },
-    {
-      "parameters": {
-        "batchSize": 1,
-        "options": {}
-      },
-      "id": "bd2b7848-c8ed-4aba-889b-cbbedcfe3d69",
-      "name": "Passa um anúncio de cada vez1",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 1,
-      "position": [
-        260,
         480
       ]
     },
@@ -289,6 +275,20 @@
           "name": "Dr. Fernando Silva"
         }
       }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "bd2b7848-c8ed-4aba-889b-cbbedcfe3d69",
+      "name": "split",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        260,
+        480
+      ]
     }
   ],
   "pinData": {},
@@ -298,6 +298,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-09T22:03:18.154Z",
-  "versionId": "318ce3d3-017a-4a4b-ad8e-4daf4d646090"
+  "updatedAt": "2023-09-18T12:27:12.431Z",
+  "versionId": "3638919a-4631-48ce-9763-6586aeff4604"
 }
