@@ -142,11 +142,14 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 60
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-09-12T14:27:40.410Z",
-  "versionId": "359d82eb-039f-4f5e-a5a8-bed6ec0a33be"
+  "updatedAt": "2023-09-18T17:45:01.577Z",
+  "versionId": "d31306ec-b7d6-4db9-867a-6fbd0094ea4d"
 }
