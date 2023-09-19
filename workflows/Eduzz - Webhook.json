@@ -1056,10 +1056,10 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "filtersUI": {
           "values": [
@@ -1139,10 +1139,10 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1152,13 +1152,13 @@
             "Forma de Pagamento": "={{ $json.payForm }}",
             "Plano": "={{ $('Compra Aprovada1').item.json.body.nameProduct }}",
             "Valor": "=R${{ $('Compra Aprovada1').item.json.body.valueProduct }}",
-            "Cobranças": "={{ $('Compra Aprovada1').item.json.body.cobrancas }}",
             "Status": "={{ $('Compra Aprovada1').item.json.body.statusName }}",
+            "Cobranças": "={{ $('Compra Aprovada1').item.json.body.cobrancas }}",
             "Plataforma de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_source }}",
-            "Canal de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_medium }}",
-            "Camapanha de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_campaign }}",
+            "Conteúdo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_content }}",
             "Termo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_term }}",
-            "Conteúdo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_content }}"
+            "Camapanha de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_campaign }}",
+            "Canal de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_medium }}"
           },
           "matchingColumns": [
             "Email"
@@ -1203,16 +1203,6 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
             },
             {
               "id": "Comprou",
@@ -1329,8 +1319,8 @@
               "removed": true
             },
             {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
+              "id": "Plataforma de Inicio",
+              "displayName": "Plataforma de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1339,8 +1329,8 @@
               "removed": true
             },
             {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
+              "id": "Canal de Inicio",
+              "displayName": "Canal de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1349,8 +1339,8 @@
               "removed": true
             },
             {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
+              "id": "Campanha de Inicio",
+              "displayName": "Campanha de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1359,8 +1349,8 @@
               "removed": true
             },
             {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
+              "id": "Termo de Inicio",
+              "displayName": "Termo de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1369,8 +1359,108 @@
               "removed": true
             },
             {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
+              "id": "Conteúdo de Inicio",
+              "displayName": "Conteúdo de Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré Planos",
+              "displayName": "Plataforma de Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Planos",
+              "displayName": "Canal Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Planos",
+              "displayName": "Camapanha Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Planos",
+              "displayName": "Termo Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo Pré Planos ",
+              "displayName": "Conteúdo Pré Planos ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma Pré Checkout",
+              "displayName": "Plataforma Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Checkout",
+              "displayName": "Canal Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Checkout",
+              "displayName": "Camapanha Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Checkout",
+              "displayName": "Termo Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo  Pré Checkout",
+              "displayName": "Conteúdo  Pré Checkout",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1455,34 +1545,31 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
             "Email": "={{ $('Compra Aprovada1').item.json.body.emailCustomer }}",
-            "Comprou": "SIM",
-            "Forma de Pagamento": "={{ $('Compra Aprovada1').item.json.body.methodPay }}",
-            "Plano": "={{ $('Compra Aprovada1').item.json.body.nameProduct }}",
-            "Valor": "=R${{ $('Compra Aprovada1').item.json.body.valueProduct }}",
-            "Cobranças": "={{ $('Compra Aprovada1').item.json.body.cabrancas }}",
-            "Status": "={{ $('Compra Aprovada1').item.json.body.statusName }}",
-            "Plataforma de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_source }}",
-            "Canal de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_medium }}",
-            "Camapanha de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_campaign }}",
-            "Termo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_term }}",
-            "Conteúdo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_content }}",
             "Data de Inscrição": "={{ $('Compra Aprovada1').item.json.body.date }}",
             "Nome": "={{ $('Compra Aprovada1').item.json.body.nameCustomer }}",
             "Telefone": "={{ $('Compra Aprovada1').item.json.body.phoneCustomer }}",
-            "Cadastrou Pré Checkout": "NÃO"
+            "Comprou": "SIM",
+            "Forma de Pagamento": "={{ $('Compra Aprovada1').item.json.body.methodPay }}",
+            "Valor": "=R${{ $('Compra Aprovada1').item.json.body.valueProduct }}",
+            "Cobranças": "={{ $('Compra Aprovada1').item.json.body.cabrancas }}",
+            "Plano": "={{ $('Compra Aprovada1').item.json.body.nameProduct }}",
+            "Status": "={{ $('Compra Aprovada1').item.json.body.statusName }}",
+            "Plataforma de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_source }}",
+            "Conteúdo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_content }}",
+            "Termo de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_term }}",
+            "Camapanha de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_campaign }}",
+            "Canal de Compra": "={{ $('Compra Aprovada1').item.json.body.utm_medium }}"
           },
-          "matchingColumns": [
-            "Email"
-          ],
+          "matchingColumns": [],
           "schema": [
             {
               "id": "Data de Inscrição",
@@ -1491,8 +1578,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Nome",
@@ -1501,8 +1587,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Telefone",
@@ -1511,8 +1596,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Email",
@@ -1521,18 +1605,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Comprou",
@@ -1649,8 +1722,8 @@
               "removed": true
             },
             {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
+              "id": "Plataforma de Inicio",
+              "displayName": "Plataforma de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1659,8 +1732,8 @@
               "removed": true
             },
             {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
+              "id": "Canal de Inicio",
+              "displayName": "Canal de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1669,8 +1742,8 @@
               "removed": true
             },
             {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
+              "id": "Campanha de Inicio",
+              "displayName": "Campanha de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1679,8 +1752,8 @@
               "removed": true
             },
             {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
+              "id": "Termo de Inicio",
+              "displayName": "Termo de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1689,8 +1762,108 @@
               "removed": true
             },
             {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
+              "id": "Conteúdo de Inicio",
+              "displayName": "Conteúdo de Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré Planos",
+              "displayName": "Plataforma de Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Planos",
+              "displayName": "Canal Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Planos",
+              "displayName": "Camapanha Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Planos",
+              "displayName": "Termo Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo Pré Planos ",
+              "displayName": "Conteúdo Pré Planos ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma Pré Checkout",
+              "displayName": "Plataforma Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Checkout",
+              "displayName": "Canal Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Checkout",
+              "displayName": "Camapanha Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Checkout",
+              "displayName": "Termo Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo  Pré Checkout",
+              "displayName": "Conteúdo  Pré Checkout",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2645,16 +2818,16 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
             "Email": "={{ $('Carrinho Abandonado').item.json.body.email }}",
-            "Status": "=Carrinho Abandonado"
+            "Status": "Carrinho Abandonado"
           },
           "matchingColumns": [
             "Email"
@@ -2699,16 +2872,6 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
             },
             {
               "id": "Comprou",
@@ -2830,8 +2993,8 @@
               "removed": true
             },
             {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
+              "id": "Plataforma de Inicio",
+              "displayName": "Plataforma de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2840,8 +3003,8 @@
               "removed": true
             },
             {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
+              "id": "Canal de Inicio",
+              "displayName": "Canal de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2850,8 +3013,8 @@
               "removed": true
             },
             {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
+              "id": "Campanha de Inicio",
+              "displayName": "Campanha de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2860,8 +3023,8 @@
               "removed": true
             },
             {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
+              "id": "Termo de Inicio",
+              "displayName": "Termo de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2870,8 +3033,108 @@
               "removed": true
             },
             {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
+              "id": "Conteúdo de Inicio",
+              "displayName": "Conteúdo de Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré Planos",
+              "displayName": "Plataforma de Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Planos",
+              "displayName": "Canal Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Planos",
+              "displayName": "Camapanha Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Planos",
+              "displayName": "Termo Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo Pré Planos ",
+              "displayName": "Conteúdo Pré Planos ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma Pré Checkout",
+              "displayName": "Plataforma Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Checkout",
+              "displayName": "Canal Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Checkout",
+              "displayName": "Camapanha Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Checkout",
+              "displayName": "Termo Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo  Pré Checkout",
+              "displayName": "Conteúdo  Pré Checkout",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2961,20 +3224,20 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
             "Data de Inscrição": "={{ $('Carrinho Abandonado').item.json.body.date }}",
-            "Nome": "={{ $('Carrinho Abandonado').item.json.body.name }}",
-            "Telefone": "={{ $('Carrinho Abandonado').item.json.body.phone }}",
+            "Plano": "={{ $('Carrinho Abandonado').item.json.body.date }}",
             "Email": "={{ $('Carrinho Abandonado').item.json.body.email }}",
-            "Plano": "={{ $('Carrinho Abandonado').item.json.body.title }}",
-            "Status": "Carrinho Abandonado"
+            "Status": "=Carrinho Abandonado",
+            "Nome": "={{ $('Carrinho Abandonado').item.json.body.name }}",
+            "Telefone": "={{ $('Carrinho Abandonado').item.json.body.phone }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -3013,16 +3276,6 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
             },
             {
               "id": "Comprou",
@@ -3143,8 +3396,8 @@
               "removed": true
             },
             {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
+              "id": "Plataforma de Inicio",
+              "displayName": "Plataforma de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3153,8 +3406,8 @@
               "removed": true
             },
             {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
+              "id": "Canal de Inicio",
+              "displayName": "Canal de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3163,8 +3416,8 @@
               "removed": true
             },
             {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
+              "id": "Campanha de Inicio",
+              "displayName": "Campanha de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3173,8 +3426,8 @@
               "removed": true
             },
             {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
+              "id": "Termo de Inicio",
+              "displayName": "Termo de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3183,8 +3436,108 @@
               "removed": true
             },
             {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
+              "id": "Conteúdo de Inicio",
+              "displayName": "Conteúdo de Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré Planos",
+              "displayName": "Plataforma de Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Planos",
+              "displayName": "Canal Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Planos",
+              "displayName": "Camapanha Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Planos",
+              "displayName": "Termo Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo Pré Planos ",
+              "displayName": "Conteúdo Pré Planos ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma Pré Checkout",
+              "displayName": "Plataforma Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Checkout",
+              "displayName": "Canal Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Checkout",
+              "displayName": "Camapanha Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Checkout",
+              "displayName": "Termo Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo  Pré Checkout",
+              "displayName": "Conteúdo  Pré Checkout",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4578,6 +4931,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-15T17:27:26.870Z",
-  "versionId": "c49683a9-4606-4f6c-bf09-67527913f0eb"
+  "updatedAt": "2023-09-18T20:36:24.849Z",
+  "versionId": "445f139e-81f7-40be-a9e5-6a1b7267b0f9"
 }
