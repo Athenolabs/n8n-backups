@@ -2827,7 +2827,8 @@
           "mappingMode": "defineBelow",
           "value": {
             "Email": "={{ $('Carrinho Abandonado').item.json.body.email }}",
-            "Status": "Carrinho Abandonado"
+            "Status": "Carrinho Abandonado",
+            "Plano": "={{ $('Carrinho Abandonado').item.json.body.title }}"
           },
           "matchingColumns": [
             "Email"
@@ -2901,7 +2902,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Valor",
@@ -3233,7 +3234,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "Data de Inscrição": "={{ $('Carrinho Abandonado').item.json.body.date }}",
-            "Plano": "={{ $('Carrinho Abandonado').item.json.body.date }}",
+            "Plano": "={{ $('Carrinho Abandonado').item.json.body.title }}",
             "Email": "={{ $('Carrinho Abandonado').item.json.body.email }}",
             "Status": "=Carrinho Abandonado",
             "Nome": "={{ $('Carrinho Abandonado').item.json.body.name }}",
@@ -4931,6 +4932,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-18T20:36:24.849Z",
-  "versionId": "445f139e-81f7-40be-a9e5-6a1b7267b0f9"
+  "updatedAt": "2023-09-19T23:28:08.726Z",
+  "versionId": "1f2f54b6-b2ff-4237-94c6-355293f37558"
 }
