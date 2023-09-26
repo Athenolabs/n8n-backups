@@ -4927,11 +4927,14 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 720
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-19T23:28:08.726Z",
-  "versionId": "1f2f54b6-b2ff-4237-94c6-355293f37558"
+  "updatedAt": "2023-09-25T18:45:48.797Z",
+  "versionId": "8c4f42fe-7ea0-497b-a4e8-c5ef31e12038"
 }
