@@ -122,7 +122,7 @@
         ],
         [
           {
-            "node": "HTTP Request16",
+            "node": "Switch2",
             "type": "main",
             "index": 0
           }
@@ -206,14 +206,14 @@
       "main": [
         [
           {
-            "node": "Filter1",
+            "node": "Google Sheets8",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Google Sheets8",
+            "node": "Filter1",
             "type": "main",
             "index": 0
           }
@@ -533,6 +533,24 @@
           }
         ]
       ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request16",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -659,6 +677,10 @@
             },
             {
               "value2": "contract_finished",
+              "output": 3
+            },
+            {
+              "value2": "contract_trial",
               "output": 3
             }
           ]
@@ -2715,7 +2737,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        620
+        680
       ],
       "webhookId": "01aec399-ea3f-49eb-ba35-08d1f9745a86"
     },
@@ -2730,10 +2752,10 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "filtersUI": {
           "values": [
@@ -2751,7 +2773,7 @@
       "typeVersion": 4,
       "position": [
         60,
-        620
+        680
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -2778,7 +2800,7 @@
       "typeVersion": 1,
       "position": [
         260,
-        620
+        680
       ]
     },
     {
@@ -2803,7 +2825,7 @@
       "typeVersion": 1,
       "position": [
         480,
-        600
+        660
       ]
     },
     {
@@ -3203,7 +3225,7 @@
       "typeVersion": 4,
       "position": [
         680,
-        600
+        660
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -3238,7 +3260,8 @@
             "Email": "={{ $('Carrinho Abandonado').item.json.body.email }}",
             "Status": "=Carrinho Abandonado",
             "Nome": "={{ $('Carrinho Abandonado').item.json.body.name }}",
-            "Telefone": "={{ $('Carrinho Abandonado').item.json.body.phone }}"
+            "Telefone": "={{ $('Carrinho Abandonado').item.json.body.phone }}",
+            "Comprou": "NÃO"
           },
           "matchingColumns": [],
           "schema": [
@@ -3286,7 +3309,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Forma de Pagamento",
@@ -3606,7 +3629,7 @@
       "typeVersion": 4,
       "position": [
         480,
-        760
+        820
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -3672,7 +3695,7 @@
       "typeVersion": 1,
       "position": [
         -180,
-        1340
+        1400
       ],
       "webhookId": "73c9e057-4613-4be8-8402-713d3fda26eb"
     },
@@ -3688,7 +3711,7 @@
       "typeVersion": 1,
       "position": [
         -180,
-        1040
+        1100
       ],
       "webhookId": "59a54f60-0521-487a-b760-532ba356b7a8"
     },
@@ -3724,7 +3747,7 @@
       "typeVersion": 4,
       "position": [
         60,
-        1040
+        1100
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -3751,7 +3774,7 @@
       "typeVersion": 1,
       "position": [
         260,
-        1040
+        1100
       ]
     },
     {
@@ -3776,7 +3799,7 @@
       "typeVersion": 1,
       "position": [
         480,
-        1040
+        1100
       ]
     },
     {
@@ -4085,7 +4108,7 @@
       "typeVersion": 4,
       "position": [
         680,
-        1020
+        1080
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -4127,7 +4150,7 @@
       "typeVersion": 4,
       "position": [
         60,
-        1340
+        1400
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -4154,7 +4177,7 @@
       "typeVersion": 1,
       "position": [
         260,
-        1340
+        1400
       ]
     },
     {
@@ -4179,7 +4202,7 @@
       "typeVersion": 1,
       "position": [
         480,
-        1340
+        1400
       ]
     },
     {
@@ -4488,7 +4511,7 @@
       "typeVersion": 4,
       "position": [
         680,
-        1340
+        1400
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -4570,8 +4593,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1080,
-        -780
+        1300,
+        -820
       ]
     },
     {
@@ -4646,7 +4669,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1080,
+        1040,
         -960
       ]
     },
@@ -4923,6 +4946,107 @@
         -140
       ],
       "webhookId": "b7bffd4e-d587-465a-ade0-a441b50b8210"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.statusFatura }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "contract_finished"
+            },
+            {
+              "value2": "contract_trial",
+              "output": 1
+            }
+          ]
+        }
+      },
+      "id": "6bcd0f65-47c6-4fff-8925-8377cf158b8f",
+      "name": "Switch2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -780
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://nexusempire.up.railway.app/webhook/assinatura-trial",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "date",
+              "value": "={{ $json.date }}"
+            },
+            {
+              "name": "nameCustomer",
+              "value": "={{ $json.nameCustomer }}"
+            },
+            {
+              "name": "emailCustomer",
+              "value": "={{ $json.emailCustomer }}"
+            },
+            {
+              "name": "statusFatura",
+              "value": "={{ $json.statusFatura }}"
+            },
+            {
+              "name": "phoneCustomer",
+              "value": "={{ $json.phoneCustomer }}"
+            },
+            {
+              "name": "nameProduct",
+              "value": "={{ $json.nameProduct }}"
+            },
+            {
+              "name": "cobrancas",
+              "value": "={{ $json.cobrancas }}"
+            },
+            {
+              "name": "valueProduct",
+              "value": "={{ $json.valueProduct }}"
+            },
+            {
+              "name": "statusName",
+              "value": "={{ $json.statusName }}"
+            },
+            {
+              "name": "methodPay",
+              "value": "={{ $json.methodPay }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.utm_source }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.utm_campaign }}"
+            },
+            {
+              "name": "utm_content",
+              "value": "={{ $json.utm_content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e2650a8e-50ee-4699-8bd9-208d7e9da2c7",
+      "name": "HTTP Request22",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1300,
+        -680
+      ]
     }
   ],
   "pinData": {},
@@ -4935,6 +5059,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-25T18:45:48.797Z",
-  "versionId": "8c4f42fe-7ea0-497b-a4e8-c5ef31e12038"
+  "updatedAt": "2023-09-28T19:46:36.202Z",
+  "versionId": "aa2c0ec3-fdb6-4ceb-8948-5c05b22d62b0"
 }
