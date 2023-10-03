@@ -1,0 +1,121 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Google Analytics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-10-02T18:43:56.707Z",
+  "id": "7eKojyIabxAiX3uB",
+  "name": "Relatorio Diario",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "37c646a1-4de9-4fee-8089-957a3b202412",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        820,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ new Date() }}",
+        "format": "custom",
+        "customFormat": "yyyy-MM-dd",
+        "outputFieldName": "Hoje",
+        "options": {}
+      },
+      "id": "858b46ef-baba-4c28-9451-2fd2d1f29e42",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.manychat.com/fb/page/getFlows",
+        "options": {}
+      },
+      "id": "2d56f365-34b2-4293-af43-f5e3c364557c",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1180,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "propertyId": {
+          "__rl": true,
+          "value": "https://analytics.google.com/analytics/web/?authuser=4#/p407807394/reports/reportinghub?params=_u..nav%3Dmaui",
+          "mode": "url",
+          "__regex": ".*analytics\\.google\\.com\\/analytics.*\\/p([0-9]{1,})(?:\\/.*|)"
+        },
+        "dateRange": "yesterday",
+        "metricsGA4": {
+          "metricValues": [
+            {}
+          ]
+        },
+        "dimensionsGA4": {
+          "dimensionValues": [
+            {}
+          ]
+        },
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "id": "96cad7d8-9f8e-4d74-be45-a813b7d532a1",
+      "name": "Google Analytics",
+      "type": "n8n-nodes-base.googleAnalytics",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        400
+      ],
+      "credentials": {
+        "googleAnalyticsOAuth2": {
+          "id": "LRk44JOWN2YGSGAw",
+          "name": "Google Analytics account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-10-02T21:06:55.799Z",
+  "versionId": "d0fc67c9-ac89-42d7-842d-c54e48982be9"
+}
