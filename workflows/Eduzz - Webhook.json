@@ -551,6 +551,94 @@
           }
         ]
       ]
+    },
+    "Google Sheets10": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Filter5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter6": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Filter6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets11": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -3224,7 +3312,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4,
       "position": [
-        680,
+        720,
         660
       ],
       "alwaysOutputData": true,
@@ -3629,7 +3717,7 @@
       "typeVersion": 4,
       "position": [
         480,
-        820
+        840
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -4108,7 +4196,7 @@
       "typeVersion": 4,
       "position": [
         680,
-        1080
+        1100
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -5047,6 +5135,216 @@
         1300,
         -680
       ]
+    },
+    {
+      "parameters": {
+        "amount": 15,
+        "unit": "minutes"
+      },
+      "id": "ef8ac0fe-46eb-40e6-876f-d2f5ef21a652",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        940,
+        660
+      ],
+      "webhookId": "37b71002-214c-48d2-b16d-0956cd2d4d5c"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Comprou }}",
+              "value2": "NÃO"
+            }
+          ]
+        }
+      },
+      "id": "592b4e26-60d9-4510-ba8c-1dbd2a97148f",
+      "name": "Filter5",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 270853515,
+          "mode": "list",
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $json.Email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5e123b16-32e0-4a71-8d11-97eaac44985e",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1160,
+        660
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, sou o Dr. Fernando Silva. Percebi que você esteve bem perto de se juntar à nossa comunidade, a Novo Ego.\nDesistiu de buscar um crescimento e de superar desafios emocionais e complicações financeiras?🤔\n\nVocê vai deixar de fazer parte de uma transformação tão profunda em sua vida? Acredito que a resposta seja não. Clique aqui para se tornar um membro da nossa comunidade.\n\nPs: Agarre a oportunidade, não durará muito tempo⏳. Aguardo você no nosso espaço de crescimento pessoal! 🙌\n\nCom apreço,\nDr. Fernando Silva."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3afecdfb-8f59-4f44-b385-eac2a635ba5c",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1560,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 15,
+        "unit": "minutes"
+      },
+      "id": "495013aa-f396-43da-b18e-c9ab33e29d79",
+      "name": "Wait2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        720,
+        840
+      ],
+      "webhookId": "37b71002-214c-48d2-b16d-0956cd2d4d5c"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.Comprou }}",
+              "value2": "NÃO"
+            }
+          ]
+        }
+      },
+      "id": "7f47e5a4-0791-4807-899d-c62f3abf8f91",
+      "name": "Filter6",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk",
+          "mode": "list",
+          "cachedResultName": "Comunidade Novo Ego",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 270853515,
+          "mode": "list",
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "={{ $json.Email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5ef607c6-45df-4fd0-9402-270b63211d61",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        940,
+        840
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.Telefone }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, sou o Dr. Fernando Silva. Percebi que você esteve bem perto de se juntar à nossa comunidade, a Novo Ego.\nDesistiu de buscar um crescimento e de superar desafios emocionais e complicações financeiras?🤔\n\nVocê vai deixar de fazer parte de uma transformação tão profunda em sua vida? Acredito que a resposta seja não. Clique aqui para se tornar um membro da nossa comunidade.\n\nPs: Agarre a oportunidade, não durará muito tempo⏳. Aguardo você no nosso espaço de crescimento pessoal! 🙌\n\nCom apreço,\nDr. Fernando Silva."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "03973b49-0af6-4a5a-8388-8796f3684b72",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1360,
+        840
+      ]
     }
   ],
   "pinData": {},
@@ -5059,6 +5357,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-09-28T19:46:36.202Z",
-  "versionId": "aa2c0ec3-fdb6-4ceb-8948-5c05b22d62b0"
+  "updatedAt": "2023-10-03T19:24:14.784Z",
+  "versionId": "57900585-eb33-4208-bf22-8e4dd8bdea1b"
 }
