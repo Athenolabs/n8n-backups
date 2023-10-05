@@ -796,7 +796,7 @@
             },
             {
               "name": "message",
-              "value": "=Olá, {{ $('Google Sheets3').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLogin: {{ $json.Email }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva\n\nLink Login👇:"
+              "value": "=Olá, {{ $('Google Sheets5').item.json.Nome.split(' ')[0] }}🌟,\n\nEstamos entusiasmados em informar que sua compra da *Comunidade Novo Ego* foi aprovada! 🎉 Você agora é parte de uma comunidade incrível focada no crescimento pessoal.\n\n👉 Para mergulhar nessa experiência única, acesse nossa área de membros.\n\nLogin: {{ $json.Email }}\nSenha: (Se esqueceu, clique em \"esqueci minha senha\")\n\nSeja bem-vindo(a) e sinta-se à vontade para explorar e contribuir. 🌱\n\nUm abraço,\nDr. Fernando Silva\n\nLink Login👇:"
             }
           ]
         },
@@ -5357,6 +5357,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-10-03T19:24:14.784Z",
-  "versionId": "57900585-eb33-4208-bf22-8e4dd8bdea1b"
+  "updatedAt": "2023-10-04T19:20:23.694Z",
+  "versionId": "ecc8c211-328a-442a-9a9c-4221e06226a7"
 }
