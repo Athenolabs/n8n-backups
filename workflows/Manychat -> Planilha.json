@@ -66,7 +66,8 @@
             "Telefone": "={{ $('Webhook').item.json.body.whatsapp }}",
             "Data de Contato": "={{ $json.hoje }}",
             "Nome": "={{ $('Webhook').item.json.body.nome }}",
-            "Agendou Avaliação? ": "NÃO"
+            "Agendou Avaliação? ": "NÃO",
+            "STATUS": "Contato"
           },
           "matchingColumns": [
             "Telefone"
@@ -99,6 +100,15 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
             },
             {
               "id": "Agendou Avaliação? ",
@@ -201,7 +211,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        880,
+        840,
         200
       ]
     }
@@ -223,6 +233,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2023-10-10T03:14:03.007Z",
-  "versionId": "8f3c826f-9c51-4567-9602-cd3fe5bb2369"
+  "updatedAt": "2023-10-10T14:47:39.338Z",
+  "versionId": "633d61cf-2888-4d3b-bd13-a9ef792a7516"
 }
