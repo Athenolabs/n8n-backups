@@ -1,0 +1,562 @@
+{
+  "active": true,
+  "connections": {
+    "Calendly Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-10-09T18:50:15.681Z",
+  "id": "8rHvOl3RLkTqihSb",
+  "name": "Calendly -> Planilha",
+  "nodes": [
+    {
+      "parameters": {
+        "events": [
+          "invitee.created"
+        ]
+      },
+      "id": "d2fdfb46-66aa-4280-ab74-16f1860f2d14",
+      "name": "Calendly Trigger",
+      "type": "n8n-nodes-base.calendlyTrigger",
+      "typeVersion": 1,
+      "position": [
+        520,
+        360
+      ],
+      "webhookId": "92169a01-70c3-4b95-bc6c-541a56f5307e",
+      "credentials": {
+        "calendlyApi": {
+          "id": "ZymxTsmwmidwawMi",
+          "name": "Odonto Vida"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const agendado = $('Calendly Trigger').item.json.payload.scheduled_event.start_time\n\nconst whats = $('Calendly Trigger').item.json.payload.questions_and_answers[0].answer\n\nfunction formatDate(dateTimeString) {\n  // Cria um objeto Date a partir da string ISO 8601\n  const date = new Date(dateTimeString);\n\n  // Extrai os componentes da data e hora\n  const year = date.getUTCFullYear();\n  const month = String(date.getUTCMonth() + 1).padStart(2, '0');\n  const day = String(date.getUTCDate()).padStart(2, '0');\n\n  // Monta a string formatada\n  const formattedDateTime = `${year}-${month}-${day}`;\n\n  return formattedDateTime;\n}\n\nfunction formatTime(dateTimeString) {\n  // Cria um objeto Date a partir da string ISO 8601\n  const date = new Date(dateTimeString);\n\n  const hours = String(date.getUTCHours()).padStart(2, '0');\n  const minutes = String(date.getUTCMinutes()).padStart(2, '0');\n\n  // Monta a string formatada\n  const formattedDateTime = `${hours-4}:${minutes}`;\n\n  return formattedDateTime;\n}\nfunction formatPhoneNumber(phoneNumber) {\n  // Remove espaços e traços usando expressão regular\n  const formattedNumber = phoneNumber.replace(/[\\s-]/g, '');\n  \n  return formattedNumber;\n}\n\n\n\n$input.item.json.dataAgendado = formatDate(agendado)\n$input.item.json.horaAgendado = formatTime(agendado)\n$input.item.json.whatsapp = formatPhoneNumber(whats)\n\nreturn $input.item;"
+      },
+      "id": "efec1db3-ab62-4097-8f69-b53bd8694b9c",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "=1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0",
+          "mode": "url",
+          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "OUTUBRO/2023",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Telefone",
+              "lookupValue": "={{ $json.whatsapp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ffcfd0ed-a144-40ad-830f-e3b825324229",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        940,
+        360
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "33ztsdGxSdMjeg4z",
+          "name": "Google - Odonto Vida"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $('Google Sheets').item.json.Telefone }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "db07310f-e890-4b97-b82e-dbce6d598352",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "=1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0",
+          "mode": "url",
+          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "OUTUBRO/2023",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Telefone": "={{ $json.whatsapp }}",
+            "Agendou Avaliação? ": "SIM",
+            "Data da Avaliação": "={{ $json.dataAvaliacao }}",
+            "Procedimento": "={{ $json.Procedimento }}",
+            "Hora da Avaliação": "={{ $json.horaAvaliacao }}",
+            "Lembrou Avaliação?": "NÃO"
+          },
+          "matchingColumns": [
+            "Telefone"
+          ],
+          "schema": [
+            {
+              "id": "Data de Contato",
+              "displayName": "Data de Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agendou Avaliação? ",
+              "displayName": "Agendou Avaliação? ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Procedimento",
+              "displayName": "Procedimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da Avaliação",
+              "displayName": "Data da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora da Avaliação",
+              "displayName": "Hora da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lembrou Avaliação?",
+              "displayName": "Lembrou Avaliação?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Compareceu na Avaliação?",
+              "displayName": "Compareceu na Avaliação?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fechou?",
+              "displayName": "Fechou?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Valor",
+              "displayName": "Valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ae7a9fd5-2f7f-4ba5-a9f9-54a2b6144d62",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1720,
+        500
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "33ztsdGxSdMjeg4z",
+          "name": "Google - Odonto Vida"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "nome",
+              "value": "={{ $('Calendly Trigger').item.json.payload.name }}"
+            },
+            {
+              "name": "whatsapp",
+              "value": "={{ $('Code').item.json.whatsapp }}"
+            },
+            {
+              "name": "dataAvaliacao",
+              "value": "={{ $('Code').item.json.dataAgendado }}"
+            },
+            {
+              "name": "horaAvaliacao",
+              "value": "={{ $('Code').item.json.horaAgendado }}"
+            },
+            {
+              "name": "Procedimento",
+              "value": "Implante | Prótese"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fac9a7bf-c8d8-457d-bf1e-1b8e229ce566",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "=1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0",
+          "mode": "url",
+          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "OUTUBRO/2023",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Data de Contato": "={{ $json.hoje }}",
+            "Nome": "={{ $json.nome }}",
+            "Agendou Avaliação? ": "=SIM",
+            "Telefone": "={{ $json.whatsapp }}",
+            "Procedimento": "={{ $json.Procedimento }}",
+            "Hora da Avaliação": "={{ $json.horaAvaliacao }}",
+            "Data da Avaliação": "={{ $json.dataAvaliacao }}",
+            "Lembrou Avaliação?": "----",
+            "Compareceu na Avaliação?": "----",
+            "Fechou?": "----",
+            "Valor": "----"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Data de Contato",
+              "displayName": "Data de Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Agendou Avaliação? ",
+              "displayName": "Agendou Avaliação? ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Procedimento",
+              "displayName": "Procedimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da Avaliação",
+              "displayName": "Data da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora da Avaliação",
+              "displayName": "Hora da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lembrou Avaliação?",
+              "displayName": "Lembrou Avaliação?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Compareceu na Avaliação?",
+              "displayName": "Compareceu na Avaliação?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fechou?",
+              "displayName": "Fechou?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Valor",
+              "displayName": "Valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "26d37236-7af5-4266-b078-c14f2b476a46",
+      "name": "Google Sheets2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1720,
+        260
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "33ztsdGxSdMjeg4z",
+          "name": "Google - Odonto Vida"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ new Date }}",
+        "format": "custom",
+        "customFormat": "yyyy-MM-dd",
+        "outputFieldName": "hoje",
+        "options": {}
+      },
+      "id": "d73b8b7a-e605-4e81-9e1e-d874dd137029",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        360
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Calendly Trigger": {
+      "webhookURI": "https://api.calendly.com/webhook_subscriptions/5a553b8a-18bd-4e3d-bb7a-013894454b97"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-10-10T03:36:27.204Z",
+  "versionId": "61e4deef-2725-47cd-9127-675ad115296d"
+}
