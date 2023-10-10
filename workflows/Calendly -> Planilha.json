@@ -27,7 +27,7 @@
       "main": [
         [
           {
-            "node": "Date & Time",
+            "node": "Code1",
             "type": "main",
             "index": 0
           }
@@ -63,7 +63,7 @@
         ]
       ]
     },
-    "Date & Time": {
+    "Code1": {
       "main": [
         [
           {
@@ -182,9 +182,8 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "=1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0",
-          "mode": "url",
-          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+          "value": "1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
@@ -197,11 +196,14 @@
           "mappingMode": "defineBelow",
           "value": {
             "Telefone": "={{ $json.whatsapp }}",
+            "STATUS": "Agendado",
             "Agendou Avaliação? ": "SIM",
             "Data da Avaliação": "={{ $json.dataAvaliacao }}",
-            "Procedimento": "={{ $json.Procedimento }}",
             "Hora da Avaliação": "={{ $json.horaAvaliacao }}",
-            "Lembrou Avaliação?": "NÃO"
+            "Lembrou Avaliação?": "NÃO",
+            "Compareceu na Avaliação?": "------------",
+            "Fechou?": "------------",
+            "Valor": "------------"
           },
           "matchingColumns": [
             "Telefone"
@@ -238,6 +240,15 @@
               "removed": false
             },
             {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
               "id": "Agendou Avaliação? ",
               "displayName": "Agendou Avaliação? ",
               "required": false,
@@ -253,7 +264,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Data da Avaliação",
@@ -289,8 +301,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
+              "canBeUsedToMatch": true
             },
             {
               "id": "Fechou?",
@@ -299,8 +310,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
+              "canBeUsedToMatch": true
             },
             {
               "id": "Valor",
@@ -309,8 +319,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
+              "canBeUsedToMatch": true
             }
           ]
         },
@@ -391,15 +400,15 @@
           "value": {
             "Data de Contato": "={{ $json.hoje }}",
             "Nome": "={{ $json.nome }}",
-            "Agendou Avaliação? ": "=SIM",
             "Telefone": "={{ $json.whatsapp }}",
-            "Procedimento": "={{ $json.Procedimento }}",
-            "Hora da Avaliação": "={{ $json.horaAvaliacao }}",
+            "Agendou Avaliação? ": "SIM",
             "Data da Avaliação": "={{ $json.dataAvaliacao }}",
-            "Lembrou Avaliação?": "----",
-            "Compareceu na Avaliação?": "----",
-            "Fechou?": "----",
-            "Valor": "----"
+            "Hora da Avaliação": "={{ $json.horaAvaliacao }}",
+            "Lembrou Avaliação?": "NÃO",
+            "Compareceu na Avaliação?": "------------",
+            "Fechou?": "------------",
+            "Valor": "------------",
+            "STATUS": "Agendado"
           },
           "matchingColumns": [],
           "schema": [
@@ -431,6 +440,15 @@
               "canBeUsedToMatch": true
             },
             {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
               "id": "Agendou Avaliação? ",
               "displayName": "Agendou Avaliação? ",
               "required": false,
@@ -446,7 +464,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "Data da Avaliação",
@@ -473,8 +492,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Compareceu na Avaliação?",
@@ -483,8 +501,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Fechou?",
@@ -493,8 +510,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Valor",
@@ -503,8 +519,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             }
           ]
         },
@@ -529,19 +544,15 @@
     },
     {
       "parameters": {
-        "operation": "formatDate",
-        "date": "={{ new Date }}",
-        "format": "custom",
-        "customFormat": "yyyy-MM-dd",
-        "outputFieldName": "hoje",
-        "options": {}
+        "mode": "runOnceForEachItem",
+        "jsCode": "const date = new Date()\n\nfunction formatDateTime(dateTimeString) {\n  // Cria um objeto Date a partir da string ISO 8601\n  const date = new Date(dateTimeString);\n\n  // Extrai os componentes da data e hora no fuso horário local\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  const hours = String(date.getHours()).padStart(2, '0');\n  const minutes = String(date.getMinutes()).padStart(2, '0');\n\n  // Monta a string formatada\n\n  const hoursFor = hours-4\n\n  if(hoursFor >= -4 && hoursFor <= 0){\n    const formattedDateTime = `${year}-${month}-${day} ${24+hoursFor}:${minutes}`;\n    return formattedDateTime;\n  }else{\n    const formattedDateTime = `${year}-${month}-${day} ${hours-4}:${minutes}`;\n    return formattedDateTime;\n  }\n}\n\n$input.item.json.hoje = formatDateTime(date);\n\nreturn $input.item;"
       },
-      "id": "d73b8b7a-e605-4e81-9e1e-d874dd137029",
-      "name": "Date & Time",
-      "type": "n8n-nodes-base.dateTime",
+      "id": "d6ec5809-2611-44cc-98bc-1e271b3ed760",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1140,
+        1120,
         360
       ]
     }
@@ -552,11 +563,18 @@
   },
   "staticData": {
     "node:Calendly Trigger": {
-      "webhookURI": "https://api.calendly.com/webhook_subscriptions/5a553b8a-18bd-4e3d-bb7a-013894454b97"
+      "webhookURI": "https://api.calendly.com/webhook_subscriptions/800114f0-028d-42b9-8a48-265811398f57"
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "id": "YeXFRAnvLXlIp4mp",
+      "createdAt": "2023-10-10T01:40:35.294Z",
+      "updatedAt": "2023-10-10T01:40:35.294Z",
+      "name": "OdontoVida"
+    }
+  ],
   "triggerCount": 1,
-  "updatedAt": "2023-10-10T03:36:27.204Z",
-  "versionId": "61e4deef-2725-47cd-9127-675ad115296d"
+  "updatedAt": "2023-10-10T14:51:22.642Z",
+  "versionId": "5415db1e-80e2-4817-a5f1-9ae96f9a57df"
 }
