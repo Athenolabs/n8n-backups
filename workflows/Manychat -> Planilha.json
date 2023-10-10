@@ -1,0 +1,228 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-10-10T01:40:30.037Z",
+  "id": "RoWOQQ3HIb0HIsoP",
+  "name": "Manychat -> Planilha",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "manychat-odonto",
+        "options": {}
+      },
+      "id": "2a021c31-4138-40f0-84a2-fab9d6934ce8",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        620,
+        200
+      ],
+      "webhookId": "2b69666b-bae9-4559-b568-23d74c1c3f15"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "=1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0",
+          "mode": "url",
+          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "OUTUBRO/2023",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1icd69OM-M58iHaq_XxAWAdhru2mMYn0HtzJu6SOPEo0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Telefone": "={{ $('Webhook').item.json.body.whatsapp }}",
+            "Data de Contato": "={{ $json.hoje }}",
+            "Nome": "={{ $('Webhook').item.json.body.nome }}",
+            "Agendou Avaliação? ": "NÃO"
+          },
+          "matchingColumns": [
+            "Telefone"
+          ],
+          "schema": [
+            {
+              "id": "Data de Contato",
+              "displayName": "Data de Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telefone",
+              "displayName": "Telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agendou Avaliação? ",
+              "displayName": "Agendou Avaliação? ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Procedimento",
+              "displayName": "Procedimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data da Avaliação",
+              "displayName": "Data da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora da Avaliação",
+              "displayName": "Hora da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lembrou Avaliação?",
+              "displayName": "Lembrou Avaliação?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Compareceu na Avaliação?",
+              "displayName": "Compareceu na Avaliação?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fechou?",
+              "displayName": "Fechou?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Valor",
+              "displayName": "Valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "03e9d403-7a4e-4b79-8b85-045bebe6405d",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1100,
+        200
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "33ztsdGxSdMjeg4z",
+          "name": "Google - Odonto Vida"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const date = new Date()\n\nfunction formatDateTime(dateTimeString) {\n  // Cria um objeto Date a partir da string ISO 8601\n  const date = new Date(dateTimeString);\n\n  // Extrai os componentes da data e hora no fuso horário local\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  const hours = String(date.getHours()).padStart(2, '0');\n  const minutes = String(date.getMinutes()).padStart(2, '0');\n\n  // Monta a string formatada\n\n  const hoursFor = hours-4\n\n  if(hoursFor >= -4 && hoursFor <= 0){\n    const formattedDateTime = `${year}-${month}-${day} ${24+hoursFor}:${minutes}`;\n    return formattedDateTime;\n  }else{\n    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;\n    return formattedDateTime;\n  }\n}\n\n$input.item.json.hoje = formatDateTime(date);\n\nreturn $input.item;"
+      },
+      "id": "7563c117-687f-4a91-9773-294ddc21732e",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        200
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Campo_Grande",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "id": "YeXFRAnvLXlIp4mp",
+      "createdAt": "2023-10-10T01:40:35.294Z",
+      "updatedAt": "2023-10-10T01:40:35.294Z",
+      "name": "OdontoVida"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2023-10-10T03:14:03.007Z",
+  "versionId": "8f3c826f-9c51-4567-9602-cd3fe5bb2369"
+}
