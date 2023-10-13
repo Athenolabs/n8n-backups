@@ -71,7 +71,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -116,7 +116,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request4",
+            "node": "Wait1",
             "type": "main",
             "index": 0
           }
@@ -128,6 +128,28 @@
         [
           {
             "node": "MailerLite",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
             "type": "main",
             "index": 0
           }
@@ -812,7 +834,7 @@
             },
             {
               "name": "message",
-              "value": "=https://bit.ly/promocional-novo-ego"
+              "value": "=https://bit.ly/promocional-op"
             }
           ]
         },
@@ -854,6 +876,36 @@
         2240,
         140
       ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "65446fcb-83d3-48fe-9af3-67f7b7879da5",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        360
+      ],
+      "webhookId": "c055ebc0-c235-45ee-90ea-dab0ba677cb5"
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "042619c2-0516-4829-8f88-df45b589aba6",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        340
+      ],
+      "webhookId": "aab8e7ae-6d56-40ca-b98a-63dcd1aec929"
     }
   ],
   "pinData": {},
@@ -866,6 +918,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-10-12T20:13:23.465Z",
-  "versionId": "64b598b2-94dc-48d5-8d03-93c7782885c2"
+  "updatedAt": "2023-10-13T14:43:53.400Z",
+  "versionId": "2994a2d7-0bc7-45ba-ba08-8738c8bf19e0"
 }
