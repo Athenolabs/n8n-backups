@@ -787,6 +787,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -830,6 +839,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -858,6 +876,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/add-participant",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -4765,6 +4792,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -4808,6 +4844,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -4836,6 +4881,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/add-participant",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -4953,6 +5007,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -4996,6 +5059,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -5217,6 +5289,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -5322,6 +5403,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -5357,6 +5447,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-10-04T19:20:23.694Z",
-  "versionId": "ecc8c211-328a-442a-9a9c-4221e06226a7"
+  "updatedAt": "2023-10-13T19:03:21.635Z",
+  "versionId": "cb7e9f98-0d58-4999-90b1-70ef309c1a57"
 }
