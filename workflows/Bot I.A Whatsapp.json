@@ -96,6 +96,50 @@
           }
         ]
       ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Write Binary File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Binary File": {
+      "main": [
+        [
+          {
+            "node": "Read Binary Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Binary Files": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-09-07T18:53:54.409Z",
@@ -155,6 +199,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -315,6 +368,15 @@
       "parameters": {
         "method": "POST",
         "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -363,6 +425,112 @@
         1420,
         620
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://texttospeech.googleapis.com/v1beta1/text:synthesize",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Api-Key",
+              "value": "AIzaSyATJVPdLyTWKAKGqbz96QmNhr31Abj_OXE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json; charset=utf-8",
+        "body": "{    'input':{      'text':'To com saudade do pereira!'    },    'voice':{      'languageCode':'pt-BR',      'name':'pt-BR-Neural2-B'    },    'audioConfig':{      'audioEncoding':'MP3',      'pitch': -2.8,      'speakingRate': 1.26    }  }",
+        "options": {}
+      },
+      "id": "7b43f081-4741-448a-9348-88033d04ba31",
+      "name": "HTTP Request4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2620,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const contentAudio = $('HTTP Request4').item.json.audioContent\n\n//$input.item.json.dataAudio = Buffer.from(contentAudio).toString('base64')\n\n$input.item.binary = {};\n$input.item.binary.data = Buffer.from(contentAudio, 'base64')\n\nreturn $input.item;"
+      },
+      "id": "5d510905-79c3-4e09-bc92-71d4b0f86785",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2840,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "fileName": "audioContentURL64.mp3",
+        "options": {}
+      },
+      "id": "5563dd88-39d7-4378-8de0-c0c61c611b2a",
+      "name": "Write Binary File",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        3060,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "fileSelector": "audioContentURL64.mp3"
+      },
+      "id": "e44179b0-fd97-4292-9b78-6c353c650398",
+      "name": "Read Binary Files",
+      "type": "n8n-nodes-base.readBinaryFiles",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "5566996188393"
+            },
+            {
+              "name": "message",
+              "value": "https://media.snaptubeyoutubevideo.download/app/gYU_uj95xco_50.mp3"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a840c447-db80-40f0-bd12-4cd3822e9797",
+      "name": "HTTP Request5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3500,
+        180
+      ]
     }
   ],
   "pinData": {},
@@ -375,6 +543,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-10-13T15:04:30.482Z",
-  "versionId": "237807ea-d180-4b82-a5cc-b57c45e54a48"
+  "updatedAt": "2023-10-13T19:00:04.090Z",
+  "versionId": "3d2416bb-69e6-4e62-af7e-a027319f0442"
 }
