@@ -639,6 +639,33 @@
           }
         ]
       ]
+    },
+    "Google Sheets13": {
+      "main": [
+        [
+          {
+            "node": "Set1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        []
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-08-16T17:06:10.623Z",
@@ -762,10 +789,6 @@
             {
               "value2": "contract_canceled",
               "output": 2
-            },
-            {
-              "value2": "contract_finished",
-              "output": 3
             },
             {
               "value2": "contract_trial",
@@ -3841,10 +3864,10 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "filtersUI": {
           "values": [
@@ -3897,10 +3920,6 @@
         "conditions": {
           "string": [
             {
-              "value1": "={{ $json.Comprou }}",
-              "value2": "SIM"
-            },
-            {
               "value1": "={{ $json.Status }}",
               "operation": "notEqual",
               "value2": "Cancelado"
@@ -3929,16 +3948,16 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 270853515,
           "mode": "list",
-          "cachedResultName": "Leads",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=0"
+          "cachedResultName": "Lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1et9e5uVZmxlTZRfl7vX3hdhenUqn8U52YtV8C0HV5yk/edit#gid=270853515"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
             "Email": "={{ $json.Email }}",
-            "Status": "=Cancelado"
+            "Status": "Cancelado"
           },
           "matchingColumns": [
             "Email"
@@ -3983,16 +4002,6 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
-            },
-            {
-              "id": "Cadastrou Pré Checkout",
-              "displayName": "Cadastrou Pré Checkout",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
             },
             {
               "id": "Comprou",
@@ -4114,8 +4123,8 @@
               "removed": true
             },
             {
-              "id": "Plataforma de Pré CheckOut",
-              "displayName": "Plataforma de Pré CheckOut",
+              "id": "Plataforma de Inicio",
+              "displayName": "Plataforma de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4124,8 +4133,8 @@
               "removed": true
             },
             {
-              "id": "Canal de Pré CheckOut",
-              "displayName": "Canal de Pré CheckOut",
+              "id": "Canal de Inicio",
+              "displayName": "Canal de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4134,8 +4143,8 @@
               "removed": true
             },
             {
-              "id": "Campanha de Pré CheckOut",
-              "displayName": "Campanha de Pré CheckOut",
+              "id": "Campanha de Inicio",
+              "displayName": "Campanha de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4144,8 +4153,8 @@
               "removed": true
             },
             {
-              "id": "Termo de Pré CheckOut",
-              "displayName": "Termo de Pré CheckOut",
+              "id": "Termo de Inicio",
+              "displayName": "Termo de Inicio",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4154,8 +4163,108 @@
               "removed": true
             },
             {
-              "id": "Conteúdo de Pré CheckOut",
-              "displayName": "Conteúdo de Pré CheckOut",
+              "id": "Conteúdo de Inicio",
+              "displayName": "Conteúdo de Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma de Pré Planos",
+              "displayName": "Plataforma de Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Planos",
+              "displayName": "Canal Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Planos",
+              "displayName": "Camapanha Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Planos",
+              "displayName": "Termo Pré Planos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo Pré Planos ",
+              "displayName": "Conteúdo Pré Planos ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Plataforma Pré Checkout",
+              "displayName": "Plataforma Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Canal Pré Checkout",
+              "displayName": "Canal Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Camapanha Pré Checkout",
+              "displayName": "Camapanha Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Termo Pré Checkout",
+              "displayName": "Termo Pré Checkout",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Conteúdo  Pré Checkout",
+              "displayName": "Conteúdo  Pré Checkout",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4709,7 +4818,7 @@
       "typeVersion": 4.1,
       "position": [
         1300,
-        -820
+        -860
       ]
     },
     {
@@ -5432,8 +5541,56 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1360,
+        1460,
         840
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/remove-participant",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "client-token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"autoInvite\": true, \"groupId\":\"120363142746754193-group\", \"phones\":[\"{{ $json.Telefone[1] }}\"]} ",
+        "options": {}
+      },
+      "id": "c40d5b68-530c-45b0-8f2e-2f5654cc6876",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1120,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Telefone",
+              "value": "={{ $('assinatura-cancelada').item.json.body.phoneCustomer.split(\"+\") }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28856ac9-699d-4dde-b5f3-0acee47fea62",
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        900,
+        1100
       ]
     }
   ],
@@ -5447,6 +5604,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 6,
-  "updatedAt": "2023-10-13T19:03:21.635Z",
-  "versionId": "cb7e9f98-0d58-4999-90b1-70ef309c1a57"
+  "updatedAt": "2023-10-16T19:58:16.123Z",
+  "versionId": "565e52ab-3385-4e16-b352-b4fe52b19fb0"
 }
