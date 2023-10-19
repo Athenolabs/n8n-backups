@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "HTTP Request1",
             "type": "main",
             "index": 0
           }
@@ -13,50 +13,81 @@
       ]
     }
   },
-  "createdAt": "2023-08-16T22:27:33.920Z",
-  "id": "UMcocIOSDFwO6ImN",
+  "createdAt": "2023-10-19T13:31:58.358Z",
+  "id": "vzGBpzAROOzUhTgJ",
   "name": "My workflow 2",
   "nodes": [
     {
       "parameters": {},
-      "id": "17a78922-9de0-4a41-a838-1eda2700c7a0",
+      "id": "c1e0a9f4-becf-4ee1-9d36-a373c22670fc",
       "name": "When clicking \"Execute Workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        1140,
-        400
+        1060,
+        520
       ]
     },
     {
       "parameters": {
-        "url": "https://connect.mailerlite.com/api/groups",
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/kYr3tDMUjL6rIiHHRO2Z",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
-              "name": "Content-Type",
-              "value": "application/json"
+              "name": "accept",
+              "value": "audio/mpeg"
             },
             {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMWI1OGM0YTgwNGE5ZmMwY2Q1MTNlZDgxNTlmYzk0YTljNDhkN2VjNTM1ZTFkNzBkZGQ1OTM0NzZlMjgwMjBjZWVkZTIxM2UyOGZmZjNkY2IiLCJpYXQiOjE2OTIyMjM4MzIuODI5MTMxLCJuYmYiOjE2OTIyMjM4MzIuODI5MTMzLCJleHAiOjQ4NDc4OTc0MzIuODIzODQxLCJzdWIiOiI1MTc5NzEiLCJzY29wZXMiOltdfQ.LlN_P_V5JHgvU58zNJ__7ZiorPZj_nMCig7rEGuUOfqGM2fXGpNxBb7SPc5hDKwqQdxz-KhsK1_xGp0jyRhFnotr4dgmtlyQLQIbnqqFeftTQfgdgj36XX12LGQl_r8VIzkoTN-NC-EFUHlBXdPfb1fKHSyXtna852a_3GjchBzyt0JY9aFGCy7q6wERKIBDqoWQgFzXMVQW6adsqy0BAbmruVmeyUnO_ufu5yMekamudImbN23JDul8rT-kuFoNlUPL28r6Urig5WDVZEFJFpjTFfenLb75QcQKAT3K9VGvYDWdxmgv7HXDhvG4PfiQSI9NTyIalGh6nHn2ylUx9B2HYFt1AP-BWC77xpQV6AmSR_L-MKlAwdv6Y_O1huRO8Z10CyoQLviYhB_0QnWYfXCDTs-1u0-Ahrd4qHCXKUw_he9U7t2qtB4R_K_dT1vJyG8_4GXLWRD_9peo5a9WsaXdK8mQvrWqvqrrSEAkjFQ2OHmlXLB18BBHGeEOz0GMgyUs2D-zM2_8M7WeqvF0WPcfWWqL4SKHsJSCB7H0Z1UVsYsNfMV_45pb5e3kyt3C8JvO9q71nZKTUX2SblNeGa9A-mVxJIPWAeeQwpS4i8k5vC_H34UsqvH1_0-SHo5I5eIf5s5676LVnyXZtkEQUCRJs4ogjm7or5YGDzBhb-k"
+              "name": "xi-api-key",
+              "value": "3496777d5ec9e7d70604dd42e180ce3c"
             }
           ]
         },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"text\":\"Organização: Planeje o seu dia e priorize as tarefas mais importantes, estabelecendo prazos e metas realistas. Utilize ferramentas de agenda ou aplicativos de produtividade para ajudar nesse processo.\",\"model_id\":\"eleven_monolingual_v1\",\"voice_settings\":{\"stability\":0.34,\"similarity_boost\":0.68}}",
         "options": {}
       },
-      "id": "a32ab090-bb77-444d-b87c-9c40bcc2dae8",
+      "id": "74055d7d-63a6-43f7-bb24-7ef49fc3a970",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1380,
-        400
+        1280,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/kYr3tDMUjL6rIiHHRO2Z",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "audio/mpeg"
+            },
+            {
+              "name": "xi-api-key",
+              "value": "3496777d5ec9e7d70604dd42e180ce3c"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"text\":\"Organização: Planeje o seu dia e priorize as tarefas mais importantes, estabelecendo prazos e metas realistas. Utilize ferramentas de agenda ou aplicativos de produtividade para ajudar nesse processo\",\"model_id\":\"eleven_monolingual_v1\",\"voice_settings\":{\"stability\":0.5,\"similarity_boost\":0.5}}",
+        "options": {}
+      },
+      "id": "3d974aa7-d6e2-4042-ae37-2a99c6064510",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1280,
+        720
       ]
     }
   ],
@@ -67,6 +98,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-16T23:29:39.690Z",
-  "versionId": "f1cad71f-cd45-47fb-8d74-d5b4ce29a01b"
+  "updatedAt": "2023-10-19T13:31:58.358Z",
+  "versionId": "9c6fc772-48b2-4399-b437-1473b8eba5df"
 }
