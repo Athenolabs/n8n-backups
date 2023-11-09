@@ -5,7 +5,29 @@
       "main": [
         [
           {
-            "node": "WhatsApp Business Cloud",
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
             "type": "main",
             "index": 0
           }
@@ -13,30 +35,94 @@
       ]
     }
   },
-  "createdAt": "2023-08-22T20:42:06.090Z",
-  "id": "9CF3N3hBYEpCpVcf",
+  "createdAt": "2023-11-09T12:30:00.728Z",
+  "id": "EBgk1nwXezV9Mlp1",
   "name": "My workflow 3",
   "nodes": [
     {
       "parameters": {},
-      "id": "a91f2fbc-830c-4c01-8ff8-1fa46fa8ab17",
+      "id": "82e5fa1d-f9a8-4233-ae88-e1e80c117065",
       "name": "When clicking \"Execute Workflow\"",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        540,
-        260
+        1060,
+        520
       ]
     },
     {
-      "parameters": {},
-      "id": "9e45d1d0-51d6-44e9-8705-de3be81bd003",
-      "name": "WhatsApp Business Cloud",
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1MQXWq5JYSAsO3LyTxQE9pwmi4omNHrpnecBXsvMbRFw",
+          "mode": "list",
+          "cachedResultName": "Vendas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MQXWq5JYSAsO3LyTxQE9pwmi4omNHrpnecBXsvMbRFw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1894180908,
+          "mode": "list",
+          "cachedResultName": "Setembro",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MQXWq5JYSAsO3LyTxQE9pwmi4omNHrpnecBXsvMbRFw/edit#gid=1894180908"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Data",
+              "lookupValue": "={{ $json.hoje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "58351eed-cd5a-4b4d-917f-6b8513d72d84",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
       "position": [
-        760,
-        260
+        1640,
+        520
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ $json.hoje }}",
+        "format": "custom",
+        "customFormat": "dd/MM/yy",
+        "outputFieldName": "hoje",
+        "options": {}
+      },
+      "id": "e8caae70-22da-476b-bb17-c1fe9e47bbf6",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "subtractFromDate",
+        "magnitude": "={{ new Date() }}",
+        "duration": 1,
+        "outputFieldName": "hoje"
+      },
+      "id": "e5e04d6b-674b-43d4-959f-f09e72d875d5",
+      "name": "Date & Time1",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        520
       ]
     }
   ],
@@ -47,6 +133,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-22T20:42:06.090Z",
-  "versionId": "8a97a916-05b0-41db-b3f3-4b8b81da82fc"
+  "updatedAt": "2023-11-09T12:30:00.728Z",
+  "versionId": "931b1a66-5b4a-4f8c-aa05-6fffd983fc32"
 }
