@@ -1,0 +1,186 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-11-09T12:30:00.752Z",
+  "id": "Ntm5vX1lv4FnmEIa",
+  "name": "Relatorio vendas",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "82e5fa1d-f9a8-4233-ae88-e1e80c117065",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1MQXWq5JYSAsO3LyTxQE9pwmi4omNHrpnecBXsvMbRFw",
+          "mode": "list",
+          "cachedResultName": "Vendas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MQXWq5JYSAsO3LyTxQE9pwmi4omNHrpnecBXsvMbRFw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1894180908,
+          "mode": "list",
+          "cachedResultName": "Setembro",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MQXWq5JYSAsO3LyTxQE9pwmi4omNHrpnecBXsvMbRFw/edit#gid=1894180908"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Data",
+              "lookupValue": "={{ $json.hoje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "58351eed-cd5a-4b4d-917f-6b8513d72d84",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1640,
+        520
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "15YimooLoASODhGO",
+          "name": "Dr. Fernando Silva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ $json.hoje }}",
+        "format": "custom",
+        "customFormat": "dd/MM/yy",
+        "outputFieldName": "hoje",
+        "options": {}
+      },
+      "id": "e8caae70-22da-476b-bb17-c1fe9e47bbf6",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "subtractFromDate",
+        "magnitude": "={{ new Date() }}",
+        "duration": 1,
+        "outputFieldName": "hoje"
+      },
+      "id": "e5e04d6b-674b-43d4-959f-f09e72d875d5",
+      "name": "Date & Time1",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        1260,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "=5566996188393"
+            },
+            {
+              "name": "message",
+              "value": "=Métricas | {{ $json[\"Data\"] }}\n\n➡ Entraram em contato: {{ $json[\"Entraram em contato\"] }}\n➡ Leads: {{ $json[\"Leads\"] }}\n➡ Quantos % se tornaram leads: {{ $json[\"Conversão de Leads\"]*100 }}\n➡ Entraram na página: {{ $json[\"Entrou na pag. Vendas\"] }}\n➡ Tempo médio na página: {{ $json[\"Tempo medio na pagina\"] }}\n➡ Compras totais (alunos novos): {{ $json[\"Compras Totais\"] }}\n➡ Compras automação: {{ $json[\"Compras Automação\"] }}\n➡ Conversão em Vendas Automação: {{ $json[\"Conversão em Vendas Automação\"] }}\n➡ Conversão em Vendas Direto Página: {{ $json[\"Conversão de Vendas\"] }}\n➡ Quantos leads chegaram até o checkout: {{ $json[\"Iniciate Checkout\"] }}\n➡ Nady entrou em contato com: {{ $json[\"Nadine entrou em contato\"] }}\n➡ Quantas converteu: {{ $json[\"Nadine vendeu\"] }}\n➡ Conversão Vendas Nady: {{ $json[\"col_27\"] }}\n➡ Vendas plano mensal (R$79): {{ $json[\"Plano Mensal R$79\"] }}\n➡ Vendas plano mensal (R$49): {{ $json[\"Plano Mensal R$47\"] }}\n➡ Vendas plano anual (R$490): {{ $json[\"Plano Anual\"] }}\n➡ Vendas plano trial anual (R$490): {{ $json[\"Trial Plano Anual\"] }}\n➡ Vendas plano trial promocional (R$390): {{ $json[\"Trial Plano Anual R$390\"] }}\n➡ Vendas plano promocional (R$390): {{ $json[\"Plano Anual R$390\"] }}\n➡ Faturamento: R$ {{ $json[\"Faturamento\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0d22ddfe-a671-40a4-aa98-752a82163ebe",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1860,
+        520
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-11-09T12:38:40.880Z",
+  "versionId": "38622ef1-41bf-4516-9afe-bfe2fb8017f6"
+}
