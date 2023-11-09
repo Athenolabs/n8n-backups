@@ -1,10 +1,75 @@
 {
   "active": false,
-  "connections": {},
-  "createdAt": "2023-08-23T15:39:53.749Z",
-  "id": "AFIlKtIkw8O5drco",
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-11-09T13:31:58.799Z",
+  "id": "PowDeaotIMf2uWVK",
   "name": "My workflow 4",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "879862c1-4fad-474a-bae8-c4436bffac51",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/audio/speech",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "tts-1"
+            },
+            {
+              "name": "input",
+              "value": "Oie, eu sou lucas tudo bem?"
+            },
+            {
+              "name": "voice",
+              "value": "alloy"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "998e0794-8815-457e-af30-cf394a7f4360",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1280,
+        520
+      ]
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
@@ -12,6 +77,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-08-23T15:39:53.749Z",
-  "versionId": "5f83e987-2cc8-4ec8-b6a9-a42c93666612"
+  "updatedAt": "2023-11-09T13:31:58.799Z",
+  "versionId": "7cb303cc-21a1-4854-8311-69ecea2d954a"
 }
