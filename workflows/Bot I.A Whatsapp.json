@@ -77,13 +77,7 @@
     },
     "OpenAI1": {
       "main": [
-        [
-          {
-            "node": "HTTP Request3",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Set": {
@@ -283,7 +277,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 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"
+              "value": "Bearer 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"
             },
             {
               "name": "Content-Type",
@@ -543,6 +537,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-10-13T19:00:04.090Z",
-  "versionId": "3d2416bb-69e6-4e62-af7e-a027319f0442"
+  "updatedAt": "2023-11-09T13:33:53.045Z",
+  "versionId": "c23ac5ac-7592-4c2e-95bb-a0c8fcde38b5"
 }
