@@ -158,7 +158,7 @@
             },
             {
               "name": "message",
-              "value": "=Métricas | {{ $json[\"Data\"] }}\n\n➡ Entraram em contato: {{ $json[\"Entraram em contato\"] }}\n➡ Leads: {{ $json[\"Leads\"] }}\n➡ Quantos % se tornaram leads: {{ $json[\"Conversão de Leads\"]*100 }}\n➡ Entraram na página: {{ $json[\"Entrou na pag. Vendas\"] }}\n➡ Tempo médio na página: {{ $json[\"Tempo medio na pagina\"] }}\n➡ Compras totais (alunos novos): {{ $json[\"Compras Totais\"] }}\n➡ Compras automação: {{ $json[\"Compras Automação\"] }}\n➡ Conversão em Vendas Automação: {{ $json[\"Conversão em Vendas Automação\"] }}\n➡ Conversão em Vendas Direto Página: {{ $json[\"Conversão de Vendas\"] }}\n➡ Quantos leads chegaram até o checkout: {{ $json[\"Iniciate Checkout\"] }}\n➡ Nady entrou em contato com: {{ $json[\"Nadine entrou em contato\"] }}\n➡ Quantas converteu: {{ $json[\"Nadine vendeu\"] }}\n➡ Conversão Vendas Nady: {{ $json[\"col_27\"] }}\n➡ Vendas plano mensal (R$79): {{ $json[\"Plano Mensal R$79\"] }}\n➡ Vendas plano mensal (R$49): {{ $json[\"Plano Mensal R$47\"] }}\n➡ Vendas plano anual (R$490): {{ $json[\"Plano Anual\"] }}\n➡ Vendas plano trial anual (R$490): {{ $json[\"Trial Plano Anual\"] }}\n➡ Vendas plano trial promocional (R$390): {{ $json[\"Trial Plano Anual R$390\"] }}\n➡ Vendas plano promocional (R$390): {{ $json[\"Plano Anual R$390\"] }}\n➡ Faturamento: R$ {{ $json[\"Faturamento\"] }}"
+              "value": "=Métricas | {{ $json[\"Data\"] }}\n\n➡ Entraram em contato: {{ $json[\"Entraram em contato\"] }}\n➡ Leads: {{ $json[\"Leads\"] }}\n➡ Quantos % se tornaram leads: {{ ($json[\"Conversão de Leads\"]*100).toFixed(2) }}\n➡ Entraram na página: {{ $json[\"Entrou na pag. Vendas\"] }}\n➡ Tempo médio na página: {{ $json[\"Tempo medio na pagina\"] }}\n➡ Compras totais (alunos novos): {{ $json[\"Compras Totais\"] }}\n➡ Compras automação: {{ $json[\"Compras Automação\"] }}\n➡ Conversão em Vendas Automação: {{ ($json[\"Conversão em Vendas Automação\"]*100).toFixed(2) }}\n➡ Conversão em Vendas Direto Página: {{ ($json[\"Conversão de Vendas\"]*100).toFixed(2) }}\n➡ Quantos leads chegaram até o checkout: {{ $json[\"Iniciate Checkout\"] }}\n➡ Nady entrou em contato com: {{ $json[\"Nadine entrou em contato\"] }}\n➡ Quantas converteu: {{ $json[\"Nadine vendeu\"] }}\n➡ Conversão Vendas Nady: {{ ($json[\"col_27\"]*100).toFixed(2) }}\n➡ Vendas plano mensal (R$79): {{ $json[\"Plano Mensal R$79\"] }}\n➡ Vendas plano mensal (R$49): {{ $json[\"Plano Mensal R$47\"] }}\n➡ Vendas plano anual (R$490): {{ $json[\"Plano Anual\"] }}\n➡ Vendas plano trial anual (R$490): {{ $json[\"Trial Plano Anual\"] }}\n➡ Vendas plano trial promocional (R$390): {{ $json[\"Trial Plano Anual R$390\"] }}\n➡ Vendas plano promocional (R$390): {{ $json[\"Plano Anual R$390\"] }}\n➡ Faturamento: R$ {{ $json[\"Faturamento\"] }}"
             }
           ]
         },
@@ -181,6 +181,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-11-09T12:38:40.880Z",
-  "versionId": "38622ef1-41bf-4516-9afe-bfe2fb8017f6"
+  "updatedAt": "2023-11-10T11:47:00.209Z",
+  "versionId": "78e006ed-5faa-4cb7-93f8-b31db0b18b6e"
 }
