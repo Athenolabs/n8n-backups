@@ -1,60 +1,17 @@
 {
   "active": false,
-  "connections": {
-    "When clicking \"Execute Workflow\"": {
-      "main": [
-        [
-          {
-            "node": "Todoist",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "createdAt": "2023-05-06T18:38:57.495Z",
-  "id": "34",
+  "connections": {},
+  "createdAt": "2023-11-16T18:20:22.225Z",
+  "id": "7xGTmdKOHXg9NDME",
   "name": "My workflow 5",
-  "nodes": [
-    {
-      "parameters": {},
-      "id": "939bba7c-8e69-4894-a5d7-d387cb60e8f8",
-      "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        600,
-        460
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "returnAll": true,
-        "filters": {}
-      },
-      "id": "6a5bf9d2-cd18-48b3-850b-7fe63cda6fe5",
-      "name": "Todoist",
-      "type": "n8n-nodes-base.todoist",
-      "typeVersion": 2,
-      "position": [
-        800,
-        460
-      ],
-      "credentials": {
-        "todoistApi": {
-          "id": "14",
-          "name": "Katacja"
-        }
-      }
-    }
-  ],
+  "nodes": [],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-05-08T00:05:10.081Z",
-  "versionId": "7f91b7d9-c1be-49db-89ff-590de813c094"
+  "updatedAt": "2023-11-16T18:20:22.225Z",
+  "versionId": "cf199095-0250-4b01-a265-13f9504c5d78"
 }
