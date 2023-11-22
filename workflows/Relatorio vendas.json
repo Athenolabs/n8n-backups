@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "When clicking \"Execute Workflow\"": {
       "main": [
@@ -39,6 +39,17 @@
         [
           {
             "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
             "type": "main",
             "index": 0
           }
@@ -172,6 +183,22 @@
         1860,
         520
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "report",
+        "options": {}
+      },
+      "id": "1de1e96b-3325-46ed-9d02-c5a31dea7d94",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        680
+      ],
+      "webhookId": "7dbc1157-63e9-4114-ae35-be389a783536"
     }
   ],
   "pinData": {},
@@ -180,7 +207,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2023-11-20T13:41:11.420Z",
-  "versionId": "696c09b0-8c3a-4417-a97e-460814a906ae"
+  "triggerCount": 1,
+  "updatedAt": "2023-11-22T11:31:59.433Z",
+  "versionId": "144e6101-56e5-4ffc-b89c-4c996a4694e5"
 }
