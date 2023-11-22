@@ -28,7 +28,7 @@
         [],
         [
           {
-            "node": "IF1",
+            "node": "IF2",
             "type": "main",
             "index": 0
           }
@@ -86,50 +86,6 @@
         ]
       ]
     },
-    "HTTP Request4": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code": {
-      "main": [
-        [
-          {
-            "node": "Write Binary File",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Write Binary File": {
-      "main": [
-        [
-          {
-            "node": "Read Binary Files",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Read Binary Files": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI1": {
       "main": [
         [
@@ -141,48 +97,18 @@
         ]
       ]
     },
-    "HTTP Request6": {
-      "main": [
-        []
-      ]
-    },
-    "Move Binary Data": {
-      "main": [
-        []
-      ]
-    },
-    "Google Drive": {
+    "IF2": {
       "main": [
         [
           {
-            "node": "Google Drive1",
+            "node": "HTTP Request7",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Write Binary File1": {
-      "main": [
+        ],
         [
           {
-            "node": "Read Binary File",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request3": {
-      "main": [
-        []
-      ]
-    },
-    "Move Binary Data1": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request3",
+            "node": "IF1",
             "type": "main",
             "index": 0
           }
@@ -233,8 +159,8 @@
       "type": "n8n-nodes-base.openAi",
       "typeVersion": 1,
       "position": [
-        1420,
-        400
+        1540,
+        460
       ],
       "credentials": {
         "openAiApi": {
@@ -276,8 +202,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1640,
-        400
+        1740,
+        460
       ]
     },
     {
@@ -318,8 +244,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1120,
-        400
+        1260,
+        580
       ]
     },
     {
@@ -361,8 +287,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1820,
-        620
+        1940,
+        740
       ]
     },
     {
@@ -375,8 +301,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1600,
-        620
+        1720,
+        740
       ]
     },
     {
@@ -402,8 +328,8 @@
       "type": "n8n-nodes-base.openAi",
       "typeVersion": 1,
       "position": [
-        2060,
-        620
+        2160,
+        740
       ],
       "credentials": {
         "openAiApi": {
@@ -411,48 +337,6 @@
           "name": "OpenAi account"
         }
       }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-audio",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Client-Token",
-              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
-            },
-            {
-              "name": "Content-Type",
-              "value": "multipart/form-data"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "multipart-form-data",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "={{ $('Set').item.json.number }}"
-            },
-            {
-              "name": "audio",
-              "value": "={{ $json.data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "70fd83c1-b0b1-4f37-ac32-d63d8693eaf6",
-      "name": "HTTP Request3",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        2520,
-        960
-      ]
     },
     {
       "parameters": {
@@ -475,114 +359,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1420,
-        620
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://texttospeech.googleapis.com/v1beta1/text:synthesize",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "X-Goog-Api-Key",
-              "value": "AIzaSyATJVPdLyTWKAKGqbz96QmNhr31Abj_OXE"
-            }
-          ]
-        },
-        "sendBody": true,
-        "contentType": "raw",
-        "rawContentType": "application/json; charset=utf-8",
-        "body": "{    'input':{      'text':'To com saudade do pereira!'    },    'voice':{      'languageCode':'pt-BR',      'name':'pt-BR-Neural2-B'    },    'audioConfig':{      'audioEncoding':'MP3',      'pitch': -2.8,      'speakingRate': 1.26    }  }",
-        "options": {}
-      },
-      "id": "7b43f081-4741-448a-9348-88033d04ba31",
-      "name": "HTTP Request4",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        2620,
-        180
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "const contentAudio = $('HTTP Request4').item.json.audioContent\n\n//$input.item.json.dataAudio = Buffer.from(contentAudio).toString('base64')\n\n$input.item.binary = {};\n$input.item.binary.data = Buffer.from(contentAudio, 'base64')\n\nreturn $input.item;"
-      },
-      "id": "5d510905-79c3-4e09-bc92-71d4b0f86785",
-      "name": "Code",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2840,
-        180
-      ]
-    },
-    {
-      "parameters": {
-        "fileName": "audioContentURL64.mp3",
-        "options": {}
-      },
-      "id": "5563dd88-39d7-4378-8de0-c0c61c611b2a",
-      "name": "Write Binary File",
-      "type": "n8n-nodes-base.writeBinaryFile",
-      "typeVersion": 1,
-      "position": [
-        3060,
-        180
-      ]
-    },
-    {
-      "parameters": {
-        "fileSelector": "audioContentURL64.mp3"
-      },
-      "id": "e44179b0-fd97-4292-9b78-6c353c650398",
-      "name": "Read Binary Files",
-      "type": "n8n-nodes-base.readBinaryFiles",
-      "typeVersion": 1,
-      "position": [
-        3280,
-        180
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Client-Token",
-              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "phone",
-              "value": "5566996188393"
-            },
-            {
-              "name": "message",
-              "value": "https://media.snaptubeyoutubevideo.download/app/gYU_uj95xco_50.mp3"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a840c447-db80-40f0-bd12-4cd3822e9797",
-      "name": "HTTP Request5",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.1,
-      "position": [
-        3500,
-        180
+        1520,
+        740
       ]
     },
     {
@@ -622,119 +400,44 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2300,
-        620
+        2420,
+        740
       ]
     },
     {
       "parameters": {
-        "setAllData": false,
-        "destinationKey": "mp3",
-        "options": {
-          "encoding": "base64"
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.text.message }}",
+              "value2": "#report"
+            }
+          ]
         }
       },
-      "name": "Move Binary Data",
-      "type": "n8n-nodes-base.moveBinaryData",
+      "id": "e0749c05-3a41-4148-b6c7-2287f5458b49",
+      "name": "IF2",
+      "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2540,
-        420
-      ],
-      "id": "ed604eb6-3cab-41a1-88db-cbc9f5c88164"
+        1060,
+        580
+      ]
     },
     {
       "parameters": {
-        "binaryData": true,
-        "name": "audio_zap",
-        "parents": [
-          "1detNianSn-P85HzIx23sCHFjG3qDg9rr"
-        ],
+        "method": "POST",
+        "url": "https://nexusempire.up.railway.app/webhook/report",
         "options": {}
       },
-      "id": "77433562-2a03-44a1-9dd1-3c477ea0c9b9",
-      "name": "Google Drive",
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 2,
+      "id": "9b2537d9-5f70-4d83-967b-803127283f02",
+      "name": "HTTP Request7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
       "position": [
-        2900,
-        540
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "nTvXeskg1UkSRCag",
-          "name": "Google Drive account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "copy",
-        "fileId": {
-          "__rl": true,
-          "value": "={{ $json.id }}",
-          "mode": "id"
-        },
-        "options": {}
-      },
-      "id": "b75f33c5-b2f6-4295-abe1-f9923d872fa1",
-      "name": "Google Drive1",
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 2,
-      "position": [
-        3120,
-        540
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "nTvXeskg1UkSRCag",
-          "name": "Google Drive account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "filePath": "aja.jpg"
-      },
-      "name": "Read Binary File",
-      "type": "n8n-nodes-base.readBinaryFile",
-      "typeVersion": 1,
-      "position": [
-        3240,
-        680
-      ],
-      "id": "c1da2fb6-c1f0-40d1-96f6-6936577b10c7"
-    },
-    {
-      "parameters": {
-        "fileName": "aja.jpg",
-        "options": {}
-      },
-      "name": "Write Binary File1",
-      "type": "n8n-nodes-base.writeBinaryFile",
-      "typeVersion": 1,
-      "position": [
-        3000,
-        680
-      ],
-      "id": "755eb38d-30f6-450e-9f05-bd89c9bc4786"
-    },
-    {
-      "parameters": {
-        "setAllData": false,
-        "options": {
-          "encoding": "utf8",
-          "keepAsBase64": true
-        }
-      },
-      "name": "Move Binary Data1",
-      "type": "n8n-nodes-base.moveBinaryData",
-      "typeVersion": 1,
-      "position": [
-        2280,
-        1020
-      ],
-      "id": "38e154d4-929f-4bc9-a717-31cbb79d4f73"
+        1260,
+        140
+      ]
     }
   ],
   "pinData": {},
@@ -747,6 +450,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-11-09T18:45:29.063Z",
-  "versionId": "789c5f15-ac12-46a4-8305-7efe272b309a"
+  "updatedAt": "2023-11-22T12:25:08.471Z",
+  "versionId": "063c1f27-fec7-4407-b648-d1a746463132"
 }
