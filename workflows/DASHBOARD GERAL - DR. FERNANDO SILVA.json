@@ -1330,14 +1330,16 @@
         "values": {
           "string": [
             {
-              "name": "ID da planilha"
+              "name": "ID da planilha",
+              "value": "1xiipTKhD3WsFfzduamizmCLxiEPgDEd-lFFAyIdsPIM"
             },
             {
               "name": "ID da conta de anúncios",
-              "value": "act_"
+              "value": "act_564647161461632"
             },
             {
-              "name": "Token de acesso"
+              "name": "Token de acesso",
+              "value": "https://pbs.twimg.com/profile_images/876119475711602688/CO9MT1IH_400x400.jpg"
             }
           ]
         },
@@ -2154,6 +2156,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2023-11-22T13:30:12.116Z",
-  "versionId": "8169e339-bfc4-4b7c-80f0-cc68ba29e384"
+  "updatedAt": "2023-11-22T17:50:07.916Z",
+  "versionId": "e01ade83-3696-4764-b9a3-d00d9e8364c4"
 }
