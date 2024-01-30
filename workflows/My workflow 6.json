@@ -1,7 +1,51 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
-    "When clicking \"Execute Workflow\"": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
       "main": [
         [
           {
@@ -13,62 +57,159 @@
       ]
     }
   },
-  "createdAt": "2023-06-22T03:21:28.047Z",
-  "id": "38",
+  "createdAt": "2024-01-30T02:14:29.229Z",
+  "id": "zv7koccWfn95X5PH",
   "name": "My workflow 6",
   "nodes": [
     {
-      "parameters": {},
-      "id": "11bb2701-bd07-481c-b210-efde13e6abd4",
-      "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webwhatsapp",
+        "options": {}
+      },
+      "id": "b952e8ae-11c9-4bcf-9adb-f8cf18e63e88",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        540,
+        120,
+        260
+      ],
+      "webhookId": "e4f5f257-7466-4bff-86d9-90d6892febf4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.message._data.type }}",
+              "value2": "chat"
+            }
+          ]
+        }
+      },
+      "id": "b4f72b4c-88dc-4477-b73e-c568ad2d2c17",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        340,
         260
       ]
     },
     {
       "parameters": {
-        "url": "https://graph.facebook.com/v17.0/act_564647161461632/insights",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
+        "values": {
+          "string": [
             {
-              "name": "fields",
-              "value": "id,name"
+              "name": "number",
+              "value": "={{ $json.body.message.from.split(\"@\")[0] }}"
             },
             {
-              "name": "level",
-              "value": "account"
-            },
-            {
-              "name": "time_range",
-              "value": "{\"since\":\"2023-06-22\",\"until\":\"2023-06-22\"}"
-            },
-            {
-              "name": "access_token",
-              "value": "EAAUicHDo3TYBAFnKgML7B6wOR64VypInM121HUdwzF0EpEHNoGc1cJ51gaVjRdajQVIJOLGF7brdQM5Lk8Xsm4DnElZC3qZBFZASMGyH46QYLF2y5cZB84VP1DIUT9JwFBYxZC1V5Oh94zZCK75nQalrcT5q4PkeKyZCga3ubAtzwXi4CVgoT9hP7GAWgletWSPjuoyVpJvw6aSMFfegZAhpy7UofLy03NUZD"
+              "name": "messagem",
+              "value": "={{ $json.body.message.body }}"
             }
           ]
         },
         "options": {}
       },
-      "id": "b8691d00-51e2-4908-b8d0-d375395d8e65",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
+      "id": "86b31d5b-b548-4fb5-85f8-319b4a8c147d",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
       "position": [
-        740,
+        560,
         260
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://three-sheep-poke.loca.lt/send-message",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('Filter1').item.json.number }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.message.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66bdff87-5111-45e0-8a22-4c76ba638533",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1220,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.messagem }}",
+              "operation": "contains",
+              "value2": "!test"
+            }
+          ]
+        }
+      },
+      "id": "c269554b-2f39-461b-8841-a34dca8b3847",
+      "name": "Filter1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        780,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "prompt": {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": "você é uma assistente se chama Jessica, finja ser humana de uma clinica odontologica, seu objetivo é levar o cliente a marca uma consulta. mensagens humanizadas por favor."
+            },
+            {
+              "content": "={{ $json.messagem.split(\"!test\")[1] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4f1a2dc1-10ae-48e0-a1f9-e5340961b1ab",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2023-06-22T03:21:28.047Z",
-  "versionId": "ade14e10-42f5-423a-b68e-b62c8e0d791a"
+  "triggerCount": 1,
+  "updatedAt": "2024-01-30T03:24:27.305Z",
+  "versionId": "70220995-9177-4493-8bde-68b8d7d1c434"
 }
