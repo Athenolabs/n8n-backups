@@ -1,0 +1,17 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-01-30T18:23:35.039Z",
+  "id": "hiCZXUdrawGZks7e",
+  "name": "My workflow 8",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-30T18:23:35.039Z",
+  "versionId": "818e7097-cdc1-4778-9fe1-ec78a28854d8"
+}
