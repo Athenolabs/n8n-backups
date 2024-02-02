@@ -1,0 +1,484 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateThread": {
+      "main": [
+        [
+          {
+            "node": "MessageInThreads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MessageInThreads": {
+      "main": [
+        [
+          {
+            "node": "RunAssistant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RunAssistant": {
+      "main": [
+        [
+          {
+            "node": "CheckTheRunStatus",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CheckTheRunStatus": {
+      "main": [
+        [
+          {
+            "node": "CheckTheRunStatus1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-30T02:14:29.229Z",
+  "id": "zv7koccWfn95X5PH",
+  "name": "I.A Whatsapp",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webwhatsapp",
+        "options": {}
+      },
+      "id": "b952e8ae-11c9-4bcf-9adb-f8cf18e63e88",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        120,
+        260
+      ],
+      "webhookId": "e4f5f257-7466-4bff-86d9-90d6892febf4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body._data.type }}",
+              "value2": "chat"
+            }
+          ]
+        }
+      },
+      "id": "b4f72b4c-88dc-4477-b73e-c568ad2d2c17",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        420,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "number",
+              "value": "={{ $json.body._data.from.split(\"@\")[0] }}"
+            },
+            {
+              "name": "messagem",
+              "value": "={{ $json.body._data.body }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "86b31d5b-b548-4fb5-85f8-319b4a8c147d",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        620,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://orange-monkeys-burn.loca.lt/zdg-message",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('Set').item.json.number }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.message.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "66bdff87-5111-45e0-8a22-4c76ba638533",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1080,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.messagem }}",
+              "operation": "contains",
+              "value2": "!test"
+            }
+          ]
+        }
+      },
+      "id": "c269554b-2f39-461b-8841-a34dca8b3847",
+      "name": "Filter1",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        100,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "prompt": {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": "Oi pessoal! 👋 Eu sou o Lucas Katacha, um jovem de 22 anos que é expert no mundo do marketing digital. 🚀 Como seu Gestor de Automação, eu me especializo em criar estratégias poderosas para tráfego pago que levam o seu negócio para o próximo nível.\n\nServiços Oferecidos:\n\nOtimização de Tráfego Pago:\n\nUsando ferramentas de última geração, ajusto suas campanhas de tráfego pago para alcançar o máximo de pessoas.\nPreço: A partir de R$ 1.500 por mês.\nMagia da Automação de Marketing:\n\nIntegro automação aos seus processos de marketing, simplificando tarefas e aumentando a eficiência.\nPreço: Pacotes personalizados a partir de R$ 2.000.\nSessões de Consultoria Estratégica:\n\nVamos tomar um café virtual! Ofereço consultorias personalizadas para alinhar seus objetivos com estratégias matadoras.\nPreço: R$ 150 por hora.\nWorkshops Exclusivos de Marketing:\n\nEleve as habilidades da sua equipe com workshops personalizados cobrindo as últimas tendências e táticas.\nPreço: R$ 2.500 por workshop.\nPor Que Me Escolher:\n\nHistórico comprovado de gerar resultados para clientes.\nMantenha-se à frente com estratégias adaptadas ao seu negócio único.\nEnergia jovem, abordagens inovadoras—porque marketing deve ser empolgante!\nVamos Começar:\nPronto para levar sua marca a novas alturas? Me mande uma mensagem e vamos explorar juntos o mundo da magia do marketing! 🚀"
+            },
+            {
+              "content": "={{ $json.messagem }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4f1a2dc1-10ae-48e0-a1f9-e5340961b1ab",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        840,
+        140
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "=1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "url",
+          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "9689a998-6209-4862-babc-f1fbb27ce408",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        300,
+        420
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "=1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "url",
+          "__regex": "https:\\/\\/(?:drive|docs)\\.google\\.com(?:\\/.*|)\\/d\\/([0-9a-zA-Z\\-_]+)(?:\\/.*|)"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "c942bb71-b05a-4da2-afe9-b513df950c0a",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        720,
+        520
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/threads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "OpenAI-Beta",
+              "value": "assistants=v1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "31b9f45e-894d-4965-88cb-d844c747234b",
+      "name": "CreateThread",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        580,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.openai.com/v1/threads/{{ $json.id }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "OpenAI-Beta",
+              "value": "assistants=v1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "role",
+              "value": "user"
+            },
+            {
+              "name": "content",
+              "value": "Preciso resolver a equação `3x + 11 = 14`. Pode me ajudar?"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eb566f3c-65c7-4e4b-b616-6d38749eedbd",
+      "name": "MessageInThreads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        800,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.openai.com/v1/threads/{{ $json.thread_id }}/runs ",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "OpenAI-Beta",
+              "value": "assistants=v1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "assistant_id",
+              "value": "asst_3TNjAHJWaNpgzxgzH8y5iEqx"
+            },
+            {
+              "name": "instructions",
+              "value": "Please address the user as Jane Doe. The user has a premium account."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5215850e-e7dd-48e4-b24b-bc101a8f52ae",
+      "name": "RunAssistant",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1040,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.openai.com/v1/threads/{{$json.thread_id}}/runs/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "OpenAI-Beta",
+              "value": "assistants=v1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a0f54c92-6135-4002-bbcc-15a473e5abec",
+      "name": "CheckTheRunStatus",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1280,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.openai.com/v1/threads/{{ $json.thread_id }}/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "OpenAI-Beta",
+              "value": "assistants=v1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4884f87b-accc-47bf-9560-97aa8c8440d9",
+      "name": "CheckTheRunStatus1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1500,
+        360
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-02-02T16:14:03.389Z",
+  "versionId": "e0a18707-0b77-4397-895c-6e4bf8dad533"
+}
