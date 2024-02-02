@@ -4,7 +4,24 @@
   "createdAt": "2024-01-30T18:23:35.039Z",
   "id": "hiCZXUdrawGZks7e",
   "name": "My workflow 8",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatspi",
+        "options": {}
+      },
+      "id": "89a67c94-108b-4c71-bcf9-cf2fb1fde5a3",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        260
+      ],
+      "webhookId": "76050b99-fc64-43fa-aa2d-9667395c98b1"
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
@@ -12,6 +29,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-01-30T18:23:35.039Z",
-  "versionId": "818e7097-cdc1-4778-9fe1-ec78a28854d8"
+  "updatedAt": "2024-02-02T15:04:42.414Z",
+  "versionId": "aa49cbc2-9ebc-4077-8fb4-608db245da65"
 }
