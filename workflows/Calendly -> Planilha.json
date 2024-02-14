@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Calendly Trigger": {
       "main": [
@@ -77,6 +77,7 @@
   },
   "createdAt": "2023-10-09T18:50:15.681Z",
   "id": "8rHvOl3RLkTqihSb",
+  "meta": null,
   "name": "Calendly -> Planilha",
   "nodes": [
     {
@@ -562,19 +563,17 @@
     "executionOrder": "v1"
   },
   "staticData": {
-    "node:Calendly Trigger": {
-      "webhookURI": "https://api.calendly.com/webhook_subscriptions/800114f0-028d-42b9-8a48-265811398f57"
-    }
+    "node:Calendly Trigger": {}
   },
   "tags": [
     {
-      "id": "YeXFRAnvLXlIp4mp",
       "createdAt": "2023-10-10T01:40:35.294Z",
       "updatedAt": "2023-10-10T01:40:35.294Z",
+      "id": "YeXFRAnvLXlIp4mp",
       "name": "OdontoVida"
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2023-12-01T18:24:38.564Z",
+  "updatedAt": "2024-02-13T21:17:35.046Z",
   "versionId": "5415db1e-80e2-4817-a5f1-9ae96f9a57df"
 }
