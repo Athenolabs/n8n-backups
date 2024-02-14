@@ -1,0 +1,134 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-02-13T21:26:37.130Z",
+  "id": "g0VoeC7g7LSTtOn8",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "getAgenda",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "d3f7cb71-cce4-4218-b7c7-59be3b8c4592",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        560,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "d56fa39b-21aa-455d-a326-02aac8107ab3",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "data",
+              "stringValue": "={{ $json.Data }}"
+            },
+            {
+              "name": "hora",
+              "stringValue": "={{ $json.Hora }}"
+            },
+            {
+              "name": "row",
+              "stringValue": "={{ $json.row_number }}"
+            },
+            {
+              "name": "nome",
+              "stringValue": "={{ $json.Nome }}"
+            },
+            {
+              "name": "Procedimento",
+              "stringValue": "={{ $json.Procedimento }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6980f52a-3812-4bfd-947f-0a2afff91037",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1000,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "76be58a3-3692-4ea1-a402-38040354d66c",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        120
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-02-14T13:28:46.260Z",
+  "versionId": "c3f2cd5e-34e3-48f4-a9eb-c94e2b614673"
+}
