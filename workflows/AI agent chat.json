@@ -1,23 +1,34 @@
 {
   "active": false,
   "connections": {
-    "SerpAPI": {
-      "ai_tool": [
+    "On new manual Chat Message": {
+      "main": [
         [
           {
-            "node": "Conversational Agent",
-            "type": "ai_tool",
+            "node": "AI Agent",
+            "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Chat OpenAI": {
+    "OpenAI Chat Model": {
       "ai_languageModel": [
         [
           {
-            "node": "Conversational Agent",
+            "node": "AI Agent",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Custom n8n Workflow Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "OpenAI Assistant",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -27,19 +38,19 @@
       "ai_memory": [
         [
           {
-            "node": "Conversational Agent",
+            "node": "AI Agent",
             "type": "ai_memory",
             "index": 0
           }
         ]
       ]
     },
-    "On new manual Chat Message": {
-      "main": [
+    "Custom n8n Workflow Tool1": {
+      "ai_tool": [
         [
           {
-            "node": "Conversational Agent",
-            "type": "main",
+            "node": "AI Agent",
+            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -49,55 +60,13 @@
   "createdAt": "2024-02-13T21:30:55.073Z",
   "id": "8gq96Au67FPECopK",
   "meta": {
-    "templateId": "1954"
+    "templateId": "1954",
+    "templateCredsSetupCompleted": true
   },
   "name": "AI agent chat",
   "nodes": [
     {
-      "id": "22063488-20c7-4163-a047-d852f3056358",
-      "name": "SerpAPI",
-      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
-      "position": [
-        920,
-        460
-      ],
-      "parameters": {
-        "options": {}
-      },
-      "typeVersion": 1
-    },
-    {
-      "id": "dd0950cf-6f6c-47a2-91ef-25961a31061d",
-      "name": "Chat OpenAI",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "position": [
-        640,
-        460
-      ],
-      "parameters": {
-        "model": "gpt-3.5-turbo-16k",
-        "options": {}
-      },
-      "credentials": {
-        "openAiApi": {
-          "id": "yRbbRezEyMzU8Qmb",
-          "name": "OpenAi account"
-        }
-      },
-      "typeVersion": 1
-    },
-    {
-      "id": "d268da47-c71d-4aa0-b77c-c84df7958847",
-      "name": "Window Buffer Memory",
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "position": [
-        780,
-        460
-      ],
       "parameters": {},
-      "typeVersion": 1
-    },
-    {
       "id": "918b0a89-a9e5-4a41-afa7-9e693a2116fc",
       "name": "On new manual Chat Message",
       "type": "@n8n/n8n-nodes-langchain.manualChatTrigger",
@@ -105,28 +74,109 @@
         380,
         240
       ],
-      "parameters": {},
       "typeVersion": 1
     },
     {
-      "id": "ed8cfcaf-ddbe-4270-bbd9-958f85653b96",
-      "name": "Conversational Agent",
-      "type": "@n8n/n8n-nodes-langchain.agent",
+      "parameters": {
+        "assistantId": "asst_lEAHkNTjalEA9PAJBhuxlGnl",
+        "text": "={{ $json.input }}",
+        "options": {}
+      },
+      "id": "04ab08c7-2d35-433c-9f09-71411e32173a",
+      "name": "OpenAI Assistant",
+      "type": "@n8n/n8n-nodes-langchain.openAiAssistant",
+      "typeVersion": 1,
       "position": [
-        700,
-        240
+        720,
+        20
       ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
       "parameters": {
         "options": {}
       },
-      "typeVersion": 1
+      "id": "c6839caa-5815-4526-8588-3a82c7dad7bf",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        540,
+        460
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "e3d8b414-5fce-4631-b962-23815c19bc6e",
+      "name": "Custom n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        960,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 30
+      },
+      "id": "b0f28d52-0008-4e4c-8707-77275fe33f0d",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.1,
+      "position": [
+        660,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.input }} | RESPONDA EM PORTUGUÊS BRASIL",
+        "options": {
+          "systemMessage": "Descrição:\nVocê é a assistente virtual de uma clínica odontológica dedicada a fornecer cuidados de saúde bucal de qualidade. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente. Aqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\nInstruções:\n\nCumprimente o paciente de forma calorosa e profissional, oferecendo assistência imediata.\nSolicite a data e hora desejadas para a consulta, oferecendo opções disponíveis.\nPergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\nApós confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
+        }
+      },
+      "id": "de26d593-00e4-4078-8c53-5464743ea045",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.2,
+      "position": [
+        600,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "name": "get_agenda",
+        "description": "call agenda reservation",
+        "workflowId": "g0VoeC7g7LSTtOn8"
+      },
+      "id": "a129b40f-fc4a-4566-a578-34c8f150ab61",
+      "name": "Custom n8n Workflow Tool1",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        800,
+        460
+      ]
     }
   ],
-  "pinData": null,
-  "settings": null,
+  "pinData": {},
+  "settings": {},
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-13T21:30:55.073Z",
-  "versionId": "3ced590b-b20d-462a-843a-307d5ce8cefe"
+  "updatedAt": "2024-02-14T13:27:28.612Z",
+  "versionId": "58590866-3a9d-46fd-a580-905097113f59"
 }
