@@ -1,0 +1,132 @@
+{
+  "active": false,
+  "connections": {
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "Conversational Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat OpenAI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Conversational Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Conversational Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On new manual Chat Message": {
+      "main": [
+        [
+          {
+            "node": "Conversational Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-02-13T21:30:55.073Z",
+  "id": "8gq96Au67FPECopK",
+  "meta": {
+    "templateId": "1954"
+  },
+  "name": "AI agent chat",
+  "nodes": [
+    {
+      "id": "22063488-20c7-4163-a047-d852f3056358",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "position": [
+        920,
+        460
+      ],
+      "parameters": {
+        "options": {}
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "dd0950cf-6f6c-47a2-91ef-25961a31061d",
+      "name": "Chat OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        640,
+        460
+      ],
+      "parameters": {
+        "model": "gpt-3.5-turbo-16k",
+        "options": {}
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "d268da47-c71d-4aa0-b77c-c84df7958847",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        780,
+        460
+      ],
+      "parameters": {},
+      "typeVersion": 1
+    },
+    {
+      "id": "918b0a89-a9e5-4a41-afa7-9e693a2116fc",
+      "name": "On new manual Chat Message",
+      "type": "@n8n/n8n-nodes-langchain.manualChatTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "parameters": {},
+      "typeVersion": 1
+    },
+    {
+      "id": "ed8cfcaf-ddbe-4270-bbd9-958f85653b96",
+      "name": "Conversational Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        700,
+        240
+      ],
+      "parameters": {
+        "options": {}
+      },
+      "typeVersion": 1
+    }
+  ],
+  "pinData": null,
+  "settings": null,
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-02-13T21:30:55.073Z",
+  "versionId": "3ced590b-b20d-462a-843a-307d5ce8cefe"
+}
