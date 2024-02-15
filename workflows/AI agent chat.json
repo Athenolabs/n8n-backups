@@ -1,34 +1,12 @@
 {
   "active": false,
   "connections": {
-    "On new manual Chat Message": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI Chat Model": {
       "ai_languageModel": [
         [
           {
             "node": "AI Agent",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Custom n8n Workflow Tool": {
-      "ai_tool": [
-        [
-          {
-            "node": "OpenAI Assistant",
-            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -45,12 +23,63 @@
         ]
       ]
     },
-    "Custom n8n Workflow Tool1": {
-      "ai_tool": [
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
         [
           {
             "node": "AI Agent",
-            "type": "ai_tool",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
             "index": 0
           }
         ]
@@ -71,31 +100,10 @@
       "name": "On new manual Chat Message",
       "type": "@n8n/n8n-nodes-langchain.manualChatTrigger",
       "position": [
-        380,
-        240
+        160,
+        -20
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "assistantId": "asst_lEAHkNTjalEA9PAJBhuxlGnl",
-        "text": "={{ $json.input }}",
-        "options": {}
-      },
-      "id": "04ab08c7-2d35-433c-9f09-71411e32173a",
-      "name": "OpenAI Assistant",
-      "type": "@n8n/n8n-nodes-langchain.openAiAssistant",
-      "typeVersion": 1,
-      "position": [
-        720,
-        20
-      ],
-      "credentials": {
-        "openAiApi": {
-          "id": "yRbbRezEyMzU8Qmb",
-          "name": "OpenAi account"
-        }
-      }
     },
     {
       "parameters": {
@@ -106,8 +114,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        540,
-        460
+        1160,
+        380
       ],
       "credentials": {
         "openAiApi": {
@@ -117,18 +125,8 @@
       }
     },
     {
-      "parameters": {},
-      "id": "e3d8b414-5fce-4631-b962-23815c19bc6e",
-      "name": "Custom n8n Workflow Tool",
-      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
-      "typeVersion": 1,
-      "position": [
-        960,
-        160
-      ]
-    },
-    {
       "parameters": {
+        "sessionKey": "={{ $('If').item.json.ID || $('Google Sheets1').item.json.ID }}",
         "contextWindowLength": 30
       },
       "id": "b0f28d52-0008-4e4c-8707-77275fe33f0d",
@@ -136,13 +134,229 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.1,
       "position": [
-        660,
-        460
+        1280,
+        400
       ]
     },
     {
       "parameters": {
-        "text": "={{ $json.input }} | RESPONDA EM PORTUGUÊS BRASIL",
+        "httpMethod": "POST",
+        "path": "chatClinica",
+        "options": {}
+      },
+      "id": "ed1671ce-d2c9-4880-a0c0-6a0c0b234334",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        120,
+        240
+      ],
+      "webhookId": "1325fe6d-7653-4fc1-acba-f1d6cc40626f"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Whatsapp",
+              "lookupValue": "={{ $json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1ca3a460-e1c1-4cdd-89c2-b11ba50b7914",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1f1101e4-30ff-4751-86a9-abf3c759630a",
+              "leftValue": "={{ $json.Whatsapp }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7145ee16-ebf4-4d38-a7cc-a522b562967f",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        580,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Data de 1º Contato": "={{new Date().format(\"yyyy-MM-dd\")}}",
+            "Whatsapp": "={{ $json.whats }}",
+            "ID": "=id_{{Array.from({length: 20}, () => Math.random().toString(36)[2]).join('')}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data de 1º Contato",
+              "displayName": "Data de 1º Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data de Avaliação",
+              "displayName": "Data de Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora da Avaliação",
+              "displayName": "Hora da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Procedimento",
+              "displayName": "Procedimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ca29b10b-3be1-48fb-8d52-16c749da8d94",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "whats",
+              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cd3eab6f-e9f3-46de-bd44-5be9066ceb31",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        440,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "text": "={{ $('Webhook').item.json.input }} | RESPONDA EM PORTUGUÊS BRASIL ",
         "options": {
           "systemMessage": "Descrição:\nVocê é a assistente virtual de uma clínica odontológica dedicada a fornecer cuidados de saúde bucal de qualidade. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente. Aqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\nInstruções:\n\nCumprimente o paciente de forma calorosa e profissional, oferecendo assistência imediata.\nSolicite a data e hora desejadas para a consulta, oferecendo opções disponíveis.\nPergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\nApós confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
         }
@@ -152,31 +366,25 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.2,
       "position": [
-        600,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "name": "get_agenda",
-        "description": "call agenda reservation",
-        "workflowId": "g0VoeC7g7LSTtOn8"
-      },
-      "id": "a129b40f-fc4a-4566-a578-34c8f150ab61",
-      "name": "Custom n8n Workflow Tool1",
-      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
-      "typeVersion": 1,
-      "position": [
-        800,
-        460
+        1160,
+        140
       ]
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "input": "qual meu nome?",
+          "cus_cel": "5566996188393"
+        }
+      }
+    ]
+  },
   "settings": {},
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-14T13:27:28.612Z",
-  "versionId": "58590866-3a9d-46fd-a580-905097113f59"
+  "updatedAt": "2024-02-15T13:41:28.129Z",
+  "versionId": "8059d0c0-ab39-4123-aaf2-881f30617ab5"
 }
