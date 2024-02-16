@@ -145,8 +145,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.1,
       "position": [
-        1300,
-        500
+        1360,
+        640
       ]
     },
     {
@@ -373,15 +373,7 @@
       "parameters": {
         "name": "get_Schedule",
         "description": "call a function to check which times are available this week",
-        "workflowId": "g0VoeC7g7LSTtOn8",
-        "fields": {
-          "values": [
-            {
-              "name": "idUser",
-              "stringValue": "={{ $('If').item.json.idUser }}"
-            }
-          ]
-        }
+        "workflowId": "g0VoeC7g7LSTtOn8"
       },
       "id": "be4c969c-59b9-49e6-bbd7-8fc292f98bcf",
       "name": "Custom n8n Workflow Tool",
@@ -391,6 +383,23 @@
         1480,
         460
       ]
+    },
+    {
+      "parameters": {},
+      "id": "63075991-bc5c-495c-9177-274b824550d7",
+      "name": "Zep",
+      "type": "@n8n/n8n-nodes-langchain.memoryZep",
+      "typeVersion": 1.1,
+      "position": [
+        1240,
+        720
+      ],
+      "credentials": {
+        "zepApi": {
+          "id": "m0GPrgb4Kjb0lb5F",
+          "name": "Zep Api account"
+        }
+      }
     },
     {
       "parameters": {
@@ -423,6 +432,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-15T21:28:44.896Z",
-  "versionId": "7598ae54-a1d9-4632-a44d-ad86b32ae2c9"
+  "updatedAt": "2024-02-16T14:41:26.812Z",
+  "versionId": "6243a1dd-131a-439f-b9d3-3ee61a0c0ff3"
 }
