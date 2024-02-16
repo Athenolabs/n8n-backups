@@ -84,6 +84,17 @@
           }
         ]
       ]
+    },
+    "Custom n8n Workflow Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-02-13T21:30:55.073Z",
@@ -115,7 +126,7 @@
       "typeVersion": 1,
       "position": [
         1160,
-        380
+        500
       ],
       "credentials": {
         "openAiApi": {
@@ -134,8 +145,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.1,
       "position": [
-        1280,
-        400
+        1300,
+        500
       ]
     },
     {
@@ -323,8 +334,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.2,
       "position": [
-        800,
-        400
+        920,
+        480
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -340,6 +351,10 @@
             {
               "name": "whats",
               "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+            },
+            {
+              "name": "idUser",
+              "stringValue": "={{ $json.ID }}"
             }
           ]
         },
@@ -356,6 +371,29 @@
     },
     {
       "parameters": {
+        "name": "get_Schedule",
+        "description": "call a function to check which times are available this week",
+        "workflowId": "g0VoeC7g7LSTtOn8",
+        "fields": {
+          "values": [
+            {
+              "name": "idUser",
+              "stringValue": "={{ $('If').item.json.idUser }}"
+            }
+          ]
+        }
+      },
+      "id": "be4c969c-59b9-49e6-bbd7-8fc292f98bcf",
+      "name": "Custom n8n Workflow Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        460
+      ]
+    },
+    {
+      "parameters": {
         "text": "={{ $('Webhook').item.json.input }} | RESPONDA EM PORTUGUÊS BRASIL ",
         "options": {
           "systemMessage": "Descrição:\nVocê é a assistente virtual de uma clínica odontológica dedicada a fornecer cuidados de saúde bucal de qualidade. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente. Aqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\nInstruções:\n\nCumprimente o paciente de forma calorosa e profissional, oferecendo assistência imediata.\nSolicite a data e hora desejadas para a consulta, oferecendo opções disponíveis.\nPergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\nApós confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
@@ -366,8 +404,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.2,
       "position": [
-        1160,
-        140
+        1180,
+        240
       ]
     }
   ],
@@ -375,8 +413,8 @@
     "Webhook": [
       {
         "json": {
-          "input": "qual meu nome?",
-          "cus_cel": "5566996188393"
+          "input": "qual os horarios disponiveis nessa semana?",
+          "cus_cel": "5566996188399"
         }
       }
     ]
@@ -385,6 +423,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-15T13:41:28.129Z",
-  "versionId": "8059d0c0-ab39-4123-aaf2-881f30617ab5"
+  "updatedAt": "2024-02-15T21:28:44.896Z",
+  "versionId": "7598ae54-a1d9-4632-a44d-ad86b32ae2c9"
 }
