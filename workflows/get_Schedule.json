@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "If",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -25,13 +25,7 @@
     },
     "If": {
       "main": [
-        [
-          {
-            "node": "Edit Fields1",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "Edit Fields",
@@ -52,11 +46,102 @@
         ]
       ]
     },
-    "Edit Fields1": {
+    "loopItems": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "Loop Over Items": {
       "main": [
         [
           {
-            "node": "Respond to Webhook",
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "OpenAI",
             "type": "main",
             "index": 0
           }
@@ -130,8 +215,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1260,
-        480
+        2020,
+        640
       ]
     },
     {
@@ -141,8 +226,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        520,
-        460
+        380,
+        520
       ]
     },
     {
@@ -173,29 +258,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1000,
-        300
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "data",
-              "stringValue": "={{ $json['Data de Avaliação'] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "223c8663-65d6-4ad6-80d7-326bab7e695b",
-      "name": "Edit Fields1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        1240,
-        200
+        2020,
+        340
       ]
     },
     {
@@ -207,8 +271,309 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
+        1320,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "response",
+              "stringValue": "={{ $json.message.content }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "223c8663-65d6-4ad6-80d7-326bab7e695b",
+      "name": "response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Adicionando um novo campo chamado 'datesInRange' ao JSON do item\n$input.item.json.datesInRange = [];\n\nfunction getDatesForCurrentWeek() {\n    let currentDate = new Date();\n    let currentDay = currentDate.getDay(); // 0 (Domingo) a 6 (Sábado)\n    let firstDayOfWeek = new Date(currentDate);\n    firstDayOfWeek.setDate(currentDate.getDate() - currentDay + 1); // Definindo para segunda-feira desta semana\n\n    let lastDayOfWeek = new Date(firstDayOfWeek);\n    lastDayOfWeek.setDate(firstDayOfWeek.getDate() + 4); // Definindo para sexta-feira desta semana\n\n    let datesInRange = [];\n    let currentDateInWeek = new Date(firstDayOfWeek);\n\n    // Adicionando todas as datas da semana ao array\n    while (currentDateInWeek <= lastDayOfWeek) {\n        datesInRange.push(new Date(currentDateInWeek));\n        currentDateInWeek.setDate(currentDateInWeek.getDate() + 1);\n    }\n\n    return datesInRange;\n}\n\n// Obtendo as datas da semana atual\nlet datesForCurrentWeek = getDatesForCurrentWeek();\n\n// Adicionando as datas no campo 'datesInRange'\ndatesForCurrentWeek.forEach(date => {\n    $input.item.json.datesInRange.push(date.toDateString());\n});\n\n// Retornando o item com o novo campo adicionado\nreturn $input.item;\n"
+      },
+      "id": "aa0e490b-fc8d-4500-8d5a-2bad1f87e268",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "dates",
+              "stringValue": "={{ $json['Data de Avaliação'] }}"
+            },
+            {
+              "name": "hours",
+              "stringValue": "={{ $json['Hora da Avaliação'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7ca9e926-b346-4ff9-95a9-3120b9a7107a",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        660,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1b64cee3-5df4-4bb6-8a49-352fe7524dc9",
+      "name": "loopItems",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1960,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return $('Google Sheets').item.json"
+      },
+      "id": "3bed8f77-e990-49de-b82e-36d005b77981",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "60b643f4-38ae-40dd-8ff3-d10ff186a70c",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1020,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1112858656,
+          "mode": "list",
+          "cachedResultName": "Memory",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=1112858656"
+        },
+        "options": {}
+      },
+      "id": "0ec5ae19-18e6-4598-9f29-feb8f2dadee8",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        380
+      ],
+      "retryOnFail": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1112858656,
+          "mode": "list",
+          "cachedResultName": "Memory",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=1112858656"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Memory_Date": "={{ $('Edit Fields2').item.json.date }} as {{ $('Edit Fields2').item.json.hour }}, {{ $json.Memory_Date }} as  {{ $json.Memory_Hour }}",
+            "Memory_Hour": "=2"
+          },
+          "matchingColumns": [
+            "Memory_Hour"
+          ],
+          "schema": [
+            {
+              "id": "Memory_Date",
+              "displayName": "Memory_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Memory_Hour",
+              "displayName": "Memory_Hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "809b1c6c-ef57-428c-b691-8a69faf1012c",
+      "name": "Google Sheets2",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        400
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "date",
+              "stringValue": "={{ $json['Data de Avaliação'] }}"
+            },
+            {
+              "name": "hour",
+              "stringValue": "={{ $json['Hora da Avaliação'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e99ffc53-e8d6-4cf3-8f09-2b9d0dcd658e",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1220,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "cfffeb38-fb05-4128-b1dc-18bc7056a9a9",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        720
+      ],
+      "webhookId": "d2cf5657-7ea4-4fe9-923b-3a644754cb14"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "res",
+              "stringValue": "={{ $json.Memory_Date }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6c95acc9-5d7f-4058-a8d2-3e97f3ae4da2",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1780,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "prompt": {
+          "messages": [
+            {
+              "content": "=DATA OCUPADAS:{{ $json.res }}\n\nFAÇA: Pode recomendar dois dias diferente do dia 12 a 16 de fevereiro e horario entre 7 as 17. antes verifique se não está na datas ocupadas se é igual\n\nRetorne ex: temos vamos no dia 13-02-2024 as 09 horas e as no dia 15-02-2024 as 14 horas.\n\nresponda apenas os dois dias e horarios recomendados. não precisa explicar nada"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 100,
+          "temperature": 0
+        }
+      },
+      "id": "0f1746eb-6c31-47a2-9ad6-684d792b3a60",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
         1460,
-        200
+        240
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ebb619af-a1a4-4ce2-95f6-d857c1f85310",
+      "name": "Loop Over Items1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1220,
+        240
       ]
     }
   ],
@@ -219,6 +584,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-02-15T21:33:36.677Z",
-  "versionId": "8a9b1bc2-a26d-41df-a11b-5af5918d4971"
+  "updatedAt": "2024-02-16T15:34:35.370Z",
+  "versionId": "257f7760-642a-49a4-97c0-bb03a9acd063"
 }
