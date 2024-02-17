@@ -46,17 +46,11 @@
         ]
       ]
     },
-    "loopItems": {
-      "main": [
-        [],
-        []
-      ]
-    },
     "Loop Over Items": {
       "main": [
         [
           {
-            "node": "Loop Over Items1",
+            "node": "Aggregate",
             "type": "main",
             "index": 0
           }
@@ -136,9 +130,19 @@
         ]
       ]
     },
-    "Loop Over Items1": {
+    "Aggregate": {
       "main": [
-        [],
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
         [
           {
             "node": "OpenAI",
@@ -215,8 +219,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        2020,
-        640
+        -60,
+        460
       ]
     },
     {
@@ -258,8 +262,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        2020,
-        340
+        -60,
+        260
       ]
     },
     {
@@ -271,8 +275,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        1320,
-        80
+        140,
+        60
       ]
     },
     {
@@ -292,8 +296,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1760,
-        240
+        1840,
+        300
       ]
     },
     {
@@ -306,8 +310,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        760,
-        120
+        -40,
+        80
       ]
     },
     {
@@ -331,8 +335,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        660,
-        520
+        -60,
+        1000
       ]
     },
     {
@@ -344,8 +348,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1960,
-        800
+        -100,
+        600
       ]
     },
     {
@@ -358,8 +362,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        740,
-        680
+        -80,
+        820
       ]
     },
     {
@@ -397,7 +401,7 @@
       "typeVersion": 4.2,
       "position": [
         1400,
-        380
+        520
       ],
       "retryOnFail": false,
       "alwaysOutputData": true,
@@ -462,8 +466,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.2,
       "position": [
-        1560,
-        400
+        1580,
+        520
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -493,8 +497,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1220,
-        380
+        1200,
+        520
       ]
     },
     {
@@ -507,8 +511,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        1560,
-        720
+        1980,
+        520
       ],
       "webhookId": "d2cf5657-7ea4-4fe9-923b-3a644754cb14"
     },
@@ -529,8 +533,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1780,
-        400
+        1800,
+        520
       ]
     },
     {
@@ -539,7 +543,7 @@
         "prompt": {
           "messages": [
             {
-              "content": "=DATA OCUPADAS:{{ $json.res }}\n\nFAÇA: Pode recomendar dois dias diferente do dia 12 a 16 de fevereiro e horario entre 7 as 17. antes verifique se não está na datas ocupadas se é igual\n\nRetorne ex: temos vamos no dia 13-02-2024 as 09 horas e as no dia 15-02-2024 as 14 horas.\n\nresponda apenas os dois dias e horarios recomendados. não precisa explicar nada"
+              "content": "=DATA OCUPADAS: {{ $('Aggregate').item.json.respon[$('Aggregate').item.json.respon.length - 1] }}\n\nFAÇA ISSO: Recomendar dois dias diferente do dia 12 a 16 de fevereiro de 2024  e horario entre 7 as 17. antes verifique se não está na datas ocupadas se é igual, caso não tiver datas ocupadas. pode ser qualquer data e horario dentro de esse periodo que te passei.\n\nRetorne ex: temos vamos no dia 13-02-2024 as 09 horas e as no dia 15-02-2024 as 14 horas.\n\nresponda apenas os dois dias e horarios recomendados. não precisa explicar nada "
             }
           ]
         },
@@ -553,8 +557,8 @@
       "type": "n8n-nodes-base.openAi",
       "typeVersion": 1.1,
       "position": [
-        1460,
-        240
+        1640,
+        300
       ],
       "credentials": {
         "openAiApi": {
@@ -565,16 +569,89 @@
     },
     {
       "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "res",
+              "renameField": true,
+              "outputFieldName": "respon"
+            }
+          ]
+        },
         "options": {}
       },
-      "id": "ebb619af-a1a4-4ce2-95f6-d857c1f85310",
-      "name": "Loop Over Items1",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
+      "id": "e2e66b28-d7de-429a-9aa1-366f0ff8a979",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
       "position": [
-        1220,
-        240
+        1240,
+        300
       ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1112858656,
+          "mode": "list",
+          "cachedResultName": "Memory",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=1112858656"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Memory_Date": "=",
+            "Memory_Hour": "=2"
+          },
+          "matchingColumns": [
+            "Memory_Hour"
+          ],
+          "schema": [
+            {
+              "id": "Memory_Date",
+              "displayName": "Memory_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Memory_Hour",
+              "displayName": "Memory_Hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2da0924f-22ea-4248-b41f-b7ac615bb98c",
+      "name": "Google Sheets3",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -584,6 +661,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-02-16T15:34:35.370Z",
-  "versionId": "257f7760-642a-49a4-97c0-bb03a9acd063"
+  "updatedAt": "2024-02-16T20:18:23.359Z",
+  "versionId": "b0b8c4d3-7a1c-4b97-989d-d1c234026962"
 }
