@@ -95,6 +95,50 @@
           }
         ]
       ]
+    },
+    "post_Schedule": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "post_Name": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Custom n8n Workflow Tool1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-02-13T21:30:55.073Z",
@@ -105,17 +149,6 @@
   },
   "name": "AI agent chat",
   "nodes": [
-    {
-      "parameters": {},
-      "id": "918b0a89-a9e5-4a41-afa7-9e693a2116fc",
-      "name": "On new manual Chat Message",
-      "type": "@n8n/n8n-nodes-langchain.manualChatTrigger",
-      "position": [
-        160,
-        -20
-      ],
-      "typeVersion": 1
-    },
     {
       "parameters": {
         "options": {}
@@ -380,8 +413,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1480,
-        460
+        1880,
+        640
       ]
     },
     {
@@ -403,9 +436,86 @@
     },
     {
       "parameters": {
+        "name": "post_Schedule",
+        "description": "schedule the date and time of the appointment in the spreadsheet",
+        "workflowId": "v7Xib2cl56a2in53",
+        "fields": {
+          "values": [
+            {
+              "name": "=date",
+              "stringValue": "={{ $('Webhook').item.json.input.match(/(\\d{2}-\\d{2}-\\d{4})/)[0]\n}}"
+            },
+            {
+              "name": "hour",
+              "stringValue": "={{      $('Webhook').item.json.input.match(/(\\d{1,2}:\\d{2})/) }}"
+            },
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+            }
+          ]
+        }
+      },
+      "id": "2eafeeb8-8c82-4518-bb6b-0c4f14817353",
+      "name": "post_Schedule",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "name": "post_Name",
+        "description": "save user name to spreadsheet",
+        "workflowId": "938MfMGZrn14VJNP",
+        "fields": {
+          "values": [
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+            }
+          ]
+        }
+      },
+      "id": "feef7597-1180-4363-b7c4-f4b027d82ced",
+      "name": "post_Name",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1740,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "name": "post_Procedure",
+        "description": "save the procedure that the customer is interested in",
+        "workflowId": "rxGBOvSC9J5dhmOX",
+        "fields": {
+          "values": [
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+            }
+          ]
+        }
+      },
+      "id": "a4802f68-54c0-4d60-8341-2baa0d38d984",
+      "name": "Custom n8n Workflow Tool1",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        660
+      ]
+    },
+    {
+      "parameters": {
         "text": "={{ $('Webhook').item.json.input }} | RESPONDA EM PORTUGUÊS BRASIL ",
         "options": {
-          "systemMessage": "Descrição:\nVocê é a assistente virtual de uma clínica odontológica dedicada a fornecer cuidados de saúde bucal de qualidade. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente. Aqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\nInstruções:\n\nCumprimente o paciente de forma calorosa e profissional, oferecendo assistência imediata.\nSolicite a data e hora desejadas para a consulta, oferecendo opções disponíveis.\nPergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\nApós confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
+          "systemMessage": "=Descrição:\nVocê é a assistente virtual de uma clínica odontológica dedicada a fornecer cuidados de saúde bucal de qualidade. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente. Aqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n\nSiga esse passo a passo com o cliente.\nInstruções:\n\n1- Cumprimente o paciente de forma calorosa e profissional, oferecendo assistência imediata e ja pergunte o nome para sempre chamar o cliente pelo nome.\n2-Pergunte qual procedimento o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nsempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
         }
       },
       "id": "de26d593-00e4-4078-8c53-5464743ea045",
@@ -416,14 +526,30 @@
         1180,
         240
       ]
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Olá! 👋\nMeu nome é Nathan. Como posso ajudá-lo hoje?",
+        "options": {}
+      },
+      "id": "42be753d-c218-46b5-864b-e45ea6d10335",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1,
+      "position": [
+        20,
+        80
+      ],
+      "webhookId": "c4570114-f1aa-46aa-b51b-83af678554a2"
     }
   ],
   "pinData": {
     "Webhook": [
       {
         "json": {
-          "input": "qual os horarios disponiveis nessa semana?",
-          "cus_cel": "5566996188399"
+          "input": "quero marca uma consulta no dia 13-05-2024 na parte da manhas as 8:00",
+          "cus_cel": "5566996188598"
         }
       }
     ]
@@ -432,6 +558,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-16T14:41:26.812Z",
-  "versionId": "6243a1dd-131a-439f-b9d3-3ee61a0c0ff3"
+  "updatedAt": "2024-02-16T20:48:31.797Z",
+  "versionId": "79b3370e-0614-4298-9823-a5cdbda1eac5"
 }
