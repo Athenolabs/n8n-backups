@@ -1,0 +1,210 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-02-16T19:51:27.519Z",
+  "id": "v7Xib2cl56a2in53",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "post_Schedule",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a2388feb-838d-4c9c-9d4b-b5b6748a2624",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "response",
+              "stringValue": "=marcado na data de  {{ $json['Data de Avaliação'] }} as  {{ $json['Hora da Avaliação'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fb6d666b-0f8b-4591-bd5b-cd627c3b3a58",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        600,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Whatsapp": "={{ $json.cus_cel }}",
+            "Data de Avaliação": "={{ $json.date }}",
+            "Hora da Avaliação": "={{ $json.hour }}"
+          },
+          "matchingColumns": [
+            "Whatsapp"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Data de 1º Contato",
+              "displayName": "Data de 1º Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Data de Avaliação",
+              "displayName": "Data de Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora da Avaliação",
+              "displayName": "Hora da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Procedimento",
+              "displayName": "Procedimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "23607cc6-f2cf-4e32-9786-ca89a9c2ec73",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        220
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Execute Workflow Trigger": [
+      {
+        "json": {
+          "date": "14-02-2024",
+          "hour": "08:00",
+          "cus_cel": "5566996188395"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-02-16T20:06:12.320Z",
+  "versionId": "2ca97af8-7639-486b-bc05-e0479930ad75"
+}
