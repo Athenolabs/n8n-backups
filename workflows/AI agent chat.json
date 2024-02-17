@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "OpenAI Chat Model": {
       "ai_languageModel": [
@@ -85,17 +85,6 @@
         ]
       ]
     },
-    "Custom n8n Workflow Tool": {
-      "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "post_Schedule": {
       "ai_tool": [
         [
@@ -118,7 +107,7 @@
         ]
       ]
     },
-    "Custom n8n Workflow Tool1": {
+    "get_Schedule": {
       "ai_tool": [
         [
           {
@@ -129,11 +118,22 @@
         ]
       ]
     },
-    "Chat Trigger": {
+    "post_Procedure": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
       "main": [
         [
           {
-            "node": "Google Sheets",
+            "node": "Respond to Webhook",
             "type": "main",
             "index": 0
           }
@@ -158,8 +158,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1160,
-        500
+        1040,
+        780
       ],
       "credentials": {
         "openAiApi": {
@@ -178,14 +178,15 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.1,
       "position": [
-        1360,
-        640
+        1300,
+        540
       ]
     },
     {
       "parameters": {
         "httpMethod": "POST",
         "path": "chatClinica",
+        "responseMode": "responseNode",
         "options": {}
       },
       "id": "ed1671ce-d2c9-4880-a0c0-6a0c0b234334",
@@ -193,7 +194,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1.1,
       "position": [
-        120,
+        80,
         240
       ],
       "webhookId": "1325fe6d-7653-4fc1-acba-f1d6cc40626f"
@@ -216,7 +217,7 @@
           "values": [
             {
               "lookupColumn": "Whatsapp",
-              "lookupValue": "={{ $json.cus_cel }}"
+              "lookupValue": "={{ $json.body.cus_cel }}"
             }
           ]
         },
@@ -383,11 +384,15 @@
           "values": [
             {
               "name": "whats",
-              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+              "stringValue": "={{ $('Webhook').item.json.body.cus_cel }}"
             },
             {
               "name": "idUser",
               "stringValue": "={{ $json.ID }}"
+            },
+            {
+              "name": "input1",
+              "stringValue": "={{ $('Webhook').item.json.body.input }}"
             }
           ]
         },
@@ -404,38 +409,6 @@
     },
     {
       "parameters": {
-        "name": "get_Schedule",
-        "description": "call a function to check which times are available this week",
-        "workflowId": "g0VoeC7g7LSTtOn8"
-      },
-      "id": "be4c969c-59b9-49e6-bbd7-8fc292f98bcf",
-      "name": "Custom n8n Workflow Tool",
-      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
-      "typeVersion": 1,
-      "position": [
-        1880,
-        640
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "63075991-bc5c-495c-9177-274b824550d7",
-      "name": "Zep",
-      "type": "@n8n/n8n-nodes-langchain.memoryZep",
-      "typeVersion": 1.1,
-      "position": [
-        1240,
-        720
-      ],
-      "credentials": {
-        "zepApi": {
-          "id": "m0GPrgb4Kjb0lb5F",
-          "name": "Zep Api account"
-        }
-      }
-    },
-    {
-      "parameters": {
         "name": "post_Schedule",
         "description": "schedule the date and time of the appointment in the spreadsheet",
         "workflowId": "v7Xib2cl56a2in53",
@@ -447,11 +420,11 @@
             },
             {
               "name": "hour",
-              "stringValue": "={{      $('Webhook').item.json.input.match(/(\\d{1,2}:\\d{2})/) }}"
+              "stringValue": "={{      $('Webhook').item.json.input.match(/(\\d{1,2}:\\d{2})/)[0] }}"
             },
             {
               "name": "cus_cel",
-              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
             }
           ]
         }
@@ -461,8 +434,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1540,
-        660
+        1380,
+        640
       ]
     },
     {
@@ -474,7 +447,7 @@
           "values": [
             {
               "name": "cus_cel",
-              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
+              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
             }
           ]
         }
@@ -484,47 +457,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1740,
-        660
-      ]
-    },
-    {
-      "parameters": {
-        "name": "post_Procedure",
-        "description": "save the procedure that the customer is interested in",
-        "workflowId": "rxGBOvSC9J5dhmOX",
-        "fields": {
-          "values": [
-            {
-              "name": "cus_cel",
-              "stringValue": "={{ $('Webhook').item.json.cus_cel }}"
-            }
-          ]
-        }
-      },
-      "id": "a4802f68-54c0-4d60-8341-2baa0d38d984",
-      "name": "Custom n8n Workflow Tool1",
-      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
-      "typeVersion": 1,
-      "position": [
-        2020,
-        660
-      ]
-    },
-    {
-      "parameters": {
-        "text": "={{ $('Webhook').item.json.input }} | RESPONDA EM PORTUGUÊS BRASIL ",
-        "options": {
-          "systemMessage": "=Descrição:\nVocê é a assistente virtual de uma clínica odontológica dedicada a fornecer cuidados de saúde bucal de qualidade. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente. Aqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n\nSiga esse passo a passo com o cliente.\nInstruções:\n\n1- Cumprimente o paciente de forma calorosa e profissional, oferecendo assistência imediata e ja pergunte o nome para sempre chamar o cliente pelo nome.\n2-Pergunte qual procedimento o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nsempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
-        }
-      },
-      "id": "de26d593-00e4-4078-8c53-5464743ea045",
-      "name": "AI Agent",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.2,
-      "position": [
-        1180,
-        240
+        1500,
+        640
       ]
     },
     {
@@ -538,26 +472,86 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1,
       "position": [
-        20,
-        80
+        80,
+        60
       ],
       "webhookId": "c4570114-f1aa-46aa-b51b-83af678554a2"
+    },
+    {
+      "parameters": {
+        "name": "get_Schedule",
+        "description": "call a function to check which times are available this week",
+        "workflowId": "g0VoeC7g7LSTtOn8"
+      },
+      "id": "be4c969c-59b9-49e6-bbd7-8fc292f98bcf",
+      "name": "get_Schedule",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "name": "post_Procedure",
+        "description": "save the procedure that the customer is interested in",
+        "workflowId": "rxGBOvSC9J5dhmOX",
+        "fields": {
+          "values": [
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
+            }
+          ]
+        }
+      },
+      "id": "a4802f68-54c0-4d60-8341-2baa0d38d984",
+      "name": "post_Procedure",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1740,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"response\": \"{{ $json.output }}\"\n} ",
+        "options": {}
+      },
+      "id": "df4c0223-e38c-4e5f-9b9c-f7f716d6d945",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "text": "={{ $('Edit Fields').item.json.input1 }} | RESPONDA EM PORTUGUÊS BRASIL  ",
+        "options": {
+          "systemMessage": "=Descrição:\nVocê é a atendente de uma clínica odontológica. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente e Nome.\n\nAqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n\nSiga esse passo a passo com o cliente.\nInstruções:\n\n1- Cumprimente o paciente, ja pergunte o nome para sempre chamar o cliente pelo nome.\nex: Olá, primeiramente qual seu nome, e como podemos te ajudar?\n2-Pergunte qual procedimento o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nsempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
+        }
+      },
+      "id": "de26d593-00e4-4078-8c53-5464743ea045",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.2,
+      "position": [
+        1340,
+        240
+      ]
     }
   ],
-  "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "input": "quero marca uma consulta no dia 13-05-2024 na parte da manhas as 8:00",
-          "cus_cel": "5566996188598"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-02-16T20:48:31.797Z",
-  "versionId": "79b3370e-0614-4298-9823-a5cdbda1eac5"
+  "triggerCount": 3,
+  "updatedAt": "2024-02-17T14:29:36.768Z",
+  "versionId": "8afc8a1a-dd5e-42e2-b1f3-b00ed46385ec"
 }
