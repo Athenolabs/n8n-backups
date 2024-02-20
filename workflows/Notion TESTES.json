@@ -1,0 +1,362 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion": {
+      "main": [
+        []
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion2": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Notion2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Notion3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-02-20T03:48:10.630Z",
+  "id": "DoYlXPKEJZpoYGkS",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Notion TESTES",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "list",
+          "cachedResultName": "AGENDA",
+          "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
+        }
+      },
+      "id": "e9cee706-f86e-4960-b7c3-c135a75ef8a1",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        620,
+        480
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "de130a6d-cc14-4683-ab4d-c6f6c1d7cb70",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        80,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "list",
+          "cachedResultName": "AGENDA",
+          "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
+        },
+        "title": "TESTE123",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Name|title",
+              "title": "KATACHA"
+            },
+            {
+              "key": "Compareceu|checkbox",
+              "checkboxValue": true
+            },
+            {
+              "key": "Compareceu|checkbox"
+            },
+            {
+              "key": "Date de Avaliação|date",
+              "date": "2024-02-14T00:00:00",
+              "timezone": "Africa/Algiers"
+            },
+            {
+              "key": "Procedimento|rich_text",
+              "textContent": "CANAL"
+            },
+            {
+              "key": "Whatsapp|phone_number",
+              "phoneValue": "556699611893"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5346d0e2-4453-40ce-bf22-650e84b3c7ba",
+      "name": "Notion1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        620,
+        80
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "=f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "id",
+          "__regex": "^([0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12})"
+        },
+        "filterType": "manual",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Date de Avaliação|date",
+              "condition": "before",
+              "date": "={{ $json.amanha }}"
+            },
+            {
+              "key": "Date de Avaliação|date",
+              "condition": "after",
+              "date": "={{ $('Date & Time').item.json.ontem }}"
+            },
+            {
+              "key": "Compareceu|checkbox",
+              "condition": "equals"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d1c3e20b-a0ec-49b3-b138-0f5106f01e14",
+      "name": "Notion2",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        280
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "subtractFromDate",
+        "magnitude": "={{ new Date() }}",
+        "duration": 1,
+        "outputFieldName": "ontem",
+        "options": {}
+      },
+      "id": "2cbfd75c-eb33-456d-ba77-8bbc51d320d9",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        300,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "addToDate",
+        "magnitude": "={{ new Date() }}",
+        "duration": 1,
+        "outputFieldName": "amanha",
+        "options": {}
+      },
+      "id": "1709a586-4273-4594-bdf4-ebccc1c48472",
+      "name": "Date & Time1",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        520,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "fd763c56-3c27-4084-9f5b-54fe5a82738f",
+              "leftValue": "={{ $json.property_date_de_avalia_o.start.substring(0, 10) }}",
+              "rightValue": "={{ $('Edit Fields').item.json.Hoje.substring(1, 11) }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "226bd85a-c7a8-4d3d-8c91-4adabc5dd3f8",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "Hoje",
+              "stringValue": "={{ new Date }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dbf5c115-fac9-497c-a9fd-fc40aedd6f34",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        740,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Fechou|checkbox",
+              "checkboxValue": true
+            },
+            {
+              "key": "Compareceu|checkbox",
+              "checkboxValue": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "91548a7f-4636-492a-b7cd-c9c93985947f",
+      "name": "Notion3",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        1380,
+        280
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Campo_Grande",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-02-20T04:24:46.256Z",
+  "versionId": "365e1951-2f8e-4267-b29a-ce8be43647a0"
+}
