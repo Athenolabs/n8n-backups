@@ -12,17 +12,6 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "Notion",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Google Sheets": {
       "main": [
         [
@@ -44,11 +33,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "Google Sheets1": {
-      "main": [
-        []
       ]
     },
     "Edit Fields": {
@@ -106,11 +90,84 @@
         ]
       ]
     },
-    "AI Agent": {
+    "Edit Fields1": {
       "main": [
         [
           {
-            "node": "Respond to Webhook",
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
             "type": "main",
             "index": 0
           }
@@ -127,7 +184,7 @@
   "nodes": [
     {
       "parameters": {
-        "sessionKey": "={{ $('If').item.json.ID || $('Google Sheets1').item.json.ID }}",
+        "sessionKey": "={{ $('If1').item.json.whatsapp }}",
         "contextWindowLength": 30
       },
       "id": "1f43aed3-5676-4ccc-91e4-8a265d56b7a9",
@@ -135,26 +192,9 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.1,
       "position": [
-        1060,
+        1280,
         540
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "chatClinica",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "411387ef-8479-46b2-9332-18eeb8b64a02",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1.1,
-      "position": [
-        640,
-        240
-      ],
-      "webhookId": "1325fe6d-7653-4fc1-acba-f1d6cc40626f"
     },
     {
       "parameters": {
@@ -391,8 +431,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1140,
-        640
+        1360,
+        700
       ]
     },
     {
@@ -404,7 +444,7 @@
           "values": [
             {
               "name": "cus_cel",
-              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
+              "stringValue": "={{ $('If1').item.json.whatsapp }}"
             }
           ]
         }
@@ -414,8 +454,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1260,
-        640
+        1160,
+        700
       ]
     },
     {
@@ -429,8 +469,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1380,
-        640
+        1680,
+        700
       ]
     },
     {
@@ -442,7 +482,7 @@
           "values": [
             {
               "name": "cus_cel",
-              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
+              "stringValue": "={{ $('If1').item.json.whatsapp }}"
             }
           ]
         }
@@ -452,8 +492,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1500,
-        640
+        1520,
+        700
       ]
     },
     {
@@ -467,15 +507,216 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        1480,
-        240
+        1560,
+        320
       ]
     },
     {
       "parameters": {
-        "text": "={{ $('Edit Fields').item.json.input1 }} | RESPONDA EM PORTUGUÊS BRASIL  ",
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "ca15ab7c-783f-404e-a5a3-c19991af4a89",
+          "mode": "list",
+          "cachedResultName": "Leads CRM",
+          "cachedResultUrl": "https://www.notion.so/ca15ab7c783f404ea5a3c19991af4a89"
+        },
+        "filterType": "manual",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "56cd109e-e320-4a2a-beed-48f46486bccd",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        40,
+        320
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "efcf85f3-c228-4789-8350-90cec217e229",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1f1101e4-30ff-4751-86a9-abf3c759630a",
+              "leftValue": "={{ $json.property_whatsapp }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "dfee3b53-552c-4b4a-b0aa-2aeb360a231e",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        520,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "whats",
+              "stringValue": "={{ $json.cus_cel }}"
+            },
+            {
+              "name": "input1",
+              "stringValue": "={{ $json.input }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "122de62a-1410-4618-8a39-8ed89161fb72",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        -120,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "ca15ab7c-783f-404e-a5a3-c19991af4a89",
+          "mode": "list",
+          "cachedResultName": "Leads CRM",
+          "cachedResultUrl": "https://www.notion.so/ca15ab7c783f404ea5a3c19991af4a89"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Whatsapp|rich_text",
+              "textContent": "={{ $json.whatsapp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "811470f9-fc5c-46d2-ade8-bca5135acbc4",
+      "name": "Notion1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        500
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "whatsapp",
+              "stringValue": "={{ $('Edit Fields1').item.json.whats }}"
+            },
+            {
+              "name": "input",
+              "stringValue": "={{ $('Edit Fields1').item.json.input }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0b938e6d-019e-4bac-ad06-47c7da72b3af",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        260,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "edf8ea8b-aedb-492a-b9c7-be59404358c9",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        540
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "29e8f3af-552f-4e5e-9f22-1385a6b70e53",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        540
+      ],
+      "webhookId": "73b41e3d-22cd-4cff-92da-47f00ce05033"
+    },
+    {
+      "parameters": {
+        "text": "={{ $('If1').item.json.input }} | RESPONDA EM PORTUGUÊS BRASIL   ",
         "options": {
-          "systemMessage": "=Descrição:\nVocê é a atendente de uma clínica odontológica. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente e Nome.\n\nAqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n\nSiga esse passo a passo com o cliente.\nInstruções:\n\n1- Cumprimente o paciente, ja pergunte o nome para sempre chamar o cliente pelo nome.\nex: Olá, primeiramente qual seu nome, e como podemos te ajudar?\n2-Pergunte qual procedimento o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nsempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
+          "systemMessage": "=Descrição:\nVocê é uma atendente de uma clínica odontológica. Ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente e Nome.\n\nInstruções:\n\n1- Cumprimente o paciente, ja pergunte o nome para sempre chamar o cliente pelo nome.\nex: Olá, primeiramente qual seu nome, e como podemos te ajudar?\n2-Pergunte qual procedimento o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nAqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n\nSiga esse passo a passo com o cliente.\n\nREGRA: sempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
         }
       },
       "id": "f6ceed97-d85c-4d38-aea9-e8a405d725a8",
@@ -483,42 +724,27 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.2,
       "position": [
-        1100,
-        240
+        1180,
+        320
       ]
-    },
-    {
-      "parameters": {
-        "resource": "database",
-        "databaseId": {
-          "__rl": true,
-          "value": "44c35524ed9d4b058ae2a2968b1e2048",
-          "mode": "id"
-        }
-      },
-      "id": "56cd109e-e320-4a2a-beed-48f46486bccd",
-      "name": "Notion",
-      "type": "n8n-nodes-base.notion",
-      "typeVersion": 2.1,
-      "position": [
-        860,
-        240
-      ],
-      "credentials": {
-        "notionApi": {
-          "id": "cPf1293CGIUwCXjl",
-          "name": "Notion account"
-        }
-      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking \"Test workflow\"": [
+      {
+        "json": {
+          "cus_cel": "59",
+          "input": "na quinta feira as 14 to livre"
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-20T04:51:47.432Z",
-  "versionId": "e27714d7-7264-4b73-b072-f2c6e39fd186"
+  "updatedAt": "2024-02-20T06:00:45.468Z",
+  "versionId": "f5333e57-6192-402e-b9d9-fbafc3021614"
 }
