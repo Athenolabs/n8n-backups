@@ -5,14 +5,25 @@
       "main": [
         [
           {
-            "node": "Google Sheets",
+            "node": "Notion",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Google Sheets": {
+    "Notion": {
+      "main": [
+        [
+          {
+            "node": "Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion1": {
       "main": [
         [
           {
@@ -38,134 +49,9 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        540,
-        240
+        520,
+        420
       ]
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Página1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Whatsapp": "={{ $json.cus_cel }}",
-            "Procedimento": "={{ $json.query }}"
-          },
-          "matchingColumns": [
-            "Whatsapp"
-          ],
-          "schema": [
-            {
-              "id": "ID",
-              "displayName": "ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Data de 1º Contato",
-              "displayName": "Data de 1º Contato",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Nome",
-              "displayName": "Nome",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Whatsapp",
-              "displayName": "Whatsapp",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Data de Avaliação",
-              "displayName": "Data de Avaliação",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Hora da Avaliação",
-              "displayName": "Hora da Avaliação",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Procedimento",
-              "displayName": "Procedimento",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "4d932719-6e0f-4e6a-b8d7-dbd5557809c3",
-      "name": "Google Sheets",
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.2,
-      "position": [
-        760,
-        240
-      ],
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "8PMyFLU1UY4P3iLS",
-          "name": "Lucas Katacha"
-        }
-      }
     },
     {
       "parameters": {
@@ -173,7 +59,7 @@
           "values": [
             {
               "name": "response",
-              "stringValue": "nome salvo com sucesso"
+              "stringValue": "={{ $('Execute Workflow Trigger').item.json.query }}"
             }
           ]
         },
@@ -184,16 +70,89 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        980,
-        240
+        1140,
+        420
       ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "ca15ab7c-783f-404e-a5a3-c19991af4a89",
+          "mode": "list",
+          "cachedResultName": "Leads CRM",
+          "cachedResultUrl": "https://www.notion.so/ca15ab7c783f404ea5a3c19991af4a89"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e79dd105-9a0d-41fb-bd0a-10deb4d063cb",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        760,
+        420
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Procedimento|rich_text",
+              "textContent": "={{ $('Execute Workflow Trigger').item.json.query }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d0381005-8fee-4c21-bca0-c40390506987",
+      "name": "Notion1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        420
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
     }
   ],
   "pinData": {
     "Execute Workflow Trigger": [
       {
         "json": {
-          "query": "Katacha"
+          "query": "Implante",
+          "cus_cel": "158"
         }
       }
     ]
@@ -204,6 +163,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-16T20:34:13.271Z",
-  "versionId": "650fad86-f77b-401d-a7b1-68da9b1ec680"
+  "updatedAt": "2024-02-20T05:25:08.408Z",
+  "versionId": "052676e1-ce31-4520-8aaa-fbe06f83790b"
 }
