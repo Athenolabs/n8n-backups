@@ -1,13 +1,517 @@
 {
   "active": false,
-  "connections": {},
-  "createdAt": "2024-02-13T21:26:37.130Z",
-  "id": "g0VoeC7g7LSTtOn8",
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "post_Schedule": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "post_Name": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_Schedule": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "post_Procedure": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-02-20T04:51:47.432Z",
+  "id": "eskQYvZkZVdKTflm",
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "name": "My workflow 9",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "sessionKey": "={{ $('If').item.json.ID || $('Google Sheets1').item.json.ID }}",
+        "contextWindowLength": 30
+      },
+      "id": "1f43aed3-5676-4ccc-91e4-8a265d56b7a9",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.1,
+      "position": [
+        1060,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chatClinica",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "411387ef-8479-46b2-9332-18eeb8b64a02",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        640,
+        240
+      ],
+      "webhookId": "1325fe6d-7653-4fc1-acba-f1d6cc40626f"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Whatsapp",
+              "lookupValue": "={{ $json.body.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ee4e8664-dcc2-4ac4-904d-a524656bb7b4",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        -340
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1f1101e4-30ff-4751-86a9-abf3c759630a",
+              "leftValue": "={{ $json.Whatsapp }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fdc3a01e-14b9-4cc3-9993-5ed58a24e433",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        540,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BF9H7QttI5Hd5j2XtzXUwxVX_wOW8RMK85dPSIxQ3G8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Data de 1º Contato": "={{new Date().format(\"yyyy-MM-dd\")}}",
+            "Whatsapp": "={{ $json.whats }}",
+            "ID": "=id_{{Array.from({length: 20}, () => Math.random().toString(36)[2]).join('')}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data de 1º Contato",
+              "displayName": "Data de 1º Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Whatsapp",
+              "displayName": "Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data de Avaliação",
+              "displayName": "Data de Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora da Avaliação",
+              "displayName": "Hora da Avaliação",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Procedimento",
+              "displayName": "Procedimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b25fbdac-80bc-4819-8439-44ee9731bc19",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        -100
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8PMyFLU1UY4P3iLS",
+          "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "whats",
+              "stringValue": "={{ $('Webhook').item.json.body.cus_cel }}"
+            },
+            {
+              "name": "idUser",
+              "stringValue": "={{ $json.ID }}"
+            },
+            {
+              "name": "input1",
+              "stringValue": "={{ $('Webhook').item.json.body.input }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "78fcab54-f847-48c1-96e9-94f72adc4c24",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        400,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "name": "post_Schedule",
+        "description": "schedule the date and time of the appointment in the spreadsheet",
+        "workflowId": "v7Xib2cl56a2in53",
+        "fields": {
+          "values": [
+            {
+              "name": "=date",
+              "stringValue": "={{ $('Webhook').item.json.input.match(/(\\d{2}-\\d{2}-\\d{4})/)[0]\n}}"
+            },
+            {
+              "name": "hour",
+              "stringValue": "={{      $('Webhook').item.json.input.match(/(\\d{1,2}:\\d{2})/)[0] }}"
+            },
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
+            }
+          ]
+        }
+      },
+      "id": "d2883792-3dfd-49e2-953d-ef711d944af6",
+      "name": "post_Schedule",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "name": "post_Name",
+        "description": "save user name to spreadsheet",
+        "workflowId": "938MfMGZrn14VJNP",
+        "fields": {
+          "values": [
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
+            }
+          ]
+        }
+      },
+      "id": "3b3b7bc4-11f6-47c4-ab39-86a06e20409b",
+      "name": "post_Name",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "name": "get_Schedule",
+        "description": "call a function to check which times are available this week",
+        "workflowId": "g0VoeC7g7LSTtOn8"
+      },
+      "id": "ea122eec-6ca4-4048-99be-9f054ca07a4c",
+      "name": "get_Schedule",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "name": "post_Procedure",
+        "description": "save the procedure that the customer is interested in",
+        "workflowId": "rxGBOvSC9J5dhmOX",
+        "fields": {
+          "values": [
+            {
+              "name": "cus_cel",
+              "stringValue": "={{ $('Edit Fields').item.json.whats }}"
+            }
+          ]
+        }
+      },
+      "id": "bdbe4d12-54c5-420e-a27b-c690db1e0eee",
+      "name": "post_Procedure",
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"response\": \"{{ $json.output }}\"\n} ",
+        "options": {}
+      },
+      "id": "dc0240c1-ef92-42f1-b768-e2cd3bb466a3",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "text": "={{ $('Edit Fields').item.json.input1 }} | RESPONDA EM PORTUGUÊS BRASIL  ",
+        "options": {
+          "systemMessage": "=Descrição:\nVocê é a atendente de uma clínica odontológica. Sua tarefa é interagir com os pacientes em potencial de uma forma acolhedora e profissional, ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente e Nome.\n\nAqui está uma lista de procedimentos comuns oferecidos pela clínica, juntamente com seus respectivos preços:\n\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n\nSiga esse passo a passo com o cliente.\nInstruções:\n\n1- Cumprimente o paciente, ja pergunte o nome para sempre chamar o cliente pelo nome.\nex: Olá, primeiramente qual seu nome, e como podemos te ajudar?\n2-Pergunte qual procedimento o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nsempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas."
+        }
+      },
+      "id": "f6ceed97-d85c-4d38-aea9-e8a405d725a8",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "databaseId": {
+          "__rl": true,
+          "value": "44c35524ed9d4b058ae2a2968b1e2048",
+          "mode": "id"
+        }
+      },
+      "id": "56cd109e-e320-4a2a-beed-48f46486bccd",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        860,
+        240
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
@@ -15,6 +519,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-13T21:28:20.816Z",
-  "versionId": "99a3e4df-7c3a-431a-ad99-08ff002233cb"
+  "updatedAt": "2024-02-20T04:51:47.432Z",
+  "versionId": "e27714d7-7264-4b73-b072-f2c6e39fd186"
 }
