@@ -5,14 +5,25 @@
       "main": [
         [
           {
-            "node": "Google Sheets",
+            "node": "Notion",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Google Sheets": {
+    "Notion": {
+      "main": [
+        [
+          {
+            "node": "Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion1": {
       "main": [
         [
           {
@@ -157,7 +168,7 @@
       "typeVersion": 4.2,
       "position": [
         760,
-        240
+        40
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -172,7 +183,7 @@
           "values": [
             {
               "name": "response",
-              "stringValue": "nome salvo com sucesso"
+              "stringValue": "=nome salvo com sucesso:  {{ $('Execute Workflow Trigger').item.json.query }}"
             }
           ]
         },
@@ -183,16 +194,89 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        980,
+        1140,
         240
       ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "ca15ab7c-783f-404e-a5a3-c19991af4a89",
+          "mode": "list",
+          "cachedResultName": "Leads CRM",
+          "cachedResultUrl": "https://www.notion.so/ca15ab7c783f404ea5a3c19991af4a89"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7a872b0c-71f8-4529-9f82-6953e9238250",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        760,
+        240
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Nome|title",
+              "title": "={{ $('Execute Workflow Trigger').item.json.query }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "337937b1-5201-4326-ae42-28d468a74e7b",
+      "name": "Notion1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        240
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
     }
   ],
   "pinData": {
     "Execute Workflow Trigger": [
       {
         "json": {
-          "query": "Katacha"
+          "query": "Katacha",
+          "cus_cel": "158"
         }
       }
     ]
@@ -203,6 +287,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-16T20:32:11.581Z",
-  "versionId": "c1db2d92-4bc3-4fa7-8184-1872ba30cf0c"
+  "updatedAt": "2024-02-20T05:16:19.861Z",
+  "versionId": "745c388c-2f3f-4bd5-b52b-9d9fc748eab1"
 }
