@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Google Sheets",
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -17,6 +17,61 @@
         [
           {
             "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion": {
+      "main": [
+        [
+          {
+            "node": "Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Notion",
             "type": "main",
             "index": 0
           }
@@ -60,7 +115,7 @@
       "typeVersion": 3.2,
       "position": [
         600,
-        220
+        60
       ]
     },
     {
@@ -178,12 +233,195 @@
       "typeVersion": 4.2,
       "position": [
         360,
-        220
+        60
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "8PMyFLU1UY4P3iLS",
           "name": "Lucas Katacha"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "ca15ab7c-783f-404e-a5a3-c19991af4a89",
+          "mode": "list",
+          "cachedResultName": "Leads CRM",
+          "cachedResultUrl": "https://www.notion.so/ca15ab7c783f404ea5a3c19991af4a89"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $('Execute Workflow Trigger').item.json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e84f7870-8cf0-4ccc-9391-8478e9fde406",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        920,
+        220
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "list",
+          "cachedResultName": "AGENDA",
+          "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
+        },
+        "title": "={{ $json.name }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Whatsapp|phone_number",
+              "phoneValue": "={{ $json.property_whatsapp }}"
+            },
+            {
+              "key": "Procedimento|rich_text",
+              "textContent": "={{ $json.property_procedimento }}"
+            },
+            {
+              "key": "Name|title",
+              "title": "={{ $json.property_nome }}"
+            },
+            {
+              "key": "Date de Avaliação|date",
+              "date": "={{ $('Code1').item.json.jsonDateHour.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "12426264-7aaa-43f2-888d-72604c5b51a0",
+      "name": "Notion1",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        220
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "response",
+              "stringValue": "=marcado"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3a346371-7468-40b2-b6b1-cab8efc2bf16",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1320,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "prompt": "=Hoje é: {{ new Date() }}\nDia da semana: {{ $json[\"dayOfWeek\"] }}\n\n\nessa é a data que o paciente quer:\n{{ $json.query }}\n\npaciente pode dizer:\n\nquero pra amanha: quer dizer um dia a mais do que hoje\nquero pra segunda: se hoje for terça, pra daqui 6 dias.\npor ai vai, faz as conta\nquero pra sexta: se hoje for terça, pra daqui 3 dias\n\nsempre faça as contas de quantos dias falta para tal dia\n\nagora faça essa verificação:\n1-é de segunda a sexta? aceite\n2-se der final de semana coloque a data da proxima segunda\n3- a hora está entre 07:00 as 17:00?\n\nme retorne a data de acordo com hoje e o o que o paciente quer em datetime:\nex: 2024-02-20T01:52:52.995-04:00\n\nme retorne apenas o json, sem explicação de nada. não precisa dizer o que o paciente quer, apena o json porfavor.\n\nnão me retorne: \"que o paciente quer.\\n\\n\"\n\nlembre sempre de verificar que dia é hoje da semana e fazer a soma dos dias de acorco com quantos dias falta para aquele dia da semana",
+        "options": {
+          "maxTokens": 500,
+          "presence_penalty": 0,
+          "temperature": 0
+        }
+      },
+      "id": "786b4211-63ba-4602-94ee-93caf3a86410",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        220
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Obtenha a data atual\nconst today = new Date();\n\n// Obtenha o dia da semana (0 a 6)\nconst dayOfWeek = today.getDay();\n\n// Mapeie o número do dia da semana para o nome do dia\nconst weekdays = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];\nconst dayName = weekdays[dayOfWeek];\n\n// Adicione o nome do dia da semana ao item JSON\n$input.item.json.dayOfWeek = dayName;\n\n// Retorne o item atualizado\nreturn $input.item;\n"
+      },
+      "id": "2a33b688-271f-45a9-82ca-0bdbe9274848",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the JSON of the item\nconst jsonDate = JSON.parse($('OpenAI').item.json.text)\n$input.item.json.jsonDateHour = jsonDate\n\nreturn $input.item;"
+      },
+      "id": "a2cf6bc8-4f19-48af-8de8-95cb2433b796",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        740,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "prompt": "=Hoje é: {{ new Date() }}\nDia da semana: {{ $json[\"dayOfWeek\"] }}\n\n\nessa é a data que o paciente quer:\n{{ $json.query }}\n\npaciente pode dizer:\n\nquero pra amanha: quer dizer um dia a mais do que hoje\nquero pra segunda: se hoje for terça, pra daqui 6 dias.\npor ai vai, faz as conta\nquero pra sexta: se hoje for terça, pra daqui 3 dias\n\nsempre faça as contas de quantos dias falta para tal dia\n\nagora faça essa verificação:\n1-é de segunda a sexta? aceite\n2-se der final de semana coloque a data da proxima segunda\n3- a hora está entre 07:00 as 17:00?\n\nme retorne a data de acordo com hoje e o o que o paciente quer em json:\n\n{\n\"dateAvaliation\": \"dd-MM-yyyy\",\n\"hourAvaliation\": \"hh:mm\"\n }\n\nme retorne apenas o json, sem explicação de nada. não precisa dizer o que o paciente quer, apena o json porfavor.\n\nnão me retorne: \"que o paciente quer.\\n\\n\"\n\nlembre sempre de verificar que dia é hoje da semana e fazer a soma dos dias de acorco com quantos dias falta para aquele dia da semana",
+        "options": {
+          "maxTokens": 500,
+          "presence_penalty": 0,
+          "temperature": 0
+        }
+      },
+      "id": "98568697-40f4-4c93-b2ab-ce509314d7bb",
+      "name": "OpenAI1",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        1080,
+        0
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
         }
       }
     }
@@ -192,19 +430,21 @@
     "Execute Workflow Trigger": [
       {
         "json": {
-          "date": "14-02-2024",
-          "hour": "08:00",
-          "cus_cel": "5566996188395"
+          "query": "quero pra pra sexta feira as 9 horas",
+          "cus_cel": "158"
         }
       }
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Campo_Grande",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-16T20:06:12.320Z",
-  "versionId": "2ca97af8-7639-486b-bc05-e0479930ad75"
+  "updatedAt": "2024-02-20T05:56:03.630Z",
+  "versionId": "89c84edd-e78a-44d8-aa60-b9cf770a3d7c"
 }
