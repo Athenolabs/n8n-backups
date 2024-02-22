@@ -59,7 +59,7 @@
           "values": [
             {
               "name": "response",
-              "stringValue": "={{ $('Execute Workflow Trigger').item.json.query }}"
+              "stringValue": "=Interesse em: {{ $('Execute Workflow Trigger').item.json.query }},\n\nfaça agora uma pesquisa da data e hora disponivel para a consulta."
             }
           ]
         },
@@ -163,6 +163,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-20T05:25:08.408Z",
-  "versionId": "052676e1-ce31-4520-8aaa-fbe06f83790b"
+  "updatedAt": "2024-02-21T18:35:24.670Z",
+  "versionId": "ac1c9d50-1bc7-4ca7-bafe-18f7281f7a8e"
 }
