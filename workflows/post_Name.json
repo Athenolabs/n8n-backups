@@ -183,7 +183,7 @@
           "values": [
             {
               "name": "response",
-              "stringValue": "=nome salvo com sucesso:  {{ $('Execute Workflow Trigger').item.json.query }}"
+              "stringValue": "=nome salvo com sucesso:  {{ $('Execute Workflow Trigger').item.json.query }},  qual procedimento tem interesse"
             }
           ]
         },
@@ -287,6 +287,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-20T05:16:19.861Z",
-  "versionId": "745c388c-2f3f-4bd5-b52b-9d9fc748eab1"
+  "updatedAt": "2024-02-21T19:01:24.871Z",
+  "versionId": "341d673f-a20b-4c79-af1d-de255cf29b31"
 }
