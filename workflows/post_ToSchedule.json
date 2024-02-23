@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Notion1",
+            "node": "Notion7",
             "type": "main",
             "index": 0
           }
@@ -89,7 +89,7 @@
       "main": [
         [
           {
-            "node": "Notion3",
+            "node": "Notion5",
             "type": "main",
             "index": 0
           }
@@ -163,6 +163,57 @@
         [
           {
             "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion5": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Notion6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notion3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion6": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion7": {
+      "main": [
+        [
+          {
+            "node": "If3",
             "type": "main",
             "index": 0
           }
@@ -253,7 +304,7 @@
             },
             {
               "key": "Date de Avaliação|date",
-              "date": "={{ $('Code1').item.json.jsonDateHour.data || $('Code1').item.json.jsonDateHour.date\n}}",
+              "date": "={{ $('Code1').item.json.jsonDateHour.data || $('Code1').item.json.jsonDateHour.date || $('Code1').item.json.jsonDateHour.timestamp\n}}",
               "timezone": "America/Cuiaba"
             }
           ]
@@ -265,8 +316,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.1,
       "position": [
-        1160,
-        220
+        1700,
+        100
       ],
       "credentials": {
         "notionApi": {
@@ -292,8 +343,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1320,
-        220
+        1860,
+        100
       ]
     },
     {
@@ -429,24 +480,24 @@
           "cachedResultName": "AGENDA",
           "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
         },
-        "title": "={{ $json.name }}",
+        "title": "={{ $('If1').item.json.name }}",
         "propertiesUi": {
           "propertyValues": [
             {
               "key": "Whatsapp|phone_number",
-              "phoneValue": "={{ $json.property_whatsapp }}"
+              "phoneValue": "={{ $('If1').item.json.property_whatsapp }}"
             },
             {
               "key": "Procedimento|rich_text",
-              "textContent": "={{ $json.property_procedimento }}"
+              "textContent": "={{ $('If1').item.json.property_procedimento }}"
             },
             {
               "key": "Name|title",
-              "title": "={{ $json.property_nome }}"
+              "title": "={{ $('If1').item.json.name }}"
             },
             {
               "key": "Date de Avaliação|date",
-              "date": "={{ $('Code3').item.json.jsonDateHour.data || $('Code3').item.json.jsonDateHour.date\n}}",
+              "date": "={{ $('Code3').item.json.jsonDateHour.data || $('Code3').item.json.jsonDateHour.date || $('Code3').item.json.jsonDateHour.timestamp\n}}",
               "timezone": "America/Cuiaba"
             }
           ]
@@ -458,8 +509,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.1,
       "position": [
-        1400,
-        520
+        1840,
+        600
       ],
       "credentials": {
         "notionApi": {
@@ -485,8 +536,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1560,
-        520
+        2080,
+        600
       ]
     },
     {
@@ -632,13 +683,214 @@
         620,
         780
       ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "list",
+          "cachedResultName": "AGENDA",
+          "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $('Execute Workflow Trigger').item.json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "84cc7d47-4514-42f5-9681-35b33bf600e2",
+      "name": "Notion5",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        1360,
+        520
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "61b173f8-8d79-47fc-89bf-0eab59f33ae5",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "46908d42-e864-47f1-aeff-a3661993503e",
+      "name": "If2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Date de Avaliação|date",
+              "date": "={{ $('Code3').item.json.jsonDateHour.data || $('Code3').item.json.jsonDateHour.date || $('Code3').item.json.jsonDateHour.timestamp\n}}",
+              "timezone": "America/Cuiaba"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9b7da139-805b-4148-8c05-fcdbdb2bd3de",
+      "name": "Notion6",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        1840,
+        440
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "response",
+              "stringValue": "=marcado {{ $json.property_date_de_avalia_o.start }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c14f3e9c-554d-43a2-84b8-ecbea597f989",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        2080,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "list",
+          "cachedResultName": "AGENDA",
+          "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|phone_number",
+              "condition": "equals",
+              "phoneNumberValue": "={{ $json.property_whatsapp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c21fc930-0329-428e-a5ef-a629b1b1aab0",
+      "name": "Notion7",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        1140,
+        220
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "61b173f8-8d79-47fc-89bf-0eab59f33ae5",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4686bb27-eded-44a5-88a6-93251e22d07e",
+      "name": "If3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        240
+      ]
     }
   ],
   "pinData": {
     "Execute Workflow Trigger": [
       {
         "json": {
-          "cus_cel": "5566996188393"
+          "cus_cel": "010923",
+          "query": "terça feira"
         }
       }
     ]
@@ -652,6 +904,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-22T01:00:12.974Z",
-  "versionId": "351269ba-a2d7-48f9-aba0-f5f84db47746"
+  "updatedAt": "2024-02-22T20:17:55.502Z",
+  "versionId": "7e9b1604-571a-431a-9c85-9b2469a07f62"
 }
