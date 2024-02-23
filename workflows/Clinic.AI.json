@@ -133,7 +133,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields1",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -189,6 +189,29 @@
         [
           {
             "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -410,11 +433,11 @@
           "values": [
             {
               "name": "whats",
-              "stringValue": "={{ $json.body.cus_cel }}"
+              "stringValue": "={{ $json.body.phone }}"
             },
             {
               "name": "input1",
-              "stringValue": "={{ $json.body.input }}"
+              "stringValue": "={{ $json.body.text.message }}"
             }
           ]
         },
@@ -522,7 +545,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1.1,
       "position": [
-        -220,
+        -400,
         320
       ],
       "webhookId": "9a4b62d8-fa69-444a-bdf9-655414834ef6"
@@ -558,7 +581,7 @@
     },
     {
       "parameters": {
-        "sessionKey": "=556696",
+        "sessionKey": "=556696188393",
         "contextWindowLength": "={{ 30 }}"
       },
       "id": "c8d770b3-1ab5-45ed-8e53-e0ce270fcd26",
@@ -625,6 +648,76 @@
     },
     {
       "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a1c36343-90dc-4b47-a24e-3c0a033ea058",
+              "leftValue": "={{ $json.body.isGroup }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2a4a464d-9f35-433d-9cb7-5aa87cc727c4",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token\t",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('If1').item.json.whatsapp }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3fee6d09-43af-4fe0-b220-b32cc4cf0efc",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2080,
+        320
+      ]
+    },
+    {
+      "parameters": {
         "text": "={{ $('If1').item.json.input }} | RESPONDA EM PORTUGUÊS BRASIL   ",
         "options": {
           "systemMessage": "=Descrição:\nVocê é uma atendente de uma clínica odontológica. Ajudando-os a marcar consultas gratuitas para avaliação e diagnóstico. Você precisa coletar informações essenciais, como data, hora e o tipo de procedimento desejado pelo paciente e Nome.\n\nInstruções:\n\n1- Cumprimente o paciente, ja pergunte o nome para sempre chamar o cliente pelo nome.\nex: Olá, primeiramente qual seu nome?\n2-Pergunte qual serviços o cliente tem interesse.\n3- Solicite a data e hora desejadas para a consulta. oferecendo opções disponíveis.\n4- Pergunte ao paciente sobre o motivo da consulta e forneça informações adicionais sobre os procedimentos disponíveis, se necessário.\n5- Após confirmar a data, hora e procedimento desejado, finalize o agendamento com uma nota amigável com o resumo da data e hora, procedimento, fornecendo informações adicionais, como a localização da clínica e o que esperar na consulta inicial.\n\nSe o paciente pergunta sobre quais são os procedimento ou serviço e qual o valor(preço) de cada um aqui está(mostre isso a eles):\n[\nLimpeza Dental - R$100\nExtração de Dente - R$200\nTratamento de Canal - R$300\nRestauração de Cáries - R$150\nClareamento Dental - R$250\nImplante Dentário - R$500\nOrtodontia (aparelho dentário) - R$400\n]\nSiga esse passo a passo com o cliente.\n\nREGRA: sempre que enviar mensagem chama o cliente pelo nome\n\nLembre-se de manter uma comunicação empática e esclarecedora para garantir que os pacientes se sintam confortáveis e confiantes ao marcar suas consultas.\n\nquando o cliente que quer pra algum dia, ex:\n\nquero pra amanhã, quero pra sexta, use o post_Schedule do tools.\n\nlembrando, seu nome é Jessica, se passe por uma pessoa de verdade. só responda questões sobre a clinica e nada mais.\n\ncaso tenha problemas ou não saiba responder algo ofereça esse numero para o paciente ligar e tirar duvidas pessoalmente: (66) 99618-8393\n\nContexto:\n\nhoje é: {{ $('Date & Time').item.json[\"today\"] }}\nO Horario é: {{ $('Date & Time1').item.json[\"todayHours\"] }}\nDia da semana: {{ $json[\"dayOfWeek\"] }}\n\nSEMPRE que o cliente falar que quer alguma data expecifica ou dia expessifico envia a data que ele falou no query do tools que for usar porfavor."
@@ -640,13 +733,7 @@
       ]
     }
   ],
-  "pinData": {
-    "When clicking \"Test workflow\"": [
-      {
-        "json": {}
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
     "executionOrder": "v1",
     "timezone": "America/Boa_Vista",
@@ -669,6 +756,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-02-22T20:01:57.673Z",
-  "versionId": "34663fcb-c6be-46ce-8185-7480e59f184d"
+  "updatedAt": "2024-02-23T16:34:05.527Z",
+  "versionId": "d0a1e66f-2224-4af0-a13e-cda4d61e16f2"
 }
