@@ -224,8 +224,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.1,
       "position": [
-        1400,
-        660
+        1420,
+        680
       ]
     },
     {
@@ -247,8 +247,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1440,
-        820
+        1680,
+        680
       ]
     },
     {
@@ -270,8 +270,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1300,
-        820
+        1540,
+        680
       ]
     },
     {
@@ -293,8 +293,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1740,
-        720
+        1960,
+        680
       ]
     },
     {
@@ -316,8 +316,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 1,
       "position": [
-        1580,
-        820
+        1820,
+        680
       ]
     },
     {
@@ -492,6 +492,7 @@
     },
     {
       "parameters": {
+        "model": "gpt-3.5-turbo-1106",
         "options": {}
       },
       "id": "edf8ea8b-aedb-492a-b9c7-be59404358c9",
@@ -499,8 +500,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
-        1300,
-        660
+        1320,
+        680
       ],
       "credentials": {
         "openAiApi": {
@@ -557,7 +558,7 @@
     },
     {
       "parameters": {
-        "sessionKey": "=556699662",
+        "sessionKey": "=556696",
         "contextWindowLength": "={{ 30 }}"
       },
       "id": "c8d770b3-1ab5-45ed-8e53-e0ce270fcd26",
@@ -668,6 +669,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2024-02-22T03:32:42.204Z",
-  "versionId": "771918bf-0ba8-42d5-a57f-551495935c7f"
+  "updatedAt": "2024-02-22T20:01:57.673Z",
+  "versionId": "34663fcb-c6be-46ce-8185-7480e59f184d"
 }
