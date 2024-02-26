@@ -1,0 +1,207 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Z-API | NO AUDIO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-02-25T19:27:53.782Z",
+  "id": "CoWiuAjHsMXO0oKM",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Z-api Verific",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "=POST",
+        "path": "clinic-ai-verify",
+        "options": {}
+      },
+      "id": "8c03b0ae-04fc-4125-a2eb-3ebb4a0c229a",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        300,
+        460
+      ],
+      "webhookId": "9a4b62d8-fa69-444a-bdf9-655414834ef6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "a1c36343-90dc-4b47-a24e-3c0a033ea058",
+              "leftValue": "={{ $json.body.isGroup }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "38c876ae-5a4d-4f69-8c25-77f93341966e",
+              "leftValue": "={{ $json.body.audio.mimeType }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e48358d3-8e46-48ce-abe3-caee58547b6d",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        620,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "whatsapp",
+              "stringValue": "={{ $json.body.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8e2d6605-60be-423a-82a6-a8119c8dcd82",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.z-api.io/instances/3C20E27EEB7FE0A01E03CECDD483CB75/token/00F5ACD078013B802F83A821/send-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Client-Token\t",
+              "value": "Feaad4eaaf818403ba4cc6fca5ac801bfS"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Edit Fields').item.json.whatsapp }}"
+            },
+            {
+              "name": "message",
+              "value": "=Olá, não escutamos áudio nem vemos imagem. Por favor, digite o que precisa em texto. Agradeço pela compreensão."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0fde6b9-663c-495e-837a-6aa7e102175d",
+      "name": "Z-API | NO AUDIO",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        900,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://nexusempire.up.railway.app/webhook/clinic-ai",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Edit Fields').item.json.whatsapp }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.body.text.message }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9fdd0bee-5418-4f55-a20f-3d1a84a70d11",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        900,
+        400
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-02-25T19:43:50.624Z",
+  "versionId": "4236c194-c48c-4ffd-b2c5-e144faaa3868"
+}
