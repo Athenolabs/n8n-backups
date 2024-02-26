@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "If",
+            "node": "Notion9",
             "type": "main",
             "index": 0
           }
@@ -219,6 +219,108 @@
           }
         ]
       ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Notion8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion8": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion9": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notion10": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "Notion10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-02-16T19:51:27.519Z",
@@ -235,8 +337,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -140,
-        320
+        -500,
+        160
       ]
     },
     {
@@ -316,8 +418,8 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.1,
       "position": [
-        1700,
-        100
+        1580,
+        280
       ],
       "credentials": {
         "notionApi": {
@@ -343,8 +445,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1860,
-        100
+        1820,
+        280
       ]
     },
     {
@@ -881,7 +983,243 @@
       "typeVersion": 2,
       "position": [
         1320,
-        240
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Date de Avaliação|date",
+              "date": "={{ $('Code1').item.json.jsonDateHour.data || $('Code1').item.json.jsonDateHour.date || $('Code1').item.json.jsonDateHour.timestamp\n}}",
+              "timezone": "America/Cuiaba"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "631120c4-8366-478e-b6b0-b82a667fea4b",
+      "name": "Notion8",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        1580,
+        100
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "response",
+              "stringValue": "=marcado {{ $json.property_date_de_avalia_o.start }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3e6e1c22-c237-4aa7-9aeb-5d1af8489828",
+      "name": "Edit Fields4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1820,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "f90abc5d-ca8b-4274-b54b-67e7c1d82729",
+          "mode": "list",
+          "cachedResultName": "AGENDA",
+          "cachedResultUrl": "https://www.notion.so/f90abc5dca8b4274b54b67e7c1d82729"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Whatsapp|phone_number",
+              "condition": "equals",
+              "phoneNumberValue": "={{ $json.cus_cel }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7a2765a0-8c62-4b8a-a60a-afc868da0e8c",
+      "name": "Notion9",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        -320,
+        160
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7685e1b2-fc98-4f8e-837a-d03d7593f13a",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a7b9c60f-6ec5-4714-ac13-1e083f439e72",
+      "name": "If4",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "prompt": "=Hoje é: {{ new Date() }}\nDia da semana: {{ $json[\"dayOfWeek\"] }}\n\n\nessa é a data que o paciente quer:\n{{ $('Execute Workflow Trigger').item.json.query }}\n\nme retorne a data de acordo com hoje e o o que o paciente quer em timestamp lembrando que o fuso horario é de cuiaba brasil -04:00:\nex: 2024-02-20T01:52:52.995-04:00\n\nme retorne apenas o json, sem explicação de nada. não precisa dizer o que o paciente quer, apena o json porfavor. ",
+        "options": {
+          "maxTokens": 500,
+          "presence_penalty": 0,
+          "temperature": 0
+        }
+      },
+      "id": "486c4e04-120b-4c4d-8983-693848de594d",
+      "name": "OpenAI2",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        40
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "yRbbRezEyMzU8Qmb",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Obtenha a data atual\nconst today = new Date();\n\n// Obtenha o dia da semana (0 a 6)\nconst dayOfWeek = today.getDay();\n\n// Mapeie o número do dia da semana para o nome do dia\nconst weekdays = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];\nconst dayName = weekdays[dayOfWeek];\n\n// Adicione o nome do dia da semana ao item JSON\n$input.item.json.dayOfWeek = dayName;\n\n// Retorne o item atualizado\nreturn $input.item;\n"
+      },
+      "id": "4a2aa2f5-6155-4464-9ff7-0b3d19093aa2",
+      "name": "Code4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add a new field called 'myNewField' to the JSON of the item\nconst jsonDate = JSON.parse($('OpenAI2').item.json.text)\n$input.item.json.jsonDateHour = jsonDate\n\nreturn $input.item;"
+      },
+      "id": "16745975-bc67-499d-b3f5-6b4836cb8556",
+      "name": "Code5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Notion9').item.json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Date de Avaliação|date",
+              "date": "={{ $('Code5').item.json.jsonDateHour.data || $('Code5').item.json.jsonDateHour.date || $('Code5').item.json.jsonDateHour.timestamp\n}}",
+              "timezone": "America/Cuiaba"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7a69f2e4-c016-4533-b96b-d43a6ef9506b",
+      "name": "Notion10",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        40
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "cPf1293CGIUwCXjl",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "response",
+              "stringValue": "=marcado {{ $json.property_date_de_avalia_o.start }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7b6b1c74-6d6c-49b8-8ab6-17a0a7777a56",
+      "name": "Edit Fields5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        960,
+        40
       ]
     }
   ],
@@ -889,7 +1227,7 @@
     "Execute Workflow Trigger": [
       {
         "json": {
-          "cus_cel": "010923",
+          "cus_cel": "556696188393",
           "query": "terça feira"
         }
       }
@@ -904,6 +1242,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-02-22T20:17:55.502Z",
-  "versionId": "7e9b1604-571a-431a-9c85-9b2469a07f62"
+  "updatedAt": "2024-02-25T20:03:40.203Z",
+  "versionId": "bc78afc2-48f6-4d20-af98-a641478804df"
 }
