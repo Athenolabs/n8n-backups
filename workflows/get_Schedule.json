@@ -175,7 +175,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        960,
+        920,
         300
       ],
       "alwaysOutputData": true
@@ -195,23 +195,29 @@
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 2,
       "position": [
-        1120,
+        1100,
         300
       ]
     },
     {
       "parameters": {
-        "prompt": "=Hoje é: {{ $('Date & Time').item.json[\"today\"] }}\nHorario é: {{ $('Date & Time2').item.json[\"today\"] }}\nDia da semana: {{ $json[\"dayOfWeek\"] }}\n\nEsse são os horario ocuparados:\n {{ $('Aggregate').item.json.dateAvaliation }}\n\ninput do usuario, pode ter?:\n{{ $('Execute Workflow Trigger').item.json[\"query\"] }}\n\nCom essas informações me retorne uma data e hora que esteja entre segunda e sexta feira, e entre das 7 horas as 17 horas e que não seja igual a uma das data e horarios ocupado. E que pegando a data de hoje esteja dentro de uma semana apos a data de hoje.\nse ja tive data ex 2024-02-21, verifique o horario. se ja tiver uma data e hora igual, ai você recomenda um no mesmo dia num horario diferente que esteja disponivel. caso todos horarios das 7 horas a 17horas esteja ocupados, recomende do dia seguinte e por ai vai.\n\nlembrase que sabado e domingo não podemos marcar porque não atendemos.\n\nNesse Formato: YYYY-MM-DD HH-MM",
-        "options": {
-          "temperature": 0
-        }
+        "resource": "chat",
+        "chatModel": "gpt-4",
+        "prompt": {
+          "messages": [
+            {
+              "content": "=Hoje é: {{ $('Date & Time').item.json[\"today\"] }}\nHorario é: {{ $('Date & Time2').item.json[\"today\"] }}\nHoje é: {{ $json[\"dayOfWeek\"] }}\n\nEsse são os horario ocuparados:\n {{ $('Aggregate').item.json.dateAvaliation }}\n\ninput do usuario: {{ $('Execute Workflow Trigger').item.json[\"query\"] }}\n\nInstrução:\n- De acordo com informações, recomende um horario disponivel Nesse Formato: YYYY-MM-DD HH-MM. Antes verifique: as datas ocupadas, pode ser no mesmo dia que ja esteja ocupado, apenas verifique se tem hora disponivel entre 7 da manhã e as 17 da tarde. ex: se ja tiver 20/02/2024 as 08:00 pode marca as 20/02/2024 09:00 e assim por diante. agora se naquele dia ja tiver todos horarios das 7 as 17 da manhã, marque para o proximo dia e horario disponivel.\n\nNÃO ATENDEMOS NO SABADO E NO DOMINGO, NÃO MARQUE NESSES DIAS.\n\nretorne apenas a data sem complemento:YYYY-MM-DD HH-MM"
+            }
+          ]
+        },
+        "options": {}
       },
       "id": "8d89f786-2b5d-4f3e-b626-1022960e8c34",
       "name": "OpenAI",
       "type": "n8n-nodes-base.openAi",
       "typeVersion": 1.1,
       "position": [
-        1580,
+        1600,
         300
       ],
       "credentials": {
@@ -231,7 +237,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1420,
+        1440,
         300
       ]
     },
@@ -241,7 +247,7 @@
           "values": [
             {
               "name": "response",
-              "stringValue": "=Horario disponivel:  {{ $('OpenAI').item.json.text }}.\n\npara o bot: não agende ainda, fico no aguardo para confirmação. "
+              "stringValue": "=Horario disponivel: {{ $('OpenAI').item.json.message.content }}.\n\npara o bot: não agende ainda, fico no aguardo para confirmação. "
             }
           ]
         },
@@ -308,7 +314,7 @@
           "propertyValues": [
             {
               "key": "data recomendada|rich_text",
-              "textContent": "={{ $('OpenAI').item.json.text }}"
+              "textContent": "={{ $('OpenAI').item.json.message.content }}"
             }
           ]
         },
@@ -346,7 +352,7 @@
       "type": "n8n-nodes-base.dateTime",
       "typeVersion": 2,
       "position": [
-        1260,
+        1280,
         300
       ]
     }
@@ -355,6 +361,7 @@
     "Execute Workflow Trigger": [
       {
         "json": {
+          "query": "amanhã",
           "cel": "5566996188393"
         }
       }
@@ -382,6 +389,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2024-02-22T02:57:30.449Z",
-  "versionId": "15fa0226-4815-4d22-9305-57b07e9f0443"
+  "updatedAt": "2024-02-26T04:19:13.944Z",
+  "versionId": "77b5090f-4f2c-4250-9d54-2c6047647e0f"
 }
